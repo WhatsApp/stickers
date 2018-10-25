@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">WhatsAppSampleStickerApp</string>
+    <string name="tray_image_content_description">Sticker Pack Tray Image</string>
+    <string name="more_info_button">More info about sticker pack</string>
+    <string name="add_to_whatsapp">Add to WhatsApp</string>
+    <string name="add_button_content_description">Add sticker pack to WhatsApp</string>
+    <string name="title_activity_sticker_packs_list">Sticker Packs</string>
+    <string name="dot">•</string>
+    <string name="title_activity_sticker_pack_details_single_pack">Sticker Pack</string>
+    <string name="title_activity_sticker_pack_details_multiple_pack">Sticker details</string>
+    <string name="title_activity_sticker_pack_info">Info</string>
+    <string name="view_webpage">View webpage</string>
+    <string name="send_email">Send email</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="error_adding_sticker_pack">"Could not add this sticker pack. Please install the latest version of WhatsApp before adding sticker pack"</string>
+    <string name="error_message">Error: %s \nSee logcat for stack trace.</string>
+    <string name="title_validation_error">Error with the pack</string>
+    <string name="info_screen_tray_icon">Tray icon</string>
+    <string name="details_pack_already_added">Sticker pack added to WhatsApp</string>
+</resources>

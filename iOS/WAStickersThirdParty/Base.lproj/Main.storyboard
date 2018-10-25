@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Sml-2X-rvl">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sticker Packs-->
+        <scene sceneID="B1S-hN-MFe">
+            <objects>
+                <viewController title="Sticker Packs" id="M67-ew-auO" customClass="AllStickerPacksViewController" customModule="WAStickersThirdParty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="83V-gx-xE9"/>
+                        <viewControllerLayoutGuide type="bottom" id="ajP-Ty-Icd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8NA-Zm-FU0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CD6-Ts-Zg8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="M67-ew-auO" id="38Z-vo-dea"/>
+                                    <outlet property="delegate" destination="M67-ew-auO" id="K1J-Xe-rti"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CD6-Ts-Zg8" firstAttribute="top" secondItem="8NA-Zm-FU0" secondAttribute="top" id="BZp-Rb-Cjh"/>
+                            <constraint firstItem="CD6-Ts-Zg8" firstAttribute="leading" secondItem="8NA-Zm-FU0" secondAttribute="leading" id="bIs-fm-lmT"/>
+                            <constraint firstItem="CD6-Ts-Zg8" firstAttribute="bottom" secondItem="ajP-Ty-Icd" secondAttribute="top" constant="-20" id="fPF-ya-Tm9"/>
+                            <constraint firstItem="CD6-Ts-Zg8" firstAttribute="trailing" secondItem="8NA-Zm-FU0" secondAttribute="trailing" id="vda-Sj-2Bg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sticker Packs" largeTitleDisplayMode="never" id="x4y-Ef-GnB"/>
+                    <connections>
+                        <outlet property="stickerPacksTableView" destination="CD6-Ts-Zg8" id="2vb-pz-MeQ"/>
+                        <segue destination="Ngp-pe-fiT" kind="show" identifier="stickerPackAnimated" id="xrT-yi-hRx"/>
+                        <segue destination="Ngp-pe-fiT" kind="show" identifier="stickerPackNotAnimated" animates="NO" id="ejY-ay-Qg6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uC1-1q-rug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1212" y="915.29235382308855"/>
+        </scene>
+        <!--Sticker Pack View Controller-->
+        <scene sceneID="edg-Pz-Hza">
+            <objects>
+                <viewController storyboardIdentifier="stickerPackVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ngp-pe-fiT" customClass="StickerPackViewController" customModule="WAStickersThirdParty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xVg-Eq-uuA"/>
+                        <viewControllerLayoutGuide type="bottom" id="40j-fZ-Ld1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lw1-NE-fbo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTI-28-AWf">
+                                <rect key="frame" x="16" y="8" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bnw-oc-8F2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="opL-AO-nSO">
+                                <rect key="frame" x="0.0" y="53" width="375" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cwh-cs-v6O">
+                                    <size key="itemSize" width="91" height="83"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ngp-pe-fiT" id="h9s-zx-g45"/>
+                                    <outlet property="delegate" destination="Ngp-pe-fiT" id="kDI-rU-qED"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="opL-AO-nSO" secondAttribute="trailing" constant="-16" id="7Vx-Ks-2si"/>
+                            <constraint firstItem="40j-fZ-Ld1" firstAttribute="top" secondItem="opL-AO-nSO" secondAttribute="bottom" constant="20" id="Bzo-Tv-YcR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qTI-28-AWf" secondAttribute="trailing" id="VeA-j2-xIG"/>
+                            <constraint firstItem="qTI-28-AWf" firstAttribute="leading" secondItem="lw1-NE-fbo" secondAttribute="leadingMargin" id="cl5-Iw-9Za"/>
+                            <constraint firstItem="opL-AO-nSO" firstAttribute="leading" secondItem="lw1-NE-fbo" secondAttribute="leadingMargin" constant="-16" id="d0x-Kb-TlR"/>
+                            <constraint firstItem="qTI-28-AWf" firstAttribute="top" secondItem="xVg-Eq-uuA" secondAttribute="bottom" constant="8" id="did-Ku-ViG"/>
+                            <constraint firstItem="opL-AO-nSO" firstAttribute="top" secondItem="qTI-28-AWf" secondAttribute="bottom" constant="24" id="rkw-yD-2wR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vdG-Gw-ApK"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="bottomCollectionViewConstraint" destination="Bzo-Tv-YcR" id="Yzu-5Y-vDZ"/>
+                        <outlet property="stickerPackPublisherLabel" destination="qTI-28-AWf" id="Zr2-we-2PP"/>
+                        <outlet property="stickersCollectionView" destination="opL-AO-nSO" id="amO-5H-Gta"/>
+                        <segue destination="RZ6-Ve-eGr" kind="presentation" identifier="info" id="4ah-bc-CCw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b2G-8x-4eR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1941.5999999999999" y="914.392803598201"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="GSF-2F-TCa">
+            <objects>
+                <tableViewController id="VuN-R9-mKn" customClass="StickerPackInfoViewController" customModule="WAStickersThirdParty" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dwL-sg-TYV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="VuN-R9-mKn" id="qXF-fg-g5B"/>
+                            <outlet property="delegate" destination="VuN-R9-mKn" id="48C-xj-PKK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Info" id="kT8-qH-4Vv">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="djo-Zr-wQq">
+                            <connections>
+                                <action selector="donePressed:" destination="VuN-R9-mKn" id="Tfe-jj-1Zm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXA-R6-oeZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3641" y="916"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cJb-jt-Zt3">
+            <objects>
+                <navigationController id="RZ6-Ve-eGr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OZf-37-dtw">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VuN-R9-mKn" kind="relationship" relationship="rootViewController" id="ndi-cL-HVq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UNh-QS-CMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2817" y="915"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ay7-pT-DQM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sml-2X-rvl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="91S-II-eXq">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M67-ew-auO" kind="relationship" relationship="rootViewController" id="Gga-oJ-3kI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v9T-AN-dLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="465" y="915"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ejY-ay-Qg6"/>
+    </inferredMetricsTieBreakers>
+</document>

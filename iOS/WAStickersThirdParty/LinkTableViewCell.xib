@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="LinkTableViewCell" customModule="WAStickersThirdParty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHc-Hf-gUB">
+                    <rect key="frame" x="16" y="5" width="311" height="60"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW6-pW-WTO">
+                    <rect key="frame" x="335" y="23" width="24" height="24"/>
+                    <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="C5w-sh-anL"/>
+                        <constraint firstAttribute="height" constant="24" id="yyC-Xn-ME5"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bW6-pW-WTO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="I0n-NI-N9C"/>
+                <constraint firstItem="hHc-Hf-gUB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="LtQ-F7-LWF"/>
+                <constraint firstAttribute="trailingMargin" secondItem="bW6-pW-WTO" secondAttribute="trailing" id="P8g-ep-rLZ"/>
+                <constraint firstItem="bW6-pW-WTO" firstAttribute="leading" secondItem="hHc-Hf-gUB" secondAttribute="trailing" constant="8" id="deW-cR-rYQ"/>
+                <constraint firstItem="hHc-Hf-gUB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="eHO-nB-L7y"/>
+                <constraint firstAttribute="bottom" secondItem="hHc-Hf-gUB" secondAttribute="bottom" constant="5" id="q2x-tS-C98"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="linkImageView" destination="bW6-pW-WTO" id="xjH-MJ-7fM"/>
+                <outlet property="linkLabel" destination="hHc-Hf-gUB" id="shM-cz-1xl"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-244"/>
+        </view>
+    </objects>
+</document>

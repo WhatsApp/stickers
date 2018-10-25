@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.drawee.view.SimpleDraweeView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sticker_pack_list_item_image"
+    android:layout_width="@dimen/sticker_pack_list_item_preview_image_size"
+    android:layout_height="@dimen/sticker_pack_list_item_preview_image_size"
+    android:padding="@dimen/sticker_pack_list_item_preview_image_padding"
+    android:scaleType="fitCenter" />

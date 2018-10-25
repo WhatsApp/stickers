@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/preview_side_margin"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/preview_side_margin"
+        android:layout_marginLeft="@dimen/preview_side_margin"
+        android:layout_marginRight="@dimen/preview_side_margin"
+        android:layout_marginStart="@dimen/preview_side_margin">
+
+
+        <ImageView
+            android:id="@+id/tray_image"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="@string/tray_image_content_description"
+            android:src="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/colorAccent"
+            android:layout_marginStart="16dp" />
+
+        <TextView
+            android:id="@+id/pack_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_from_tray_to_name"
+            android:layout_marginStart="@dimen/margin_from_tray_to_name"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tray_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pack Name" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_from_tray_to_name"
+            android:layout_marginStart="@dimen/margin_from_tray_to_name"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@+id/tray_image"
+            app:layout_constraintTop_toBottomOf="@+id/pack_name"
+            tools:text="Author" />
+
+        <TextView
+            android:id="@+id/pack_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_from_tray_to_name"
+            android:layout_marginStart="@dimen/margin_from_tray_to_name"
+            app:layout_constraintStart_toEndOf="@+id/tray_image"
+            app:layout_constraintTop_toBottomOf="@+id/author"
+            tools:text="Size" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.example.samplestickerapp.BottomFadingRecyclerView
+            android:id="@+id/sticker_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:fadingEdgeLength="@dimen/fading_edge_length"
+            android:paddingEnd="@dimen/preview_side_margin"
+            android:paddingLeft="@dimen/preview_side_margin"
+            android:paddingRight="@dimen/preview_side_margin"
+            android:paddingStart="@dimen/preview_side_margin"
+            android:requiresFadingEdge="vertical" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0.1"
+            android:background="#000000"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginEnd="@dimen/preview_side_margin"
+        android:layout_marginLeft="@dimen/preview_side_margin"
+        android:layout_marginRight="@dimen/preview_side_margin"
+        android:layout_marginStart="@dimen/preview_side_margin"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/already_added_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/details_pack_already_added"
+            android:textColor="#9B9B9B"
+            android:textSize="14sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/add_to_whatsapp_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_green"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                style="@style/StickerPreviewButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:drawableLeft="@drawable/sticker_3rdparty_wa"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/sticker_3rdparty_wa"
+                android:focusable="false"
+                android:foreground="@android:color/transparent"
+                android:text="@string/add_to_whatsapp" />
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>

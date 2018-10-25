@@ -1,0 +1,103 @@
+{
+    "ios_app_store_link" : "",
+    "android_play_store_link" : "",
+    "sticker_packs" : [
+    {
+        "identifier": "cuppyID",
+        "name": "Cuppy",
+        "publisher": "Jane Doe",
+        "tray_image_file" : "tray_Cuppy.png",
+        "publisher_website" : "",
+        "privacy_policy_website" : "",
+        "license_agreement_website" : "",
+        "stickers": [
+        {
+            "image_file": "01_Cuppy_smile.png",
+            "emojis": ["☕","🙂"]
+        },
+        {
+            "image_file": "02_Cuppy_lol.png",
+            "emojis": ["😄","😀"]
+        },
+        {
+            "image_file": "03_Cuppy_rofl.png",
+            "emojis": ["😆","😂"]
+        },
+        {
+            "image_file": "04_Cuppy_sad.png",
+            "emojis": ["😃", "😍"]
+        },
+        {
+            "image_file": "05_Cuppy_cry.png",
+            "emojis": ["😭","💧"]
+        },
+        {
+            "image_file": "06_Cuppy_love.png",
+            "emojis": ["😍","♥"]
+        },
+        {
+            "image_file": "07_Cuppy_hate.png",
+            "emojis": ["💔","👎"]
+        },
+        {
+            "image_file": "08_Cuppy_lovewithmug.png",
+            "emojis": ["😍","💑"]
+        },
+        {
+            "image_file": "09_Cuppy_lovewithcookie.png",
+            "emojis": ["😘","🍪"]
+        },
+        {
+            "image_file": "10_Cuppy_hmm.png",
+            "emojis": ["🤔","😐"]
+        },
+        {
+            "image_file": "11_Cuppy_upset.png",
+            "emojis": ["😱","😵"]
+        },
+        {
+            "image_file": "12_Cuppy_angry.png",
+            "emojis": ["😡","😠"]
+        },
+        {
+            "image_file": "13_Cuppy_curious.png",
+            "emojis": ["❓","🤔"]
+        },
+        {
+            "image_file": "14_Cuppy_weird.png",
+            "emojis": ["🌈","😜"]
+        },
+        {
+            "image_file": "15_Cuppy_bluescreen.png",
+            "emojis": ["💻","😩"]
+        },
+        {
+            "image_file": "16_Cuppy_angry.png",
+            "emojis": ["😡","😤"]
+        },
+        {
+            "image_file": "17_Cuppy_tired.png",
+            "emojis": ["😩","😨"]
+        },
+        {
+            "image_file": "18_Cuppy_workhard.png",
+            "emojis": ["😔", "😨"]
+        },
+        {
+            "image_file": "19_Cuppy_shine.png",
+            "emojis": ["🎉","✨"]
+        },
+        {
+            "image_file": "20_Cuppy_disgusting.png",
+            "emojis": ["🤮","👎"]
+        },
+        {
+            "image_file": "21_Cuppy_hi.png",
+            "emojis": ["🖐","🙋"]
+        },
+        {
+            "image_file": "22_Cuppy_bye.png",
+            "emojis": ["🖐","👋"]
+        }]
+    }]
+}
