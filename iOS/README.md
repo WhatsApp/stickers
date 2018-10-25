@@ -141,7 +141,7 @@ To import your sticker pack on WhatsApp, call the method below. This will open t
 ```
 stickerPack.sendToWhatsApp { completed in
 // Called when the sticker pack has been wrapped in a form that WhatsApp 
-// can read and right before it's about to be sent to the WhatsApp app //opens.
+// can read and WhatsApp is about to open.
 }
 ```
 
