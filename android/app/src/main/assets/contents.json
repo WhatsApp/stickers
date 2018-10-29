@@ -4,113 +4,206 @@
   "sticker_packs": [
     {
       "identifier": "1",
-      "name": "Cuppy",
-      "publisher": "Jane Doe",
-      "tray_image_file": "tray_Cuppy.png",
-      "publisher_email":"",
-      "publisher_website": "",
-      "privacy_policy_website": "",
-      "license_agreement_website": "",
+      "name": "Dank Stickers 1",
+      "publisher": "Azim Javed",
+      "tray_image_file": "a1.webp",
+      "publisher_email":"thatazimjaved@gmail.com",
+      "publisher_website": "github.com/AzimJaved",
+      "privacy_policy_website": "github.com/AzimJaved",
+      "license_agreement_website": "github.com/AzimJaved",
       "stickers": [
         {
-          "image_file": "01_Cuppy_smile.webp",
-          "emojis": ["☕","🙂"]
+          "image_file": "a1.webp"
         },
         {
-          "image_file": "02_Cuppy_lol.webp",
-          "emojis": ["😄","😀"]
+          "image_file": "a2.webp"
         },
         {
-          "image_file": "03_Cuppy_rofl.webp",
-          "emojis": ["😆","😂"]
+          "image_file": "a3.webp"
         },
         {
-          "image_file": "04_Cuppy_sad.webp",
-          "emojis": ["😩","😰"]
+          "image_file": "a4.webp"
         },
         {
-          "image_file": "05_Cuppy_cry.webp",
-          "emojis": ["😭","💧"]
+          "image_file": "a5.webp"
         },
         {
-          "image_file": "06_Cuppy_love.webp",
-          "emojis": ["😍","♥"]
+          "image_file": "a6.webp"
         },
         {
-          "image_file": "07_Cuppy_hate.webp",
-          "emojis": ["💔","👎"]
+          "image_file": "a7.webp"
         },
         {
-          "image_file": "08_Cuppy_lovewithmug.webp",
-          "emojis": ["😍","💑"]
+          "image_file": "a8.webp"
         },
         {
-          "image_file": "09_Cuppy_lovewithcookie.webp",
-          "emojis": ["😘","🍪"]
+          "image_file": "a9.webp"
         },
         {
-          "image_file": "10_Cuppy_hmm.webp",
-          "emojis": ["🤔","😐"]
+          "image_file": "a10.webp"
         },
         {
-          "image_file": "11_Cuppy_upset.webp",
-          "emojis": ["😱","😵"]
+          "image_file": "a11.webp"
         },
         {
-          "image_file": "12_Cuppy_angry.webp",
-          "emojis": ["😡","😠"]
+          "image_file": "a12.webp"
         },
         {
-          "image_file": "13_Cuppy_curious.webp",
-          "emojis": ["❓","🤔"]
+          "image_file": "a13.webp"
         },
         {
-          "image_file": "14_Cuppy_weird.webp",
-          "emojis": ["🌈","😜"]
+          "image_file": "a14.webp"
         },
         {
-          "image_file": "15_Cuppy_bluescreen.webp",
-          "emojis": ["💻","😩"]
+          "image_file": "a15.webp"
         },
         {
-          "image_file": "16_Cuppy_angry.webp",
-          "emojis": ["😡","😤"]
+          "image_file": "a16.webp"
         },
         {
-          "image_file": "17_Cuppy_tired.webp",
-          "emojis": ["😩","😨"]
+          "image_file": "a17.webp"
         },
         {
-          "image_file": "18_Cuppy_workhard.webp",
-          "emojis": ["💻","🌃"]
+          "image_file": "a18.webp"
         },
         {
-          "image_file": "19_Cuppy_shine.webp",
-          "emojis": ["🎉","✨"]
+          "image_file": "a19.webp"
         },
         {
-          "image_file": "20_Cuppy_disgusting.webp",
-          "emojis": ["🤮","👎"]
+          "image_file": "a20.webp"
         },
         {
-          "image_file": "21_Cuppy_hi.webp",
-          "emojis": ["🖐","🙋"]
+          "image_file": "a21.webp"
         },
         {
-          "image_file": "22_Cuppy_bye.webp",
-          "emojis": ["🖐","👋"]
+          "image_file": "a22.webp"
         },
         {
-          "image_file": "23_Cuppy_greentea.webp",
-          "emojis": ["🍵","😌"]
+          "image_file": "a23.webp"
         },
         {
-          "image_file": "24_Cuppy_phone.webp",
-          "emojis": ["📱","😦"]
+          "image_file": "a24.webp"
         },
         {
-          "image_file": "25_Cuppy_battery.webp",
-          "emojis": ["🔋","😵"]
+          "image_file": "a25.webp"
+        },
+        {
+          "image_file": "a26.webp"
+        },
+        {
+          "image_file": "a27.webp"
+        },
+        {
+          "image_file": "a28.webp"
+        },
+        {
+          "image_file": "a29.webp"
+        },
+        {
+          "image_file": "a30.webp"
+        }
+
+      ]
+    },
+    {
+      "identifier": "2",
+      "name": "Dank Stickers 2",
+      "publisher": "Azim Javed",
+      "tray_image_file": "b1.webp",
+      "publisher_email":"thatazimjaved@gmail.com",
+      "publisher_website": "github.com/AzimJaved",
+      "privacy_policy_website": "github.com/AzimJaved",
+      "license_agreement_website": "github.com/AzimJaved",
+      "stickers": [
+        {
+          "image_file": "b1.webp"
+        },
+        {
+          "image_file": "b2.webp"
+        },
+        {
+          "image_file": "b3.webp"
+        },
+        {
+          "image_file": "b4.webp"
+        },
+        {
+          "image_file": "b5.webp"
+        },
+        {
+          "image_file": "b6.webp"
+        },
+        {
+          "image_file": "b7.webp"
+        },
+        {
+          "image_file": "b8.webp"
+        },
+        {
+          "image_file": "b9.webp"
+        },
+        {
+          "image_file": "b10.webp"
+        },
+        {
+          "image_file": "b11.webp"
+        },
+        {
+          "image_file": "b12.webp"
+        },
+        {
+          "image_file": "b13.webp"
+        },
+        {
+          "image_file": "b14.webp"
+        },
+        {
+          "image_file": "b15.webp"
+        },
+        {
+          "image_file": "b16.webp"
+        },
+        {
+          "image_file": "b17.webp"
+        },
+        {
+          "image_file": "b18.webp"
+        },
+        {
+          "image_file": "b19.webp"
+        },
+        {
+          "image_file": "b20.webp"
+        },
+        {
+          "image_file": "b21.webp"
+        },
+        {
+          "image_file": "b22.webp"
+        },
+        {
+          "image_file": "b23.webp"
+        },
+        {
+          "image_file": "b24.webp"
+        },
+        {
+          "image_file": "b25.webp"
+        },
+        {
+          "image_file": "b26.webp"
+        },
+        {
+          "image_file": "b27.webp"
+        },
+        {
+          "image_file": "b28.webp"
+        },
+        {
+          "image_file": "b29.webp"
+        },
+        {
+          "image_file": "b30.webp"
         }
       ]
     }

@@ -13,7 +13,7 @@ android {
     }
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.samplestickerapp"
+        applicationId "com.dank.stickers"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
