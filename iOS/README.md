@@ -15,7 +15,7 @@ We recommend you refer to the FAQ at https://faq.whatsapp.com/general/26000226 f
 WhatsApp chat
 * Stickers are organized into "packs". Your app can contain anywhere from 1 to
 10 packs. Users must explicitly add each pack to WhatsApp one-by-one, so your
-app should list each pack separately and each pack must have it's own
+app should list each pack separately and each pack must have its own
 affordance to add it to WhatsApp (do not try to create "add all packs"
 operations).
 * Each sticker pack must have a minimum of 3 stickers and a maximum of 30
