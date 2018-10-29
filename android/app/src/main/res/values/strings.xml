@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WhatsAppSampleStickerApp</string>
+    <string name="app_name">Dank Sticker packs</string>
     <string name="tray_image_content_description">Sticker Pack Tray Image</string>
     <string name="more_info_button">More info about sticker pack</string>
     <string name="add_to_whatsapp">Add to WhatsApp</string>
