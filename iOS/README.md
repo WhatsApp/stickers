@@ -4,7 +4,7 @@
 ## Overview
 If you would like to design your own stickers for WhatsApp, you can package them in an iOS app. You will need to distribute your app via the App Store. Users who download and install your sticker app will be able to add your stickers to their WhatsApp sticker picker/tray, and start sending those stickers from within WhatsApp. A separate app is necessary and it will reside on your phone's home screen just like any other app. Once you add the stickers from the app to WhatsApp, you can remove or uninstall the app from your phone and continue to send those stickers. Stickers on WhatsApp must be legal, authorized, and acceptable.  Learn more about acceptable use of our services at <https://www.whatsapp.com/legal/#terms-of-service>.
 
-The sample code provides a simple way for you to drop in your sticker art and build an iOS app with minimal development or coding experience needed. For advanced developers looking to make richer sticker apps, refer to the section [Advanced Development](advanced-development) below. 
+The sample code provides a simple way for you to drop in your sticker art and build an iOS app with minimal development or coding experience needed. For advanced developers looking to make richer sticker apps, refer to the section [Advanced Development](#advanced-development) below. 
 
 We recommend you create a version of your sticker app for Android as well to give users of WhatsApp on Android an opportunity to download your sticker app as well.
 
