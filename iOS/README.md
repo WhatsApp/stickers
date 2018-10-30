@@ -106,12 +106,17 @@ For advanced developers looking to make a more custom integration and fully cont
 ### Files to use
 Copy the following files from the sample app into your Xcode project:
 * `Limits.swift`
+* `StickerPackManager.swift`
 * `StickerPack.swift`
 * `Sticker.swift`
 * `ImageData.swift`
 * `Interoperability.swift`
 * `WebPManager.swift`
-* All of the files that have the "YY" prefix 
+* All of the files that have the "YY" prefix.
+
+Please remember to create the Bridging Header file (if you don't have one already), and to add `#import "YYImage.h"`
+
+You will also need to add the `WebP.framework` to your Linked Frameworks and Libraries.
 
 ### Create a sticker pack
 To create a sticker pack to be sent to WhatsApp, instantiate a new `StickerPack` object:
