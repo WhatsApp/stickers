@@ -4,5 +4,9 @@ If you'd like to create your own stickers for WhatsApp, you can package them in 
 
 To get started, review the README files in the [android](https://github.com/WhatsApp/stickers/tree/master/android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the FAQ at https://faq.whatsapp.com/general/26000226.
 
+### MUST READ
+- Only use the GitHub Issues section if you discovered issues with the code itself. Do not mistake the Issues page as a help desk. For support, please contact <developer@support.whatsapp.com>.
+- If you create issues or pull requests that are spammy by nature, you will be reported for abusive behavior immediately. You are providing no benefit to anyone.
+
 ## License
 WhatsApp Stickers is BSD licensed, as found in the LICENSE file.
