@@ -155,6 +155,15 @@ If you don't want to use the API described above, you need to know how the data 
 
 To communicate with WhatsApp, you must copy your sticker data into the pasteboard first. See [UIPasteboard](https://developer.apple.com/documentation/uikit/uipasteboard) for more. Then you need to open WhatsApp through the URL scheme `whatsapp://stickerPack`. WhatsApp will then grab your stickers from the pasteboard. 
 
+In order for your app to to be able to check if it can open a URL using the `whatsapp://` scheme, you'll need to add the URL scheme in your `Info.plist` like this:
+
+```
+<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>whatsapp</string>
+	</array>
+```
+
 Format your sticker data into a JSON object with the structure described below. Then convert it into a Data object before putting it in the pasteboard.
 
 ```
