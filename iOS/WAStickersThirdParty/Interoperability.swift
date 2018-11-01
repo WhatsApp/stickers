@@ -36,7 +36,7 @@ struct Interoperability {
         if #available(iOS 10.0, *) {
             pasteboard.setItems([[PasteboardStickerPackDataType: dataToSend]], options: [UIPasteboardOption.localOnly: true, UIPasteboardOption.expirationDate: NSDate(timeIntervalSinceNow: PasteboardExpirationSeconds)])
         } else {
-            pasteboard.addItems([[PasteboardStickerPackDataType: dataToSend]])
+            pasteboard.setData(dataToSend, forPasteboardType: PasteboardStickerPackDataType)
         }
         DispatchQueue.main.async {
             if UIApplication.shared.canOpenURL(URL(string: "whatsapp://")!) {
