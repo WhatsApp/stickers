@@ -7,9 +7,10 @@ To get started, review the README files in the [Android](https://github.com/What
 ### MUST READ
 - Only use the GitHub Issues section if you discovered issues with the code itself. Do not mistake the Issues page as a help desk. For support, please contact <developer@support.whatsapp.com>.
 - If you create issues or pull requests that are spammy by nature, you will be reported for abusive behavior immediately. You are providing no benefit to anyone.
+- If you create issues, please indicate the platform by putting `[iOS]` or `[Android]` in the beginning of the issue title. 
 
 ### Pull Requests
-- In order for us to accept pull requests, please complete the Contributor License Agreement by following instructions in [CONTRIBUTING](https://github.com/WhatsApp/stickers/blob/master/CONTRIBUTING.md)
+- In order for us to accept pull requests, please complete the Contributor License Agreement by following instructions in [CONTRIBUTING](https://github.com/WhatsApp/stickers/blob/master/CONTRIBUTING.md).
 
 ## License
 WhatsApp Stickers is BSD licensed, as found in the LICENSE file.
