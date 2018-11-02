@@ -416,7 +416,7 @@
       "name": "Dank Stickers 5",
       "publisher": "Azim Javed",
       "tray_image_file": "e1.webp",
-      "publisher_email":"thatazimjaved@gmail.com",
+      "publisher_email": "thatazimjaved@gmail.com",
       "publisher_website": "github.com/AzimJaved",
       "privacy_policy_website": "github.com/AzimJaved",
       "license_agreement_website": "github.com/AzimJaved",
@@ -495,6 +495,206 @@
         },
         {
           "image_file": "e25.webp"
+        },
+        {
+          "image_file": "e26.webp"
+        },
+        {
+          "image_file": "e27.webp"
+        },
+        {
+          "image_file": "e28.webp"
+        },
+        {
+          "image_file": "e29.webp"
+        },
+        {
+          "image_file": "e30.webp"
+        }
+      ]
+    },
+    {
+      "identifier": "6",
+      "name": "Dank Stickers 6",
+      "publisher": "Azim Javed",
+      "tray_image_file": "f1.webp",
+      "publisher_email":"thatazimjaved@gmail.com",
+      "publisher_website": "github.com/AzimJaved",
+      "privacy_policy_website": "github.com/AzimJaved",
+      "license_agreement_website": "github.com/AzimJaved",
+      "stickers": [
+        {
+          "image_file": "f1.webp"
+        },
+        {
+          "image_file": "f2.webp"
+        },
+        {
+          "image_file": "f3.webp"
+        },
+        {
+          "image_file": "f4.webp"
+        },
+        {
+          "image_file": "f5.webp"
+        },
+        {
+          "image_file": "f6.webp"
+        },
+        {
+          "image_file": "f7.webp"
+        },
+        {
+          "image_file": "f8.webp"
+        },
+        {
+          "image_file": "f9.webp"
+        },
+        {
+          "image_file": "f10.webp"
+        },
+        {
+          "image_file": "f11.webp"
+        },
+        {
+          "image_file": "f12.webp"
+        },
+        {
+          "image_file": "f13.webp"
+        },
+        {
+          "image_file": "f14.webp"
+        },
+        {
+          "image_file": "f15.webp"
+        },
+        {
+          "image_file": "f16.webp"
+        },
+        {
+          "image_file": "f17.webp"
+        },
+        {
+          "image_file": "f18.webp"
+        },
+        {
+          "image_file": "f19.webp"
+        },
+        {
+          "image_file": "f20.webp"
+        },
+        {
+          "image_file": "f21.webp"
+        },
+        {
+          "image_file": "f22.webp"
+        },
+        {
+          "image_file": "f23.webp"
+        },
+        {
+          "image_file": "f24.webp"
+        },
+        {
+          "image_file": "f25.webp"
+        },
+        {
+          "image_file": "f26.webp"
+        },
+        {
+          "image_file": "f27.webp"
+        },
+        {
+          "image_file": "f28.webp"
+        },
+        {
+          "image_file": "f29.webp"
+        },
+        {
+          "image_file": "f30.webp"
+        }
+      ]
+    },{
+      "identifier": "7",
+      "name": "Dank Stickers 7",
+      "publisher": "Azim Javed",
+      "tray_image_file": "g1.webp",
+      "publisher_email":"thatazimjaved@gmail.com",
+      "publisher_website": "github.com/AzimJaved",
+      "privacy_policy_website": "github.com/AzimJaved",
+      "license_agreement_website": "github.com/AzimJaved",
+      "stickers": [
+        {
+          "image_file": "g1.webp"
+        },
+        {
+          "image_file": "g2.webp"
+        },
+        {
+          "image_file": "g3.webp"
+        },
+        {
+          "image_file": "g4.webp"
+        },
+        {
+          "image_file": "g5.webp"
+        },
+        {
+          "image_file": "g6.webp"
+        },
+        {
+          "image_file": "g7.webp"
+        },
+        {
+          "image_file": "g8.webp"
+        },
+        {
+          "image_file": "g9.webp"
+        },
+        {
+          "image_file": "g10.webp"
+        },
+        {
+          "image_file": "g11.webp"
+        },
+        {
+          "image_file": "g12.webp"
+        },
+        {
+          "image_file": "g13.webp"
+        },
+        {
+          "image_file": "g14.webp"
+        },
+        {
+          "image_file": "g15.webp"
+        },
+        {
+          "image_file": "g16.webp"
+        },
+        {
+          "image_file": "g17.webp"
+        },
+        {
+          "image_file": "g18.webp"
+        },
+        {
+          "image_file": "g19.webp"
+        },
+        {
+          "image_file": "g20.webp"
+        },
+        {
+          "image_file": "g21.webp"
+        },
+        {
+          "image_file": "g22.webp"
+        },
+        {
+          "image_file": "g23.webp"
+        },
+        {
+          "image_file": "g24.webp"
         }
       ]
     }

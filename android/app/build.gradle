@@ -16,8 +16,7 @@ android {
         applicationId "com.dank.stickers"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionName '2'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         def contentProviderAuthority = applicationId + ".stickercontentprovider"
         // Creates a placeholder property to use in the manifest.
@@ -27,6 +26,7 @@ android {
         buildConfigField("String",
                 "CONTENT_PROVIDER_AUTHORITY",
                 "\"${contentProviderAuthority}\"")
+        versionCode 2
     }
     buildTypes {
         debug {
@@ -41,6 +41,8 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
     }
 }
 
