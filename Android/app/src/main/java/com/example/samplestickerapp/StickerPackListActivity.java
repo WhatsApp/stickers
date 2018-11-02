@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -31,8 +32,8 @@ public class StickerPackListActivity extends BaseActivity {
     private LinearLayoutManager packLayoutManager;
     private RecyclerView packRecyclerView;
     private StickerPackListAdapter allStickerPacksListAdapter;
-    WhiteListCheckAsyncTask whiteListCheckAsyncTask;
-    ArrayList<StickerPack> stickerPackList;
+    private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
+    private ArrayList<StickerPack> stickerPackList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,7 @@ public class StickerPackListActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         whiteListCheckAsyncTask = new WhiteListCheckAsyncTask(this);
-        //noinspection unchecked
-        whiteListCheckAsyncTask.execute(stickerPackList);
+        whiteListCheckAsyncTask.execute(stickerPackList.toArray(new StickerPack[stickerPackList.size()]));
     }
 
     @Override
@@ -74,8 +74,9 @@ public class StickerPackListActivity extends BaseActivity {
     }
 
 
-    private StickerPackListAdapter.OnAddButtonClickedListener onAddButtonClickedListener = pack -> {
+    private final StickerPackListAdapter.OnAddButtonClickedListener onAddButtonClickedListener = pack -> {
         Intent intent = new Intent();
+        //noinspection SpellCheckingInspection
         intent.setAction("com.whatsapp.intent.action.ENABLE_STICKER_PACK");
         intent.putExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_ID, pack.identifier);
         intent.putExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_AUTHORITY, BuildConfig.CONTENT_PROVIDER_AUTHORITY);
@@ -116,31 +117,30 @@ public class StickerPackListActivity extends BaseActivity {
     }
 
 
-    static class WhiteListCheckAsyncTask extends AsyncTask<List<StickerPack>, Void, List<StickerPack>> {
+    static class WhiteListCheckAsyncTask extends AsyncTask<StickerPack, Void, List<StickerPack>> {
         private final WeakReference<StickerPackListActivity> stickerPackListActivityWeakReference;
 
         WhiteListCheckAsyncTask(StickerPackListActivity stickerPackListActivity) {
             this.stickerPackListActivityWeakReference = new WeakReference<>(stickerPackListActivity);
         }
 
-        @SafeVarargs
         @Override
-        protected final List<StickerPack> doInBackground(List<StickerPack>... lists) {
-            List<StickerPack> stickerPackList = lists[0];
+        protected final List<StickerPack> doInBackground(StickerPack... stickerPackArray) {
             final StickerPackListActivity stickerPackListActivity = stickerPackListActivityWeakReference.get();
             if (stickerPackListActivity == null) {
-                return stickerPackList;
+                return Arrays.asList(stickerPackArray);
             }
-            for (StickerPack stickerPack : stickerPackList) {
+            for (StickerPack stickerPack : stickerPackArray) {
                 stickerPack.setIsWhitelisted(WhitelistCheck.isWhitelisted(stickerPackListActivity, stickerPack.identifier));
             }
-            return stickerPackList;
+            return Arrays.asList(stickerPackArray);
         }
 
         @Override
         protected void onPostExecute(List<StickerPack> stickerPackList) {
             final StickerPackListActivity stickerPackListActivity = stickerPackListActivityWeakReference.get();
             if (stickerPackListActivity != null) {
+                stickerPackListActivity.allStickerPacksListAdapter.setStickerPackList(stickerPackList);
                 stickerPackListActivity.allStickerPacksListAdapter.notifyDataSetChanged();
             }
         }
