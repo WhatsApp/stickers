@@ -51,7 +51,7 @@ If you would like to create a sticker app using the sample app, you only have to
 * Navigate to SampleStickerApp/app/src/main/assets in Android Studio. 
 * Inside the assets folder, folder 1 contains a number of sample sticker art files. Replace these with your own sticker files.
 * Also replace the sample tray icon PNG with your own tray icon. 
-* If you'd like to have more than 1 sticker pack in your app, simply create a folder named "2" or "3", etc. within the assets folder and place your art and tray icon in there. 
+* If you'd like to have more than 1 sticker pack in your app, simply create a folder named "2" or "3", etc. within the assets folder and place your art and tray icon in there. Make sure to add your new pack into your `contents.json` by duplicating the existing pack data and changing the `identifier` to the new directory name. (For example change `identifier` to "2" if your new pack assets are in the directoy "2")
 
 ### Modifying the contents.json file
 You must also modify the contents.json file in SampleStickerApp/app/src/main/assets. Replace the values of the metadata with your own. A few notes:
