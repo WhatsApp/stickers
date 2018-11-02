@@ -72,10 +72,10 @@ public class StickerPackInfoActivity extends BaseActivity {
     }
 
     private void launchEmailClient(String email) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("plain/text");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
-        startActivity(Intent.createChooser(intent, "Send email with"));
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto", email, null));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+        startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.info_send_email_to_prompt)));
     }
 
     private void launchWebpage(String website) {

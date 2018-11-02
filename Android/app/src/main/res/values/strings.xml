@@ -17,4 +17,5 @@
     <string name="title_validation_error">Error with the pack</string>
     <string name="info_screen_tray_icon">Tray icon</string>
     <string name="details_pack_already_added">Sticker pack added to WhatsApp</string>
+    <string name="info_send_email_to_prompt">Send email with</string>
 </resources>
