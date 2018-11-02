@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:background="#000">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sticker_preview"
+        android:layout_width="@dimen/sticker_pack_details_image_size"
+        android:layout_height="@dimen/sticker_pack_details_image_size"
+        android:padding="@dimen/sticker_pack_details_image_padding"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/loading_progress"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</FrameLayout>
+
