@@ -614,7 +614,8 @@
           "image_file": "f30.webp"
         }
       ]
-    },{
+    },
+    {
       "identifier": "7",
       "name": "Dank Stickers 7",
       "publisher": "Azim Javed",
@@ -695,6 +696,183 @@
         },
         {
           "image_file": "g24.webp"
+        }
+      ]
+    },
+    {
+      "identifier": "8",
+      "name": "Cats 1",
+      "publisher": "Azim Javed",
+      "tray_image_file": "h1.webp",
+      "publisher_email":"thatazimjaved@gmail.com",
+      "publisher_website": "github.com/AzimJaved",
+      "privacy_policy_website": "github.com/AzimJaved",
+      "license_agreement_website": "github.com/AzimJaved",
+      "stickers": [
+        {
+          "image_file": "h1.webp"
+        },
+        {
+          "image_file": "h2.webp"
+        },
+        {
+          "image_file": "h3.webp"
+        },
+        {
+          "image_file": "h4.webp"
+        },
+        {
+          "image_file": "h5.webp"
+        },
+        {
+          "image_file": "h6.webp"
+        },
+        {
+          "image_file": "h7.webp"
+        },
+        {
+          "image_file": "h8.webp"
+        },
+        {
+          "image_file": "h9.webp"
+        },
+        {
+          "image_file": "h10.webp"
+        },
+        {
+          "image_file": "h11.webp"
+        },
+        {
+          "image_file": "h12.webp"
+        },
+        {
+          "image_file": "h13.webp"
+        },
+        {
+          "image_file": "h14.webp"
+        },
+        {
+          "image_file": "h15.webp"
+        },
+        {
+          "image_file": "h16.webp"
+        },
+        {
+          "image_file": "h17.webp"
+        },
+        {
+          "image_file": "h18.webp"
+        },
+        {
+          "image_file": "h19.webp"
+        },
+        {
+          "image_file": "h20.webp"
+        },
+        {
+          "image_file": "h21.webp"
+        },
+        {
+          "image_file": "h22.webp"
+        },
+        {
+          "image_file": "h23.webp"
+        },
+        {
+          "image_file": "h24.webp"
+        },
+        {
+          "image_file": "h25.webp"
+        },
+        {
+          "image_file": "h26.webp"
+        },
+        {
+          "image_file": "h27.webp"
+        },
+        {
+          "image_file": "h28.webp"
+        },
+        {
+          "image_file": "h29.webp"
+        },
+        {
+          "image_file": "h30.webp"
+        }
+      ]
+    },
+    {
+      "identifier": "9",
+      "name": "Cats 2",
+      "publisher": "Azim Javed",
+      "tray_image_file": "i1.webp",
+      "publisher_email":"thatazimjaved@gmail.com",
+      "publisher_website": "github.com/AzimJaved",
+      "privacy_policy_website": "github.com/AzimJaved",
+      "license_agreement_website": "github.com/AzimJaved",
+      "stickers": [
+        {
+          "image_file": "i1.webp"
+        },
+        {
+          "image_file": "i2.webp"
+        },
+        {
+          "image_file": "i3.webp"
+        },
+        {
+          "image_file": "i4.webp"
+        },
+        {
+          "image_file": "i5.webp"
+        },
+        {
+          "image_file": "i6.webp"
+        },
+        {
+          "image_file": "i7.webp"
+        },
+        {
+          "image_file": "i8.webp"
+        },
+        {
+          "image_file": "i9.webp"
+        },
+        {
+          "image_file": "i10.webp"
+        },
+        {
+          "image_file": "i11.webp"
+        },
+        {
+          "image_file": "i12.webp"
+        },
+        {
+          "image_file": "i13.webp"
+        },
+        {
+          "image_file": "i14.webp"
+        },
+        {
+          "image_file": "i15.webp"
+        },
+        {
+          "image_file": "i16.webp"
+        },
+        {
+          "image_file": "i17.webp"
+        },
+        {
+          "image_file": "i18.webp"
+        },
+        {
+          "image_file": "i19.webp"
+        },
+        {
+          "image_file": "i20.webp"
+        },
+        {
+          "image_file": "i21.webp"
         }
       ]
     }
