@@ -99,6 +99,7 @@ class AllStickerPacksViewController: UIViewController, UITableViewDataSource, UI
 
         let addButton: UIButton = UIButton(type: .contactAdd)
         addButton.tag = indexPath.row
+        addButton.isEnabled = Interoperability.canSend()
         addButton.addTarget(self, action: #selector(addButtonTapped(button:)), for: .touchUpInside)
         cell.accessoryView = addButton
 
