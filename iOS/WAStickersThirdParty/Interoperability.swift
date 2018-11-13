@@ -17,7 +17,7 @@ struct Interoperability {
     static var iOSAppStoreLink: String?
     static var AndroidStoreLink: String?
 
-    static func canSend() -> Bool{
+    static func canSend() -> Bool {
         return UIApplication.shared.canOpenURL(URL(string: "whatsapp://")!)
     }
     
