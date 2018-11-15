@@ -9,6 +9,11 @@ We ask you:
 OS Level: [FILL IN]
 Device Manifacture: [FILL IN]
 
+**Stickers**
+My stickers do comply with the sticker requirements (512x512 and < 100 KB): [YES/NO]
+My tray icon does comply with the requirements (96x96 and < 50 KB): [YES/NO]
+I am using [WebP/PNG] images.
+
 **The problem**  
 [FILL IN WITH DETAILED DESCRIPTION OF THE PROBLEM]
 
