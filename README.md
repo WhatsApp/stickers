@@ -1,4 +1,4 @@
-# IMPORTANT NOTICE ABOUT iOS APPS 
+## IMPORTANT NOTICE ABOUT iOS APPS 
 Apple will reject or remove your sticker app from the App Store if it uses the UI template that WhatsApp provides. When creating an iOS sticker app, please make sure to develop a unique user interface with your own styling to comply with Apple's App Store guidelines. Do *not* use our sample app's UI as is, please significantly modify the UI before submitting. We are still working on updating our full set of documentation and our FAQ to reflect this.
 
 # WhatsApp Stickers
