@@ -18,8 +18,6 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.TextView;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
@@ -30,7 +28,6 @@ public class EntryActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fresco.initialize(this);
         setContentView(R.layout.activity_entry);
         overridePendingTransition(0, 0);
         if (getSupportActionBar() != null) {
