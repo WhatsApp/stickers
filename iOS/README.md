@@ -4,7 +4,7 @@
 ## Overview
 If you would like to design your own stickers for WhatsApp, you can package them in an iOS app. You will need to distribute your app via the App Store. Users who download and install your sticker app will be able to add your stickers to their WhatsApp sticker picker/tray, and start sending those stickers from within WhatsApp. A separate app is necessary and it will reside on your phone's home screen just like any other app. Once you add the stickers from the app to WhatsApp, you can remove or uninstall the app from your phone and continue to send those stickers. Stickers on WhatsApp must be legal, authorized, and acceptable.  Learn more about acceptable use of our services at <https://www.whatsapp.com/legal/#terms-of-service>.
 
-The sample code provides a simple way for you to drop in your sticker art and build an iOS app with minimal development or coding experience needed. For advanced developers looking to make richer sticker apps, refer to the section [Advanced Development](#advanced-development) below. 
+The sample code provides a simple way for you to drop in your sticker art and build an iOS app with minimal development or coding experience needed. Importantly, while you may use most of the underlying code in our sample app, you *must* make sure to develop a unique user interface with your own styling to comply with Apple's App Store guidelines. Do not use our sample app's UI as is. You must significantly modify the UI before submitting your app to Apple. For advanced developers looking to make richer sticker apps, refer to the section [Advanced Development](#advanced-development) below. 
 
 We recommend you create a version of your sticker app for Android as well to give users of WhatsApp on Android an opportunity to download your sticker app as well.
 
@@ -68,6 +68,16 @@ In Xcode, you must also modify the 'sticker_packs.wasticker' file. Replace the v
 The following fields are optional: `ios_app_store_link`, `android_app_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`, `emoji`
 
 If your app has more than 1 sticker pack, you will need to reference it in `sticker_packs.wasticker`. Simply create a second array within the "sticker_packs" section of the file and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 
+
+### Modify the user interface and layout
+While the iOS sample app provides a template UI, this template is strictly intended as an example. Apple has strict App Store guidelines that advise against using templates in apps, so you *must* make sure to develop a unique user interface with your own styling to comply with Apple's App Store guidelines. Do not use our sample app's UI as is (note: if developing an Android version of your app, you may use our sample app's template and UI as is without much modification needed).
+
+A couple tips:
+* You may continue to use the underlying code of the sample app but make sure to modify the user interface
+* The UI folder in the sample app containst most of the user interface code in the sample app.
+* Do not simply reskin the sample app. In other words, changing the background color, button color, or other minor elements of the user interface will not be sufficient.
+* xCode provides some tools to make building layouts and UI a bit simpler. See https://developer.apple.com/xcode/interface-builder/ for more information.
+* You should also consider adding additional functionality to your app (sharing stickers to other apps, to iMessage, etc) or any other features that you deem suitable. This will assist you in passing Apple's App Store review.
 
 ### Required before you publish your app
 You must change the bundle identifier from the one provided. You cannot use anything that includes `WA.WAStickersThirdParty`. This is the only restriction on what you put as a bundle ID.
