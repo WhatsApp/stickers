@@ -8,6 +8,7 @@
 
 package com.example.samplestickerapp;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -21,8 +22,8 @@ public class WhitelistCheck {
     private static final String AUTHORITY_QUERY_PARAM = "authority";
     private static final String IDENTIFIER_QUERY_PARAM = "identifier";
     private static String STICKER_APP_AUTHORITY = BuildConfig.CONTENT_PROVIDER_AUTHORITY;
-    private static String CONSUMER_WHATSAPP_PACKAGE_NAME = "com.whatsapp";
-    private static String SMB_WHATSAPP_PACKAGE_NAME = "com.whatsapp.w4b";
+    public static String CONSUMER_WHATSAPP_PACKAGE_NAME = "com.whatsapp";
+    public static String SMB_WHATSAPP_PACKAGE_NAME = "com.whatsapp.w4b";
     private static String CONTENT_PROVIDER = ".provider.sticker_whitelist_check";
     private static String QUERY_PATH = "is_whitelisted";
     private static String QUERY_RESULT_COLUMN_NAME = "result";
@@ -46,7 +47,7 @@ public class WhitelistCheck {
             if (providerInfo == null) {
                 return false;
             }
-            final Uri queryUri = new Uri.Builder().scheme(StickerContentProvider.CONTENT_SCHEME).authority(whatsappProviderAuthority).appendPath(QUERY_PATH).appendQueryParameter(AUTHORITY_QUERY_PARAM, STICKER_APP_AUTHORITY).appendQueryParameter(IDENTIFIER_QUERY_PARAM, identifier).build();
+            final Uri queryUri = new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(whatsappProviderAuthority).appendPath(QUERY_PATH).appendQueryParameter(AUTHORITY_QUERY_PARAM, STICKER_APP_AUTHORITY).appendQueryParameter(IDENTIFIER_QUERY_PARAM, identifier).build();
             try (final Cursor cursor = context.getContentResolver().query(queryUri, null, null, null, null)) {
                 if (cursor != null && cursor.moveToFirst()) {
                     final int whiteListResult = cursor.getInt(cursor.getColumnIndexOrThrow(QUERY_RESULT_COLUMN_NAME));
@@ -60,7 +61,7 @@ public class WhitelistCheck {
         return false;
     }
 
-    private static boolean isPackageInstalled(String packageName, PackageManager packageManager) {
+    public static boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {
             final ApplicationInfo applicationInfo = packageManager.getApplicationInfo(packageName, 0);
             //noinspection SimplifiableIfStatement

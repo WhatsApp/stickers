@@ -10,6 +10,8 @@ package com.example.samplestickerapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.Formatter;
@@ -81,7 +83,7 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
             addButton.setImageResource(R.drawable.sticker_3rdparty_added);
             addButton.setClickable(false);
             addButton.setOnClickListener(null);
-            addButton.setBackgroundDrawable(null);
+            setBackground(addButton, null);
         } else {
             addButton.setImageResource(R.drawable.sticker_3rdparty_add);
             addButton.setOnClickListener(v -> onAddButtonClickedListener.onAddButtonClicked(pack));
@@ -91,6 +93,13 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
         }
     }
 
+    private void setBackground(View view, Drawable background) {
+        if (Build.VERSION.SDK_INT >= 16) {
+            view.setBackground(background);
+        } else {
+            view.setBackgroundDrawable(background);
+        }
+    }
     @Override
     public int getItemCount() {
         return stickerPacks.size();
@@ -101,6 +110,10 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
             this.maxNumberOfStickersInARow = maxNumberOfStickersInARow;
             notifyDataSetChanged();
         }
+    }
+
+    public void setStickerPackList(List<StickerPack> stickerPackList) {
+        this.stickerPacks = stickerPackList;
     }
 
     public interface OnAddButtonClickedListener {

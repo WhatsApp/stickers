@@ -38,6 +38,17 @@ class AquaButton: RoundedButton {
             imageView?.tintColor = newHighlighted ? UIColor.white.withAlphaComponent(0.5) : .white
         }
     }
+    
+    override var isEnabled: Bool {
+        didSet{
+            if self.isEnabled {
+                  imageView!.tintColor = .white
+            }
+            else{
+                  imageView!.tintColor = .lightGray
+            }
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,6 +59,7 @@ class AquaButton: RoundedButton {
 
         imageView!.tintColor = .white
         setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .highlighted)
+        setTitleColor(UIColor.lightGray.withAlphaComponent(1.0), for: .disabled)
         imageEdgeInsets.left = -25
     }
     
@@ -70,7 +82,18 @@ class GrayRoundedButton: RoundedButton {
             imageView?.tintColor = newHighlighted ? aquaColor.withAlphaComponent(0.5) : aquaColor
         }
     }
-
+    
+    override var isEnabled: Bool {
+        didSet{
+            if self.isEnabled {
+                self.tintColor = UIColor.white
+            }
+            else{
+                self.tintColor = UIColor.gray
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 

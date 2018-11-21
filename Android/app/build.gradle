@@ -60,7 +60,7 @@ private void checkApplicationIdInDebug() {
     def ignoreApplicationIdCheck = properties.getProperty('ignoreApplicationIdCheck')
     if (ignoreApplicationIdCheck == null) {
         if (android.defaultConfig.applicationId.equals("com.example.samplestickerapp")) {
-            throw new GradleException("Your applicationId is currently com.example.samplestickerapp, please change your applicationId to a different string in app/build.gradle");
+            throw new GradleException("Your applicationId is currently com.example.samplestickerapp, please change your applicationId to a different string in app/build.gradle in line 16");
         }
     } else {
         println("application id check ignored")

@@ -8,8 +8,6 @@
 
 package com.example.samplestickerapp;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -18,18 +16,16 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.Formatter;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 
-public class StickerPackDetailsActivity extends BaseActivity {
+public class StickerPackDetailsActivity extends AddStickerPackActivity {
 
     /**
      * Do not change below values of below 3 lines as this is also used by WhatsApp
@@ -38,14 +34,12 @@ public class StickerPackDetailsActivity extends BaseActivity {
     public static final String EXTRA_STICKER_PACK_AUTHORITY = "sticker_pack_authority";
     public static final String EXTRA_STICKER_PACK_NAME = "sticker_pack_name";
 
-    public static final int ADD_PACK = 200;
     public static final String EXTRA_STICKER_PACK_WEBSITE = "sticker_pack_website";
     public static final String EXTRA_STICKER_PACK_EMAIL = "sticker_pack_email";
     public static final String EXTRA_STICKER_PACK_PRIVACY_POLICY = "sticker_pack_privacy_policy";
     public static final String EXTRA_STICKER_PACK_TRAY_ICON = "sticker_pack_tray_icon";
     public static final String EXTRA_SHOW_UP_BUTTON = "show_up_button";
     public static final String EXTRA_STICKER_PACK_DATA = "sticker_pack";
-    private static final String TAG = "StickerPackDetails";
 
     private RecyclerView recyclerView;
     private GridLayoutManager layoutManager;
@@ -84,7 +78,7 @@ public class StickerPackDetailsActivity extends BaseActivity {
         packPublisherTextView.setText(stickerPack.publisher);
         packTrayIcon.setImageURI(StickerPackLoader.getStickerAssetUri(stickerPack.identifier, stickerPack.trayImageFile));
         packSizeTextView.setText(Formatter.formatShortFileSize(this, stickerPack.getTotalSize()));
-        addButton.setOnClickListener(v -> addStickerPackToWhatsApp(stickerPack.name));
+        addButton.setOnClickListener(v -> addStickerPackToWhatsApp(stickerPack.identifier, stickerPack.name));
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(showUpButton);
             getSupportActionBar().setTitle(showUpButton ? R.string.title_activity_sticker_pack_details_multiple_pack : R.string.title_activity_sticker_pack_details_single_pack);
@@ -120,35 +114,7 @@ public class StickerPackDetailsActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void addStickerPackToWhatsApp(String stickerPackName) {
-        Intent intent = new Intent();
-        intent.setAction("com.whatsapp.intent.action.ENABLE_STICKER_PACK");
-        intent.putExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_ID, stickerPack.identifier);
-        intent.putExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_AUTHORITY, BuildConfig.CONTENT_PROVIDER_AUTHORITY);
-        intent.putExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_NAME, stickerPackName);
-        try {
-            startActivityForResult(intent, ADD_PACK);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, R.string.error_adding_sticker_pack, Toast.LENGTH_LONG).show();
-        }
-    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ADD_PACK) {
-            if (resultCode == Activity.RESULT_CANCELED && data != null) {
-                final String validationError = data.getStringExtra("validation_error");
-                if (validationError != null) {
-                    if (BuildConfig.DEBUG) {
-                        //validation error should be shown to developer only, not users.
-                        MessageDialogFragment.newInstance(R.string.title_validation_error, validationError).show(getSupportFragmentManager(), "validation error");
-                    }
-                    Log.e(TAG, "Validation failed:" + validationError);
-                }
-            }
-        }
-    }
 
     private final ViewTreeObserver.OnGlobalLayoutListener pageLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
         @Override

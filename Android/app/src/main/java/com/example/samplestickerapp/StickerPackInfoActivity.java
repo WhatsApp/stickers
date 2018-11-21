@@ -13,7 +13,9 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -39,8 +41,8 @@ public class StickerPackInfoActivity extends BaseActivity {
         final TextView trayIcon = findViewById(R.id.tray_icon);
         try {
             final InputStream inputStream = getContentResolver().openInputStream(Uri.parse(trayIconUriString));
-            final BitmapDrawable trayDrawable = new BitmapDrawable(inputStream);
-            final Drawable emailDrawable = getResources().getDrawable(R.drawable.sticker_3rdparty_email);
+            final BitmapDrawable trayDrawable = new BitmapDrawable(getResources(), inputStream);
+            final Drawable emailDrawable = getDrawableForAllAPIs(R.drawable.sticker_3rdparty_email);
             trayDrawable.setBounds(new Rect(0, 0, emailDrawable.getIntrinsicWidth(), emailDrawable.getIntrinsicHeight()));
             trayIcon.setCompoundDrawables(trayDrawable, null, null, null);
         } catch (FileNotFoundException e) {
@@ -70,10 +72,10 @@ public class StickerPackInfoActivity extends BaseActivity {
     }
 
     private void launchEmailClient(String email) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("plain/text");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
-        startActivity(Intent.createChooser(intent, "Send email with"));
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto", email, null));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+        startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.info_send_email_to_prompt)));
     }
 
     private void launchWebpage(String website) {
@@ -82,4 +84,11 @@ public class StickerPackInfoActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    private Drawable getDrawableForAllAPIs(@DrawableRes int id) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return getDrawable(id);
+        } else {
+            return getResources().getDrawable(id);
+        }
+    }
 }
