@@ -1,6 +1,3 @@
-### IMPORTANT NOTICE ABOUT iOS APPS 
-Apple will reject or remove your sticker app from the App Store if it uses the UI template that WhatsApp provides. When creating an iOS sticker app, please make sure to develop a unique user interface with your own styling to comply with Apple's App Store guidelines. Do *not* use our sample app's UI as is, please significantly modify the UI before submitting. We are still working on updating our full set of documentation and our FAQ to reflect this.
-
 # WhatsApp Stickers
 
 If you'd like to create your own stickers for WhatsApp, you can package them in an Android or iOS app. You can publish your sticker app like any other app to the Google Play Store or Apple App Store, and users who download and install your app will be able to start sending those stickers right away from within WhatsApp. Stickers on WhatsApp must be legal, authorized and acceptable. Learn more about acceptable uses of our services from our [Terms of Service](https://www.whatsapp.com/legal/#terms-of-service).
