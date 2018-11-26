@@ -76,7 +76,7 @@ A couple tips:
 * You may continue to use the underlying code of the sample app but make sure to modify the user interface
 * The UI folder in the sample app containst most of the user interface code in the sample app.
 * Do not simply reskin the sample app. In other words, changing the background color, button color, or other minor elements of the user interface will not be sufficient.
-* xCode provides some tools to make building layouts and UI a bit simpler. See https://developer.apple.com/xcode/interface-builder/ for more information.
+* Xcode provides some tools to make building layouts and UI a bit simpler. See https://developer.apple.com/xcode/interface-builder/ for more information.
 * You should also consider adding additional functionality to your app (sharing stickers to other apps, to iMessage, etc) or any other features that you deem suitable. This will assist you in passing Apple's App Store review.
 
 ### Required before you publish your app
