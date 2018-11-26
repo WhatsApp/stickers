@@ -8,12 +8,12 @@
 
 import UIKit
 
-class AllStickerPacksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AllStickerPacksViewController: UIViewController {
 
     @IBOutlet private weak var stickerPacksTableView: UITableView!
 
     private var needsFetchStickerPacks = true
-    private var stickerPacks: [StickerPack] = []
+    private var stickerPacks: [WAStickerPack] = []
     private var selectedIndex: IndexPath?
 
     override func viewDidLoad() {
@@ -39,36 +39,110 @@ class AllStickerPacksViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidAppear(animated)
         if needsFetchStickerPacks {
             needsFetchStickerPacks = false
-            fetchStickerPacks()
+            //fetchStickerPacks()
+            fetchStickersOnline()
+            //testParseData()
         }
     }
+    
+    //MARK: Helper
+    //Test json
+    func testParseData () {
+        self.navigationController?.navigationBar.alpha = 1.0;
 
-    private func fetchStickerPacks() {
+        guard let path = Bundle.main.path(forResource: "sticker_packs", ofType: "wasticker")  else {
+            return
+        }
+        
+        do {
+            let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: Data.ReadingOptions.alwaysMapped)
+            let jsonDecoder = JSONDecoder()
+            let waStickerReponse = try jsonDecoder.decode(WAStickerPackResponse.self, from: jsonData)
+            if let stickerPacks = waStickerReponse.stickerPacks {
+                if stickerPacks.count > 1 {
+                    self.stickerPacks = stickerPacks
+                    self.stickerPacksTableView.reloadData()
+                } else {
+                    self.show(stickerPack: stickerPacks[0], animated: false)
+                }
+            } else {
+                fatalError("No Stickers not found.")
+                
+            }
+            
+            
+        }
+        catch {
+            fatalError("sticker_packs.wasticker not found.")
+        }
+        
+    }
+
+
+
+//    private func fetchStickerPacks() {
+//        let loadingAlert: UIAlertController = UIAlertController(title: "Loading sticker packs", message: "\n\n", preferredStyle: .alert)
+//        loadingAlert.addSpinner()
+//        present(loadingAlert, animated: true, completion: nil)
+//
+//        do {
+//            try StickerPackManager.fetchStickerPacks(fromJSON: StickerPackManager.stickersJSON(contentsOfFile: "sticker_packs")) { stickerPacks in
+//                loadingAlert.dismiss(animated: false, completion: {
+//                    self.navigationController?.navigationBar.alpha = 1.0;
+//
+//                    if stickerPacks.count > 1 {
+//                        self.stickerPacks = stickerPacks
+//                        self.stickerPacksTableView.reloadData()
+//                    } else {
+//                        self.show(stickerPack: stickerPacks[0], animated: false)
+//                    }
+//                })
+//            }
+//        } catch StickerPackError.fileNotFound {
+//            fatalError("sticker_packs.wasticker not found.")
+//        } catch {
+//            fatalError(error.localizedDescription)
+//        }
+//    }
+    // Online fetch
+    private func fetchStickersOnline() {
+        let url = jsonurl// update
+        if url.count <= 0 {
+            return
+        }
         let loadingAlert: UIAlertController = UIAlertController(title: "Loading sticker packs", message: "\n\n", preferredStyle: .alert)
         loadingAlert.addSpinner()
         present(loadingAlert, animated: true, completion: nil)
-
-        do {
-            try StickerPackManager.fetchStickerPacks(fromJSON: StickerPackManager.stickersJSON(contentsOfFile: "sticker_packs")) { stickerPacks in
-                loadingAlert.dismiss(animated: false, completion: {
-                    self.navigationController?.navigationBar.alpha = 1.0;
-
-                    if stickerPacks.count > 1 {
-                        self.stickerPacks = stickerPacks
-                        self.stickerPacksTableView.reloadData()
+        JSONDownLoader().getStickerPackes(form: url) { (result) in
+            loadingAlert.dismiss(animated: false, completion: {
+                self.navigationController?.navigationBar.alpha = 1.0;
+                switch result {
+                case .success(let waStickerReponse):
+                    print(waStickerReponse)
+                    if let stickerPacks = waStickerReponse.stickerPacks {
+                        if stickerPacks.count > 1 {
+                            self.stickerPacks = stickerPacks
+                            self.stickerPacksTableView.reloadData()
+                        } else {
+                            self.show(stickerPack: stickerPacks[0], animated: false)
+                        }
                     } else {
-                        self.show(stickerPack: stickerPacks[0], animated: false)
+                        
                     }
-                })
-            }
-        } catch StickerPackError.fileNotFound {
-            fatalError("sticker_packs.wasticker not found.")
-        } catch {
-            fatalError(error.localizedDescription)
+                    
+                case .failure(let error):
+                    print(error)
+                    
+                }
+                
+            })
+           
         }
+        
     }
 
-    private func show(stickerPack: StickerPack, animated: Bool) {
+    //MARK: Navigation
+    private func show(stickerPack: WAStickerPack, animated: Bool) {
         // "stickerPackNotAnimated" still animates the push transition on iOS 8 and earlier.
         let identifier = animated ? "stickerPackAnimated" : "stickerPackNotAnimated"
         performSegue(withIdentifier: identifier, sender: stickerPack)
@@ -76,41 +150,14 @@ class AllStickerPacksViewController: UIViewController, UITableViewDataSource, UI
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? StickerPackViewController,
-            let stickerPack = sender as? StickerPack {
+            let stickerPack = sender as? WAStickerPack {
             vc.title = stickerPack.name
             vc.stickerPack = stickerPack
             vc.navigationItem.hidesBackButton = stickerPacks.count <= 1
         }
     }
 
-    // MARK: Tableview
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stickerPacks.count
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: StickerPackTableViewCell = tableView.dequeueReusableCell(withIdentifier: "StickerPackCell") as! StickerPackTableViewCell
-        cell.stickerPack = stickerPacks[indexPath.row]
-
-        let addButton: UIButton = UIButton(type: .contactAdd)
-        addButton.tag = indexPath.row
-        addButton.isEnabled = Interoperability.canSend()
-        addButton.addTarget(self, action: #selector(addButtonTapped(button:)), for: .touchUpInside)
-        cell.accessoryView = addButton
-
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath
-
-        show(stickerPack: stickerPacks[indexPath.row], animated: true)
-    }
+    
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let navigationBar = navigationController?.navigationBar {
@@ -129,13 +176,46 @@ class AllStickerPacksViewController: UIViewController, UITableViewDataSource, UI
         }
     }
 
+    
+    //MARK: IBACTION
     @objc func addButtonTapped(button: UIButton) {
         let loadingAlert: UIAlertController = UIAlertController(title: "Sending to WhatsApp", message: "\n\n", preferredStyle: .alert)
         loadingAlert.addSpinner()
         present(loadingAlert, animated: true, completion: nil)
 
-        stickerPacks[button.tag].sendToWhatsApp { completed in
-            loadingAlert.dismiss(animated: true, completion: nil)
-        }
+//        stickerPacks[button.tag].sendToWhatsApp { completed in
+//            loadingAlert.dismiss(animated: true, completion: nil)
+//        }
+    }
+}
+
+// MARK: Tableview
+extension AllStickerPacksViewController: UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stickerPacks.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: StickerPackTableViewCell = tableView.dequeueReusableCell(withIdentifier: "StickerPackCell") as! StickerPackTableViewCell
+        cell.stickerPack = stickerPacks[indexPath.row]
+        
+        let addButton: UIButton = UIButton(type: .contactAdd)
+        addButton.tag = indexPath.row
+        addButton.isEnabled = Interoperability.canSend()
+        addButton.addTarget(self, action: #selector(addButtonTapped(button:)), for: .touchUpInside)
+        cell.accessoryView = addButton
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath
+        
+        show(stickerPack: stickerPacks[indexPath.row], animated: true)
     }
 }

@@ -29,7 +29,7 @@ class StickerPackInfoViewController: UITableViewController {
         return ceil(footerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height)
     }
 
-    var stickerPack: StickerPack!
+    var stickerPack: WAStickerPack!
 
     private var websiteIndexes: [Website: Int] = [:]
 
@@ -136,7 +136,7 @@ class StickerPackInfoViewController: UITableViewController {
 
             switch indexPath.row {
             case 0:
-                secondaryCell.primaryImage = stickerPack.trayImage.image
+                secondaryCell.primaryImage = stickerPack.imageData?.image
                 secondaryCell.secondaryText = "Tray Icon"
             case 1:
                 secondaryCell.primaryText = stickerPack.publisher

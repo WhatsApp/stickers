@@ -64,6 +64,8 @@
 		8AC235042149FA3000E3667B /* 11_Cuppy_upset.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC235032149FA2F00E3667B /* 11_Cuppy_upset.png */; };
 		8ACB6A981FE9CB7700A564BB /* Limits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB6A971FE9CB7700A564BB /* Limits.swift */; };
 		8ADA60761FD71F69006C9BBA /* AllStickerPacksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA60751FD71F69006C9BBA /* AllStickerPacksViewController.swift */; };
+		AFD5A2F721ABF116008F382F /* WAStickerPackResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD5A2F621ABF116008F382F /* WAStickerPackResponse.swift */; };
+		AFD5A2F921ABF71D008F382F /* JSONDownLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD5A2F821ABF71D008F382F /* JSONDownLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -153,6 +155,8 @@
 		8AC235032149FA2F00E3667B /* 11_Cuppy_upset.png */ = {isa = PBXFileReference; explicitFileType = compiled; path = 11_Cuppy_upset.png; sourceTree = "<group>"; };
 		8ACB6A971FE9CB7700A564BB /* Limits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Limits.swift; sourceTree = "<group>"; };
 		8ADA60751FD71F69006C9BBA /* AllStickerPacksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStickerPacksViewController.swift; sourceTree = "<group>"; };
+		AFD5A2F621ABF116008F382F /* WAStickerPackResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAStickerPackResponse.swift; sourceTree = "<group>"; };
+		AFD5A2F821ABF71D008F382F /* JSONDownLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDownLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +218,8 @@
 				8A18E33E1FBA7DC50082201D /* WebPManager.swift */,
 				8A22EE071F9A9F40003A7F21 /* Main.storyboard */,
 				8A18E33C1FBA793F0082201D /* sticker_packs.wasticker */,
+				AFD5A2F621ABF116008F382F /* WAStickerPackResponse.swift */,
+				AFD5A2F821ABF71D008F382F /* JSONDownLoader.swift */,
 				8A26A6A71FEB2E2400256DE8 /* SampleStickers */,
 				8ADA60721FD71C8D006C9BBA /* UI */,
 				8A18E2F31FB3B4840082201D /* WebP */,
@@ -405,11 +411,13 @@
 			files = (
 				8A27F11E1FD73DE2001B2BBD /* StickerPackTableViewCell.swift in Sources */,
 				8A27F1201FD7444B001B2BBD /* StickerPackViewController.swift in Sources */,
+				AFD5A2F921ABF71D008F382F /* JSONDownLoader.swift in Sources */,
 				8A18E3351FBA5CA90082201D /* StickerPackManager.swift in Sources */,
 				8A27F1331FD9EA08001B2BBD /* LinkTableViewCell.swift in Sources */,
 				8A18E2F01FB3B47D0082201D /* YYFrameImage.m in Sources */,
 				8A27F12B1FD9E025001B2BBD /* StickerPackInfoViewController.swift in Sources */,
 				8A18E33F1FBA7DC50082201D /* WebPManager.swift in Sources */,
+				AFD5A2F721ABF116008F382F /* WAStickerPackResponse.swift in Sources */,
 				8ADA60761FD71F69006C9BBA /* AllStickerPacksViewController.swift in Sources */,
 				8ACB6A981FE9CB7700A564BB /* Limits.swift in Sources */,
 				8A40BE651FB122B3003AD704 /* StickerPack.swift in Sources */,

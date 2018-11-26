@@ -31,7 +31,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         return UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .faceUp || UIDevice.current.orientation == .faceDown || UIDevice.current.orientation == .portraitUpsideDown
     }
 
-    var stickerPack: StickerPack!
+    var stickerPack: WAStickerPack!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -218,14 +218,14 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sticker: Sticker = stickerPack.stickers[indexPath.item]
+        let sticker = stickerPack.stickers[indexPath.item]
         let cell = collectionView.cellForItem(at: indexPath)
         showActionSheet(withSticker: sticker, overCell: cell!)
     }
 
     // MARK: Targets
 
-    func showActionSheet(withSticker sticker: Sticker, overCell cell: UICollectionViewCell) {
+    func showActionSheet(withSticker sticker: WASticker, overCell cell: UICollectionViewCell) {
         var emojisString: String? = nil
         #if DEBUG
         if let emojis = sticker.emojis {
@@ -248,14 +248,14 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
-        if let stickerImage = sticker.imageData.image {
+        if let stickerImage = sticker.imageData?.image {
             actionSheet.addImageView(withImage: stickerImage)
         }
         present(actionSheet, animated: true, completion: nil)
     }
 
-    func showShareSheet(withSticker sticker: Sticker) {
-        guard let image = sticker.imageData.image else {
+    func showShareSheet(withSticker sticker: WASticker) {
+        guard let image = sticker.imageData?.image else {
             return
         }
 
@@ -273,7 +273,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nc = segue.destination as? UINavigationController,
             let infoVC = nc.viewControllers.first as? StickerPackInfoViewController {
-            infoVC.stickerPack = stickerPack
+            infoVC.stickerPack = stickerPack!
         }
     }
 
@@ -291,7 +291,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         var stickerImages: [UIImage] = []
 
         for sticker in stickerPack.stickers {
-            if let image = sticker.imageData.image {
+            if let image = sticker.imageData?.image {
                 stickerImages.append(image)
             }
         }

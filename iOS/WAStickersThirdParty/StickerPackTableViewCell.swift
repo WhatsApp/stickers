@@ -17,7 +17,7 @@ final class StickerPackTableViewCell: UITableViewCell, UICollectionViewDataSourc
     @IBOutlet private weak var stickerPackDescriptionLabel: UILabel!
     @IBOutlet private weak var stickerPackCollectionView: UICollectionView!
 
-    var stickerPack: StickerPack? {
+    var stickerPack: WAStickerPack? {
         didSet {
             stickerPackTitle = stickerPack?.name
             stickerPackSecondaryInfo = stickerPack?.publisher
