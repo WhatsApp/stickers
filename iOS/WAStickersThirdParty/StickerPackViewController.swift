@@ -70,6 +70,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         addButton.setImage(buttonImage, for: .normal)
         addButton.addTarget(self, action: #selector(addButtonPressed(button:)), for: .touchUpInside)
         addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.isEnabled = Interoperability.canSend()
         view.addSubview(addButton)
 
         let shareButton: GrayRoundedButton = GrayRoundedButton(frame: .zero)
@@ -218,12 +219,13 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sticker: Sticker = stickerPack.stickers[indexPath.item]
-        showActionSheet(withSticker: sticker)
+        let cell = collectionView.cellForItem(at: indexPath)
+        showActionSheet(withSticker: sticker, overCell: cell!)
     }
 
     // MARK: Targets
 
-    func showActionSheet(withSticker sticker: Sticker) {
+    func showActionSheet(withSticker sticker: Sticker, overCell cell: UICollectionViewCell) {
         var emojisString: String? = nil
         #if DEBUG
         if let emojis = sticker.emojis {
@@ -232,6 +234,11 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         #endif
 
         let actionSheet: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n", message: emojisString, preferredStyle: .actionSheet)
+        
+        actionSheet.popoverPresentationController?.sourceView = cell.contentView
+        actionSheet.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        actionSheet.popoverPresentationController?.sourceRect = CGRect(x: cell.contentView.bounds.midX, y: cell.contentView.bounds.midY, width: 0, height: 0)
+
 
         actionSheet.addAction(UIAlertAction(title: "Copy to Clipboard", style: .default, handler: { action in
             sticker.copyToPasteboardAsImage()
@@ -253,6 +260,9 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         }
 
         let shareViewController: UIActivityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        shareViewController.popoverPresentationController?.sourceView = self.view
+        shareViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        shareViewController.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
         present(shareViewController, animated: true, completion: nil)
     }
 
@@ -287,6 +297,10 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         }
 
         let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: stickerImages, applicationActivities: nil);
+        let parentView =  button as UIView
+        activityViewController.popoverPresentationController?.sourceView = parentView
+        activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        activityViewController.popoverPresentationController?.sourceRect = CGRect(x: parentView.bounds.midX, y: parentView.bounds.midY, width: 0, height: 0)
         present(activityViewController, animated: true, completion: nil)
     }
 }
