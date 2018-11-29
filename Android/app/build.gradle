@@ -100,5 +100,4 @@ dependencies {
     implementation 'com.facebook.fresco:fresco:1.11.0'
     implementation 'com.facebook.fresco:webpsupport:1.11.0'
     implementation 'com.facebook.fresco:animated-webp:1.11.0'
-    implementation 'com.facebook.fresco:webpsupport:1.11.0'
 }
