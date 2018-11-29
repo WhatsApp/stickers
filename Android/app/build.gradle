@@ -5,12 +5,6 @@ android {
     aaptOptions {
         noCompress "webp"
     }
-    signingConfigs {
-        signing_config {
-            keyAlias 'abc'
-            keyPassword '123'
-        }
-    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.samplestickerapp"
