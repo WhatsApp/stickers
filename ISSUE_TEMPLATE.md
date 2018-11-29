@@ -3,6 +3,7 @@ We ask you:
 - Please add [Android] or [iOS] to your issue title to indicate which platform your issue is for.
 - For Android, please assign the issue to @simonzhexu. For iOS, please assign the issue to @amrit-1901.
 - Remove this notes section after reading before submitting issue.
+- Only use the GitHub Issues section if you discovered issues with the code itself. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/). 
 ```
 
 **Specifications**  
