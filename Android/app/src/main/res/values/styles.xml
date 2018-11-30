@@ -41,6 +41,9 @@
 
     <style name="sticker_packs_list_item_author_style">
         <item name="android:gravity">center_vertical</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:lines">1</item>
         <item name="android:textSize">12sp</item>
     </style>
 
