@@ -59,7 +59,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:ellipsize="end"
-            android:maxWidth="80dp"
+            android:maxWidth="120dp"
             tools:text="petellison" />
 
         <TextView
