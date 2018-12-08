@@ -111,6 +111,26 @@ The ContentProvider needs to have a read permission of `com.whatsapp.sticker.REA
             android:enabled="true"
             android:exported="true"
             android:readPermission="com.whatsapp.sticker.READ" />
+#### Expose files that are stored internally as stickers through ContentProvider
+If you would like to expose files saved internally or externally and serve these files as sticker. It is possible, but please follow the guidelines in 'Sticker art and app requirements' to make sure the files meets these requirements. As to how to do that, you can take a look at the following code snippet to get an understanding of how that can be done. 
+
+        private AssetFileDescriptor fetchFile(@NonNull Uri uri, @NonNull AssetManager am, @NonNull String fileName, @NonNull String identifier) throws IOException {
+        final File cacheFile = getContext().getExternalCacheDir();
+        final File file = new File(cacheFile, fileName);
+        try (final InputStream open = am.open(identifier + "/" + fileName);
+             final FileOutputStream fileOutputStream = new FileOutputStream(file)) {
+             byte[] buffer = new byte[1024];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+        }
+        //The code above is basically copying the assets to storage, and servering the file off of the storage. 
+        //If you have the files already downloaded/fetched, you could simply replace above part, and initialize the file parameter with your own file which points to the desired file.
+        //The key here is you can use ParcelFileDescriptor to create an AssetFileDescriptor.
+        return new AssetFileDescriptor(ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY), 0, AssetFileDescriptor.UNKNOWN_LENGTH);
+    }
+
 ### Intent
 It is required that users explicitly add a sticker pack to WhatsApp, so your app must provide a UI element to allow users to add a pack (for example, a button labeled "Add to WhatsApp" as in the sample app). 
 In the sample app, both [StickerPackListActivity](app/src/main/java/com/example/samplestickerapp/StickerPackListActivity.java) and [StickerPackDetailsActivity](app/src/main/java/com/example/samplestickerapp/StickerPackDetailsActivity.java) contains code to launch the intent after the user presses the Add to WhatsApp button. The user must then confirm they want to add the pack via the alert box presented by WhatsApp.
