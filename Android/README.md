@@ -39,7 +39,7 @@ Your sticker art must be in the WebP format. We recommend using the tools you're
 
 * Sketch for Mac lets you export files as WebP. Open your sticker art file in Sketch, select a layer, multiple layers, or an artboard, and select Make Exportable in the bottom right. Pick your format as WebP, select Export, and then select the quality/resolution.
 * [Android Studio](https://developer.android.com/studio/) allows you to convert PNGs to WebP. Simply create a new project in Android Studio, open your PNG and right click on the image and select convert to WebP ([https://developer.android.com/studio/write/convert-webp](https://developer.android.com/studio/write/convert-webp)). Make sure you uncheck the box next to "Skip images with transparency/alpha channel" in the export flow.
-* You can install a [plugin](https://github.com/fnordware/AdobeWebM#download) for Photoshop that converts to WebP. Make sure to uncheck the "Save Metadata" checkbox.
+* You can install a [plugin](https://github.com/fnordware/AdobeWebM#download) for Photoshop that converts to WebP. Make sure to uncheck the "Save Metadata" checkbox. Some users have experienced problems with using the webp files generated from Photoshop. If you have problems, we suggest you create PNG files, and use Android Studio to do the conversion.
 * Use [cwebp](https://developers.google.com/speed/webp/), a command line tool
 
 ## How to create a sticker app
