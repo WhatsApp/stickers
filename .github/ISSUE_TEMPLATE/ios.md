@@ -1,4 +1,6 @@
 ---
+name: iOS
+about: Template for issues about the iOS code/platform
 title: '[iOS]'
 labels: iOS
 assignees: amrit-1901
