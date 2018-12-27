@@ -1,4 +1,6 @@
 ---
+name: Android Issue Template
+about: Issue Template
 title: '[Android]'
 labels: android
 assignees: simonzhexu
