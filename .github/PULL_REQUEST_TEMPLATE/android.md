@@ -3,7 +3,7 @@ name: Android PR
 about: Android Pull Request
 ---
 **Change description**  
-<!-- FILL IN WITH DETAILED DESCRIPTION OF THE PROBLEM AND WHAT/HOW IT WAS SOLVED -->
+[FILL IN WITH DETAILED DESCRIPTION OF THE PROBLEM AND WHAT/HOW IT WAS SOLVE]
 
 **Prerequisites**
 - [ ] I have completed the CLA

@@ -20,16 +20,14 @@ Device Manufacturer: [FILL IN]
 - [ ] I am using **PNG** images for stickers.
 
 **Problem Description**  
-<!-- FILL IN WITH DETAILED DESCRIPTION OF THE PROBLEM -->
+[FILL IN WITH DETAILED DESCRIPTION OF THE PROBLEM]
 
 **Reproduction Steps**  
-<!-- FILL IN WITH DETAILED REPRODUCTION STEPS -->
+[FILL IN WITH DETAILED REPRODUCTION STEPS]
 
 **Head of Commit**
-<!--
-Do you have the latest commit from master? If not, please update your repo to the latest commit in master, and try again. If issue still occurs, please note down the commit hash (from this repo) here:
--->
+[Do you have the latest commit from master? If not, please update your repo to the latest commit in master, and try again. If issue still occurs, please note down the commit hash (from this repo) here:]
 [Commit hash]
 
 **Links**  
-<!-- FILL IN APP STORE LINK AND/OR LINK TO SOURCE CODE ON GIT -->
+[FILL IN APP STORE LINK AND/OR LINK TO SOURCE CODE ON GIT]
