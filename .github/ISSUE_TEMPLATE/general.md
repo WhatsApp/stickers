@@ -13,8 +13,8 @@ Device Manufacturer: [FILL IN]
 **Stickers**
 - [ ] My stickers do comply with the sticker requirements (512x512 and < 100 KB)
 - [ ] My tray icon does comply with the requirements (96x96 and < 50 KB)
-- [ ] I am using [WebP] images for stickers.
-- [ ] I am using [PNG] images for stickers.
+- [ ] I am using **WebP** images for stickers.
+- [ ] I am using **PNG** images for stickers.
 
 **Problem Description**  
 <!-- FILL IN WITH DETAILED DESCRIPTION OF THE PROBLEM -->
