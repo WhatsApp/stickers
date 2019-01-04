@@ -10,11 +10,11 @@ For support, please contact <developer@support.whatsapp.com>.
 - If you create issues or pull requests that are spammy by nature, you will be reported for abusive behavior immediately. You are providing no benefit to anyone.
 
 ### Issues
-- If you create issues, please indicate the platform by putting `[iOS]` or `[Android]` in the beginning of the issue title. 
-- Please make sure you have read the `README` files for each platform before you file an issue. 
-- For Android, please mention @simonzhexu in the issue. For iOS, please mention @amrit-1901. Unassigned issues will not be looked at due to work load. 
-- Your issue needs to be as specific as possible, please include the OS Level, Device Manufacture, specific problem you have, and how we can reproduce the problem. 
-- If your app is already published, please indicate the store link on where we can download your app. If your app is open sourced, please include a GitHub URL for your source.
+- Create an [Android](https://github.com/WhatsApp/stickers/issues/new?template=android.md) issue
+- Create an [iOS](https://github.com/WhatsApp/stickers/issues/new?template=ios.md) issue
+- Create a [general issue](https://github.com/WhatsApp/stickers/issues/new?template=general.md)
+
+For all three options, fill in all fields that apply.
 
 ### Pull Requests
 - In order for us to accept pull requests, please complete the Contributor License Agreement by following instructions in [`CONTRIBUTING`](https://github.com/WhatsApp/stickers/blob/master/CONTRIBUTING.md).
