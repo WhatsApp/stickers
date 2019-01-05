@@ -1,7 +1,12 @@
 ---
 name: General issue
 about: Template for general issues, which are not specific to Android or iOS
+title: ''
+labels: ''
+assignees: ''
+
 ---
+
 <!-- 
 Only use the GitHub Issues section if you discovered issues with the code itself. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/). 
 -->

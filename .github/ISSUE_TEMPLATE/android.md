@@ -1,10 +1,12 @@
 ---
 name: Android
 about: Template for issues about the android code/platform
-title: '[Android]'
-labels: android
+title: "[Android] "
+labels: Android
 assignees: simonzhexu
+
 ---
+
 <!-- 
 Only use the GitHub Issues section if you discovered issues with the code itself. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/). 
 -->

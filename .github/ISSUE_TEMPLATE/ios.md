@@ -1,10 +1,12 @@
 ---
 name: iOS
 about: Template for issues about the iOS code/platform
-title: '[iOS]'
+title: "[iOS]"
 labels: iOS
 assignees: amrit-1901
+
 ---
+
 <!-- 
 Only use the GitHub Issues section if you discovered issues with the code itself. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/). 
 -->
