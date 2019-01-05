@@ -2,7 +2,7 @@
 name: Android
 about: Template for issues about the android code/platform
 title: '[Android]'
-labels: android
+labels: Android
 assignees: simonzhexu
 ---
 <!-- 
