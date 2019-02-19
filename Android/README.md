@@ -41,6 +41,7 @@ Your sticker art must be in the WebP format. We recommend using the tools you're
 * [Android Studio](https://developer.android.com/studio/) allows you to convert PNGs to WebP. Simply create a new project in Android Studio, open your PNG and right click on the image and select convert to WebP ([https://developer.android.com/studio/write/convert-webp](https://developer.android.com/studio/write/convert-webp)). Make sure you uncheck the box next to "Skip images with transparency/alpha channel" in the export flow.
 * You can install a [plugin](https://github.com/fnordware/AdobeWebM#download) for Photoshop that converts to WebP. Make sure to uncheck the "Save Metadata" checkbox. Some users have experienced problems with using the webp files generated from Photoshop. If you have problems, we suggest you create PNG files, and use Android Studio to do the conversion.
 * Use [cwebp](https://developers.google.com/speed/webp/), a command line tool
+* Use [squoosh](https://squoosh.app/), an online browser tool, by the Google Chrome Labs
 
 ## How to create a sticker app
 
