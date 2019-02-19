@@ -42,6 +42,7 @@ Your sticker art must be in the WebP format. We recommend using the tools you're
 * [Android Studio](https://developer.android.com/studio/) allows you to convert PNGs to WebP. Simply create a New Project in Android Studio, open your PNG and right click on the image and select convert to WebP ([https://developer.android.com/studio/write/convert-webp](https://developer.android.com/studio/write/convert-webp)). Make sure you uncheck the box next to "Skip images with transparency/alpha channel" in the export flow.
 * You can install a [plugin](https://github.com/fnordware/AdobeWebM#download) for Photoshop that converts to WebP. Make sure to uncheck the "Save Metadata" checkbox.
 * Use [cwebp](https://developers.google.com/speed/webp/), a command line tool
+* Use [squoosh](https://squoosh.app/), an online browser tool, by the Google Chrome Labs
 
 ### Important note about using PNG images
 Xcode does some optimizations to every PNG image that is imported. This can lead to files becoming bigger in size and not passing our image size requirement. To prevent this, select the PNG file from the left sidebar and go to the right sidebar and select the first tab (to the left of the question mark button). On the "Type" drop down menu, select "Data". Do this for all of your PNG images (WebP images don't need this treatment).
