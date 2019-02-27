@@ -142,3 +142,7 @@ The result is in a row corresponding to the column named `result`. The value wil
 Note that a pack can be added to either the main WhatsApp app, WhatsApp Business, or both. It is recommended you continue to present a button to add the pack to WhatsApp if the sticker pack is not added to one or more of the apps. Refer to the class [WhitelistCheck](app/src/main/java/com/example/samplestickerapp/WhitelistCheck.java) for sample logic.
 
 Your app can only query whether the packs it provides have been added and it can't check for information about sticker packs from other apps.
+
+
+### Tools
+ - **[JSON Generator for WhatsApp Sticker Pack](http://pratikbutani.com/wastickerapp)** to generate JSON for `content.json`
