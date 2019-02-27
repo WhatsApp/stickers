@@ -17,6 +17,10 @@ struct Interoperability {
     static var iOSAppStoreLink: String?
     static var AndroidStoreLink: String?
 
+    static func canSend() -> Bool {
+        return UIApplication.shared.canOpenURL(URL(string: "whatsapp://")!)
+    }
+    
     static func send(json: [String: Any]) -> Bool {
         if let bundleIdentifier = Bundle.main.bundleIdentifier {
             if bundleIdentifier.contains(DefaultBundleIdentifier) {
@@ -36,10 +40,10 @@ struct Interoperability {
         if #available(iOS 10.0, *) {
             pasteboard.setItems([[PasteboardStickerPackDataType: dataToSend]], options: [UIPasteboardOption.localOnly: true, UIPasteboardOption.expirationDate: NSDate(timeIntervalSinceNow: PasteboardExpirationSeconds)])
         } else {
-            pasteboard.addItems([[PasteboardStickerPackDataType: dataToSend]])
+            pasteboard.setData(dataToSend, forPasteboardType: PasteboardStickerPackDataType)
         }
         DispatchQueue.main.async {
-            if UIApplication.shared.canOpenURL(URL(string: "whatsapp://")!) {
+            if canSend() {
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(WhatsAppURL, options: [:], completionHandler: nil)
                 } else {

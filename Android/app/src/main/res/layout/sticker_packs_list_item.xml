@@ -33,18 +33,20 @@
         android:id="@+id/sticker_pack_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-
+        android:layout_marginLeft="8dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/sticker_pack_title"
-            android:layout_width="wrap_content"
+            style="@style/sticker_packs_list_item_author_style"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:ellipsize="end"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             tools:text="Pusheen" />
@@ -54,8 +56,10 @@
             style="@style/sticker_packs_list_item_author_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:ellipsize="end"
+            android:maxWidth="120dp"
             tools:text="petellison" />
 
         <TextView

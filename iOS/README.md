@@ -1,10 +1,15 @@
 #  iOS Stickers Apps for WhatsApp
 
+### IMPORTANT NOTICE ABOUT iOS APPS 
+Apple will reject or remove your sticker app from the App Store if it uses the UI sample that WhatsApp provides. When creating an iOS sticker app, please make sure to develop a unique user interface with your own styling to comply with Apple's App Store guidelines. Do *not* use our sample app's UI as is, please significantly modify the UI before submitting. You should also consider adding additional functionality to your app (sharing stickers to other apps, to iMessage, etc) or any other features that you deem suitable. This will assist you in passing Apple's App Store review. 
+We are still working on updating our full set of documentation and our FAQ to reflect this.
 
 ## Overview
 If you would like to design your own stickers for WhatsApp, you can package them in an iOS app. You will need to distribute your app via the App Store. Users who download and install your sticker app will be able to add your stickers to their WhatsApp sticker picker/tray, and start sending those stickers from within WhatsApp. A separate app is necessary and it will reside on your phone's home screen just like any other app. Once you add the stickers from the app to WhatsApp, you can remove or uninstall the app from your phone and continue to send those stickers. Stickers on WhatsApp must be legal, authorized, and acceptable.  Learn more about acceptable use of our services at <https://www.whatsapp.com/legal/#terms-of-service>.
 
-The sample code provides a simple way for you to drop in your sticker art and build an iOS app with minimal development or coding experience needed. For advanced developers looking to make richer sticker apps, refer to the section [Advanced Development](#advanced-development) below. 
+The sample code provides a way for you to understand how the API works. You can also drop in your assets to test if they work correctly with WhatsApp. Importantly, you *must* make sure to develop a unique user interface with your own styling to comply with Apple's App Store guidelines. Do not use our sample app's UI as is. You must significantly modify the UI before submitting your app to Apple.
+
+For a description of how the API works, refer to the [API documentation](#API-documentation) section below.
 
 We recommend you create a version of your sticker app for Android as well to give users of WhatsApp on Android an opportunity to download your sticker app as well.
 
@@ -13,13 +18,8 @@ We recommend you refer to the FAQ at https://faq.whatsapp.com/general/26000226 f
 
 * A sticker is an image that has a transparent background and can be sent in a
 WhatsApp chat
-* Stickers are organized into "packs". Your app can contain anywhere from 1 to
-10 packs. Users must explicitly add each pack to WhatsApp one-by-one, so your
-app should list each pack separately and each pack must have its own
-affordance to add it to WhatsApp (do not try to create "add all packs"
-operations).
-* Each sticker pack must have a minimum of 3 stickers and a maximum of 30
-stickers
+* Stickers are organized into "packs". Users must explicitly add each pack to WhatsApp one-by-one, so your app should list each pack separately and each pack must have its own affordance to add it to WhatsApp (do not try to create "add all packs" operations).
+* Each sticker pack must have a minimum of 3 stickers and a maximum of 30 stickers
 * Stickers must be exactly 512 x 512 pixels
 * Stickers will render on a variety of backgrounds, white, black, colored, patterned, etc. Test your sticker art on a variety of backgrounds. For this reason, we recommend you add a 8px #FFFFFF stroke to the outside of each sticker. See the sample PSD referenced at https://faq.whatsapp.com/general/26000226 for more details. 
 * Stickers must be either in PNG or the [WebP format](https://developers.google.com/speed/webp). Currently, animated WebP, animated PNG, or animated stickers of any kind are not supported. See the section [Converting to WebP](#converting-to-webp) below for information on how to create WebP files.
@@ -40,21 +40,22 @@ Your sticker art must be in the WebP format. We recommend using the tools you're
 
 * Sketch for Mac lets you export files as WebP. Open your sticker art file in Sketch, select a layer, multiple layers, or an artboard, and select Make Exportable in the bottom right. Pick your format as WebP, select Export, and then select the quality/resolution.
 * [Android Studio](https://developer.android.com/studio/) allows you to convert PNGs to WebP. Simply create a New Project in Android Studio, open your PNG and right click on the image and select convert to WebP ([https://developer.android.com/studio/write/convert-webp](https://developer.android.com/studio/write/convert-webp)). Make sure you uncheck the box next to "Skip images with transparency/alpha channel" in the export flow.
-* You can install a [plugin](https://github.com/fnordware/AdobeWebM#download) for Photoshop that converts to WebP
+* You can install a [plugin](https://github.com/fnordware/AdobeWebM#download) for Photoshop that converts to WebP. Make sure to uncheck the "Save Metadata" checkbox.
 * Use [cwebp](https://developers.google.com/speed/webp/), a command line tool
+* Use [squoosh](https://squoosh.app/), an online browser tool, by the Google Chrome Labs
 
-## How to create a sticker app
+### Important note about using PNG images
+Xcode does some optimizations to every PNG image that is imported. This can lead to files becoming bigger in size and not passing our image size requirement. To prevent this, select the PNG file from the left sidebar and go to the right sidebar and select the first tab (to the left of the question mark button). On the "Type" drop down menu, select "Data". Do this for all of your PNG images (WebP images don't need this treatment).
+
+## How to use the sample app
 
 ### Overview
-If you would like to create a sticker app using the sample app, you only have to minimally modify the sample app to get up and running quickly. 
+Follow these steps if you want to test your sticker assets with the sample app.
 
 * After downloading this repo, open the `WAStickersThirdParty.xcodeproj` file with [Xcode](https://itunes.apple.com/us/app/xcode/id497799835).
 * Remove the current sample stickers from the `SampleStickers` folder in Xcode
 * Drag your sticker images inside the `SampleStickers` folder in Xcode
 * A window appears every time you drag an image into Xcode. Make sure that "Copy items if needed" and the `WAStickersThirdParty` target are checked.
-
-### Important note about using PNG images
-Xcode does some optimizations to every PNG image that is imported. This can lead to files becoming bigger in size and not passing our image size requirement. To prevent this, select the PNG file from the left sidebar and go to the right sidebar and select the first tab (to the left of the question mark button). On the "Type" drop down menu, select "Data". Do this for all of your PNG images (WebP images don't need this treatment).
 
 ### Modifying the sticker_packs.wasticker file
 In Xcode, you must also modify the 'sticker_packs.wasticker' file. Replace the values of the metadata with your own. A few notes: 
@@ -63,14 +64,24 @@ In Xcode, you must also modify the 'sticker_packs.wasticker' file. Replace the v
 * `identifier`: The identifier should be unique and can be alphanumeric: a-z, A-Z, 0-9, and the following characters are also allowed "_", "-", "." and " ". The identifier should be less than 128 characters.
 * Replace the `image_file` value with the file name of your sticker image. It must have both the file name and extension. The ordering of the files in the JSON will dictate the ordering of your stickers in your pack. 
 * `ios_app_store_link` and `android_play_store_link` (optional fields): here you can put the URL to your sticker app in the App Store as well as a URL to your sticker app in the Google Play Store (if you have an Android version of your sticker app). If you provide these URLs, users who receive a sticker from your app in WhatsApp can tap on it to view your sticker app in the respective App Stores. To get your App Store link before you publish your app, refer to the instructions here: https://stackoverflow.com/questions/4137426/get-itunes-link-for-app-before-submitting.
-* `emoji` (optional): add up to a maximum of three emoji for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. In the future, WhatsApp will support a search function for stickers and tagging your sticker files with emoji will enable that. The sticker picker/tray in WhatsApp today already categorizes stickers into emotion categories (love, happy, sad, and angry) and it does this based on the emoji you tag your stickers with. 
+* `emojis` (optional): add up to a maximum of three emoji for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. In the future, WhatsApp will support a search function for stickers and tagging your sticker files with emoji will enable that. The sticker picker/tray in WhatsApp today already categorizes stickers into emotion categories (love, happy, sad, and angry) and it does this based on the emoji you tag your stickers with. 
 
 The following fields are optional: `ios_app_store_link`, `android_app_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`, `emoji`
 
 If your app has more than 1 sticker pack, you will need to reference it in `sticker_packs.wasticker`. Simply create a second array within the "sticker_packs" section of the file and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 
 
+### Build the sample app
+Make sure to run and test your sticker app. You can use the simulator to run the app, but you need to install your app on an actual iPhone to test and see if it works with WhatsApp. 
+
+## Submit your app
+To submit your app to the App Store, you'll need to enroll as an Apple Developer at [https://developer.apple.com/programs/enroll/](https://developer.apple.com/programs/enroll/). 
+
+Then, follow the instructions for publishing your app to the App Store: [https://help.apple.com/xcode/mac/current/#/dev442d7f2ca](https://help.apple.com/xcode/mac/current/#/dev442d7f2ca).
+
+When preparing your app for submission in iTunes Connect, you'll have the option to add keywords associated with your app. WhatsApp can launch the App Store and perform a search for other sticker pack apps. To make sure that your app is shown in this list, add the keyword `WAStickers` when setting up your app in App Store connect. You can use additional keywords, but make sure you at least use this one.
+
 ### Required before you publish your app
-You must change the bundle identifier from the one provided. You cannot use anything that includes `WA.WAStickersThirdParty`. This is the only restriction on what you put as a bundle ID.
+Your bundle identifier cannot use anything that includes `WA.WAStickersThirdParty`. This is the only restriction on what you put as a bundle ID.
 
 To change the bundle identifier:
 
@@ -88,20 +99,8 @@ To change your app's icon:
 * You'll see a lot of sections. The sections of our interest are "iPhone App" and "App Store" (required for publishing to the App Store).
 * The 2x icon is 120x120 pixels and the 3x icon is 180x180. Just drag your images into the corresponding 2x or 3x bucket. If you have a 1024x1024 image for the App Store, drag it into the "App Store" bucket.
 
-### Build the sample app
-Make sure to run and test your sticker app. You can use the simulator to run the app, but you need to install your app on an actual iPhone to test and see if it works with WhatsApp. 
-
-To prepare your app for submission to the App Store, you will to build an archive of your app. For more information, visit [https://help.apple.com/xcode/mac/current/#/devf37a1db04](https://help.apple.com/xcode/mac/current/#/devf37a1db04). 
-
-## Submit your app
-To submit your app to the App Store, you'll need to enroll as an Apple Developer at [https://developer.apple.com/programs/enroll/](https://developer.apple.com/programs/enroll/). 
-
-Then, follow the instructions for publishing your app to the App Store: [https://help.apple.com/xcode/mac/current/#/dev442d7f2ca](https://help.apple.com/xcode/mac/current/#/dev442d7f2ca).
-
-When preparing your app for submission in iTunes Connect, you'll have the option to add keywords associated with your app. WhatsApp can launch the App Store and perform a search for other sticker pack apps. To make sure that your app is shown in this list, add the keyword `WAStickers` when setting up your app in App Store connect. You can use additional keywords, but make sure you at least use this one.
-
-## Advanced development
-For advanced developers looking to make a more custom integration and fully control the UI of their sticker apps, follow the instructions below. We provide built-in helper classes and methods to easily create objects to represent your stickers and sticker pack, and to send them to the WhatsApp app.
+## API documentation
+We provide built-in helper classes and methods to easily create objects to represent your stickers and sticker packs, and to send them to the WhatsApp app.
 
 ### Files to use
 Copy the following files from the sample app into your Xcode project:

@@ -38,8 +38,12 @@ class AllStickerPacksViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if needsFetchStickerPacks {
-            needsFetchStickerPacks = false
-            fetchStickerPacks()
+            let alert: UIAlertController = UIAlertController(title: "Don't ship this sample app!", message: "If you want to ship your sticker packs to the App Store, create your own app with its own user interface. Your app must have minimum to no resemblance to this sample app.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+                self.needsFetchStickerPacks = false
+                self.fetchStickerPacks()
+            }))
+            present(alert, animated: true, completion:nil)
         }
     }
 
@@ -99,6 +103,7 @@ class AllStickerPacksViewController: UIViewController, UITableViewDataSource, UI
 
         let addButton: UIButton = UIButton(type: .contactAdd)
         addButton.tag = indexPath.row
+        addButton.isEnabled = Interoperability.canSend()
         addButton.addTarget(self, action: #selector(addButtonTapped(button:)), for: .touchUpInside)
         cell.accessoryView = addButton
 

@@ -39,8 +39,9 @@ Your sticker art must be in the WebP format. We recommend using the tools you're
 
 * Sketch for Mac lets you export files as WebP. Open your sticker art file in Sketch, select a layer, multiple layers, or an artboard, and select Make Exportable in the bottom right. Pick your format as WebP, select Export, and then select the quality/resolution.
 * [Android Studio](https://developer.android.com/studio/) allows you to convert PNGs to WebP. Simply create a new project in Android Studio, open your PNG and right click on the image and select convert to WebP ([https://developer.android.com/studio/write/convert-webp](https://developer.android.com/studio/write/convert-webp)). Make sure you uncheck the box next to "Skip images with transparency/alpha channel" in the export flow.
-* You can install a [plugin](https://github.com/fnordware/AdobeWebM#download) for Photoshop that converts to WebP
+* You can install a [plugin](https://github.com/fnordware/AdobeWebM#download) for Photoshop that converts to WebP. Make sure to uncheck the "Save Metadata" checkbox. Some users have experienced problems with using the webp files generated from Photoshop. If you have problems, we suggest you create PNG files, and use Android Studio to do the conversion.
 * Use [cwebp](https://developers.google.com/speed/webp/), a command line tool
+* Use [squoosh](https://squoosh.app/), an online browser tool, by the Google Chrome Labs
 
 ## How to create a sticker app
 
@@ -61,7 +62,7 @@ You must also modify the contents.json file in SampleStickerApp/app/src/main/ass
 * `publisher`: name of the publisher of the pack (128 characters max)
 * Replace the "image_file" value with the file name of your sticker image. It must have both the file name and extension. The ordering of the files in the JSON will dictate the ordering of your stickers in your pack. 
 * `android_play_store_link` and `ios_app_store_link` (optional fields): here you can put the URL to your sticker app in the Google Play Store and Apple App Store (if you have an iOS version of your sticker app). If you provide these URLs, users who receive a sticker from your app in WhatsApp can tap on it to view your sticker app in the respective App Stores. On Android, the URL follows the format https://play.google.com/store/apps/details?id=com.example where "com.example" is your app's package name.
-* `emoji` (optional): add up to a maximum of three emoji for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. In the future, WhatsApp will support a search function for stickers and tagging your sticker files with emoji will enable that. The sticker picker/tray in WhatsApp today already categorizes stickers into emotion categories (love, happy, sad, and angry) and it does this based on the emoji you tag your stickers with.
+* `emojis` (optional): add up to a maximum of three emoji for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. In the future, WhatsApp will support a search function for stickers and tagging your sticker files with emoji will enable that. The sticker picker/tray in WhatsApp today already categorizes stickers into emotion categories (love, happy, sad, and angry) and it does this based on the emoji you tag your stickers with.
 
 The following fields are optional: `ios_app_store_link`, `android_app_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`, `emoji`
 
@@ -84,7 +85,7 @@ Make sure to run and test your sticker app. For help on building your app, visit
 ## Submit your app
 You need to build a release version of your app for submission to the Google Play Store. Click Build > Generate Signed Bundle/APK. For more information, visit https://developer.android.com/studio/publish/app-signing#sign-apk. Note that Android Studio saves the APKs you build in project-name/module-name/build/outputs/apk. For more information on building your app, visit https://developer.android.com/studio/run/.
 
-When preparing your app for submission in Google Play Store, you'll have the option to add description associated with your app. WhatsApp can launch the Google Play Store and perform a search for other sticker pack apps. To help your app appear in this list, add the keyword WAStickerApps to app's description when setting up your app in the Google Play Store console. You can use additional keywords, but make sure you at least use this one.
+Importantly, when naming your app, it is strongly advised you do *not* use "WhatsApp" anywhere in the name of your app or in the name field of your app listing on the Google Play Store. However, when preparing your app for submission in Google Play Store, you'll have the option to add description associated with your app and it's okay to mention WhatsApp in the description. WhatsApp can also launch the Google Play Store and perform a search for other sticker pack apps. To help your app appear in this list, also add the keyword WAStickerApps to app's description when setting up your app in the Google Play Store console. You can use additional keywords, but make sure you at least use this one.
 
 To submit your app to the Google Play Store, follow the instructions here: https://developer.android.com/distribute/best-practices/launch/. 
 
@@ -114,6 +115,26 @@ The ContentProvider needs to have a read permission of `com.whatsapp.sticker.REA
             android:enabled="true"
             android:exported="true"
             android:readPermission="com.whatsapp.sticker.READ" />
+#### Expose files that are stored internally as stickers through ContentProvider
+If you would like to expose files saved internally or externally and serve these files as sticker. It is possible, but please follow the guidelines in 'Sticker art and app requirements' to make sure the files meets these requirements. As to how to do that, you can take a look at the following code snippet to get an understanding of how that can be done. 
+
+        private AssetFileDescriptor fetchFile(@NonNull Uri uri, @NonNull AssetManager am, @NonNull String fileName, @NonNull String identifier) throws IOException {
+        final File cacheFile = getContext().getExternalCacheDir();
+        final File file = new File(cacheFile, fileName);
+        try (final InputStream open = am.open(identifier + "/" + fileName);
+             final FileOutputStream fileOutputStream = new FileOutputStream(file)) {
+             byte[] buffer = new byte[1024];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+        }
+        //The code above is basically copying the assets to storage, and servering the file off of the storage. 
+        //If you have the files already downloaded/fetched, you could simply replace above part, and initialize the file parameter with your own file which points to the desired file.
+        //The key here is you can use ParcelFileDescriptor to create an AssetFileDescriptor.
+        return new AssetFileDescriptor(ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY), 0, AssetFileDescriptor.UNKNOWN_LENGTH);
+    }
+
 ### Intent
 It is required that users explicitly add a sticker pack to WhatsApp, so your app must provide a UI element to allow users to add a pack (for example, a button labeled "Add to WhatsApp" as in the sample app). 
 In the sample app, both [StickerPackListActivity](app/src/main/java/com/example/samplestickerapp/StickerPackListActivity.java) and [StickerPackDetailsActivity](app/src/main/java/com/example/samplestickerapp/StickerPackDetailsActivity.java) contains code to launch the intent after the user presses the Add to WhatsApp button. The user must then confirm they want to add the pack via the alert box presented by WhatsApp.
@@ -143,6 +164,6 @@ Note that a pack can be added to either the main WhatsApp app, WhatsApp Business
 
 Your app can only query whether the packs it provides have been added and it can't check for information about sticker packs from other apps.
 
-
 ### Tools
  - **[JSON Generator for WhatsApp Sticker Pack](http://pratikbutani.com/wastickerapp)** to generate JSON for `content.json`
+

@@ -30,8 +30,11 @@ public class WhitelistCheck {
 
     static boolean isWhitelisted(@NonNull Context context, @NonNull String identifier) {
         try {
-            boolean consumerResult = isWhitelistedFromProvider(context, identifier, CONSUMER_WHATSAPP_PACKAGE_NAME);
-            boolean smbResult = isWhitelistedFromProvider(context, identifier, SMB_WHATSAPP_PACKAGE_NAME);
+            if (!isWhatsAppConsumerAppInstalled(context.getPackageManager()) && !isWhatsAppSmbAppInstalled(context.getPackageManager())) {
+                return false;
+            }
+            boolean consumerResult = isStickerPackWhitelistedInWhatsAppConsumer(context, identifier);
+            boolean smbResult = isStickerPackWhitelistedInWhatsAppSmb(context, identifier);
             return consumerResult && smbResult;
         } catch (Exception e) {
             return false;
@@ -43,7 +46,7 @@ public class WhitelistCheck {
         if (isPackageInstalled(whatsappPackageName, packageManager)) {
             final String whatsappProviderAuthority = whatsappPackageName + CONTENT_PROVIDER;
             final ProviderInfo providerInfo = packageManager.resolveContentProvider(whatsappProviderAuthority, PackageManager.GET_META_DATA);
-            // provider is not there.
+            // provider is not there. The WhatsApp app may be an old version.
             if (providerInfo == null) {
                 return false;
             }
@@ -73,5 +76,21 @@ public class WhitelistCheck {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    public static boolean isWhatsAppConsumerAppInstalled(PackageManager packageManager) {
+        return WhitelistCheck.isPackageInstalled(CONSUMER_WHATSAPP_PACKAGE_NAME, packageManager);
+    }
+
+    public static boolean isWhatsAppSmbAppInstalled(PackageManager packageManager) {
+        return WhitelistCheck.isPackageInstalled(SMB_WHATSAPP_PACKAGE_NAME, packageManager);
+    }
+
+    public static boolean isStickerPackWhitelistedInWhatsAppConsumer(@NonNull Context context, @NonNull String identifier) {
+        return isWhitelistedFromProvider(context, identifier, CONSUMER_WHATSAPP_PACKAGE_NAME);
+    }
+
+    public static boolean isStickerPackWhitelistedInWhatsAppSmb(@NonNull Context context, @NonNull String identifier) {
+        return isWhitelistedFromProvider(context, identifier, SMB_WHATSAPP_PACKAGE_NAME);
     }
 }
