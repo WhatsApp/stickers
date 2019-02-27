@@ -67,6 +67,9 @@ The following fields are optional: `ios_app_store_link`, `android_app_store_link
 
 If your app has more than 1 sticker pack, you will need to reference it in contents.json. Simply create a second array within the "sticker_packs" section of the JSON and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 
 
+You can use **[JSON Generator for WhatsApp Sticker Pack](http://pratikbutani.com/wastickerapp)** awesome tool  to create JSON by uploading **webp** images (and other optional details.) You can also visit [GitHub Repo](https://github.com/pratikbutani/WAStickerApp-JSON-Generator/) to Contribute.
+
+
 ### Build the sample app
 Before building your app, you will need to do the following: 
 
