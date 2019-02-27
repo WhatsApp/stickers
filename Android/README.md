@@ -68,7 +68,7 @@ The following fields are optional: `ios_app_store_link`, `android_app_store_link
 
 If your app has more than 1 sticker pack, you will need to reference it in contents.json. Simply create a second array within the "sticker_packs" section of the JSON and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 
 
-You can use **[JSON Generator for WhatsApp Sticker Pack](http://pratikbutani.com/wastickerapp)** awesome tool  to create JSON by uploading **webp** images (and other optional details.) You can also visit [GitHub Repo](https://github.com/pratikbutani/WAStickerApp-JSON-Generator/) to Contribute.
+_You can use the tool **[JSON Generator for WhatsApp Sticker Pack](http://pratikbutani.com/wastickerapp)** to create the JSON-File._ The tool is open-source: [Repository](https://github.com/pratikbutani/WAStickerApp-JSON-Generator/).
 
 
 ### Build the sample app
@@ -163,7 +163,3 @@ The result is in a row corresponding to the column named `result`. The value wil
 Note that a pack can be added to either the main WhatsApp app, WhatsApp Business, or both. It is recommended you continue to present a button to add the pack to WhatsApp if the sticker pack is not added to one or more of the apps. Refer to the class [WhitelistCheck](app/src/main/java/com/example/samplestickerapp/WhitelistCheck.java) for sample logic.
 
 Your app can only query whether the packs it provides have been added and it can't check for information about sticker packs from other apps.
-
-### Tools
- - **[JSON Generator for WhatsApp Sticker Pack](http://pratikbutani.com/wastickerapp)** to generate JSON for `content.json`
-
