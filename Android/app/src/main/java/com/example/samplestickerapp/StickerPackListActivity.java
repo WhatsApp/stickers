@@ -77,9 +77,11 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         int firstVisibleItemPosition = packLayoutManager.findFirstVisibleItemPosition();
         StickerPackListItemViewHolder viewHolder = (StickerPackListItemViewHolder) packRecyclerView.findViewHolderForAdapterPosition(firstVisibleItemPosition);
         if (viewHolder != null) {
-            final int max = Math.max(viewHolder.imageRowView.getMeasuredWidth() / previewSize, 1);
-            int numColumns = Math.min(STICKER_PREVIEW_DISPLAY_LIMIT, max);
-            allStickerPacksListAdapter.setMaxNumberOfStickersInARow(numColumns);
+            final int widthOfImageRow = viewHolder.imageRowView.getMeasuredWidth();
+            final int max = Math.max(widthOfImageRow / previewSize, 1);
+            int maxNumberOfImagesInARow = Math.min(STICKER_PREVIEW_DISPLAY_LIMIT, max);
+            int minMarginBetweenImages = (widthOfImageRow - maxNumberOfImagesInARow * previewSize) / (maxNumberOfImagesInARow - 1);
+            allStickerPacksListAdapter.setImageRowSpec(maxNumberOfImagesInARow, minMarginBetweenImages);
         }
     }
 
