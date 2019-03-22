@@ -1,4 +1,5 @@
 <resources>
+    <!-- This is the app's name, translators please do not translate and put in the same text as English version. Developers can consider putting in their own translation, this string must be changed before publishing -->
     <string name="app_name">WhatsAppSampleStickerApp</string>
     <!-- Content description for the sticker pack tray image -->
     <string name="tray_image_content_description">Sticker Pack Tray Image</string>
@@ -10,8 +11,6 @@
     <string name="add_button_content_description">Add sticker pack to WhatsApp</string>
     <!-- Title of the sticker pack list activity page in case the app contains multiple sticker packs -->
     <string name="title_activity_sticker_packs_list">Sticker Packs</string>
-    <!-- The divider between sticker pack publisher and the sticker pack size -->
-    <string name="dot">•</string>
     <!-- Title of the sticker pack page when there is only one sticker pack in the app -->
     <string name="title_activity_sticker_pack_details_single_pack">Sticker Pack</string>
     <!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
@@ -26,8 +25,6 @@
     <string name="privacy_policy">Privacy policy</string>
     <!-- Error displayed in a toast when user failed to install sticker pack to WhatsApp -->
     <string name="error_adding_sticker_pack">Could not add this sticker pack. Update to the latest version of WhatsApp before adding this sticker pack.</string>
-    <string name="error_message">Error: %s \nSee logcat for stack trace.</string>
-    <string name="title_validation_error">Error with the pack</string>
     <!-- Text next to the tray icon that indicates the tray icon -->
     <string name="info_screen_tray_icon">Tray icon</string>
     <!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
