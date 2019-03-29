@@ -42,5 +42,13 @@
             android:drawableLeft="@drawable/sticker_3rdparty_privacy"
             android:drawableStart="@drawable/sticker_3rdparty_privacy"
             android:text="@string/privacy_policy" />
+
+        <TextView
+            android:id="@+id/license_agreement"
+            style="@style/InfoButtonStyle"
+            android:drawableLeft="@drawable/sticker_3rdparty_license"
+            android:drawableStart="@drawable/sticker_3rdparty_license"
+            android:text="@string/license_agreement" />
+
     </LinearLayout>
 </LinearLayout>

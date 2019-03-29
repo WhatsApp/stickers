@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.IdRes;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +38,7 @@ public class StickerPackInfoActivity extends BaseActivity {
         final String website = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_WEBSITE);
         final String email = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_EMAIL);
         final String privacyPolicy = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_PRIVACY_POLICY);
-
+        final String licenseAgreement = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_LICENSE_AGREEMENT);
         final TextView trayIcon = findViewById(R.id.tray_icon);
         try {
             final InputStream inputStream = getContentResolver().openInputStream(Uri.parse(trayIconUriString));
@@ -49,12 +50,7 @@ public class StickerPackInfoActivity extends BaseActivity {
             Log.e(TAG, "could not find the uri for the tray image:" + trayIconUriString);
         }
 
-        final TextView viewWebpage = findViewById(R.id.view_webpage);
-        if (TextUtils.isEmpty(website)) {
-            viewWebpage.setVisibility(View.GONE);
-        } else {
-            viewWebpage.setOnClickListener(v -> launchWebpage(website));
-        }
+        setupTextView(website, R.id.view_webpage);
 
         final TextView sendEmail = findViewById(R.id.send_email);
         if (TextUtils.isEmpty(email)) {
@@ -63,11 +59,17 @@ public class StickerPackInfoActivity extends BaseActivity {
             sendEmail.setOnClickListener(v -> launchEmailClient(email));
         }
 
-        final TextView viewPrivacyPolicy = findViewById(R.id.privacy_policy);
-        if (TextUtils.isEmpty(privacyPolicy)) {
-            viewPrivacyPolicy.setVisibility(View.GONE);
+        setupTextView(privacyPolicy, R.id.privacy_policy);
+
+        setupTextView(licenseAgreement, R.id.license_agreement);
+    }
+
+    private void setupTextView(String website, @IdRes int textViewResId) {
+        final TextView viewWebpage = findViewById(textViewResId);
+        if (TextUtils.isEmpty(website)) {
+            viewWebpage.setVisibility(View.GONE);
         } else {
-            viewPrivacyPolicy.setOnClickListener(v -> launchWebpage(privacyPolicy));
+            viewWebpage.setOnClickListener(v -> launchWebpage(website));
         }
     }
 

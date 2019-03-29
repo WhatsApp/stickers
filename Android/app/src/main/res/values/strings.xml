@@ -25,6 +25,8 @@
     <string name="privacy_policy">Privacy policy</string>
     <!-- Error displayed in a toast when user failed to install sticker pack to WhatsApp -->
     <string name="error_adding_sticker_pack">Could not add this sticker pack. Update to the latest version of WhatsApp before adding this sticker pack.</string>
+    <!-- Text of button that allows user to click to go to the license agreement website -->
+    <string name="license_agreement">License agreement</string>
     <!-- Text next to the tray icon that indicates the tray icon -->
     <string name="info_screen_tray_icon">Tray icon</string>
     <!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
