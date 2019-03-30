@@ -9,10 +9,11 @@
     <string name="add_to_whatsapp">Add to WhatsApp</string>
     <!-- Content Description for the plus button shown on sticker pack list, that allows user to add sticker pack to WhatsApp -->
     <string name="add_button_content_description">Add sticker pack to WhatsApp</string>
-    <!-- Title of the sticker pack list activity page in case the app contains multiple sticker packs -->
-    <string name="title_activity_sticker_packs_list">Sticker Packs</string>
-    <!-- Title of the sticker pack page when there is only one sticker pack in the app -->
-    <string name="title_activity_sticker_pack_details_single_pack">Sticker Pack</string>
+    <!-- Title of the sticker pack list activity page in case the app contains multiple sticker packs, the singular string will be used when there is only one pack in the app -->
+    <plurals name="title_activity_sticker_packs_list">
+        <item quantity="one">Sticker Pack</item>
+        <item quantity="other">Sticker Packs</item>
+    </plurals>
     <!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
     <string name="title_activity_sticker_pack_details_multiple_pack">Sticker details</string>
     <!-- Title of the sticker pack info page which displays the webpage, email and privacy policy of the sticker pack -->
