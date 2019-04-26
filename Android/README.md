@@ -87,7 +87,7 @@ Importantly, when naming your app, it is strongly advised you do *not* use "What
 
 To submit your app to the Google Play Store, follow the instructions here: https://developer.android.com/distribute/best-practices/launch/. 
 
-It is advised that you create Multiple APKs per ABI (CPU Architecture), see https://developer.android.com/studio/build/configure-apk-splits for more information. In order to do that, uncomment the lines 47-52 in app/build.gradle line.
+It is advised that you create Multiple APKs per ABI (CPU Architecture), it will make the published app size smaller. see https://developer.android.com/studio/build/configure-apk-splits for more information. In order to do that, uncomment the lines 47-52 in app/build.gradle line.
 ## Advanced development
 For advanced developers looking to make richer sticker apps, follow the instructions below.
 
