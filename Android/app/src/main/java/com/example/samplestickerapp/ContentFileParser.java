@@ -8,9 +8,10 @@
 
 package com.example.samplestickerapp;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.JsonReader;
+
+import androidx.annotation.NonNull;
 
 import java.io.IOException;
 import java.io.InputStream;

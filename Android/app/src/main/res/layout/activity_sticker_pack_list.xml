@@ -14,7 +14,7 @@
         android:textColor="@android:color/holo_red_dark"
         android:id="@+id/error_message" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sticker_pack_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
