@@ -4,11 +4,11 @@
     package="com.example.samplestickerapp">
 
     <application
+        android:name=".StickerApplication"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".StickerApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -19,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".StickerPackListActivity"/>
+        <activity android:name=".StickerPackListActivity" />
         <activity
             android:name=".StickerPackDetailsActivity"
             android:parentActivityName=".StickerPackListActivity"

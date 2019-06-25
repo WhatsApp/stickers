@@ -11,11 +11,12 @@ package com.example.samplestickerapp;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.webkit.URLUtil;
+
+import androidx.annotation.NonNull;
 
 import com.facebook.animated.webp.WebPImage;
 

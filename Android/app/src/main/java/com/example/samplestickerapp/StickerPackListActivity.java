@@ -10,6 +10,7 @@ package com.example.samplestickerapp;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;

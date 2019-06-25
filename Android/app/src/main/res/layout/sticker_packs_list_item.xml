@@ -8,19 +8,19 @@
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
-    android:paddingBottom="4dp"
-    android:paddingEnd="16dp"
     android:paddingStart="16dp"
-    android:paddingTop="8dp">
+    android:paddingTop="8dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="4dp">
 
     <ImageView
         android:id="@+id/add_button_on_list"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="?attr/selectableItemBackground"
         android:contentDescription="@string/add_button_content_description"
         android:scaleType="center"
@@ -67,10 +67,10 @@
             style="@style/sticker_packs_list_item_author_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingEnd="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
-            android:paddingLeft="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
-            android:paddingRight="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
             android:paddingStart="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
+            android:paddingLeft="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
+            android:paddingEnd="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
+            android:paddingRight="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
             android:text="@string/dot" />
 
 
@@ -87,9 +87,9 @@
         android:id="@+id/sticker_packs_list_item_image_list"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@id/add_button_on_list"
         app:layout_constraintStart_toStartOf="parent"

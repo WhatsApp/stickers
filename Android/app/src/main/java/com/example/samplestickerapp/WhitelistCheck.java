@@ -15,6 +15,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
 import android.database.Cursor;
 import android.net.Uri;
+
 import androidx.annotation.NonNull;
 
 @SuppressWarnings("FieldCanBeLocal")

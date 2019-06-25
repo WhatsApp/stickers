@@ -9,8 +9,8 @@
         android:id="@+id/sticker_preview"
         android:layout_width="@dimen/sticker_pack_details_image_size"
         android:layout_height="@dimen/sticker_pack_details_image_size"
-        android:padding="@dimen/sticker_pack_details_image_padding"
         android:layout_gravity="center"
+        android:padding="@dimen/sticker_pack_details_image_padding"
         android:scaleType="centerCrop"
         tools:visibility="visible" />
 
