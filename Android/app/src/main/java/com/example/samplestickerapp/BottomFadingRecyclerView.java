@@ -9,9 +9,10 @@
 package com.example.samplestickerapp;
 
 import android.content.Context;
+import android.util.AttributeSet;
+
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-import android.util.AttributeSet;
 
 public class BottomFadingRecyclerView extends RecyclerView {
     public BottomFadingRecyclerView(Context context) {

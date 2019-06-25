@@ -12,9 +12,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.format.Formatter;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +19,10 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.ref.WeakReference;
 
@@ -113,7 +114,6 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     private final ViewTreeObserver.OnGlobalLayoutListener pageLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {

@@ -15,12 +15,13 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.IdRes;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;

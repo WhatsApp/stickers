@@ -15,11 +15,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.DialogFragment;
-import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 
 public abstract class AddStickerPackActivity extends BaseActivity {
     public static final int ADD_PACK = 200;
@@ -45,7 +46,7 @@ public abstract class AddStickerPackActivity extends BaseActivity {
                 Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-            Log.e(TAG, "error adding sticker pack to WhatsApp",  e);
+            Log.e(TAG, "error adding sticker pack to WhatsApp", e);
             Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
         }
 

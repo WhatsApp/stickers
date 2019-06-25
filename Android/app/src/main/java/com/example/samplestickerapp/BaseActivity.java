@@ -10,11 +10,12 @@ package com.example.samplestickerapp;
 
 import android.app.Dialog;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
-import androidx.fragment.app.DialogFragment;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 public abstract class BaseActivity extends AppCompatActivity {
     @Override
