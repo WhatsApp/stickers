@@ -19,12 +19,12 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class WhitelistCheck {
+class WhitelistCheck {
     private static final String AUTHORITY_QUERY_PARAM = "authority";
     private static final String IDENTIFIER_QUERY_PARAM = "identifier";
     private static String STICKER_APP_AUTHORITY = BuildConfig.CONTENT_PROVIDER_AUTHORITY;
-    public static String CONSUMER_WHATSAPP_PACKAGE_NAME = "com.whatsapp";
-    public static String SMB_WHATSAPP_PACKAGE_NAME = "com.whatsapp.w4b";
+    static final String CONSUMER_WHATSAPP_PACKAGE_NAME = "com.whatsapp";
+    static final String SMB_WHATSAPP_PACKAGE_NAME = "com.whatsapp.w4b";
     private static String CONTENT_PROVIDER = ".provider.sticker_whitelist_check";
     private static String QUERY_PATH = "is_whitelisted";
     private static String QUERY_RESULT_COLUMN_NAME = "result";
@@ -79,19 +79,19 @@ public class WhitelistCheck {
         }
     }
 
-    public static boolean isWhatsAppConsumerAppInstalled(PackageManager packageManager) {
+    static boolean isWhatsAppConsumerAppInstalled(PackageManager packageManager) {
         return WhitelistCheck.isPackageInstalled(CONSUMER_WHATSAPP_PACKAGE_NAME, packageManager);
     }
 
-    public static boolean isWhatsAppSmbAppInstalled(PackageManager packageManager) {
+    static boolean isWhatsAppSmbAppInstalled(PackageManager packageManager) {
         return WhitelistCheck.isPackageInstalled(SMB_WHATSAPP_PACKAGE_NAME, packageManager);
     }
 
-    public static boolean isStickerPackWhitelistedInWhatsAppConsumer(@NonNull Context context, @NonNull String identifier) {
+    static boolean isStickerPackWhitelistedInWhatsAppConsumer(@NonNull Context context, @NonNull String identifier) {
         return isWhitelistedFromProvider(context, identifier, CONSUMER_WHATSAPP_PACKAGE_NAME);
     }
 
-    public static boolean isStickerPackWhitelistedInWhatsAppSmb(@NonNull Context context, @NonNull String identifier) {
+    static boolean isStickerPackWhitelistedInWhatsAppSmb(@NonNull Context context, @NonNull String identifier) {
         return isWhitelistedFromProvider(context, identifier, SMB_WHATSAPP_PACKAGE_NAME);
     }
 }

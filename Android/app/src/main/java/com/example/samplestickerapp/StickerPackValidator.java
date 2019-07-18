@@ -25,7 +25,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class StickerPackValidator {
+class StickerPackValidator {
     private static final int STICKER_FILE_SIZE_LIMIT_KB = 100;
     private static final int EMOJI_LIMIT = 3;
     private static final int IMAGE_HEIGHT = 512;
