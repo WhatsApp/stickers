@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
-public class StickerPreviewViewHolder extends RecyclerView.ViewHolder {
+class StickerPreviewViewHolder extends RecyclerView.ViewHolder {
 
-    public SimpleDraweeView stickerPreviewView;
+    final SimpleDraweeView stickerPreviewView;
 
     StickerPreviewViewHolder(final View itemView) {
         super(itemView);

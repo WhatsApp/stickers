@@ -28,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         private static final String ARG_TITLE_ID = "title_id";
         private static final String ARG_MESSAGE = "message";
 
-        public static DialogFragment newInstance(@StringRes int titleId, String message) {
+        static DialogFragment newInstance(@StringRes int titleId, String message) {
             DialogFragment fragment = new MessageDialogFragment();
             Bundle arguments = new Bundle();
             arguments.putInt(ARG_TITLE_ID, titleId);

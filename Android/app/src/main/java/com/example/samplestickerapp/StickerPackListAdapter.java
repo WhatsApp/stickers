@@ -116,7 +116,7 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
         }
     }
 
-    public void setStickerPackList(List<StickerPack> stickerPackList) {
+    void setStickerPackList(List<StickerPack> stickerPackList) {
         this.stickerPacks = stickerPackList;
     }
 

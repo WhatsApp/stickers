@@ -84,19 +84,19 @@ class StickerPack implements Parcelable {
         }
     }
 
-    public void setAndroidPlayStoreLink(String androidPlayStoreLink) {
+    void setAndroidPlayStoreLink(String androidPlayStoreLink) {
         this.androidPlayStoreLink = androidPlayStoreLink;
     }
 
-    public void setIosAppStoreLink(String iosAppStoreLink) {
+    void setIosAppStoreLink(String iosAppStoreLink) {
         this.iosAppStoreLink = iosAppStoreLink;
     }
 
-    public List<Sticker> getStickers() {
+    List<Sticker> getStickers() {
         return stickers;
     }
 
-    public long getTotalSize() {
+    long getTotalSize() {
         return totalSize;
     }
 
