@@ -18,29 +18,32 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+
+import com.example.samplestickerapp.databinding.ActivityEntryBinding;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class EntryActivity extends BaseActivity {
-    private View progressBar;
+
+    private ActivityEntryBinding binding;
     private LoadListAsyncTask loadListAsyncTask;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entry);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_entry);
         overridePendingTransition(0, 0);
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        progressBar = findViewById(R.id.entry_activity_progress);
         loadListAsyncTask = new LoadListAsyncTask(this);
         loadListAsyncTask.execute();
     }
 
     private void showStickerPack(ArrayList<StickerPack> stickerPackList) {
-        progressBar.setVisibility(View.GONE);
+        binding.entryActivityProgress.setVisibility(View.GONE);
         if (stickerPackList.size() > 1) {
             final Intent intent = new Intent(this, StickerPackListActivity.class);
             intent.putParcelableArrayListExtra(StickerPackListActivity.EXTRA_STICKER_PACK_LIST_DATA, stickerPackList);
@@ -58,7 +61,7 @@ public class EntryActivity extends BaseActivity {
     }
 
     private void showErrorMessage(String errorMessage) {
-        progressBar.setVisibility(View.GONE);
+        binding.entryActivityProgress.setVisibility(View.GONE);
         Log.e("EntryActivity", "error fetching sticker packs, " + errorMessage);
         final TextView errorMessageTV = findViewById(R.id.error_message);
         errorMessageTV.setText(getString(R.string.error_message, errorMessage));

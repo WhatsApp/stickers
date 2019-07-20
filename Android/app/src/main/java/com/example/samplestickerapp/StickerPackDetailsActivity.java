@@ -17,12 +17,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.samplestickerapp.databinding.StickerPackDetailsBinding;
 
 import java.lang.ref.WeakReference;
 
@@ -43,44 +44,33 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
     public static final String EXTRA_SHOW_UP_BUTTON = "show_up_button";
     public static final String EXTRA_STICKER_PACK_DATA = "sticker_pack";
 
-    private RecyclerView recyclerView;
+    private StickerPackDetailsBinding binding;
     private GridLayoutManager layoutManager;
     private StickerPreviewAdapter stickerPreviewAdapter;
     private int numColumns;
-    private View addButton;
-    private View alreadyAddedText;
     private StickerPack stickerPack;
-    private View divider;
     private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sticker_pack_details);
+        binding = DataBindingUtil.setContentView(this, R.layout.sticker_pack_details);
         boolean showUpButton = getIntent().getBooleanExtra(EXTRA_SHOW_UP_BUTTON, false);
         stickerPack = getIntent().getParcelableExtra(EXTRA_STICKER_PACK_DATA);
-        TextView packNameTextView = findViewById(R.id.pack_name);
-        TextView packPublisherTextView = findViewById(R.id.author);
-        ImageView packTrayIcon = findViewById(R.id.tray_image);
-        TextView packSizeTextView = findViewById(R.id.pack_size);
 
-        addButton = findViewById(R.id.add_to_whatsapp_button);
-        alreadyAddedText = findViewById(R.id.already_added_text);
         layoutManager = new GridLayoutManager(this, 1);
-        recyclerView = findViewById(R.id.sticker_list);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.getViewTreeObserver().addOnGlobalLayoutListener(pageLayoutListener);
-        recyclerView.addOnScrollListener(dividerScrollListener);
-        divider = findViewById(R.id.divider);
+        binding.stickerList.setLayoutManager(layoutManager);
+        binding.stickerList.getViewTreeObserver().addOnGlobalLayoutListener(pageLayoutListener);
+        binding.stickerList.addOnScrollListener(dividerScrollListener);
         if (stickerPreviewAdapter == null) {
             stickerPreviewAdapter = new StickerPreviewAdapter(getLayoutInflater(), R.drawable.sticker_error, getResources().getDimensionPixelSize(R.dimen.sticker_pack_details_image_size), getResources().getDimensionPixelSize(R.dimen.sticker_pack_details_image_padding), stickerPack);
-            recyclerView.setAdapter(stickerPreviewAdapter);
+            binding.stickerList.setAdapter(stickerPreviewAdapter);
         }
-        packNameTextView.setText(stickerPack.name);
-        packPublisherTextView.setText(stickerPack.publisher);
-        packTrayIcon.setImageURI(StickerPackLoader.getStickerAssetUri(stickerPack.identifier, stickerPack.trayImageFile));
-        packSizeTextView.setText(Formatter.formatShortFileSize(this, stickerPack.getTotalSize()));
-        addButton.setOnClickListener(v -> addStickerPackToWhatsApp(stickerPack.identifier, stickerPack.name));
+        binding.packName.setText(stickerPack.name);
+        binding.author.setText(stickerPack.publisher);
+        binding.trayImage.setImageURI(StickerPackLoader.getStickerAssetUri(stickerPack.identifier, stickerPack.trayImageFile));
+        binding.packSize.setText(Formatter.formatShortFileSize(this, stickerPack.getTotalSize()));
+        binding.addToWhatsappButton.setOnClickListener(v -> addStickerPackToWhatsApp(stickerPack.identifier, stickerPack.name));
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(showUpButton);
             getSupportActionBar().setTitle(showUpButton ? getResources().getString(R.string.title_activity_sticker_pack_details_multiple_pack) : getResources().getQuantityString(R.plurals.title_activity_sticker_packs_list, 1));
@@ -119,7 +109,7 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
     private final ViewTreeObserver.OnGlobalLayoutListener pageLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
         @Override
         public void onGlobalLayout() {
-            setNumColumns(recyclerView.getWidth() / recyclerView.getContext().getResources().getDimensionPixelSize(R.dimen.sticker_pack_details_image_size));
+            setNumColumns(binding.stickerList.getWidth() / getResources().getDimensionPixelSize(R.dimen.sticker_pack_details_image_size));
         }
     };
 
@@ -148,8 +138,8 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
 
         private void updateDivider(RecyclerView recyclerView) {
             boolean showDivider = recyclerView.computeVerticalScrollOffset() > 0;
-            if (divider != null) {
-                divider.setVisibility(showDivider ? View.VISIBLE : View.INVISIBLE);
+            if (binding.divider != null) {
+                binding.divider.setVisibility(showDivider ? View.VISIBLE : View.INVISIBLE);
             }
         }
     };
@@ -171,11 +161,11 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
 
     private void updateAddUI(Boolean isWhitelisted) {
         if (isWhitelisted) {
-            addButton.setVisibility(View.GONE);
-            alreadyAddedText.setVisibility(View.VISIBLE);
+            binding.addToWhatsappButton.setVisibility(View.GONE);
+            binding.alreadyAddedText.setVisibility(View.VISIBLE);
         } else {
-            addButton.setVisibility(View.VISIBLE);
-            alreadyAddedText.setVisibility(View.GONE);
+            binding.addToWhatsappButton.setVisibility(View.VISIBLE);
+            binding.alreadyAddedText.setVisibility(View.GONE);
         }
     }
 

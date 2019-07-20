@@ -8,18 +8,16 @@
 
 package com.example.samplestickerapp;
 
-import android.view.View;
-
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.example.samplestickerapp.databinding.StickerImageBinding;
 
 class StickerPreviewViewHolder extends RecyclerView.ViewHolder {
 
-    final SimpleDraweeView stickerPreviewView;
+    final StickerImageBinding binding;
 
-    StickerPreviewViewHolder(final View itemView) {
-        super(itemView);
-        stickerPreviewView = itemView.findViewById(R.id.sticker_preview);
+    StickerPreviewViewHolder(final StickerImageBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
     }
 }

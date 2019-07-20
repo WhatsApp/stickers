@@ -9,11 +9,13 @@
 package com.example.samplestickerapp;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.samplestickerapp.databinding.StickerImageBinding;
 
 public class StickerPreviewAdapter extends RecyclerView.Adapter<StickerPreviewViewHolder> {
 
@@ -44,22 +46,22 @@ public class StickerPreviewAdapter extends RecyclerView.Adapter<StickerPreviewVi
     @NonNull
     @Override
     public StickerPreviewViewHolder onCreateViewHolder(@NonNull final ViewGroup viewGroup, final int i) {
-        View itemView = layoutInflater.inflate(R.layout.sticker_image, viewGroup, false);
-        StickerPreviewViewHolder vh = new StickerPreviewViewHolder(itemView);
+        StickerImageBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.sticker_image, viewGroup, false);
+        StickerPreviewViewHolder vh = new StickerPreviewViewHolder(binding);
 
-        ViewGroup.LayoutParams layoutParams = vh.stickerPreviewView.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = vh.binding.stickerPreview.getLayoutParams();
         layoutParams.height = cellSize;
         layoutParams.width = cellSize;
-        vh.stickerPreviewView.setLayoutParams(layoutParams);
-        vh.stickerPreviewView.setPadding(cellPadding, cellPadding, cellPadding, cellPadding);
+        vh.binding.stickerPreview.setLayoutParams(layoutParams);
+        vh.binding.stickerPreview.setPadding(cellPadding, cellPadding, cellPadding, cellPadding);
 
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final StickerPreviewViewHolder stickerPreviewViewHolder, final int i) {
-        stickerPreviewViewHolder.stickerPreviewView.setImageResource(errorResource);
-        stickerPreviewViewHolder.stickerPreviewView.setImageURI(StickerPackLoader.getStickerAssetUri(stickerPack.identifier, stickerPack.getStickers().get(i).imageFileName));
+    public void onBindViewHolder(@NonNull final StickerPreviewViewHolder viewHolder, final int i) {
+        viewHolder.binding.stickerPreview.setImageResource(errorResource);
+        viewHolder.binding.stickerPreview.setImageURI(StickerPackLoader.getStickerAssetUri(stickerPack.identifier, stickerPack.getStickers().get(i).imageFileName));
     }
 
     @Override

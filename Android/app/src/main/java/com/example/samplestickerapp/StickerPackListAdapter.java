@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -43,31 +44,28 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
     @NonNull
     @Override
     public StickerPackListItemViewHolder onCreateViewHolder(@NonNull final ViewGroup viewGroup, final int i) {
-        final Context context = viewGroup.getContext();
-        final LayoutInflater layoutInflater = LayoutInflater.from(context);
-        final View stickerPackRow = layoutInflater.inflate(R.layout.sticker_packs_list_item, viewGroup, false);
-        return new StickerPackListItemViewHolder(stickerPackRow);
+        return new StickerPackListItemViewHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.sticker_packs_list_item, viewGroup, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull final StickerPackListItemViewHolder viewHolder, final int index) {
         StickerPack pack = stickerPacks.get(index);
-        final Context context = viewHolder.publisherView.getContext();
-        viewHolder.publisherView.setText(pack.publisher);
-        viewHolder.filesizeView.setText(Formatter.formatShortFileSize(context, pack.getTotalSize()));
+        final Context context = viewHolder.binding.stickerPackPublisher.getContext();
+        viewHolder.binding.stickerPackPublisher.setText(pack.publisher);
+        viewHolder.binding.stickerPackFilesize.setText(Formatter.formatShortFileSize(context, pack.getTotalSize()));
 
-        viewHolder.titleView.setText(pack.name);
-        viewHolder.container.setOnClickListener(view -> {
+        viewHolder.binding.stickerPackTitle.setText(pack.name);
+        viewHolder.binding.getRoot().setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), StickerPackDetailsActivity.class);
             intent.putExtra(StickerPackDetailsActivity.EXTRA_SHOW_UP_BUTTON, true);
             intent.putExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_DATA, pack);
             view.getContext().startActivity(intent);
         });
-        viewHolder.imageRowView.removeAllViews();
+        viewHolder.binding.stickerPacksListItemImageList.removeAllViews();
         //if this sticker pack contains less stickers than the max, then take the smaller size.
         int actualNumberOfStickersToShow = Math.min(maxNumberOfStickersInARow, pack.getStickers().size());
         for (int i = 0; i < actualNumberOfStickersToShow; i++) {
-            final SimpleDraweeView rowImage = (SimpleDraweeView) LayoutInflater.from(context).inflate(R.layout.sticker_pack_list_item_image, viewHolder.imageRowView, false);
+            final SimpleDraweeView rowImage = (SimpleDraweeView) LayoutInflater.from(context).inflate(R.layout.sticker_pack_list_item_image, viewHolder.binding.stickerPacksListItemImageList, false);
             rowImage.setImageURI(StickerPackLoader.getStickerAssetUri(pack.identifier, pack.getStickers().get(i).imageFileName));
             final LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) rowImage.getLayoutParams();
             final int marginBetweenImages = minMarginBetweenImages - lp.leftMargin - lp.rightMargin;
@@ -75,9 +73,9 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
                 lp.setMargins(lp.leftMargin, lp.topMargin, lp.rightMargin + marginBetweenImages, lp.bottomMargin);
                 rowImage.setLayoutParams(lp);
             }
-            viewHolder.imageRowView.addView(rowImage);
+            viewHolder.binding.stickerPacksListItemImageList.addView(rowImage);
         }
-        setAddButtonAppearance(viewHolder.addButton, pack);
+        setAddButtonAppearance(viewHolder.binding.addButtonOnList, pack);
     }
 
     private void setAddButtonAppearance(ImageView addButton, StickerPack pack) {

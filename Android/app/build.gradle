@@ -50,6 +50,11 @@ android {
 //            universalApk true // Specifies that we do not want to also generate a universal APK that includes all ABIs.
 //        }
 //    }
+
+    dataBinding {
+        enabled true
+    }
+
 }
 
 task checkDebug {

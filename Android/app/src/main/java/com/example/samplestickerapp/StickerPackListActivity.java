@@ -11,9 +11,12 @@ package com.example.samplestickerapp;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.samplestickerapp.databinding.ActivityStickerPackListBinding;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -22,10 +25,12 @@ import java.util.List;
 
 
 public class StickerPackListActivity extends AddStickerPackActivity {
+
+    private ActivityStickerPackListBinding binding;
+
     public static final String EXTRA_STICKER_PACK_LIST_DATA = "sticker_pack_list";
     private static final int STICKER_PREVIEW_DISPLAY_LIMIT = 5;
     private LinearLayoutManager packLayoutManager;
-    private RecyclerView packRecyclerView;
     private StickerPackListAdapter allStickerPacksListAdapter;
     private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
     private ArrayList<StickerPack> stickerPackList;
@@ -33,8 +38,7 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sticker_pack_list);
-        packRecyclerView = findViewById(R.id.sticker_pack_list);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_sticker_pack_list);
         stickerPackList = getIntent().getParcelableArrayListExtra(EXTRA_STICKER_PACK_LIST_DATA);
         showStickerPackList(stickerPackList);
         if (getSupportActionBar() != null) {
@@ -60,16 +64,16 @@ public class StickerPackListActivity extends AddStickerPackActivity {
 
     private void showStickerPackList(List<StickerPack> stickerPackList) {
         allStickerPacksListAdapter = new StickerPackListAdapter(stickerPackList, onAddButtonClickedListener);
-        packRecyclerView.setAdapter(allStickerPacksListAdapter);
+        binding.stickerPackList.setAdapter(allStickerPacksListAdapter);
         packLayoutManager = new LinearLayoutManager(this);
         packLayoutManager.setOrientation(RecyclerView.VERTICAL);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(
-                packRecyclerView.getContext(),
+                binding.stickerPackList.getContext(),
                 packLayoutManager.getOrientation()
         );
-        packRecyclerView.addItemDecoration(dividerItemDecoration);
-        packRecyclerView.setLayoutManager(packLayoutManager);
-        packRecyclerView.getViewTreeObserver().addOnGlobalLayoutListener(this::recalculateColumnCount);
+        binding.stickerPackList.addItemDecoration(dividerItemDecoration);
+        binding.stickerPackList.setLayoutManager(packLayoutManager);
+        binding.stickerPackList.getViewTreeObserver().addOnGlobalLayoutListener(this::recalculateColumnCount);
     }
 
 
@@ -79,9 +83,9 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     private void recalculateColumnCount() {
         final int previewSize = getResources().getDimensionPixelSize(R.dimen.sticker_pack_list_item_preview_image_size);
         int firstVisibleItemPosition = packLayoutManager.findFirstVisibleItemPosition();
-        StickerPackListItemViewHolder viewHolder = (StickerPackListItemViewHolder) packRecyclerView.findViewHolderForAdapterPosition(firstVisibleItemPosition);
+        StickerPackListItemViewHolder viewHolder = (StickerPackListItemViewHolder) binding.stickerPackList.findViewHolderForAdapterPosition(firstVisibleItemPosition);
         if (viewHolder != null) {
-            final int widthOfImageRow = viewHolder.imageRowView.getMeasuredWidth();
+            final int widthOfImageRow = viewHolder.binding.stickerPacksListItemImageList.getMeasuredWidth();
             final int max = Math.max(widthOfImageRow / previewSize, 1);
             int maxNumberOfImagesInARow = Math.min(STICKER_PREVIEW_DISPLAY_LIMIT, max);
             int minMarginBetweenImages = (widthOfImageRow - maxNumberOfImagesInARow * previewSize) / (maxNumberOfImagesInARow - 1);

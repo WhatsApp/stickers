@@ -21,7 +21,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
-import androidx.annotation.IdRes;
+import androidx.databinding.DataBindingUtil;
+
+import com.example.samplestickerapp.databinding.ActivityStickerPackInfoBinding;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -33,44 +35,42 @@ public class StickerPackInfoActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sticker_pack_info);
+        ActivityStickerPackInfoBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_sticker_pack_info);
 
         final String trayIconUriString = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_TRAY_ICON);
         final String website = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_WEBSITE);
         final String email = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_EMAIL);
         final String privacyPolicy = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_PRIVACY_POLICY);
         final String licenseAgreement = getIntent().getStringExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_LICENSE_AGREEMENT);
-        final TextView trayIcon = findViewById(R.id.tray_icon);
+
         try {
             final InputStream inputStream = getContentResolver().openInputStream(Uri.parse(trayIconUriString));
             final BitmapDrawable trayDrawable = new BitmapDrawable(getResources(), inputStream);
             final Drawable emailDrawable = getDrawableForAllAPIs(R.drawable.sticker_3rdparty_email);
             trayDrawable.setBounds(new Rect(0, 0, emailDrawable.getIntrinsicWidth(), emailDrawable.getIntrinsicHeight()));
-            trayIcon.setCompoundDrawables(trayDrawable, null, null, null);
+            binding.trayIcon.setCompoundDrawables(trayDrawable, null, null, null);
         } catch (FileNotFoundException e) {
             Log.e(TAG, "could not find the uri for the tray image:" + trayIconUriString);
         }
 
-        setupTextView(website, R.id.view_webpage);
+        setupTextView(website, binding.viewWebpage);
 
-        final TextView sendEmail = findViewById(R.id.send_email);
         if (TextUtils.isEmpty(email)) {
-            sendEmail.setVisibility(View.GONE);
+            binding.sendEmail.setVisibility(View.GONE);
         } else {
-            sendEmail.setOnClickListener(v -> launchEmailClient(email));
+            binding.sendEmail.setOnClickListener(v -> launchEmailClient(email));
         }
 
-        setupTextView(privacyPolicy, R.id.privacy_policy);
+        setupTextView(privacyPolicy, binding.privacyPolicy);
 
-        setupTextView(licenseAgreement, R.id.license_agreement);
+        setupTextView(licenseAgreement, binding.licenseAgreement);
     }
 
-    private void setupTextView(String website, @IdRes int textViewResId) {
-        final TextView viewWebpage = findViewById(textViewResId);
+    private void setupTextView(String website, TextView textView) {
         if (TextUtils.isEmpty(website)) {
-            viewWebpage.setVisibility(View.GONE);
+            textView.setVisibility(View.GONE);
         } else {
-            viewWebpage.setOnClickListener(v -> launchWebpage(website));
+            textView.setOnClickListener(v -> launchWebpage(website));
         }
     }
 

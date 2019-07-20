@@ -1,99 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sticker_store_row_container"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="vertical"
-    android:paddingStart="16dp"
-    android:paddingTop="8dp"
-    android:paddingEnd="16dp"
-    android:paddingBottom="4dp">
+<layout>
 
-    <ImageView
-        android:id="@+id/add_button_on_list"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/selectableItemBackground"
-        android:contentDescription="@string/add_button_content_description"
-        android:scaleType="center"
-        android:src="@drawable/sticker_3rdparty_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/sticker_pack_info"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/sticker_store_row_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="4dp">
 
-        <TextView
-            android:id="@+id/sticker_pack_title"
-            style="@style/sticker_packs_list_item_author_style"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            tools:text="Pusheen" />
-
-        <TextView
-            android:id="@+id/sticker_pack_publisher"
-            style="@style/sticker_packs_list_item_author_style"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <ImageView
+            android:id="@+id/add_button_on_list"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:ellipsize="end"
-            android:maxWidth="120dp"
-            tools:text="petellison" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/add_button_content_description"
+            android:scaleType="center"
+            android:src="@drawable/sticker_3rdparty_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/sticker_pack_list_item_dot"
-            style="@style/sticker_packs_list_item_author_style"
+        <LinearLayout
+            android:id="@+id/sticker_pack_info"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingStart="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
-            android:paddingLeft="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
-            android:paddingEnd="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
-            android:paddingRight="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
-            android:text="@string/dot" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/sticker_pack_title"
+                style="@style/sticker_packs_list_item_author_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                tools:text="Pusheen" />
+
+            <TextView
+                android:id="@+id/sticker_pack_publisher"
+                style="@style/sticker_packs_list_item_author_style"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:ellipsize="end"
+                android:maxWidth="120dp"
+                tools:text="petellison" />
+
+            <TextView
+                android:id="@+id/sticker_pack_list_item_dot"
+                style="@style/sticker_packs_list_item_author_style"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
+                android:paddingLeft="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
+                android:paddingEnd="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
+                android:paddingRight="@dimen/sticker_pack_list_item_row_dot_horizontal_padding"
+                android:text="@string/dot" />
 
 
-        <TextView
-            android:id="@+id/sticker_pack_filesize"
-            style="@style/sticker_packs_list_item_author_style"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            tools:text="700kb" />
+            <TextView
+                android:id="@+id/sticker_pack_filesize"
+                style="@style/sticker_packs_list_item_author_style"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                tools:text="700kb" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/sticker_packs_list_item_image_list"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@id/add_button_on_list"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sticker_pack_info" />
+        <LinearLayout
+            android:id="@+id/sticker_packs_list_item_image_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/add_button_on_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sticker_pack_info" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
