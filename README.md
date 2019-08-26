@@ -15,7 +15,6 @@ To get started, review the `README` files in the [Android](https://github.com/Wh
 ### MUST READ
 - Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/).  
 For support, please contact <developer@support.whatsapp.com>.
-- If you create issues or pull requests that are spammy by nature, you will be reported for abusive behavior immediately. You are providing no benefit to anyone.
 
 ### Open a new issue
 - Create an [Android](https://github.com/WhatsApp/stickers/issues/new?template=android.md) issue
