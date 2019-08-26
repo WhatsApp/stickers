@@ -12,16 +12,16 @@ If you'd like to create your own [stickers for WhatsApp](https://faq.whatsapp.co
 
 To get started, review the `README` files in the [Android](https://github.com/WhatsApp/stickers/tree/master/Android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the FAQ at https://faq.whatsapp.com/general/26000226.
 
-### MUST READ
-- Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/).  
+## Opening issues :warning:
+
+> Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/).  
 For support, please contact <developer@support.whatsapp.com>.
 
-### Open a new issue
-- Create an [Android](https://github.com/WhatsApp/stickers/issues/new?template=android.md) issue
-- Create an [iOS](https://github.com/WhatsApp/stickers/issues/new?template=ios.md) issue
-- Create a [general issue](https://github.com/WhatsApp/stickers/issues/new?template=general.md)
+- Create an [**Android**](https://github.com/WhatsApp/stickers/issues/new?template=android.md) issue
+- Create an [**iOS**](https://github.com/WhatsApp/stickers/issues/new?template=ios.md) issue
+- Create a [**general issue**](https://github.com/WhatsApp/stickers/issues/new?template=general.md)
 
-For all three options, fill in all fields that apply.
+_For all three options, fill in all fields that apply._
 
 ### Pull Requests
 - In order for us to accept pull requests, please complete the Contributor License Agreement by following instructions in [`CONTRIBUTING`](https://github.com/WhatsApp/stickers/blob/master/CONTRIBUTING.md).
