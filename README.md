@@ -10,12 +10,12 @@ If you'd like to create your own [stickers for WhatsApp](https://faq.whatsapp.co
 
 ## Get started :rocket:
 
-To get started, review the `README` files in the [Android](https://github.com/WhatsApp/stickers/tree/master/Android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the FAQ at https://faq.whatsapp.com/general/26000226.
+To get started, review the `README` files in the [Android](https://github.com/WhatsApp/stickers/tree/master/Android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the [FAQ](https://faq.whatsapp.com/general/26000226).
 
 ## Opening Issues :warning:
 
 > Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/).  
-For support, please contact <developer@support.whatsapp.com>.
+> For support, please contact <developer@support.whatsapp.com>.
 
 - Create an [**Android**](https://github.com/WhatsApp/stickers/issues/new?template=android.md) issue
 - Create an [**iOS**](https://github.com/WhatsApp/stickers/issues/new?template=ios.md) issue
@@ -27,11 +27,10 @@ _For all three options, fill in all fields that apply._
 
 > In order for us to accept pull requests, please complete the Contributor License Agreement by following instructions in [`CONTRIBUTING`](https://github.com/WhatsApp/stickers/blob/master/CONTRIBUTING.md).
 
-1. Please check that a similar pull request doesn't exist already [here](https://github.com/WhatsApp/stickers/pulls?utf8=%E2%9C%93&q=is%3Apr).
+1. Please check that a similar pull request doesn't exist already [here](https://github.com/WhatsApp/stickers/pulls?utf8=%E2%9C%93&q=is%3Apr)
 2. [Open a new pull request](https://github.com/WhatsApp/stickers/compare)
 3. Wait for someone to look at it :watch:
 
-
-
 ## License
+
 WhatsApp Stickers is BSD licensed, as found in the [`LICENSE`](https://github.com/WhatsApp/stickers/blob/master/LICENSE) file.
