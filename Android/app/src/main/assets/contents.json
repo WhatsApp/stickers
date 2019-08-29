@@ -7,6 +7,8 @@
       "name": "Cuppy",
       "publisher": "Jane Doe",
       "tray_image_file": "tray_Cuppy.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
       "publisher_email":"",
       "publisher_website": "",
       "privacy_policy_website": "",

@@ -22,6 +22,8 @@ class StickerPack implements Parcelable {
     final String publisherWebsite;
     final String privacyPolicyWebsite;
     final String licenseAgreementWebsite;
+    final String imageDataVersion;
+    final boolean avoidCache;
 
     String iosAppStoreLink;
     private List<Sticker> stickers;
@@ -29,7 +31,7 @@ class StickerPack implements Parcelable {
     String androidPlayStoreLink;
     private boolean isWhitelisted;
 
-    StickerPack(String identifier, String name, String publisher, String trayImageFile, String publisherEmail, String publisherWebsite, String privacyPolicyWebsite, String licenseAgreementWebsite) {
+    StickerPack(String identifier, String name, String publisher, String trayImageFile, String publisherEmail, String publisherWebsite, String privacyPolicyWebsite, String licenseAgreementWebsite, String imageDataVersion, boolean avoidCache) {
         this.identifier = identifier;
         this.name = name;
         this.publisher = publisher;
@@ -38,6 +40,8 @@ class StickerPack implements Parcelable {
         this.publisherWebsite = publisherWebsite;
         this.privacyPolicyWebsite = privacyPolicyWebsite;
         this.licenseAgreementWebsite = licenseAgreementWebsite;
+        this.imageDataVersion = imageDataVersion;
+        this.avoidCache = avoidCache;
     }
 
     void setIsWhitelisted(boolean isWhitelisted) {
@@ -62,6 +66,8 @@ class StickerPack implements Parcelable {
         totalSize = in.readLong();
         androidPlayStoreLink = in.readString();
         isWhitelisted = in.readByte() != 0;
+        imageDataVersion = in.readString();
+        avoidCache = in.readByte() != 0;
     }
 
     public static final Creator<StickerPack> CREATOR = new Creator<StickerPack>() {
@@ -120,5 +126,7 @@ class StickerPack implements Parcelable {
         dest.writeLong(totalSize);
         dest.writeString(androidPlayStoreLink);
         dest.writeByte((byte) (isWhitelisted ? 1 : 0));
+        dest.writeString(imageDataVersion);
+        dest.writeByte((byte) (avoidCache ? 1 : 0));
     }
 }
