@@ -21,7 +21,7 @@ import java.util.List;
 
 class ContentFileParser {
 
-    private static final int LIMIT_EMOJI_COUNT = 2;
+    private static final int LIMIT_EMOJI_COUNT = 3;
 
     @NonNull
     static List<StickerPack> parseStickerPacks(@NonNull InputStream contentsInputStream) throws IOException, IllegalStateException {
