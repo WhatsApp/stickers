@@ -12,6 +12,9 @@ If you'd like to create your own [stickers for WhatsApp](https://faq.whatsapp.co
 
 To get started, review the `README` files in the [Android](https://github.com/WhatsApp/stickers/tree/master/Android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the [FAQ](https://faq.whatsapp.com/general/26000226).
 
+## Announcements :loudspeaker:
+Please check out [Annoucements](https://github.com/WhatsApp/stickers/wiki/Annoucements) for recent changes.
+
 ## Opening Issues :warning:
 
 > Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/).  
