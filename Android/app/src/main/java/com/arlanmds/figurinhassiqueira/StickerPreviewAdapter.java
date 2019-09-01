@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package com.example.samplestickerapp;
+package com.arlanmds.figurinhassiqueira;
 
 import android.view.LayoutInflater;
 import android.view.View;

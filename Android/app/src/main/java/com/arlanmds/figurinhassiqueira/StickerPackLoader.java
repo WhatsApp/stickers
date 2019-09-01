@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package com.example.samplestickerapp;
+package com.arlanmds.figurinhassiqueira;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -23,20 +23,20 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import static com.example.samplestickerapp.StickerContentProvider.ANDROID_APP_DOWNLOAD_LINK_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.AVOID_CACHE;
-import static com.example.samplestickerapp.StickerContentProvider.IOS_APP_DOWNLOAD_LINK_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.LICENSE_AGREENMENT_WEBSITE;
-import static com.example.samplestickerapp.StickerContentProvider.PRIVACY_POLICY_WEBSITE;
-import static com.example.samplestickerapp.StickerContentProvider.PUBLISHER_EMAIL;
-import static com.example.samplestickerapp.StickerContentProvider.PUBLISHER_WEBSITE;
-import static com.example.samplestickerapp.StickerContentProvider.STICKER_FILE_EMOJI_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.STICKER_FILE_NAME_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.STICKER_PACK_ICON_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.STICKER_PACK_IDENTIFIER_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.STICKER_PACK_NAME_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.STICKER_PACK_PUBLISHER_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.IMAGE_DATA_VERSION;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.ANDROID_APP_DOWNLOAD_LINK_IN_QUERY;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.AVOID_CACHE;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.IOS_APP_DOWNLOAD_LINK_IN_QUERY;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.LICENSE_AGREENMENT_WEBSITE;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.PRIVACY_POLICY_WEBSITE;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.PUBLISHER_EMAIL;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.PUBLISHER_WEBSITE;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.STICKER_FILE_EMOJI_IN_QUERY;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.STICKER_FILE_NAME_IN_QUERY;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.STICKER_PACK_ICON_IN_QUERY;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.STICKER_PACK_IDENTIFIER_IN_QUERY;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.STICKER_PACK_NAME_IN_QUERY;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.STICKER_PACK_PUBLISHER_IN_QUERY;
+import static com.arlanmds.figurinhassiqueira.StickerContentProvider.IMAGE_DATA_VERSION;
 
 class StickerPackLoader {
 

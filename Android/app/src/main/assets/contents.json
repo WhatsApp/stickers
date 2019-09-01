@@ -4,13 +4,13 @@
   "sticker_packs": [
     {
       "identifier": "1",
-      "name": "Cuppy",
-      "publisher": "Jane Doe",
+      "name": "Siqueira",
+      "publisher": "Arlan",
       "tray_image_file": "tray_Cuppy.png",
       "image_data_version":"1",
       "avoid_cache":false,
       "publisher_email":"",
-      "publisher_website": "",
+      "publisher_website": "https://www.facebook.com/4rlanMD",
       "privacy_policy_website": "",
       "license_agreement_website": "",
       "stickers": [
