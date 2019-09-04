@@ -44,7 +44,7 @@ public class StickerPreviewAdapter extends RecyclerView.Adapter<StickerPreviewVi
     @NonNull
     @Override
     public StickerPreviewViewHolder onCreateViewHolder(@NonNull final ViewGroup viewGroup, final int i) {
-        View itemView = layoutInflater.inflate(R.layout.sticker_image, viewGroup, false);
+        View itemView = layoutInflater.inflate(R.layout.sticker_image_item, viewGroup, false);
         StickerPreviewViewHolder vh = new StickerPreviewViewHolder(itemView);
 
         ViewGroup.LayoutParams layoutParams = vh.stickerPreviewView.getLayoutParams();
