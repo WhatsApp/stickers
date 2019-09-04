@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -9,11 +9,11 @@
         <item name="actionBarTheme">@style/MyApp.ActionBarTheme</item>
     </style>
 
-    <style name="MyApp.ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="MyApp.ActionBarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">@color/actionBarArrowColor</item>
     </style>
 
-    <style name="StickerPreviewButtonText" parent="Widget.AppCompat.Button.Borderless">
+    <style name="StickerPreviewButtonText" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
