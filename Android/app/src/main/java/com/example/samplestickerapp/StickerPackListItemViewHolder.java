@@ -17,12 +17,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 class StickerPackListItemViewHolder extends RecyclerView.ViewHolder {
 
-    View container;
-    TextView titleView;
-    TextView publisherView;
-    TextView filesizeView;
-    ImageView addButton;
-    LinearLayout imageRowView;
+    final View container;
+    final TextView titleView;
+    final TextView publisherView;
+    final TextView filesizeView;
+    final ImageView addButton;
+    final LinearLayout imageRowView;
 
     StickerPackListItemViewHolder(final View itemView) {
         super(itemView);

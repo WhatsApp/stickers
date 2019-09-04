@@ -14,10 +14,10 @@ import android.os.Parcelable;
 import java.util.List;
 
 class StickerPack implements Parcelable {
-    String identifier;
-    String name;
-    String publisher;
-    String trayImageFile;
+    final String identifier;
+    final String name;
+    final String publisher;
+    final String trayImageFile;
     final String publisherEmail;
     final String publisherWebsite;
     final String privacyPolicyWebsite;
@@ -52,7 +52,7 @@ class StickerPack implements Parcelable {
         return isWhitelisted;
     }
 
-    protected StickerPack(Parcel in) {
+    private StickerPack(Parcel in) {
         identifier = in.readString();
         name = in.readString();
         publisher = in.readString();

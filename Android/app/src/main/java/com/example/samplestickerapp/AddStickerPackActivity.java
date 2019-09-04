@@ -23,8 +23,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 public abstract class AddStickerPackActivity extends BaseActivity {
-    public static final int ADD_PACK = 200;
-    public static final String TAG = "AddStickerPackActivity";
+    private static final int ADD_PACK = 200;
+    private static final String TAG = "AddStickerPackActivity";
 
     protected void addStickerPackToWhatsApp(String identifier, String stickerPackName) {
         try {
