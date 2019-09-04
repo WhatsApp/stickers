@@ -14,8 +14,8 @@ import android.os.Parcelable;
 import java.util.List;
 
 class Sticker implements Parcelable {
-    String imageFileName;
-    List<String> emojis;
+    final String imageFileName;
+    final List<String> emojis;
     long size;
 
     Sticker(String imageFileName, List<String> emojis) {

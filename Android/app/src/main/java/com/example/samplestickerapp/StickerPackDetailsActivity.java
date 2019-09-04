@@ -190,7 +190,6 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
         protected final Boolean doInBackground(StickerPack... stickerPacks) {
             StickerPack stickerPack = stickerPacks[0];
             final StickerPackDetailsActivity stickerPackDetailsActivity = stickerPackDetailsActivityWeakReference.get();
-            //noinspection SimplifiableIfStatement
             if (stickerPackDetailsActivity == null) {
                 return false;
             }

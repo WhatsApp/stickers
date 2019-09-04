@@ -18,16 +18,15 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 
-@SuppressWarnings("FieldCanBeLocal")
 class WhitelistCheck {
     private static final String AUTHORITY_QUERY_PARAM = "authority";
     private static final String IDENTIFIER_QUERY_PARAM = "identifier";
-    private static String STICKER_APP_AUTHORITY = BuildConfig.CONTENT_PROVIDER_AUTHORITY;
+    private static final String STICKER_APP_AUTHORITY = BuildConfig.CONTENT_PROVIDER_AUTHORITY;
     static final String CONSUMER_WHATSAPP_PACKAGE_NAME = "com.whatsapp";
     static final String SMB_WHATSAPP_PACKAGE_NAME = "com.whatsapp.w4b";
-    private static String CONTENT_PROVIDER = ".provider.sticker_whitelist_check";
-    private static String QUERY_PATH = "is_whitelisted";
-    private static String QUERY_RESULT_COLUMN_NAME = "result";
+    private static final String CONTENT_PROVIDER = ".provider.sticker_whitelist_check";
+    private static final String QUERY_PATH = "is_whitelisted";
+    private static final String QUERY_RESULT_COLUMN_NAME = "result";
 
     static boolean isWhitelisted(@NonNull Context context, @NonNull String identifier) {
         try {
@@ -65,7 +64,7 @@ class WhitelistCheck {
         return false;
     }
 
-    public static boolean isPackageInstalled(String packageName, PackageManager packageManager) {
+    static boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {
             final ApplicationInfo applicationInfo = packageManager.getApplicationInfo(packageName, 0);
             //noinspection SimplifiableIfStatement
