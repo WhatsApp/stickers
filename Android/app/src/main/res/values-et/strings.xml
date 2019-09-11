@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- This is the app's name, translators please do not translate and put in the same text as English version. Developers can consider putting in their own translation, this string must be changed before publishing -->
+	<string name="app_name">WhatsAppSampleStickerApp</string>
+	<!-- Content description for the sticker pack tray image -->
+	<string name="tray_image_content_description">Kleebiste paki pilt</string>
+	<!-- the title of info button in the menu that takes the user to more information about that pack showing publisher website and so on -->
+	<string name="more_info_button">Rohkem teavet kleebiste paki kohta</string>
+	<!-- Text to be shown on the button that user can click to add the sticker pack to WhatsApp -->
+	<string name="add_to_whatsapp">Lisa WhatsAppi</string>
+	<!-- Content Description for the plus button shown on sticker pack list, that allows user to add sticker pack to WhatsApp -->
+	<string name="add_button_content_description">Lisa kleebiste pakk WhatsAppi</string>
+	<!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
+	<string name="title_activity_sticker_pack_details_multiple_pack">Kleebise detailid</string>
+	<!-- Title of the sticker pack info page which displays the webpage, email and privacy policy of the sticker pack -->
+	<string name="title_activity_sticker_pack_info">Teave</string>
+	<!-- Text of button that allows user to click to go to the webpage of the publisher -->
+	<string name="view_webpage">Vaata veebisaiti</string>
+	<!-- Text of button that allows user to click to send an email -->
+	<string name="send_email">Saada e-kiri</string>
+	<!-- Text of button that allows user to click to go to the privacy policy website -->
+	<string name="privacy_policy">Privaatsusteatis</string>
+	<!-- Text next to the tray icon that indicates the tray icon -->
+	<string name="info_screen_tray_icon">Rakenduse ikoon</string>
+	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
+	<string name="details_pack_already_added">Kleebiste pakk on juba lisatud WhatsAppi</string>
+	<!-- Title in the intent chooser that shows when user has multiple email client installed -->
+	<string name="info_send_email_to_prompt">Saada e-kiri rakendusega</string>
+	<!-- Message to show in a dialog when user fails to add sticker pack -->
+	<string name="add_pack_fail_prompt_update_whatsapp">Kleebiste pakki ei lisatud. Selle lisamiseks uuenda WhatsApp kindlasti uusimale versioonile.</string>
+	<!-- Text in dialog button when a user has an old version of WhatsApp that prevents them from adding the sticker pack, clicking on it will take user to play store -->
+	<string name="add_pack_fail_prompt_update_play_link">Uuenda</string>
+	<!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
+	<string name="cannot_find_play_store">Google Play pole seadmesse paigaldatud.</string>
+	<!-- Text of button that allows user to click to go to the license agreement website -->
+	<string name="license_agreement">Litsentsileping</string>
+	<!-- Title of the sticker pack list activity page in case the app contains multiple sticker packs, the singular string will be used when there is only one pack in the app -->
+	<plurals name="title_activity_sticker_packs_list">
+		<item quantity="one">Kleebiste pakk</item>
+		<item quantity="other">Kleebiste pakid</item>
+	</plurals>
+</resources>

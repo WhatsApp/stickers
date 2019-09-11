@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- This is the app's name, translators please do not translate and put in the same text as English version. Developers can consider putting in their own translation, this string must be changed before publishing -->
+	<!-- Content description for the sticker pack tray image -->
+	<!-- the title of info button in the menu that takes the user to more information about that pack showing publisher website and so on -->
+	<!-- Text to be shown on the button that user can click to add the sticker pack to WhatsApp -->
+	<!-- Content Description for the plus button shown on sticker pack list, that allows user to add sticker pack to WhatsApp -->
+	<!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
+	<!-- Title of the sticker pack info page which displays the webpage, email and privacy policy of the sticker pack -->
+	<!-- Text of button that allows user to click to go to the webpage of the publisher -->
+	<!-- Text of button that allows user to click to send an email -->
+	<!-- Text of button that allows user to click to go to the privacy policy website -->
+	<!-- Text next to the tray icon that indicates the tray icon -->
+	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
+	<!-- Title in the intent chooser that shows when user has multiple email client installed -->
+	<!-- Message to show in a dialog when user fails to add sticker pack -->
+	<!-- Text in dialog button when a user has an old version of WhatsApp that prevents them from adding the sticker pack, clicking on it will take user to play store -->
+	<!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
+	<!-- Text of button that allows user to click to go to the license agreement website -->
+	<!-- Title of the sticker pack list activity page in case the app contains multiple sticker packs, the singular string will be used when there is only one pack in the app -->
+</resources>

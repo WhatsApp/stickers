@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- This is the app's name, translators please do not translate and put in the same text as English version. Developers can consider putting in their own translation, this string must be changed before publishing -->
+	<string name="app_name">WhatsAppமாதிரிஒட்டுப்படசெயலி</string>
+	<!-- Content description for the sticker pack tray image -->
+	<string name="tray_image_content_description">ஒட்டுப்பட தொகுப்பு டிரே படம்</string>
+	<!-- the title of info button in the menu that takes the user to more information about that pack showing publisher website and so on -->
+	<string name="more_info_button">ஒட்டுப்பட தொகுப்பு குறித்த கூடுதல் விவரம்</string>
+	<!-- Text to be shown on the button that user can click to add the sticker pack to WhatsApp -->
+	<string name="add_to_whatsapp">WhatsApp-இல் சேர்</string>
+	<!-- Content Description for the plus button shown on sticker pack list, that allows user to add sticker pack to WhatsApp -->
+	<string name="add_button_content_description">ஒட்டுப்பட தொகுப்பை WhatsApp-இல் சேர்</string>
+	<!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
+	<string name="title_activity_sticker_pack_details_multiple_pack">ஒட்டுப்பட விவரம்</string>
+	<!-- Title of the sticker pack info page which displays the webpage, email and privacy policy of the sticker pack -->
+	<string name="title_activity_sticker_pack_info">தகவல்</string>
+	<!-- Text of button that allows user to click to go to the webpage of the publisher -->
+	<string name="view_webpage">இணையதளத்தை காண்க</string>
+	<!-- Text of button that allows user to click to send an email -->
+	<string name="send_email">மின்னஞ்சல் அனுப்பு</string>
+	<!-- Text of button that allows user to click to go to the privacy policy website -->
+	<string name="privacy_policy">தனியுரிமை கொள்கை</string>
+	<!-- Text next to the tray icon that indicates the tray icon -->
+	<string name="info_screen_tray_icon">டிரே சின்னம்</string>
+	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
+	<string name="details_pack_already_added">ஒட்டுப்பட தொகுப்பு WhatsApp-இல் சேர்க்கப்பட்டது</string>
+	<!-- Title in the intent chooser that shows when user has multiple email client installed -->
+	<string name="info_send_email_to_prompt">மின்னஞ்சல் மூலம் அனுப்பு</string>
+	<!-- Message to show in a dialog when user fails to add sticker pack -->
+	<string name="add_pack_fail_prompt_update_whatsapp">ஒட்டுப்பட தொகுப்பு சேர்க்கப்படவில்லை. WhatsApp-இன் சமீபத்திய பதிப்பை இற்றைப்படுத்திய பின்பு இதனை சேர்க்க முயலவும்.</string>
+	<!-- Text in dialog button when a user has an old version of WhatsApp that prevents them from adding the sticker pack, clicking on it will take user to play store -->
+	<string name="add_pack_fail_prompt_update_play_link">இற்றைப்படுத்து</string>
+	<!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
+	<string name="cannot_find_play_store">இந்த சாதனத்தில் கூகுள் பிளே நிறுவப்படவில்லை.</string>
+	<!-- Text of button that allows user to click to go to the license agreement website -->
+	<string name="license_agreement">உரிம ஒப்பந்தம்</string>
+	<!-- Title of the sticker pack list activity page in case the app contains multiple sticker packs, the singular string will be used when there is only one pack in the app -->
+	<plurals name="title_activity_sticker_packs_list">
+		<item quantity="one">ஒட்டுப்பட தொகுப்பு</item>
+		<item quantity="other">ஒட்டுப்பட தொகுப்புகள்</item>
+	</plurals>
+</resources>
