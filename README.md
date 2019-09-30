@@ -13,7 +13,7 @@ If you'd like to create your own [stickers for WhatsApp](https://faq.whatsapp.co
 To get started, review the `README` files in the [Android](https://github.com/WhatsApp/stickers/tree/master/Android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the [FAQ](https://faq.whatsapp.com/general/26000226).
 
 ## Announcements :loudspeaker:
-Please check out [Annoucements](https://github.com/WhatsApp/stickers/wiki/Annoucements) for recent changes.
+Please check out [Annoucements](https://github.com/WhatsApp/stickers/wiki/Sticker-Updates:-September-30,-2019) for recent changes.
 
 ## Opening Issues :warning:
 
