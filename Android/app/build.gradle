@@ -49,7 +49,7 @@ android {
 //    splits {
 //        abi {
 //            enable true // Enables building multiple APKs per ABI.
-//            universalApk true // Specifies that we do not want to also generate a universal APK that includes all ABIs.
+//            universalApk true // Specifies that we want to also generate a universal APK that includes all ABIs.
 //        }
 //    }
 }
