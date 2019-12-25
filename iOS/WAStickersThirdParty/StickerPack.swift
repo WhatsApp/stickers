@@ -186,7 +186,7 @@ class StickerPack {
             json["identifier"] = self.identifier
             json["name"] = self.name
             json["publisher"] = self.publisher
-            json["tray_image"] = UIImagePNGRepresentation(self.trayImage.image!)?.base64EncodedString()
+            json["tray_image"] = self.trayImage.image!.pngData()?.base64EncodedString()
 
             var stickersArray: [[String: Any]] = []
             for sticker in self.stickers {

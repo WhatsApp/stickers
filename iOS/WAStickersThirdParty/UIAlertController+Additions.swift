@@ -10,7 +10,7 @@ import UIKit
 
 extension UIAlertController {
     func addSpinner() {
-        let activity: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let activity: UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
         view.addSubview(activity)
 
         activity.translatesAutoresizingMaskIntoConstraints = false

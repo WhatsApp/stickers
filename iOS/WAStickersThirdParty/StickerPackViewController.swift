@@ -93,6 +93,8 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         let buttonLandscapeSize: CGSize = CGSize(width: 250.0, height: 50.0)
         let buttonBottomMargin: CGFloat = 20.0
 
+        guard let view = view else { return }
+
         // Share button constraints
         view.addConstraint(NSLayoutConstraint(item: view, attribute: .bottomMargin, relatedBy: .equal, toItem: shareButton, attribute: .bottom, multiplier: 1.0, constant: buttonBottomMargin))
         let centerPortraitShareConstraint = NSLayoutConstraint(item: view, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: shareButton, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0.0)

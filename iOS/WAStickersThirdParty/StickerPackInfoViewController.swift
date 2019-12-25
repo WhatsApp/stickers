@@ -26,7 +26,7 @@ class StickerPackInfoViewController: UITableViewController {
             insets = tableView.safeAreaInsets
         }
         footerView.label.preferredMaxLayoutWidth = footerView.preferredLabelLayoutWidth(viewWidth: tableView.bounds.size.width - FooterView.MARGIN * 2 - insets.left - insets.right)
-        return ceil(footerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height)
+        return ceil(footerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height)
     }
 
     var stickerPack: StickerPack!
