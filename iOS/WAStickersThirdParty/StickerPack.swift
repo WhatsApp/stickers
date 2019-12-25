@@ -40,9 +40,7 @@ class StickerPack {
 
     var bytesSize: Int64 {
         var totalBytes: Int64 = Int64(name.utf8.count + publisher.utf8.count + trayImage.data.count)
-        for sticker in stickers {
-            totalBytes += sticker.bytesSize
-        }
+        stickers.forEach { totalBytes += $0.bytesSize }
         return totalBytes
     }
 

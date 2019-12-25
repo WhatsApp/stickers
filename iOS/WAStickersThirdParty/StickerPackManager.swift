@@ -25,8 +25,8 @@ class StickerPackManager {
 
     static func stickersJSON(contentsOfFile filename: String) throws -> [String: Any] {
         if let path = Bundle.main.path(forResource: filename, ofType: "wasticker") {
-            let data: Data = try Data(contentsOf: URL(fileURLWithPath: path), options: Data.ReadingOptions.alwaysMapped)
-            return try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            let data: Data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+            return try JSONSerialization.jsonObject(with: data) as! [String: Any]
         }
 
         throw StickerPackError.fileNotFound
@@ -78,6 +78,7 @@ class StickerPackManager {
                 }
 
                 var stickerPack: StickerPack?
+
                 do {
                    stickerPack = try StickerPack(identifier: packIdentifier!, name: packName, publisher: packPublisher, trayImageFileName: packTrayImageFileName, publisherWebsite: packPublisherWebsite, privacyPolicyWebsite: packPrivacyPolicyWebsite, licenseAgreementWebsite: packLicenseAgreementWebsite)
                 } catch StickerPackError.fileNotFound {
@@ -126,8 +127,8 @@ class StickerPackManager {
                     }
                 }
 
-                guard stickers.count >= Limits.MinStickersPerPack else {
-                    fatalError("Sticker count smaller that the allowable limit (\(Limits.MinStickersPerPack) stickers per pack).")
+                if stickers.count < Limits.MinStickersPerPack {
+                  fatalError("Sticker count smaller that the allowable limit (\(Limits.MinStickersPerPack) stickers per pack).")
                 }
 
                 stickerPacks.append(stickerPack!)
