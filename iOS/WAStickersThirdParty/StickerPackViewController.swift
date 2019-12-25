@@ -28,7 +28,8 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
     private var topDivider: UIView = UIView()
 
     private var portraitOrientation: Bool {
-        return UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .faceUp || UIDevice.current.orientation == .faceDown || UIDevice.current.orientation == .portraitUpsideDown
+        let currentOrientation = UIDevice.current.orientation
+        return currentOrientation == .portrait || currentOrientation == .faceUp || currentOrientation == .faceDown || currentOrientation == .portraitUpsideDown
     }
 
     var stickerPack: StickerPack!
@@ -158,13 +159,8 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
     }
 
     private func changeConstraints() {
-        for constraint in portraitConstraints {
-            constraint.isActive = portraitOrientation
-        }
-
-        for constraint in landscapeConstraints {
-            constraint.isActive = !portraitOrientation
-        }
+        portraitConstraints.forEach { $0.isActive = portraitOrientation }
+        landscapeConstraints.forEach { $0.isActive = !portraitOrientation }
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -226,7 +222,8 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
     // MARK: Targets
 
     func showActionSheet(withSticker sticker: Sticker, overCell cell: UICollectionViewCell) {
-        var emojisString: String? = nil
+        var emojisString: String?
+
         #if DEBUG
         if let emojis = sticker.emojis {
             emojisString = emojis.joined(separator: " ")
@@ -239,31 +236,28 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         actionSheet.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
         actionSheet.popoverPresentationController?.sourceRect = CGRect(x: cell.contentView.bounds.midX, y: cell.contentView.bounds.midY, width: 0, height: 0)
 
-
-        actionSheet.addAction(UIAlertAction(title: "Copy to Clipboard", style: .default, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: "Copy to Clipboard", style: .default, handler: { _ in
             sticker.copyToPasteboardAsImage()
         }))
-        actionSheet.addAction(UIAlertAction(title: "Share via", style: .default, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: "Share via", style: .default, handler: { _ in
             self.showShareSheet(withSticker: sticker)
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
         if let stickerImage = sticker.imageData.image {
             actionSheet.addImageView(withImage: stickerImage)
         }
-        present(actionSheet, animated: true, completion: nil)
+        present(actionSheet, animated: true)
     }
 
     func showShareSheet(withSticker sticker: Sticker) {
-        guard let image = sticker.imageData.image else {
-            return
-        }
+        guard let image = sticker.imageData.image else { return }
 
         let shareViewController: UIActivityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         shareViewController.popoverPresentationController?.sourceView = self.view
         shareViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
         shareViewController.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
-        present(shareViewController, animated: true, completion: nil)
+        present(shareViewController, animated: true)
     }
 
     @objc func infoPressed(button: UIButton) {
@@ -280,10 +274,10 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
     @objc func addButtonPressed(button: AquaButton) {
         let loadingAlert: UIAlertController = UIAlertController(title: "Sending to WhatsApp", message: "\n\n", preferredStyle: .alert)
         loadingAlert.addSpinner()
-        present(loadingAlert, animated: true, completion: nil)
+        present(loadingAlert, animated: true)
 
         stickerPack.sendToWhatsApp { completed in
-            loadingAlert.dismiss(animated: true, completion: nil)
+            loadingAlert.dismiss(animated: true)
         }
     }
 
@@ -296,11 +290,11 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
             }
         }
 
-        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: stickerImages, applicationActivities: nil);
-        let parentView =  button as UIView
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: stickerImages, applicationActivities: nil)
+        let parentView = button as UIView
         activityViewController.popoverPresentationController?.sourceView = parentView
         activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
         activityViewController.popoverPresentationController?.sourceRect = CGRect(x: parentView.bounds.midX, y: parentView.bounds.midY, width: 0, height: 0)
-        present(activityViewController, animated: true, completion: nil)
+        present(activityViewController, animated: true)
     }
 }

@@ -29,7 +29,7 @@ extension UIAlertController {
         }
 
         let stickerImageView: UIImageView = UIImageView(image: image)
-        stickerImageView.translatesAutoresizingMaskIntoConstraints = false;
+        stickerImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stickerImageView)
 
         stickerImageView.addConstraint(NSLayoutConstraint(item: stickerImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: stickerImageViewLength))
