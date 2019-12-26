@@ -205,7 +205,7 @@ class StickerPackInfoViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return !(indexPath.row <= 2)
+        return indexPath.row > 2
     }
 
 }
