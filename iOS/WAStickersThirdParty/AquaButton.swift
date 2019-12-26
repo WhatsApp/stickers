@@ -86,7 +86,7 @@ class GrayRoundedButton: RoundedButton {
         didSet{
             if isEnabled {
                 tintColor = UIColor.white
-            } else{
+            } else {
                 tintColor = UIColor.gray
             }
         }
