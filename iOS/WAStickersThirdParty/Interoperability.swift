@@ -26,7 +26,7 @@ struct Interoperability {
           fatalError("Your bundle identifier must not include the default one.")
         }
 
-        let pasteboard: UIPasteboard = .general
+        let pasteboard = UIPasteboard.general
 
         var jsonWithAppStoreLink: [String: Any] = json
         jsonWithAppStoreLink["ios_app_store_link"] = iOSAppStoreLink
