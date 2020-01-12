@@ -13,7 +13,7 @@ If you'd like to create your own [stickers for WhatsApp](https://faq.whatsapp.co
 To get started, review the `README` files in the [Android](https://github.com/WhatsApp/stickers/tree/master/Android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the [FAQ](https://faq.whatsapp.com/general/26000226).
 
 ## Announcements :loudspeaker:
-Please check out [Annoucements](https://github.com/WhatsApp/stickers/wiki/Sticker-Updates:-September-30,-2019) for recent changes.
+Please check out [Announcements](https://github.com/WhatsApp/stickers/wiki/Sticker-Updates:-September-30,-2019) for recent changes.
 
 ## Brand guidelines
 When naming your app, it is strongly advised you do not use "WhatsApp" anywhere in the name of your app or in the name field of your app listing. However, when preparing your app for submission in Google Play Store/App Store, you'll have the option to add description associated with your app and it's okay to mention WhatsApp in the description. Make sure you use "WhatsApp" as brand name, with "W" and "A" capitalized with no space between letters. More information on WhatsApp Brand(https://whatsappbrand.com/).
