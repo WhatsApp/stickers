@@ -39,17 +39,18 @@ class StickerPackInfoViewController: UITableViewController {
 
         if stickerPack.publisherWebsite != nil {
             websiteIndexes[.publisher] = index
+            index += 1
         }
 
         if stickerPack.privacyPolicyWebsite != nil {
             websiteIndexes[.privacyPolicy] = index
+            index += 1
         }
 
         if stickerPack.licenseAgreementWebsite != nil {
             websiteIndexes[.licenseAgreement] = index
+            index += 1
         }
-
-        index += 1
     }
 
     override func viewDidLoad() {
