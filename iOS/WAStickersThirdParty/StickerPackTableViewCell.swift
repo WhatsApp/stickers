@@ -61,9 +61,7 @@ final class StickerPackTableViewCell: UITableViewCell, UICollectionViewDataSourc
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let stickerPack = stickerPack else {
-            return 0
-        }
+        guard let stickerPack = stickerPack else { return 0 }
 
         return stickerPack.stickers.count
     }

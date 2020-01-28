@@ -9,29 +9,30 @@
 import UIKit
 
 struct StickerEmojis {
-    static func canonicalizedEmojis(rawEmojis: [String]?) throws -> [String]?{
-        if let rawEmojis = rawEmojis {
-            guard rawEmojis.count <= Limits.MaxEmojisCount else {
-                throw StickerPackError.tooManyEmojis
-            }
 
-            var canonicalizedEmojis: [String] = []
+    static func canonicalizedEmojis(rawEmojis: [String]?) throws -> [String]? {
 
-            for rawEmoji in rawEmojis {
-                var emojiToAdd = canonicalizedEmoji(emoji: rawEmoji)
+        guard let rawEmojis = rawEmojis else { return nil }
 
-                // If the emoji somehow isn't canonicalized, we'll use the original emoji
-                if (emojiToAdd == "") {
-                    emojiToAdd = rawEmoji
-                }
-
-                canonicalizedEmojis.append(emojiToAdd)
-            }
-
-            return canonicalizedEmojis
+        if rawEmojis.count > Limits.MaxEmojisCount {
+          throw StickerPackError.tooManyEmojis
         }
 
-        return nil
+        var canonicalizedEmojis: [String] = []
+
+        rawEmojis.forEach { rawEmoji in
+
+          var emojiToAdd = canonicalizedEmoji(emoji: rawEmoji)
+
+          // If the emoji somehow isn't canonicalized, we'll use the original emoji
+          if emojiToAdd.isEmpty {
+            emojiToAdd = rawEmoji
+          }
+
+          canonicalizedEmojis.append(emojiToAdd)
+        }
+
+        return canonicalizedEmojis
     }
 
     private static func canonicalizedEmoji(emoji: String) -> String {
@@ -48,18 +49,15 @@ struct StickerEmojis {
             0x1F900...0x1F9FF,         // Supplemental symbols and pictographs
             0x200D:                    // Zero-width joiner
                 nonExtensionUnicodes.append(Character(UnicodeScalar(scalar.value)!))
-                break
 
             default:
                 continue
             }
         }
 
-        var canonicalizedEmoji: String = ""
-        for nonExtensionUnicode in nonExtensionUnicodes {
-            canonicalizedEmoji.append(nonExtensionUnicode)
-        }
+        var canonicalizedEmoji = ""
 
+        nonExtensionUnicodes.forEach { canonicalizedEmoji.append($0) }
         return canonicalizedEmoji
     }
 }
