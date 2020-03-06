@@ -48,7 +48,7 @@ Your sticker art must be in the WebP format. We recommend using the tools you're
 ### Overview
 If you would like to create a sticker app using the sample app, you only have to minimally modify the sample app to get up and running quickly. 
 
-* After downloading this repo, open the entire folder for the sample app in [Android Studio](https://developer.android.com/studio/). If you are new to Android development, visit https://developer.android.com/training/basics/firstapp/index.html for more information on setting up your Android development environment.
+* After downloading this repo, open the sample app's Android folder in [Android Studio](https://developer.android.com/studio/). If you are new to Android development, visit https://developer.android.com/training/basics/firstapp/index.html for more information on setting up your Android development environment.
 * Navigate to SampleStickerApp/app/src/main/assets in Android Studio. 
 * Inside the assets folder, folder 1 contains a number of sample sticker art files. Replace these with your own sticker files.
 * Also replace the sample tray icon PNG with your own tray icon. 
