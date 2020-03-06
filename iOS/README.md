@@ -1,6 +1,6 @@
 #  iOS Stickers Apps for WhatsApp
 
-## PLEASE READ: IMPORTANT NOTICE ABOUT iOS APPS
+## PLEASE READ: IMPORTANT NOTICE
 
 With Apple’s strict App Store review policy, we recommend iOS developers to submit apps that contain more functionality than to simply export stickers. This will increase the chances of the app being accepted. As an alternative to creating an iOS app, there are various sticker maker apps that help you create and import stickers into WhatsApp.
 
