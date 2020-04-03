@@ -132,7 +132,7 @@ class StickerPackValidator {
                 throw new IllegalStateException("sticker should be less than " + STICKER_FILE_SIZE_LIMIT_KB + "KB, sticker pack identifier:" + identifier + ", filename:" + fileName);
             }
             try {
-                final WebPImage webPImage = WebPImage.create(bytes);
+                final WebPImage webPImage = WebPImage.createFromByteArray(bytes);
                 if (webPImage.getHeight() != IMAGE_HEIGHT) {
                     throw new IllegalStateException("sticker height should be " + IMAGE_HEIGHT + ", sticker pack identifier:" + identifier + ", filename:" + fileName);
                 }
