@@ -14,6 +14,7 @@ import android.database.Cursor;
 import android.net.Uri;
 
 import androidx.annotation.NonNull;
+import android.text.TextUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -125,7 +126,11 @@ class StickerPackLoader {
             do {
                 final String name = cursor.getString(cursor.getColumnIndexOrThrow(STICKER_FILE_NAME_IN_QUERY));
                 final String emojisConcatenated = cursor.getString(cursor.getColumnIndexOrThrow(STICKER_FILE_EMOJI_IN_QUERY));
-                stickers.add(new Sticker(name, Arrays.asList(emojisConcatenated.split(","))));
+                List<String> emojis = new ArrayList<>(StickerPackValidator.EMOJI_MAX_LIMIT);
+                if (!TextUtils.isEmpty(emojisConcatenated)) {
+                    emojis = Arrays.asList(emojisConcatenated.split(","));
+                }
+                stickers.add(new Sticker(name, emojis));
             } while (cursor.moveToNext());
         }
         if (cursor != null) {
