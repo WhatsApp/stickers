@@ -17,7 +17,7 @@ For iOS developers please read the [IMPORTANT NOTICE ABOUT iOS APPS](#please-rea
 
 To get started, review the `README` files in the [Android](https://github.com/WhatsApp/stickers/tree/master/Android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the [FAQ](https://faq.whatsapp.com/general/26000226).
 
-## PLEASE READ: IMPORTANT NOTICE ABOUT iOS APPS
+## PLEASE READ: IMPORTANT NOTICE REGARDING iOS APPS
 
 With Apple’s strict App Store review policy, we recommend iOS developers to submit apps that contain more functionality than to simply export stickers. This will increase the chances of the app being accepted. As an alternative to creating an iOS app, there are various sticker maker apps that help you create and import stickers into WhatsApp.
 
