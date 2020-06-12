@@ -19,7 +19,7 @@ To get started, review the `README` files in the [Android](https://github.com/Wh
 
 ## PLEASE READ: IMPORTANT NOTICE ABOUT iOS APPS
 
-With Apple’s strict App Store review policy, we recommend iOS developers to submit apps that contain more functionality than to simply export stickers. This will increase the chances of the app is accepted. As an alternative to creating an iOS app, there are various sticker maker apps that help you create and import stickers into WhatsApp.
+With Apple’s strict App Store review policy, we recommend iOS developers to submit apps that contain more functionality than to simply export stickers. This will increase the chances of the app being accepted. As an alternative to creating an iOS app, there are various sticker maker apps that help you create and import stickers into WhatsApp.
 
 The sample iOS app is an example of how to use our API to import stickers into WhatsApp and can serve as a guide on how to get started, but it is not meant to be used as a template for your app because it will not be accepted by Apple.
 
