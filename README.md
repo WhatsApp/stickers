@@ -3,6 +3,8 @@
 ![Works with Android](https://img.shields.io/badge/Works_with-Android-green?style=flat-square)
 ![Works with iOS](https://img.shields.io/badge/Works_with-iOS-blue?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/whatsapp/stickers?style=flat-square)
+![Visitors](https://visitor-badge.glitch.me/badge?page_id=stickers.stickers)
+
 
 > This repository contains the iOS and Android sample apps and API for creating third party sticker packs for WhatsApp.
 
