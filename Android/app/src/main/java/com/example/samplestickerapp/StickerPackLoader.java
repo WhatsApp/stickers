@@ -38,6 +38,7 @@ import static com.example.samplestickerapp.StickerContentProvider.STICKER_PACK_I
 import static com.example.samplestickerapp.StickerContentProvider.STICKER_PACK_NAME_IN_QUERY;
 import static com.example.samplestickerapp.StickerContentProvider.STICKER_PACK_PUBLISHER_IN_QUERY;
 import static com.example.samplestickerapp.StickerContentProvider.IMAGE_DATA_VERSION;
+import static com.example.samplestickerapp.StickerContentProvider.STICKER_FILE_ANIMATED;
 
 class StickerPackLoader {
 
@@ -106,7 +107,8 @@ class StickerPackLoader {
             final String licenseAgreementWebsite = cursor.getString(cursor.getColumnIndexOrThrow(LICENSE_AGREENMENT_WEBSITE));
             final String imageDataVersion = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_DATA_VERSION));
             final boolean avoidCache = cursor.getShort(cursor.getColumnIndexOrThrow(AVOID_CACHE)) > 0;
-            final StickerPack stickerPack = new StickerPack(identifier, name, publisher, trayImage, publisherEmail, publisherWebsite, privacyPolicyWebsite, licenseAgreementWebsite, imageDataVersion, avoidCache);
+            final boolean isAnimated = cursor.getShort(cursor.getColumnIndexOrThrow(STICKER_FILE_ANIMATED)) > 0;
+            final StickerPack stickerPack = new StickerPack(identifier, name, publisher, trayImage, publisherEmail, publisherWebsite, privacyPolicyWebsite, licenseAgreementWebsite, imageDataVersion, avoidCache, isAnimated);
             stickerPack.setAndroidPlayStoreLink(androidPlayStoreLink);
             stickerPack.setIosAppStoreLink(iosAppLink);
             stickerPackList.add(stickerPack);
@@ -118,7 +120,7 @@ class StickerPackLoader {
     private static List<Sticker> fetchFromContentProviderForStickers(String identifier, ContentResolver contentResolver) {
         Uri uri = getStickerListUri(identifier);
 
-        final String[] projection = {STICKER_FILE_NAME_IN_QUERY, STICKER_FILE_EMOJI_IN_QUERY};
+        final String[] projection = {STICKER_FILE_NAME_IN_QUERY, STICKER_FILE_EMOJI_IN_QUERY,STICKER_FILE_ANIMATED};
         final Cursor cursor = contentResolver.query(uri, projection, null, null, null);
         List<Sticker> stickers = new ArrayList<>();
         if (cursor != null && cursor.getCount() > 0) {
@@ -130,7 +132,8 @@ class StickerPackLoader {
                 if (!TextUtils.isEmpty(emojisConcatenated)) {
                     emojis = Arrays.asList(emojisConcatenated.split(","));
                 }
-                stickers.add(new Sticker(name, emojis));
+                boolean isAnimated = cursor.getColumnIndexOrThrow(STICKER_FILE_ANIMATED) > 0;
+                stickers.add(new Sticker(name, emojis, isAnimated));
             } while (cursor.moveToNext());
         }
         if (cursor != null) {
