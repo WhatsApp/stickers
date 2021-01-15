@@ -45,6 +45,19 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Pack Name" />
 
+        <ImageView
+            android:id="@+id/sticker_pack_animation_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/sticker_pack_animation_indicator"
+            android:src="@drawable/animated_pack_indicator"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/pack_name"
+            app:layout_constraintStart_toEndOf="@+id/pack_name"
+            app:layout_constraintTop_toTopOf="@+id/pack_name"
+            app:tint="@color/animatedStickerIndicator" />
+
         <TextView
             android:id="@+id/author"
             android:layout_width="wrap_content"
