@@ -51,13 +51,25 @@
             android:textSize="16sp"
             tools:text="Pusheen" />
 
+        <ImageView
+            android:id="@+id/sticker_pack_animation_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/animated_pack_indicator"
+            app:tint="@color/animatedStickerIndicator"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:contentDescription="@string/sticker_pack_animation_indicator"
+            />
+
+
         <TextView
             android:id="@+id/sticker_pack_publisher"
             style="@style/sticker_packs_list_item_author_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:ellipsize="end"
             android:maxWidth="120dp"
             tools:text="petellison" />
