@@ -60,6 +60,22 @@ public class StickerPreviewAdapter extends RecyclerView.Adapter<StickerPreviewVi
     public void onBindViewHolder(@NonNull final StickerPreviewViewHolder stickerPreviewViewHolder, final int i) {
         stickerPreviewViewHolder.stickerPreviewView.setImageResource(errorResource);
         stickerPreviewViewHolder.stickerPreviewView.setImageURI(StickerPackLoader.getStickerAssetUri(stickerPack.identifier, stickerPack.getStickers().get(i).imageFileName));
+        
+        stickerPreviewViewHolder.stickerPreviewView.setOnClickListener(view -> {
+            Dialog dialog = new Dialog(view.getContext());
+            dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+            layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            ImageView imageView = new ImageView(view.getContext());
+            imageView.setImageURI(StickerPackLoader.getStickerAssetUri(stickerPack.identifier, stickerPack.getStickers().get(i).imageFileName));
+            dialog.setContentView(imageView, layoutParams);
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.show();
+            imageView.setOnClickListener(viewImageView -> dialog.dismiss());
+        });
+        
     }
 
     @Override
