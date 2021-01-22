@@ -136,18 +136,18 @@ class StickerPackValidator {
         try {
             final byte[] bytes = StickerPackLoader.fetchStickerAsset(identifier, fileName, context.getContentResolver());
             if (!animatedStickerPack && bytes.length > STATIC_STICKER_FILE_LIMIT_KB * ONE_KIBIBYTE) {
-                throw new IllegalStateException("static sticker should be less than " + STATIC_STICKER_FILE_LIMIT_KB + "KB, sticker pack identifier:" + identifier + ", filename:" + fileName);
+                throw new IllegalStateException("static sticker should be less than " + STATIC_STICKER_FILE_LIMIT_KB + "KB, current file is " + bytes.length / ONE_KIBIBYTE + " KB, sticker pack identifier: " + identifier + ", filename: " + fileName);
             }
             if (animatedStickerPack && bytes.length > ANIMATED_STICKER_FILE_LIMIT_KB * ONE_KIBIBYTE) {
-                throw new IllegalStateException("animated sticker should be less than " + ANIMATED_STICKER_FILE_LIMIT_KB + "KB, sticker pack identifier:" + identifier + ", filename:" + fileName);
+                throw new IllegalStateException("animated sticker should be less than " + ANIMATED_STICKER_FILE_LIMIT_KB + "KB, current file is " + bytes.length / ONE_KIBIBYTE + " KB, sticker pack identifier: " + identifier + ", filename: " + fileName);
             }
             try {
                 final WebPImage webPImage = WebPImage.createFromByteArray(bytes);
                 if (webPImage.getHeight() != IMAGE_HEIGHT) {
-                    throw new IllegalStateException("sticker height should be " + IMAGE_HEIGHT + ", sticker pack identifier:" + identifier + ", filename:" + fileName);
+                    throw new IllegalStateException("sticker height should be " + IMAGE_HEIGHT + ", current height is " + webPImage.getHeight() + ", sticker pack identifier: " + identifier + ", filename: " + fileName);
                 }
                 if (webPImage.getWidth() != IMAGE_WIDTH) {
-                    throw new IllegalStateException("sticker width should be " + IMAGE_WIDTH + ", sticker pack identifier:" + identifier + ", filename:" + fileName);
+                    throw new IllegalStateException("sticker width should be " + IMAGE_WIDTH + ", current width is " + webPImage.getWidth() + ", sticker pack identifier: " + identifier + ", filename: " + fileName);
                 }
                 if (animatedStickerPack) {
                     if (webPImage.getFrameCount() <= 1) {
