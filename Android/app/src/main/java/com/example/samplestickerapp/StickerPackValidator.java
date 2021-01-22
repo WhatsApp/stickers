@@ -26,9 +26,8 @@ import java.net.URL;
 import java.util.List;
 
 class StickerPackValidator {
-    private static final int STATIC_STICKER_FILE_LIMIT_KB = 1000;
-    private static final int ANIMATED_STICKER_FILE_LIMIT_KB = 3000;
-    private static final int ANIMATED_STICKER_FRAME_LIMIT = 300;
+    private static final int STATIC_STICKER_FILE_LIMIT_KB = 100;
+    private static final int ANIMATED_STICKER_FILE_LIMIT_KB = 500;
     static final int EMOJI_MAX_LIMIT = 3;
     private static final int EMOJI_MIN_LIMIT = 1;
     private static final int IMAGE_HEIGHT = 512;
@@ -40,6 +39,8 @@ class StickerPackValidator {
     private static final int TRAY_IMAGE_FILE_SIZE_MAX_KB = 50;
     private static final int TRAY_IMAGE_DIMENSION_MIN = 24;
     private static final int TRAY_IMAGE_DIMENSION_MAX = 512;
+    private static final int ANIMATED_STICKER_FRAME_DURATION_MIN = 8;
+    private static final int ANIMATED_STICKER_TOTAL_DURATION_MAX = 10 * 1000; //ms
     private static final String PLAY_STORE_DOMAIN = "play.google.com";
     private static final String APPLE_STORE_DOMAIN = "itunes.apple.com";
 
@@ -152,8 +153,9 @@ class StickerPackValidator {
                     if (webPImage.getFrameCount() <= 1) {
                         throw new IllegalStateException("this pack is marked as animated sticker pack, all stickers should animate, sticker pack identifier:" + identifier + ", filename:" + fileName);
                     }
-                    if (webPImage.getFrameCount() > ANIMATED_STICKER_FRAME_LIMIT) {
-                        throw new IllegalStateException("animated sticker frame limit is " + ANIMATED_STICKER_FRAME_LIMIT + ", sticker pack identifier:" + identifier + ", filename:" + fileName);
+                    checkFrameDurationsForAnimatedSticker(webPImage.getFrameDurations(), identifier, fileName);
+                    if (webPImage.getDuration() > ANIMATED_STICKER_TOTAL_DURATION_MAX) {
+                        throw new IllegalStateException("sticker animation max duration is: " + ANIMATED_STICKER_TOTAL_DURATION_MAX + " ms, current duration is: " + webPImage.getDuration() + " ms, sticker pack identifier: " + identifier + ", filename: " + fileName);
                     }
                 } else if (webPImage.getFrameCount() > 1) {
                     throw new IllegalStateException("this pack is not marked as animated sticker pack, all stickers should be static stickers, sticker pack identifier:" + identifier + ", filename:" + fileName);
@@ -162,7 +164,15 @@ class StickerPackValidator {
                 throw new IllegalStateException("Error parsing webp image, sticker pack identifier:" + identifier + ", filename:" + fileName, e);
             }
         } catch (IOException e) {
-            throw new IllegalStateException("cannot open sticker file: sticker pack identifier:" + identifier + ", filename:" + fileName, e);
+            throw new IllegalStateException("cannot open sticker file: sticker pack identifier: " + identifier + ", filename: " + fileName, e);
+        }
+    }
+
+    private static void checkFrameDurationsForAnimatedSticker(@NonNull final int[] frameDurations, @NonNull final String identifier, @NonNull final String fileName) {
+        for (int frameDuration: frameDurations) {
+            if (frameDuration < ANIMATED_STICKER_FRAME_DURATION_MIN) {
+                throw new IllegalStateException("animated sticker frame duration limit is " + ANIMATED_STICKER_FRAME_DURATION_MIN + ", sticker pack identifier:" + identifier + ", filename:" + fileName);
+            }
         }
     }
 
