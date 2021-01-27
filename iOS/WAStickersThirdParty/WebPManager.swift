@@ -18,6 +18,33 @@ class WebPManager {
         return decoder.frameCount > 1
     }
 
+    func minFrameDuration(webPData data: Data) -> TimeInterval {
+        guard let decoder = YYImageDecoder(data: data, scale: 1.0) else { return -1 }
+        guard decoder.frameCount > 1 else { return -1 }
+
+        var minFrameDuration = decoder.frameDuration(at: 0)
+        for index in 1..<decoder.frameCount {
+            let frameDuration = decoder.frameDuration(at: index)
+            if frameDuration < minFrameDuration {
+                minFrameDuration = frameDuration
+            }
+        }
+
+        return minFrameDuration
+    }
+
+    func totalAnimationDuration(webPData data: Data) -> TimeInterval {
+        guard let decoder = YYImageDecoder(data: data, scale: 1.0) else { return -1 }
+        guard decoder.frameCount > 1 else { return -1 }
+
+        var totalAnimationDuration = decoder.frameDuration(at: 0)
+        for index in 1..<decoder.frameCount {
+            totalAnimationDuration += decoder.frameDuration(at: index)
+        }
+
+        return totalAnimationDuration
+    }
+
     func decode(webPData data: Data) -> UIImage? {
         guard let decoder = YYImageDecoder(data: data, scale: 1.0) else { return nil }
 

@@ -83,10 +83,11 @@ class Sticker {
      *  - Throws:
      - .fileNotFound if file has not been found
      - .unsupportedImageFormat if image is not png or webp
-     - .imageTooBig if the image file size is above the supported limit (100KB)
+     - .imageTooBig if the image file size is above the supported limit (100KB for static, 500KB for animated)
      - .incorrectImageSize if the image is not within the allowed size
-     - .animatedImagesNotSupported if the image is animated
      - .tooManyEmojis if there are too many emojis assigned to the sticker
+     - .minFrameDurationTooShort if the minimum frame duration is too short (less than 8ms)
+     - .totalAnimationDurationTooLong if the total animation duration is too long (more than 10s)
      */
     init(contentsOfFile filename: String, emojis: [String]?) throws {
         self.imageData = try ImageData.imageDataIfCompliant(contentsOfFile: filename, isTray: false)
@@ -101,10 +102,11 @@ class Sticker {
      *  - Parameter emojis: array of emojis associated with this sticker.
      *
      *  - Throws:
-     - .imageTooBig if the image file size is above the supported limit (100KB)
+     - .imageTooBig if the image file size is above the supported limit (100KB for static, 500KB for animated)
      - .incorrectImageSize if the image is not within the allowed size
-     - .animatedImagesNotSupported if the image is animated
      - .tooManyEmojis if there are too many emojis assigned to the sticker
+     - .minFrameDurationTooShort if the minimum frame duration is too short (less than 8ms)
+     - .totalAnimationDurationTooLong if the total animation duration is too long (more than 10s)
      */
     init(imageData: Data, type: ImageDataExtension, emojis: [String]?) throws {
         self.imageData = try ImageData.imageDataIfCompliant(rawData:imageData, extensionType: type, isTray: false)
