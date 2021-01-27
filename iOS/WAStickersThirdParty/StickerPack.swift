@@ -16,6 +16,7 @@ enum StickerPackError: Error {
     case emptyString
     case unsupportedImageFormat(String)
     case imageTooBig(Int64, Bool) // Bool value indicates whether the image is animated
+    case invalidImage
     case incorrectImageSize(CGSize)
     case animatedImagesNotSupported
     case stickersNumOutsideAllowableRange
@@ -68,6 +69,7 @@ class StickerPack {
      - .fileNotFound if tray image file has not been found
      - .unsupportedImageFormat if tray image file is not png or webp
      - .imageTooBig if the tray image file size is above the supported limit (50KB)
+     - .invalidImage if the image file size is 0KB
      - .incorrectImageSize if the tray image is not within the allowed size
      - .animatedImagesNotSupported if the tray image is animated
      */
@@ -111,6 +113,7 @@ class StickerPack {
      - .emptyString if any string parameter is empty
      - .stringTooLong if any string is too long
      - .imageTooBig if the tray image file size is above the supported limit (50KB)
+     - .invalidImage if the image file size is 0KB
      - .incorrectImageSize if the tray image is not within the allowed size
      - .animatedImagesNotSupported if the tray image is animated
      */

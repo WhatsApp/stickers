@@ -84,6 +84,7 @@ class Sticker {
      - .fileNotFound if file has not been found
      - .unsupportedImageFormat if image is not png or webp
      - .imageTooBig if the image file size is above the supported limit (100KB for static, 500KB for animated)
+     - .invalidImage if the image file size is 0KB
      - .incorrectImageSize if the image is not within the allowed size
      - .tooManyEmojis if there are too many emojis assigned to the sticker
      - .minFrameDurationTooShort if the minimum frame duration is too short (less than 8ms)
@@ -103,6 +104,7 @@ class Sticker {
      *
      *  - Throws:
      - .imageTooBig if the image file size is above the supported limit (100KB for static, 500KB for animated)
+     - .invalidImage if the image file size is 0KB
      - .incorrectImageSize if the image is not within the allowed size
      - .tooManyEmojis if there are too many emojis assigned to the sticker
      - .minFrameDurationTooShort if the minimum frame duration is too short (less than 8ms)

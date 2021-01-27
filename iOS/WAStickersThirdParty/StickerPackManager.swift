@@ -89,6 +89,8 @@ class StickerPackManager {
                     fatalError("The name, identifier, and publisher strings can't be empty.")
                 } catch StickerPackError.unsupportedImageFormat(let imageFormat) {
                     fatalError("\(packTrayImageFileName): \(imageFormat) is not a supported format.")
+                } catch StickerPackError.invalidImage {
+                    fatalError("Tray image file size is 0 KB.")
                 } catch StickerPackError.imageTooBig(let imageFileSize, _) {
                     let roundedSize = round((Double(imageFileSize) / 1024) * 100) / 100;
                     fatalError("\(packTrayImageFileName): \(roundedSize) KB is bigger than the max tray image file size (\(Limits.MaxTrayImageFileSize / 1024) KB).")
@@ -115,6 +117,8 @@ class StickerPackManager {
                         fatalError("\(filename) not found.")
                     } catch StickerPackError.unsupportedImageFormat(let imageFormat) {
                         fatalError("\(filename): \(imageFormat) is not a supported format.")
+                    } catch StickerPackError.invalidImage {
+                        fatalError("Image file size is 0 KB.")
                     } catch StickerPackError.imageTooBig(let imageFileSize, let animated) {
                         let roundedSize = round((Double(imageFileSize) / 1024) * 100) / 100;
                         let maxSize = animated ? Limits.MaxAnimatedStickerFileSize : Limits.MaxStaticStickerFileSize

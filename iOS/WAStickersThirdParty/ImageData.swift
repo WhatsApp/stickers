@@ -148,6 +148,9 @@ class ImageData {
     static func imageDataIfCompliant(rawData: Data, extensionType: ImageDataExtension, isTray: Bool) throws -> ImageData {
         let imageData = ImageData(data: rawData, type: extensionType)
 
+        guard imageData.bytesSize > 0 else {
+            throw StickerPackError.invalidImage
+        }
         if isTray {
             guard !imageData.animated else {
                 throw StickerPackError.animatedImagesNotSupported
