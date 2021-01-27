@@ -21,14 +21,17 @@ We recommend you refer to the FAQ at https://faq.whatsapp.com/general/26000226 f
 * A sticker is an image that has a transparent background and can be sent in a
 WhatsApp chat
 * Stickers are organized into "packs". Users must explicitly add each pack to WhatsApp one-by-one, so your app should list each pack separately and each pack must have its own affordance to add it to WhatsApp (do not try to create "add all packs" operations).
+* Sticker packs must contain either static or animated stickers, never a mix of both
 * Each sticker pack must have a minimum of 3 stickers and a maximum of 30 stickers
 * Stickers must be exactly 512 x 512 pixels
 * Stickers will render on a variety of backgrounds, white, black, colored, patterned, etc. Test your sticker art on a variety of backgrounds. For this reason, we recommend you add a 8px #FFFFFF stroke to the outside of each sticker. See the sample PSD referenced at https://faq.whatsapp.com/general/26000226 for more details. 
-* Stickers must be either in PNG or the [WebP format](https://developers.google.com/speed/webp). Currently, animated WebP, animated PNG, or animated stickers of any kind are not supported. See the section [Converting to WebP](#converting-to-webp) below for information on how to create WebP files.
-* Each sticker must be less than 100KB. See the section [Tips for Reducing File Size](#tips-for-reducing-file-size) below. 
+* Stickers must be either in PNG or the [WebP format](https://developers.google.com/speed/webp). Animated stickers are supported in the WebP format only. See the section [Converting to WebP](#converting-to-webp) below for information on how to create WebP files.
+* Each static sticker must be less than or equal to 100KB and each animated sticker must be less than or equal to 500KB. See the section [Tips for Reducing File Size](#tips-for-reducing-file-size) below. 
+* Animated stickers must have frames with minimum duration of 8ms. Animation duration should be less than or equal to 10 seconds total.
+* For animated stickers, the first frame should say it all - WhatsApp ends the animation on the first frame after looping so please make sure your first frame is the complete image of your sticker and adjust the sequence of the stickers accordingly so users don’t see a jumpy experience going from the last to first frame. Ex. A sticker that animated “Hi!” should have the first frame show all words “Hi!”.
 * Sticker Picker/Tray Icon
-* Provide an image that will be used to represent your sticker pack in the WhatsApp sticker picker/tray 
-* This image should be 96 x 96 pixels
+* Provide an image that will be used to represent your sticker pack in the WhatsApp sticker picker/tray
+* This image should be static and 96 x 96 pixels
 * Max file size of 50KB
 
 ### Tips for reducing file size
@@ -63,7 +66,9 @@ Follow these steps if you want to test your sticker assets with the sample app.
 In Xcode, you must also modify the 'sticker_packs.wasticker' file. Replace the values of the metadata with your own. A few notes: 
 
 * `name`: the sticker pack's name (128 characters max)
-* `identifier`: The identifier should be unique and can be alphanumeric: a-z, A-Z, 0-9, and the following characters are also allowed "_", "-", "." and " ". The identifier should be less than 128 characters.
+* `publisher`: the sticker pack's publisher (128 characters max)
+* `identifier`: the identifier should be unique and can be alphanumeric: a-z, A-Z, 0-9, and the following characters are also allowed "_", "-", "." and " ". The identifier should be less than 128 characters.
+* `animated_sticker_pack`: boolean value to indicate whether the sticker pack is animated (required for animated sticker packs, optional for static sticker packs)
 * Replace the `image_file` value with the file name of your sticker image. It must have both the file name and extension. The ordering of the files in the JSON will dictate the ordering of your stickers in your pack. 
 * `ios_app_store_link` and `android_play_store_link` (optional fields): here you can put the URL to your sticker app in the App Store as well as a URL to your sticker app in the Google Play Store (if you have an Android version of your sticker app). If you provide these URLs, users who receive a sticker from your app in WhatsApp can tap on it to view your sticker app in the respective App Stores. To get your App Store link before you publish your app, refer to the instructions here: https://stackoverflow.com/questions/4137426/get-itunes-link-for-app-before-submitting.
 * `emojis` (optional): add up to a maximum of three emoji for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. In the future, WhatsApp will support a search function for stickers and tagging your sticker files with emoji will enable that. The sticker picker/tray in WhatsApp today already categorizes stickers into emotion categories (love, happy, sad, and angry) and it does this based on the emoji you tag your stickers with. Please see the list of emojis you can use to tag for the emotion categories: https://github.com/WhatsApp/stickers/wiki/Tag-your-stickers-with-Emojis
