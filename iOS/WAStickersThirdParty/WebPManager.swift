@@ -45,10 +45,23 @@ class WebPManager {
         return totalAnimationDuration
     }
 
-    func decode(webPData data: Data) -> UIImage? {
+    func decode(webPData data: Data) -> [UIImage]? {
         guard let decoder = YYImageDecoder(data: data, scale: 1.0) else { return nil }
 
-        return decoder.frame(at: 0, decodeForDisplay: true)?.image
+        var images: [UIImage] = []
+        for index in 0..<decoder.frameCount {
+            guard let frame = decoder.frame(at: index, decodeForDisplay: true) else {
+                continue
+            }
+            guard let image = frame.image else {
+                continue
+            }
+            images.append(image)
+        }
+        if images.count == 0 {
+            return nil
+        }
+        return images
     }
 
     func encode(pngData data: Data) -> Data? {

@@ -247,7 +247,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
         if let stickerImage = sticker.imageData.image {
-            actionSheet.addImageView(withImage: stickerImage)
+            actionSheet.addImageView(withImage: stickerImage, animated: sticker.imageData.animated)
         }
         present(actionSheet, animated: true)
     }

@@ -96,8 +96,18 @@ class ImageData {
      */
     lazy var image: UIImage? = {
         if type == .webp {
-            return WebPManager.shared.decode(webPData: data)
+            guard let images = WebPManager.shared.decode(webPData: data) else {
+                return nil
+            }
+            if images.count == 0 {
+                return nil
+            }
+            if images.count == 1 {
+                return images.first
+            }
+            return UIImage.animatedImage(with: images, duration: WebPManager.shared.totalAnimationDuration(webPData: data))
         } else {
+            // Static image
             return UIImage(data: data)
         }
     }()
