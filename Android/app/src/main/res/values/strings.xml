@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- This is the app's name, translators please do not translate and put in the same text as English version. Developers can consider putting in their own translation, this string must be changed before publishing -->
     <string name="app_name">WhatsAppSampleStickerApp</string>
     <!-- Content description for the sticker pack tray image -->
@@ -38,4 +38,8 @@
     <string name="add_pack_fail_prompt_update_play_link">Update</string>
     <!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
     <string name="cannot_find_play_store">Google Play is not installed on the device.</string>
+    <!-- Content description indicating the sticker pack is an animated pack -->
+    <string name="sticker_pack_animation_indicator" tools:ignore="MissingTranslation">Animated sticker pack</string>
+    <!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+    <string name="sticker_pack_details_tap_to_preview" tools:ignore="MissingTranslation">Tap to preview sticker</string>
 </resources>
