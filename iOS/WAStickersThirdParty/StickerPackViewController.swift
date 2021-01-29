@@ -234,7 +234,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         }
         #endif
 
-        let actionSheet: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n", message: emojisString, preferredStyle: .actionSheet)
+        let actionSheet: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n\n", message: emojisString, preferredStyle: .actionSheet)
         
         actionSheet.popoverPresentationController?.sourceView = cell.contentView
         actionSheet.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
