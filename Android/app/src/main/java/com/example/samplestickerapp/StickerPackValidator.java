@@ -134,15 +134,15 @@ class StickerPackValidator {
 
     private static void validateStickerFile(@NonNull Context context, @NonNull String identifier, @NonNull final String fileName, final boolean animatedStickerPack) throws IllegalStateException {
         try {
-            final byte[] bytes = StickerPackLoader.fetchStickerAsset(identifier, fileName, context.getContentResolver());
-            if (!animatedStickerPack && bytes.length > STATIC_STICKER_FILE_LIMIT_KB * ONE_KIBIBYTE) {
-                throw new IllegalStateException("static sticker should be less than " + STATIC_STICKER_FILE_LIMIT_KB + "KB, current file is " + bytes.length / ONE_KIBIBYTE + " KB, sticker pack identifier: " + identifier + ", filename: " + fileName);
+            final byte[] stickerInBytes = StickerPackLoader.fetchStickerAsset(identifier, fileName, context.getContentResolver());
+            if (!animatedStickerPack && stickerInBytes.length > STATIC_STICKER_FILE_LIMIT_KB * ONE_KIBIBYTE) {
+                throw new IllegalStateException("static sticker should be less than " + STATIC_STICKER_FILE_LIMIT_KB + "KB, current file is " + stickerInBytes.length / ONE_KIBIBYTE + " KB, sticker pack identifier: " + identifier + ", filename: " + fileName);
             }
-            if (animatedStickerPack && bytes.length > ANIMATED_STICKER_FILE_LIMIT_KB * ONE_KIBIBYTE) {
-                throw new IllegalStateException("animated sticker should be less than " + ANIMATED_STICKER_FILE_LIMIT_KB + "KB, current file is " + bytes.length / ONE_KIBIBYTE + " KB, sticker pack identifier: " + identifier + ", filename: " + fileName);
+            if (animatedStickerPack && stickerInBytes.length > ANIMATED_STICKER_FILE_LIMIT_KB * ONE_KIBIBYTE) {
+                throw new IllegalStateException("animated sticker should be less than " + ANIMATED_STICKER_FILE_LIMIT_KB + "KB, current file is " + stickerInBytes.length / ONE_KIBIBYTE + " KB, sticker pack identifier: " + identifier + ", filename: " + fileName);
             }
             try {
-                final WebPImage webPImage = WebPImage.createFromByteArray(bytes);
+                final WebPImage webPImage = WebPImage.createFromByteArray(stickerInBytes);
                 if (webPImage.getHeight() != IMAGE_HEIGHT) {
                     throw new IllegalStateException("sticker height should be " + IMAGE_HEIGHT + ", current height is " + webPImage.getHeight() + ", sticker pack identifier: " + identifier + ", filename: " + fileName);
                 }
