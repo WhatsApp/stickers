@@ -16,7 +16,6 @@ import android.text.format.Formatter;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,7 +46,6 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
     public static final String EXTRA_STICKER_PACK_DATA = "sticker_pack";
 
 
-
     private RecyclerView recyclerView;
     private GridLayoutManager layoutManager;
     private StickerPreviewAdapter stickerPreviewAdapter;
@@ -58,7 +56,6 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
     private View divider;
     private SimpleDraweeView expandedStickerView;
     private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
-
 
 
     @Override

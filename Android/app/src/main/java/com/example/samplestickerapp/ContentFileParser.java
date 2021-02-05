@@ -170,8 +170,7 @@ class ContentFileParser {
                     }
                     reader.endArray();
 
-                }
-                else {
+                } else {
                     throw new IllegalStateException("unknown field in json: " + key);
                 }
             }

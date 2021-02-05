@@ -59,8 +59,7 @@
             app:tint="@color/animatedStickerIndicator"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:contentDescription="@string/sticker_pack_animation_indicator"
-            />
+            android:contentDescription="@string/sticker_pack_animation_indicator" />
 
 
         <TextView

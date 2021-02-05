@@ -169,7 +169,7 @@ class StickerPackValidator {
     }
 
     private static void checkFrameDurationsForAnimatedSticker(@NonNull final int[] frameDurations, @NonNull final String identifier, @NonNull final String fileName) {
-        for (int frameDuration: frameDurations) {
+        for (int frameDuration : frameDurations) {
             if (frameDuration < ANIMATED_STICKER_FRAME_DURATION_MIN) {
                 throw new IllegalStateException("animated sticker frame duration limit is " + ANIMATED_STICKER_FRAME_DURATION_MIN + ", sticker pack identifier: " + identifier + ", filename: " + fileName);
             }
