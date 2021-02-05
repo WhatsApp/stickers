@@ -54,7 +54,6 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
     private View alreadyAddedText;
     private StickerPack stickerPack;
     private View divider;
-    private SimpleDraweeView expandedStickerView;
     private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
 
 
@@ -68,7 +67,7 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
         TextView packPublisherTextView = findViewById(R.id.author);
         ImageView packTrayIcon = findViewById(R.id.tray_image);
         TextView packSizeTextView = findViewById(R.id.pack_size);
-        expandedStickerView = findViewById(R.id.sticker_details_expanded_sticker);
+        SimpleDraweeView expandedStickerView = findViewById(R.id.sticker_details_expanded_sticker);
 
         addButton = findViewById(R.id.add_to_whatsapp_button);
         alreadyAddedText = findViewById(R.id.already_added_text);
