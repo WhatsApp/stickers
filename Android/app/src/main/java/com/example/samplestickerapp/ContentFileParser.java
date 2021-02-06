@@ -75,6 +75,7 @@ class ContentFileParser {
         String licenseAgreementWebsite = null;
         String imageDataVersion = "";
         boolean avoidCache = false;
+        boolean animatedStickerPack = false;
         List<Sticker> stickerList = null;
         while (reader.hasNext()) {
             String key = reader.nextName();
@@ -112,6 +113,9 @@ class ContentFileParser {
                 case "avoid_cache":
                     avoidCache = reader.nextBoolean();
                     break;
+                case "animated_sticker_pack":
+                    animatedStickerPack = reader.nextBoolean();
+                    break;
                 default:
                     reader.skipValue();
             }
@@ -138,7 +142,7 @@ class ContentFileParser {
             throw new IllegalStateException("image_data_version should not be empty");
         }
         reader.endObject();
-        final StickerPack stickerPack = new StickerPack(identifier, name, publisher, trayImageFile, publisherEmail, publisherWebsite, privacyPolicyWebsite, licenseAgreementWebsite, imageDataVersion, avoidCache);
+        final StickerPack stickerPack = new StickerPack(identifier, name, publisher, trayImageFile, publisherEmail, publisherWebsite, privacyPolicyWebsite, licenseAgreementWebsite, imageDataVersion, avoidCache, animatedStickerPack);
         stickerPack.setStickers(stickerList);
         return stickerPack;
     }
@@ -165,6 +169,7 @@ class ContentFileParser {
                         }
                     }
                     reader.endArray();
+
                 } else {
                     throw new IllegalStateException("unknown field in json: " + key);
                 }
