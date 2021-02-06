@@ -23,12 +23,12 @@ We recommend you refer to the FAQ at https://faq.whatsapp.com/general/26000226 f
 * Stickers must be exactly 512 x 512 pixels
 * Stickers will render on a variety of backgrounds, white, black, colored, patterned, etc. Test your sticker art on a variety of backgrounds. For this reason, we recommend you add a 8px #FFFFFF stroke to the outside of each sticker. See the sample PSD referenced at https://faq.whatsapp.com/general/26000226 for more details.
 * Stickers must be in the [WebP format](https://developers.google.com/speed/webp). See the section [Converting to WebP](#converting-to-webp) below for information on how to create WebP files.
-* Each static sticker must be less than 100KB and each animated sticker must be less than 500KB. See the section [Tips for Reducing File Size](#tips-for-reducing-file-size) below.
-* Animated stickers must have frames with minimum duration of 8ms. Animation duration should be below 10 seconds total.
+* Each static sticker must be less than or equal to 100KB and each animated sticker must be less than or equal to 500KB. See the section [Tips for Reducing File Size](#tips-for-reducing-file-size) below.
+* Animated stickers must have frames with minimum duration of 8ms. Animation duration should be less than or equal to 10 seconds total.
 * For animated stickers, the first frame should say it all - WhatsApp ends the animation on the first frame after looping so please make sure your first frame is the complete image of your sticker and adjust the sequence of the stickers accordingly so users don’t see a jumpy experience going from the last to first frame. Ex. A sticker that animated “Hi!” should have the first frame show all words “Hi!”.
 * Sticker Picker/Tray Icon
     * Provide an image that will be used to represent your sticker pack in the WhatsApp sticker picker/tray 
-    * This image should be 96 x 96 pixels
+    * This image should be static and 96 x 96 pixels
     * Max file size of 50KB
 
 ### Tips for reducing file size
