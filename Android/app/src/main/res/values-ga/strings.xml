@@ -38,3 +38,4 @@
 	<!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
 	<string name="cannot_find_play_store">Níl Google Play suiteáilte ar an bhfeiste.</string>
 </resources>
+
