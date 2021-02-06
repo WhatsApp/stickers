@@ -17,7 +17,7 @@
 	<!-- Text of button that allows user to click to send an email -->
 	<string name="send_email">E-posta gönder</string>
 	<!-- Text of button that allows user to click to go to the privacy policy website -->
-	<string name="privacy_policy">Gizlilik politikası</string>
+	<string name="privacy_policy">Gizlilik ilkesi</string>
 	<!-- Text next to the tray icon that indicates the tray icon -->
 	<string name="info_screen_tray_icon">Tray simgesi</string>
 	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
@@ -37,4 +37,8 @@
 		<item quantity="one">Çıkartma Paketi</item>
 		<item quantity="other">Çıkartma Paketleri</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Hareketli çıkartma paketi</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Çıkartmayı önizlemek için dokunun</string>
 </resources>

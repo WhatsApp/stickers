@@ -36,4 +36,8 @@
 	<plurals name="title_activity_sticker_packs_list">
 		<item quantity="other">Paket Stiker</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Paket stiker animasi</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Ketuk untuk melihat pratinjau stiker</string>
 </resources>

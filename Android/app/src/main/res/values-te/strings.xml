@@ -37,4 +37,8 @@
 		<item quantity="one">స్టికర్ ప్యాక్</item>
 		<item quantity="other">స్టికర్ ప్యాకులు</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">యానిమేటెడ్ స్టిక్కర్ ప్యాక్</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">స్టిక్కర్ ప్రివ్యూ కోసం ట్యాప్ చేయండి</string>
 </resources>
