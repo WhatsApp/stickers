@@ -15,7 +15,7 @@
 	<!-- Text of button that allows user to click to go to the webpage of the publisher -->
 	<string name="view_webpage">Zobraziť webstránku</string>
 	<!-- Text of button that allows user to click to send an email -->
-	<string name="send_email">Odoslať email</string>
+	<string name="send_email">Odoslať e-mail</string>
 	<!-- Text of button that allows user to click to go to the privacy policy website -->
 	<string name="privacy_policy">Zásady ochrany osobných údajov</string>
 	<!-- Text next to the tray icon that indicates the tray icon -->
@@ -23,7 +23,7 @@
 	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
 	<string name="details_pack_already_added">Balík nálepiek už bol pridaný do aplikácie WhatsApp.</string>
 	<!-- Title in the intent chooser that shows when user has multiple email client installed -->
-	<string name="info_send_email_to_prompt">Poslať email cez</string>
+	<string name="info_send_email_to_prompt">Poslať e-mail cez</string>
 	<!-- Message to show in a dialog when user fails to add sticker pack -->
 	<string name="add_pack_fail_prompt_update_whatsapp">Balík nálepiek nebol pridaný. Ak ho chcete pridať, uistite sa, že používate najnovšiu verziu aplikácie WhatsApp.</string>
 	<!-- Text in dialog button when a user has an old version of WhatsApp that prevents them from adding the sticker pack, clicking on it will take user to play store -->
@@ -37,4 +37,8 @@
 		<item quantity="one">Balík nálepiek</item>
 		<item quantity="other">Balíky nálepiek</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Animovaný balík nálepiek</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Klepnutím zobrazíte náhľad nálepky.</string>
 </resources>

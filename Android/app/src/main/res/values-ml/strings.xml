@@ -15,7 +15,7 @@
 	<!-- Text of button that allows user to click to go to the webpage of the publisher -->
 	<string name="view_webpage">വെബ്‌പേജ് കാണുക</string>
 	<!-- Text of button that allows user to click to send an email -->
-	<string name="send_email">ഇമെയിൽ അയയ്ക്കുക</string>
+	<string name="send_email">ഇമെയിൽ അയയ്‌ക്കുക</string>
 	<!-- Text of button that allows user to click to go to the privacy policy website -->
 	<string name="privacy_policy">സ്വകാര്യതാ നയം</string>
 	<!-- Text next to the tray icon that indicates the tray icon -->
@@ -37,4 +37,8 @@
 		<item quantity="one">സ്റ്റിക്കർ പായ്ക്ക്</item>
 		<item quantity="other">സ്റ്റിക്കർ പായ്ക്കുകൾ</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">ആനിമേറ്റ് ചെയ്ത സ്റ്റിക്കർ പാക്ക്</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">സ്റ്റിക്കറിന്റെ പ്രിവ്യൂ കാണുന്നതിന് ടാപ്പ് ചെയ്യുക</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="app_name">WhatsAppSampleStickerApp</string>
 	<!-- Content description for the sticker pack tray image -->
 	<string name="tray_image_content_description">ຮູບຊຸດສະຕິກເກີ້ຢູ່ແຖບ</string>
 	<!-- the title of info button in the menu that takes the user to more information about that pack showing publisher website and so on -->
@@ -36,4 +37,8 @@
 	<plurals name="title_activity_sticker_packs_list">
 		<item quantity="other">ຊຸດສະຕິກເກີ້</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">ຊຸດສະຕິກເກີເຄື່ອນໄຫວ</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">ແຕະເພື່ອເບິ່ງຕົວຢ່າງສະຕິກເກີ</string>
 </resources>

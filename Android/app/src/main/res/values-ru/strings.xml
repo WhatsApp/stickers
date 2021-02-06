@@ -37,4 +37,8 @@
 		<item quantity="one">Набор стикеров</item>
 		<item quantity="other">Наборы стикеров</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Анимированный набор стикеров</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Нажмите, чтобы просмотреть стикер</string>
 </resources>

@@ -19,7 +19,7 @@
 	<!-- Text of button that allows user to click to go to the privacy policy website -->
 	<string name="privacy_policy">Política de privacidade</string>
 	<!-- Text next to the tray icon that indicates the tray icon -->
-	<string name="info_screen_tray_icon">Imagem da bandeja</string>
+	<string name="info_screen_tray_icon">Ícone da bandeja</string>
 	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
 	<string name="details_pack_already_added">Pacote de figurinhas adicionado ao WhatsApp</string>
 	<!-- Title in the intent chooser that shows when user has multiple email client installed -->
@@ -37,4 +37,8 @@
 		<item quantity="one">Pacote de figurinhas</item>
 		<item quantity="other">Pacotes de figurinhas</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Pacote de figurinhas animadas</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Toque para visualizar a figurinha</string>
 </resources>

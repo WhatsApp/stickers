@@ -7,7 +7,7 @@
 	<!-- Text to be shown on the button that user can click to add the sticker pack to WhatsApp -->
 	<string name="add_to_whatsapp">Додај у WhatsApp</string>
 	<!-- Content Description for the plus button shown on sticker pack list, that allows user to add sticker pack to WhatsApp -->
-	<string name="add_button_content_description">Додај пакет налепница у WhatsApp</string>
+	<string name="add_button_content_description">Додајте пакет налепница у WhatsApp</string>
 	<!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
 	<string name="title_activity_sticker_pack_details_multiple_pack">Детаљи налепнице</string>
 	<!-- Title of the sticker pack info page which displays the webpage, email and privacy policy of the sticker pack -->
@@ -19,13 +19,13 @@
 	<!-- Text of button that allows user to click to go to the privacy policy website -->
 	<string name="privacy_policy">Политика приватности</string>
 	<!-- Text next to the tray icon that indicates the tray icon -->
-	<string name="info_screen_tray_icon">Икона палете</string>
+	<string name="info_screen_tray_icon">Иконица палете</string>
 	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
 	<string name="details_pack_already_added">Пакет налепница је додат у WhatsApp</string>
 	<!-- Title in the intent chooser that shows when user has multiple email client installed -->
-	<string name="info_send_email_to_prompt">Пошаљи имејл са</string>
+	<string name="info_send_email_to_prompt">Пошаљите имејл са</string>
 	<!-- Message to show in a dialog when user fails to add sticker pack -->
-	<string name="add_pack_fail_prompt_update_whatsapp">Пакет налепница није додат. Ако желиш да га додаш, обавезно ажурирај на најновију верзију WhatsApp-а.</string>
+	<string name="add_pack_fail_prompt_update_whatsapp">Пакет налепница није додат. Ако желите да га додате, обавезно ажурирајте на најновију верзију апликације WhatsApp.</string>
 	<!-- Text in dialog button when a user has an old version of WhatsApp that prevents them from adding the sticker pack, clicking on it will take user to play store -->
 	<string name="add_pack_fail_prompt_update_play_link">Ажурирај</string>
 	<!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
@@ -37,4 +37,8 @@
 		<item quantity="one">Пакет налепница</item>
 		<item quantity="other">Пакети налепница</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Пакет анимираних налепница</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Додирните за преглед налепнице</string>
 </resources>

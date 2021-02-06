@@ -37,4 +37,8 @@
 		<item quantity="one">Πακέτο αυτοκόλλητων</item>
 		<item quantity="other">Πακέτα αυτοκόλλητων</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Πακέτο κινούμενων αυτοκόλλητων</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Πατήστε για προεπισκόπηση αυτοκόλλητου</string>
 </resources>

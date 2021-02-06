@@ -37,4 +37,8 @@
 		<item quantity="one">Pacchetto di sticker</item>
 		<item quantity="other">Pacchetti di sticker</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Pacchetto di sticker animati</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Tocca per vedere anteprima sticker</string>
 </resources>
