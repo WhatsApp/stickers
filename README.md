@@ -24,7 +24,7 @@ With Apple’s strict App Store review policy, we recommend iOS developers to su
 The sample iOS app is an example on how to use our API to import stickers into WhatsApp, and can serve as guide on how to get started, but it is not meant to be used as template for your app because it will not be accepted by Apple.
 
 ## Announcements :loudspeaker:
-Please check out [Announcements](https://github.com/WhatsApp/stickers/wiki/Tag-your-stickers-with-Emojis) for recent changes.
+Please check out [Announcements](https://github.com/WhatsApp/stickers/wiki/Animated-Stickers) for recent changes.
 
 ## Brand guidelines
 When naming your app, it is strongly advised you do not use "WhatsApp" anywhere in the name of your app or in the name field of your app listing. However, when preparing your app for submission in Google Play Store/App Store, you'll have the option to add description associated with your app and it's okay to mention WhatsApp in the description. Make sure you use "WhatsApp" as brand name, with "W" and "A" capitalized with no space between letters. More information on WhatsApp Brand(https://whatsappbrand.com/).
