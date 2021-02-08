@@ -15,12 +15,17 @@ enum StickerPackError: Error {
     case fileNotFound
     case emptyString
     case unsupportedImageFormat(String)
-    case imageTooBig(Int64)
+    case imageTooBig(Int64, Bool) // Bool value indicates whether the image is animated
+    case invalidImage
     case incorrectImageSize(CGSize)
     case animatedImagesNotSupported
     case stickersNumOutsideAllowableRange
     case stringTooLong
     case tooManyEmojis
+    case minFrameDurationTooShort(Double)
+    case totalAnimationDurationTooLong(Double)
+    case animatedStickerPackWithStaticStickers
+    case staticStickerPackWithAnimatedStickers
 }
 
 /**
@@ -35,6 +40,7 @@ class StickerPack {
     let publisherWebsite: String?
     let privacyPolicyWebsite: String?
     let licenseAgreementWebsite: String?
+    var animated: Bool
 
     var stickers: [Sticker]
 
@@ -62,11 +68,12 @@ class StickerPack {
      - .stringTooLong if the name and publisher are more than 128 character
      - .fileNotFound if tray image file has not been found
      - .unsupportedImageFormat if tray image file is not png or webp
-     - .imageTooBig if the image file size is above the supported limit (100KB)
+     - .imageTooBig if the tray image file size is above the supported limit (50KB)
+     - .invalidImage if the image file size is 0KB
      - .incorrectImageSize if the tray image is not within the allowed size
      - .animatedImagesNotSupported if the tray image is animated
      */
-    init(identifier: String, name: String, publisher: String, trayImageFileName: String, publisherWebsite: String?, privacyPolicyWebsite: String?, licenseAgreementWebsite: String?) throws {
+    init(identifier: String, name: String, publisher: String, trayImageFileName: String, animatedStickerPack: Bool?, publisherWebsite: String?, privacyPolicyWebsite: String?, licenseAgreementWebsite: String?) throws {
         guard !name.isEmpty && !publisher.isEmpty && !identifier.isEmpty else {
             throw StickerPackError.emptyString
         }
@@ -81,6 +88,8 @@ class StickerPack {
 
         let trayCompliantImageData: ImageData = try ImageData.imageDataIfCompliant(contentsOfFile: trayImageFileName, isTray: true)
         self.trayImage = trayCompliantImageData
+
+        self.animated = animatedStickerPack ?? false
 
         stickers = []
 
@@ -103,7 +112,8 @@ class StickerPack {
      *  - Throws:
      - .emptyString if any string parameter is empty
      - .stringTooLong if any string is too long
-     - .imageTooBig if the tray image file size is above the supported limit (100KB)
+     - .imageTooBig if the tray image file size is above the supported limit (50KB)
+     - .invalidImage if the image file size is 0KB
      - .incorrectImageSize if the tray image is not within the allowed size
      - .animatedImagesNotSupported if the tray image is animated
      */
@@ -123,6 +133,8 @@ class StickerPack {
         let trayCompliantImageData: ImageData = try ImageData.imageDataIfCompliant(rawData: trayImagePNGData, extensionType: .png, isTray: true)
         self.trayImage = trayCompliantImageData
 
+        self.animated = false
+
         stickers = []
 
         self.publisherWebsite = publisherWebsite
@@ -138,6 +150,8 @@ class StickerPack {
      *
      *  - Throws:
      - .stickersNumOutsideAllowableRange if current number of stickers is not withing limits
+     - .animatedStickerPackWithStaticStickers if an animated pack contains static stickers
+     - .staticStickerPackWithAnimatedStickers if a static pack contains animated stickers
      - All exceptions from Sticker(contentsOfFile:emojis:)
      */
     func addSticker(contentsOfFile filename: String, emojis: [String]?) throws {
@@ -146,6 +160,14 @@ class StickerPack {
         }
 
         let sticker: Sticker = try Sticker(contentsOfFile: filename, emojis: emojis)
+
+        guard sticker.imageData.animated == self.animated else {
+            if self.animated {
+                throw StickerPackError.animatedStickerPackWithStaticStickers
+            } else {
+                throw StickerPackError.staticStickerPackWithAnimatedStickers
+            }
+        }
 
         stickers.append(sticker)
     }
@@ -159,6 +181,8 @@ class StickerPack {
      *
      *  - Throws:
      - .stickersNumOutsideAllowableRange if current number of stickers is not withing limits
+     - .animatedStickerPackWithStaticStickers if an animated pack contains static stickers
+     - .staticStickerPackWithAnimatedStickers if a static pack contains animated stickers
      - All exceptions from Sticker(imageData:type:emojis:)
      */
     func addSticker(imageData: Data, type: ImageDataExtension, emojis: [String]?) throws {
@@ -167,6 +191,14 @@ class StickerPack {
         }
 
         let sticker: Sticker = try Sticker(imageData: imageData, type: type, emojis: emojis)
+
+        guard sticker.imageData.animated == self.animated else {
+            if self.animated {
+                throw StickerPackError.animatedStickerPackWithStaticStickers
+            } else {
+                throw StickerPackError.staticStickerPackWithAnimatedStickers
+            }
+        }
 
         stickers.append(sticker)
     }
@@ -185,6 +217,9 @@ class StickerPack {
             json["name"] = self.name
             json["publisher"] = self.publisher
             json["tray_image"] = self.trayImage.image!.pngData()?.base64EncodedString()
+            if self.animated {
+                json["animated_sticker_pack"] = self.animated
+            }
 
             var stickersArray: [[String: Any]] = []
             for sticker in self.stickers {

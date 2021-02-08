@@ -11,6 +11,7 @@ import UIKit
 class StickerPackViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet private weak var stickerPackPublisherLabel: UILabel!
+    @IBOutlet private weak var stickerPackAnimationIcon: UIImageView!
     @IBOutlet private weak var stickersCollectionView: UICollectionView!
     @IBOutlet private weak var bottomCollectionViewConstraint: NSLayoutConstraint!
 
@@ -82,6 +83,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         view.addSubview(shareButton)
 
         stickerPackPublisherLabel.text = "\(stickerPack.publisher) • \(stickerPack.formattedSize)"
+        stickerPackAnimationIcon.isHidden = !stickerPack.animated
 
         let tapGuideLabel: UILabel = UILabel()
         tapGuideLabel.text = "Tap on any sticker to copy or share it"
@@ -232,7 +234,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         }
         #endif
 
-        let actionSheet: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n", message: emojisString, preferredStyle: .actionSheet)
+        let actionSheet: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n\n", message: emojisString, preferredStyle: .actionSheet)
         
         actionSheet.popoverPresentationController?.sourceView = cell.contentView
         actionSheet.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
@@ -247,7 +249,7 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
         if let stickerImage = sticker.imageData.image {
-            actionSheet.addImageView(withImage: stickerImage)
+            actionSheet.addImageView(withImage: stickerImage, animated: sticker.imageData.animated)
         }
         present(actionSheet, animated: true)
     }

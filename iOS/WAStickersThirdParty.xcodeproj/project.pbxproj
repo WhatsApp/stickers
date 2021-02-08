@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		055CF8F725C117C90071BA8D /* 02_WellDoThisTogether.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E125C117C80071BA8D /* 02_WellDoThisTogether.webp */; };
+		055CF8F825C117C90071BA8D /* 17_WashingHands.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E225C117C80071BA8D /* 17_WashingHands.webp */; };
+		055CF8F925C117C90071BA8D /* 10_WorkingFromBed.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E325C117C80071BA8D /* 10_WorkingFromBed.webp */; };
+		055CF8FA25C117C90071BA8D /* 19_SocialDistancing.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E425C117C80071BA8D /* 19_SocialDistancing.webp */; };
+		055CF8FB25C117C90071BA8D /* 11_StayCalm.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E525C117C80071BA8D /* 11_StayCalm.webp */; };
+		055CF8FC25C117C90071BA8D /* 06_StayConnected.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E625C117C80071BA8D /* 06_StayConnected.webp */; };
+		055CF8FD25C117C90071BA8D /* 14_CatOnTheLaptop.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E725C117C80071BA8D /* 14_CatOnTheLaptop.webp */; };
+		055CF8FE25C117C90071BA8D /* 15_WorkingFromHomeF.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E825C117C80071BA8D /* 15_WorkingFromHomeF.webp */; };
+		055CF8FF25C117C90071BA8D /* 18_DontTouchYourFace.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8E925C117C80071BA8D /* 18_DontTouchYourFace.webp */; };
+		055CF90025C117C90071BA8D /* 05_GroupVideoCalling.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8EA25C117C80071BA8D /* 05_GroupVideoCalling.webp */; };
+		055CF90125C117C90071BA8D /* 20_SuperheroNurse.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8EB25C117C80071BA8D /* 20_SuperheroNurse.webp */; };
+		055CF90225C117C90071BA8D /* 04_AirHighFive.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8EC25C117C90071BA8D /* 04_AirHighFive.webp */; };
+		055CF90325C117C90071BA8D /* 12_Gymnastics.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8ED25C117C90071BA8D /* 12_Gymnastics.webp */; };
+		055CF90425C117C90071BA8D /* 13_DoubleChecking.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8EE25C117C90071BA8D /* 13_DoubleChecking.webp */; };
+		055CF90525C117C90071BA8D /* 01_SendingLove.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8EF25C117C90071BA8D /* 01_SendingLove.webp */; };
+		055CF90625C117C90071BA8D /* 08_AreYouOK.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8F025C117C90071BA8D /* 08_AreYouOK.webp */; };
+		055CF90725C117C90071BA8D /* 16_WorkingFromHomeM.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8F125C117C90071BA8D /* 16_WorkingFromHomeM.webp */; };
+		055CF90825C117C90071BA8D /* 21_YouAreMyHero.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8F225C117C90071BA8D /* 21_YouAreMyHero.webp */; };
+		055CF90925C117C90071BA8D /* 03_Heart.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8F325C117C90071BA8D /* 03_Heart.webp */; };
+		055CF90A25C117C90071BA8D /* 09_StayingHomeMug.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8F425C117C90071BA8D /* 09_StayingHomeMug.webp */; };
+		055CF90B25C117C90071BA8D /* tray_TogetherAtHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8F525C117C90071BA8D /* tray_TogetherAtHome.png */; };
+		055CF90C25C117C90071BA8D /* 07_OK.webp in Resources */ = {isa = PBXBuildFile; fileRef = 055CF8F625C117C90071BA8D /* 07_OK.webp */; };
 		0E6359A4203E148200805DEB /* StickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6359A3203E148200805DEB /* StickerCell.swift */; };
 		8A0A6DCD1FE9F1CE00110AF2 /* UIAlertController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0A6DCC1FE9F1CE00110AF2 /* UIAlertController+Additions.swift */; };
 		8A18E2EE1FB3B47D0082201D /* YYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A18E2E51FB3B47B0082201D /* YYImage.m */; };
@@ -80,6 +102,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		055CF8E125C117C80071BA8D /* 02_WellDoThisTogether.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 02_WellDoThisTogether.webp; sourceTree = "<group>"; };
+		055CF8E225C117C80071BA8D /* 17_WashingHands.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 17_WashingHands.webp; sourceTree = "<group>"; };
+		055CF8E325C117C80071BA8D /* 10_WorkingFromBed.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10_WorkingFromBed.webp; sourceTree = "<group>"; };
+		055CF8E425C117C80071BA8D /* 19_SocialDistancing.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 19_SocialDistancing.webp; sourceTree = "<group>"; };
+		055CF8E525C117C80071BA8D /* 11_StayCalm.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 11_StayCalm.webp; sourceTree = "<group>"; };
+		055CF8E625C117C80071BA8D /* 06_StayConnected.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 06_StayConnected.webp; sourceTree = "<group>"; };
+		055CF8E725C117C80071BA8D /* 14_CatOnTheLaptop.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_CatOnTheLaptop.webp; sourceTree = "<group>"; };
+		055CF8E825C117C80071BA8D /* 15_WorkingFromHomeF.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 15_WorkingFromHomeF.webp; sourceTree = "<group>"; };
+		055CF8E925C117C80071BA8D /* 18_DontTouchYourFace.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 18_DontTouchYourFace.webp; sourceTree = "<group>"; };
+		055CF8EA25C117C80071BA8D /* 05_GroupVideoCalling.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 05_GroupVideoCalling.webp; sourceTree = "<group>"; };
+		055CF8EB25C117C80071BA8D /* 20_SuperheroNurse.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 20_SuperheroNurse.webp; sourceTree = "<group>"; };
+		055CF8EC25C117C90071BA8D /* 04_AirHighFive.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 04_AirHighFive.webp; sourceTree = "<group>"; };
+		055CF8ED25C117C90071BA8D /* 12_Gymnastics.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 12_Gymnastics.webp; sourceTree = "<group>"; };
+		055CF8EE25C117C90071BA8D /* 13_DoubleChecking.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 13_DoubleChecking.webp; sourceTree = "<group>"; };
+		055CF8EF25C117C90071BA8D /* 01_SendingLove.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 01_SendingLove.webp; sourceTree = "<group>"; };
+		055CF8F025C117C90071BA8D /* 08_AreYouOK.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 08_AreYouOK.webp; sourceTree = "<group>"; };
+		055CF8F125C117C90071BA8D /* 16_WorkingFromHomeM.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 16_WorkingFromHomeM.webp; sourceTree = "<group>"; };
+		055CF8F225C117C90071BA8D /* 21_YouAreMyHero.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 21_YouAreMyHero.webp; sourceTree = "<group>"; };
+		055CF8F325C117C90071BA8D /* 03_Heart.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 03_Heart.webp; sourceTree = "<group>"; };
+		055CF8F425C117C90071BA8D /* 09_StayingHomeMug.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 09_StayingHomeMug.webp; sourceTree = "<group>"; };
+		055CF8F525C117C90071BA8D /* tray_TogetherAtHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tray_TogetherAtHome.png; sourceTree = "<group>"; };
+		055CF8F625C117C90071BA8D /* 07_OK.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = 07_OK.webp; sourceTree = "<group>"; };
 		0E6359A3203E148200805DEB /* StickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerCell.swift; sourceTree = "<group>"; };
 		8A0A6DCC1FE9F1CE00110AF2 /* UIAlertController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Additions.swift"; sourceTree = "<group>"; };
 		8A18E2E31FB3B47A0082201D /* WAStickersThirdParty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WAStickersThirdParty-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -228,6 +272,28 @@
 		8A26A6A71FEB2E2400256DE8 /* SampleStickers */ = {
 			isa = PBXGroup;
 			children = (
+				055CF8EF25C117C90071BA8D /* 01_SendingLove.webp */,
+				055CF8F525C117C90071BA8D /* tray_TogetherAtHome.png */,
+				055CF8E125C117C80071BA8D /* 02_WellDoThisTogether.webp */,
+				055CF8F325C117C90071BA8D /* 03_Heart.webp */,
+				055CF8EC25C117C90071BA8D /* 04_AirHighFive.webp */,
+				055CF8EA25C117C80071BA8D /* 05_GroupVideoCalling.webp */,
+				055CF8E625C117C80071BA8D /* 06_StayConnected.webp */,
+				055CF8F625C117C90071BA8D /* 07_OK.webp */,
+				055CF8F025C117C90071BA8D /* 08_AreYouOK.webp */,
+				055CF8F425C117C90071BA8D /* 09_StayingHomeMug.webp */,
+				055CF8E325C117C80071BA8D /* 10_WorkingFromBed.webp */,
+				055CF8E525C117C80071BA8D /* 11_StayCalm.webp */,
+				055CF8ED25C117C90071BA8D /* 12_Gymnastics.webp */,
+				055CF8EE25C117C90071BA8D /* 13_DoubleChecking.webp */,
+				055CF8E725C117C80071BA8D /* 14_CatOnTheLaptop.webp */,
+				055CF8E825C117C80071BA8D /* 15_WorkingFromHomeF.webp */,
+				055CF8F125C117C90071BA8D /* 16_WorkingFromHomeM.webp */,
+				055CF8E225C117C80071BA8D /* 17_WashingHands.webp */,
+				055CF8E925C117C80071BA8D /* 18_DontTouchYourFace.webp */,
+				055CF8E425C117C80071BA8D /* 19_SocialDistancing.webp */,
+				055CF8EB25C117C80071BA8D /* 20_SuperheroNurse.webp */,
+				055CF8F225C117C90071BA8D /* 21_YouAreMyHero.webp */,
 				8AC234882146F63D00E3667B /* tray_Cuppy.png */,
 				8AC234942146F65100E3667B /* 01_Cuppy_smile.png */,
 				8AC234962146F65200E3667B /* 02_Cuppy_lol.png */,
@@ -360,8 +426,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055CF90225C117C90071BA8D /* 04_AirHighFive.webp in Resources */,
 				8AC234A72146F65500E3667B /* 10_Cuppy_hmm.png in Resources */,
 				8AC234B92146F65500E3667B /* 19_Cuppy_shine.png in Resources */,
+				055CF8F925C117C90071BA8D /* 10_WorkingFromBed.webp in Resources */,
 				8A27F12F1FD9E733001B2BBD /* SecondaryTextTableViewCell.xib in Resources */,
 				8AC234B52146F65500E3667B /* 16_Cuppy_angry.png in Resources */,
 				8AC234B12146F65500E3667B /* 08_Cuppy_lovewithmug.png in Resources */,
@@ -369,21 +437,41 @@
 				8AC234892146F63D00E3667B /* tray_Cuppy.png in Resources */,
 				8A27F11C1FD73DD0001B2BBD /* StickerPackTableViewCell.xib in Resources */,
 				8AC234A92146F65500E3667B /* 14_Cuppy_weird.png in Resources */,
+				055CF8FC25C117C90071BA8D /* 06_StayConnected.webp in Resources */,
 				8AC234AD2146F65500E3667B /* 01_Cuppy_smile.png in Resources */,
+				055CF90525C117C90071BA8D /* 01_SendingLove.webp in Resources */,
 				8AC234AA2146F65500E3667B /* 22_Cuppy_bye.png in Resources */,
+				055CF8FE25C117C90071BA8D /* 15_WorkingFromHomeF.webp in Resources */,
 				8AC234A52146F65500E3667B /* 09_Cuppy_lovewithcookie.png in Resources */,
+				055CF90325C117C90071BA8D /* 12_Gymnastics.webp in Resources */,
+				055CF90B25C117C90071BA8D /* tray_TogetherAtHome.png in Resources */,
 				8AC234AE2146F65500E3667B /* 21_Cuppy_hi.png in Resources */,
 				8AC234B82146F65500E3667B /* 05_Cuppy_cry.png in Resources */,
+				055CF90125C117C90071BA8D /* 20_SuperheroNurse.webp in Resources */,
 				8AC234A82146F65500E3667B /* 07_Cuppy_hate.png in Resources */,
 				8AC234B02146F65500E3667B /* 03_Cuppy_rofl.png in Resources */,
+				055CF90925C117C90071BA8D /* 03_Heart.webp in Resources */,
+				055CF90725C117C90071BA8D /* 16_WorkingFromHomeM.webp in Resources */,
+				055CF8FB25C117C90071BA8D /* 11_StayCalm.webp in Resources */,
 				8A22EE0E1F9A9F40003A7F21 /* LaunchScreen.storyboard in Resources */,
+				055CF90A25C117C90071BA8D /* 09_StayingHomeMug.webp in Resources */,
+				055CF8FD25C117C90071BA8D /* 14_CatOnTheLaptop.webp in Resources */,
+				055CF90C25C117C90071BA8D /* 07_OK.webp in Resources */,
+				055CF8FA25C117C90071BA8D /* 19_SocialDistancing.webp in Resources */,
 				8A22EE0B1F9A9F40003A7F21 /* Assets.xcassets in Resources */,
+				055CF90025C117C90071BA8D /* 05_GroupVideoCalling.webp in Resources */,
+				055CF8F825C117C90071BA8D /* 17_WashingHands.webp in Resources */,
+				055CF90625C117C90071BA8D /* 08_AreYouOK.webp in Resources */,
+				055CF90825C117C90071BA8D /* 21_YouAreMyHero.webp in Resources */,
 				8AC235042149FA3000E3667B /* 11_Cuppy_upset.png in Resources */,
 				8AC234AB2146F65500E3667B /* 12_Cuppy_angry.png in Resources */,
+				055CF8FF25C117C90071BA8D /* 18_DontTouchYourFace.webp in Resources */,
 				8AC234B42146F65500E3667B /* 04_Cuppy_sad.png in Resources */,
 				8A27F1311FD9E987001B2BBD /* LinkTableViewCell.xib in Resources */,
 				8AC234AF2146F65500E3667B /* 02_Cuppy_lol.png in Resources */,
 				8AC234A42146F65500E3667B /* 06_Cuppy_love.png in Resources */,
+				055CF90425C117C90071BA8D /* 13_DoubleChecking.webp in Resources */,
+				055CF8F725C117C90071BA8D /* 02_WellDoThisTogether.webp in Resources */,
 				8A22EE091F9A9F40003A7F21 /* Main.storyboard in Resources */,
 				8AC234B32146F65500E3667B /* 13_Cuppy_curious.png in Resources */,
 				8AC234B22146F65500E3667B /* 24_Cuppy_phone.png in Resources */,

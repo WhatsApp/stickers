@@ -16,11 +16,13 @@ final class StickerPackTableViewCell: UITableViewCell, UICollectionViewDataSourc
     @IBOutlet private weak var stickerPackTitleLabel: UILabel!
     @IBOutlet private weak var stickerPackDescriptionLabel: UILabel!
     @IBOutlet private weak var stickerPackCollectionView: UICollectionView!
+    @IBOutlet private weak var stickerPackAnimationIcon: UIImageView!
 
     var stickerPack: StickerPack? {
         didSet {
             stickerPackTitle = stickerPack?.name
             stickerPackSecondaryInfo = stickerPack?.publisher
+            stickerPackAnimated = stickerPack?.animated
             stickerPackCollectionView.reloadData()
         }
     }
@@ -31,6 +33,18 @@ final class StickerPackTableViewCell: UITableViewCell, UICollectionViewDataSourc
         }
         set {
             stickerPackTitleLabel.text = newValue
+        }
+    }
+
+    var stickerPackAnimated: Bool? {
+        get {
+            return !stickerPackAnimationIcon.isHidden
+        }
+        set {
+            guard let animated = newValue else {
+                return stickerPackAnimationIcon.isHidden = true
+            }
+            stickerPackAnimationIcon.isHidden = !animated
         }
     }
 
