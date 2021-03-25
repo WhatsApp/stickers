@@ -177,7 +177,6 @@ public class StickerPreviewAdapter extends RecyclerView.Adapter<StickerPreviewVi
             expandedStickerPreview.setImageResource(errorResource);
             expandedStickerPreview.setController(controller);
 
-            clickedStickerPreview.setVisibility(View.INVISIBLE);
             expandedStickerPreview.setVisibility(View.VISIBLE);
             recyclerView.setAlpha(EXPANDED_STICKER_PREVIEW_BACKGROUND_ALPHA);
 

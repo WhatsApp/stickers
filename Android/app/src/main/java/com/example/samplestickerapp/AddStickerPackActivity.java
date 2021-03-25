@@ -123,7 +123,7 @@ public abstract class AddStickerPackActivity extends BaseActivity {
                 final boolean smbAppInstalled = WhitelistCheck.isPackageInstalled(WhitelistCheck.SMB_WHATSAPP_PACKAGE_NAME, packageManager);
                 final String playPackageLinkPrefix = "http://play.google.com/store/apps/details?id=";
                 if (whatsAppInstalled && smbAppInstalled) {
-                    launchPlayStoreWithUri("https://play.google.com/store/apps/developer?id=WhatsApp+Inc.");
+                    launchPlayStoreWithUri("https://play.google.com/store/apps/developer?id=WhatsApp+LLC");
                 } else if (whatsAppInstalled) {
                     launchPlayStoreWithUri(playPackageLinkPrefix + WhitelistCheck.CONSUMER_WHATSAPP_PACKAGE_NAME);
                 } else if (smbAppInstalled) {
