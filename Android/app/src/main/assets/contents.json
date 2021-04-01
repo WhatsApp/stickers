@@ -1,375 +1,221 @@
 {
-  "android_play_store_link": "",
+  "android_play_store_link": "https://play.google.com/store/apps/details?id=com.am.ricardstickeri",
   "ios_app_store_link": "",
   "sticker_packs": [
     {
       "identifier": "1",
-      "name": "Cuppy",
-      "publisher": "Jane Doe",
-      "tray_image_file": "tray_Cuppy.png",
+      "name": "Ričard",
+      "publisher": "KUD Bleke i Konji",
+      "tray_image_file": "ricard_ikona.png",
       "image_data_version": "1",
       "avoid_cache": false,
       "publisher_email": "",
-      "publisher_website": "",
+      "publisher_website": "https://www.facebook.com/Konji-nezavisna-lista-za-grad-Zadar-341440762643701/",
       "privacy_policy_website": "",
       "license_agreement_website": "",
       "stickers": [
         {
-          "image_file": "01_Cuppy_smile.webp",
+          "image_file": "01_Ricard_osmijeh.webp",
           "emojis": [
-            "☕",
-            "🙂"
+            "😀",
+            "😀"
           ]
         },
         {
-          "image_file": "02_Cuppy_lol.webp",
+          "image_file": "02_Ricard_da_da.webp",
           "emojis": [
             "😄",
             "😀"
           ]
         },
         {
-          "image_file": "03_Cuppy_rofl.webp",
+          "image_file": "03_Ricard_nece_vise.webp",
           "emojis": [
-            "😆",
-            "😂"
+            "⛔",
+            "🙅‍♂",
+            "🙅‍♀"
           ]
         },
         {
-          "image_file": "04_Cuppy_sad.webp",
+          "image_file": "04_Ricard_a_sto.webp",
           "emojis": [
-            "😩",
-            "😰"
+            "😕"
           ]
         },
         {
-          "image_file": "05_Cuppy_cry.webp",
+          "image_file": "05_Ricard_odbij_sotono.webp",
           "emojis": [
-            "😭",
-            "💧"
+            "⛔"
           ]
         },
         {
-          "image_file": "06_Cuppy_love.webp",
+          "image_file": "06_Ricard_sve_mukte.webp",
           "emojis": [
-            "😍",
-            "♥"
+            "💸",
+            "💰"
           ]
         },
         {
-          "image_file": "07_Cuppy_hate.webp",
+          "image_file": "07_Ricard_zacepi.webp",
           "emojis": [
-            "💔",
-            "👎"
+            "🤫"
           ]
         },
         {
-          "image_file": "08_Cuppy_lovewithmug.webp",
+          "image_file": "08_Ricard_ocepi.webp",
           "emojis": [
-            "😍",
-            "💑"
+            "📢"
           ]
         },
         {
-          "image_file": "09_Cuppy_lovewithcookie.webp",
+          "image_file": "09_Ricard_kurcina.webp",
           "emojis": [
-            "😘",
-            "🍪"
+            "🍆"
           ]
         },
         {
-          "image_file": "10_Cuppy_hmm.webp",
+          "image_file": "10_Ricard_jarca_isusa.webp",
           "emojis": [
-            "🤔",
-            "😐"
           ]
         },
         {
-          "image_file": "11_Cuppy_upset.webp",
+          "image_file": "11_Ricard_es_razumije.webp",
           "emojis": [
-            "😱",
-            "😵"
           ]
         },
         {
-          "image_file": "12_Cuppy_angry.webp",
+          "image_file": "12_Ricard_nes_vrigat.webp",
           "emojis": [
-            "😡",
-            "😠"
+            "🍳",
+            "🧑‍🍳"
           ]
         },
         {
-          "image_file": "13_Cuppy_curious.webp",
+          "image_file": "13_Ricard_odpicke.webp",
           "emojis": [
-            "❓",
-            "🤔"
           ]
         },
         {
-          "image_file": "14_Cuppy_weird.webp",
+          "image_file": "14_Ricard_da_da.webp",
           "emojis": [
-            "🌈",
-            "😜"
+            "😄",
+            "😀"
           ]
         },
         {
-          "image_file": "15_Cuppy_bluescreen.webp",
+          "image_file": "15_Ricard_alkoholicar.webp",
           "emojis": [
-            "💻",
-            "😩"
+            "🍺",
+            "🍹"
           ]
         },
         {
-          "image_file": "16_Cuppy_angry.webp",
+          "image_file": "16_Ricard_zgon.webp",
           "emojis": [
-            "😡",
-            "😤"
+            "⛔",
+            "✊",
+            "💪"
           ]
         },
         {
-          "image_file": "17_Cuppy_tired.webp",
+          "image_file": "17_Ricard_pali.webp",
           "emojis": [
-            "😩",
-            "😨"
+            "✊",
+            "💪"
           ]
         },
         {
-          "image_file": "18_Cuppy_workhard.webp",
+          "image_file": "18_Ricard_zajeba.webp",
           "emojis": [
-            "💻",
-            "🌃"
           ]
         },
         {
-          "image_file": "19_Cuppy_shine.webp",
+          "image_file": "19_Ricard_ti_guske.webp",
           "emojis": [
-            "🎉",
-            "✨"
           ]
         },
         {
-          "image_file": "20_Cuppy_disgusting.webp",
+          "image_file": "20_Ricard_a_sta.webp",
           "emojis": [
-            "🤮",
-            "👎"
           ]
         },
         {
-          "image_file": "21_Cuppy_hi.webp",
+          "image_file": "20_Ricard_sokole.webp",
           "emojis": [
-            "🖐",
-            "🙋"
-          ]
-        },
-        {
-          "image_file": "22_Cuppy_bye.webp",
-          "emojis": [
-            "🖐",
-            "👋"
-          ]
-        },
-        {
-          "image_file": "23_Cuppy_greentea.webp",
-          "emojis": [
-            "🍵",
-            "😌"
-          ]
-        },
-        {
-          "image_file": "24_Cuppy_phone.webp",
-          "emojis": [
-            "📱",
-            "😦"
-          ]
-        },
-        {
-          "image_file": "25_Cuppy_battery.webp",
-          "emojis": [
-            "🔋",
-            "😵"
           ]
         }
       ]
     },
     {
       "identifier": "2",
-      "name": "Together While Apart",
-      "publisher": "World Health Organization",
-      "tray_image_file": "01.png",
+      "name": "Dragan",
+      "publisher": "KUD Bleke i Konji",
+      "tray_image_file": "dragan_ikona.png",
       "image_data_version": "1",
       "avoid_cache": false,
       "publisher_email": "",
-      "publisher_website": "",
+      "publisher_website": "https://www.facebook.com/Konji-nezavisna-lista-za-grad-Zadar-341440762643701/",
       "privacy_policy_website": "",
       "license_agreement_website": "",
-      "animated_sticker_pack": true,
+      "animated_sticker_pack": false,
       "stickers": [
         {
-          "image_file": "01_SendingLove.webp",
+          "image_file": "01_Dragan_alkoholicar.webp",
           "emojis": [
-            "🥰",
-            "😘",
-            "❤️"
+            "🍺",
+            "🍹"
           ]
         },
         {
-          "image_file": "02_WellDoThisTogether.webp",
+          "image_file": "02_Dragan_prekini.webp",
           "emojis": [
-            "✊",
-            "💪",
-            "🙏"
+            "⛔"
           ]
         },
         {
-          "image_file": "03_Heart.webp",
+          "image_file": "03_Dragan_bozic.webp",
           "emojis": [
-            "❤️",
-            "🥰",
-            "💕"
+            "🎄",
+            "🎅"
           ]
         },
         {
-          "image_file": "04_AirHighFive.webp",
+          "image_file": "04_Dragan_jopet_ja_kriv.webp",
           "emojis": [
-            "🖐",
-            "🙌",
-            "✋"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "identifier": "3",
+      "name": "Tebra",
+      "publisher": "KUD Bleke i Konji",
+      "tray_image_file": "tebra_ikona.png",
+      "image_data_version": "1",
+      "avoid_cache": false,
+      "publisher_email": "",
+      "publisher_website": "https://www.facebook.com/Konji-nezavisna-lista-za-grad-Zadar-341440762643701/",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "animated_sticker_pack": false,
+      "stickers": [
         {
-          "image_file": "05_GroupVideoCalling.webp",
+          "image_file": "01_Tebra_bog.webp",
           "emojis": [
-            "📱",
-            "👯",
             "👋"
           ]
         },
         {
-          "image_file": "06_StayConnected.webp",
+          "image_file": "02_Tebra_problemi.webp",
           "emojis": [
-            "📱",
-            "🙋‍♀",
-            "🙋‍♂"
+            "😦"
           ]
         },
         {
-          "image_file": "07_OK.webp",
+          "image_file": "03_Ricard_osmijeh.webp",
           "emojis": [
-            "👍",
-            "👌",
-            "🙂"
-          ]
-        },
-        {
-          "image_file": "08_AreYouOK.webp",
-          "emojis": [
-            "👋",
-            "❓",
-            "📱"
-          ]
-        },
-        {
-          "image_file": "09_StayingHomeMug.webp",
-          "emojis": [
-            "☕",
-            "🍵",
-            "🏠"
-          ]
-        },
-        {
-          "image_file": "10_WorkingFromBed.webp",
-          "emojis": [
-            "👩‍💻",
-            "👨‍💻",
-            "🛏"
-          ]
-        },
-        {
-          "image_file": "11_StayCalm.webp",
-          "emojis": [
-            "🧘♀",
-            "🧘♂",
-            "🤙"
-          ]
-        },
-        {
-          "image_file": "12_Gymnastics.webp",
-          "emojis": [
-            "🤸",
-            "🐩",
-            "💪"
-          ]
-        },
-        {
-          "image_file": "13_DoubleChecking.webp",
-          "emojis": [
-            "📰",
-            "🔎",
-            "🔍"
-          ]
-        },
-        {
-          "image_file": "14_CatOnTheLaptop.webp",
-          "emojis": [
-            "🐈",
-            "🐱",
-            "💻"
-          ]
-        },
-        {
-          "image_file": "15_WorkingFromHomeF.webp",
-          "emojis": [
-            "👩‍💻",
-            "🏠",
-            "💻"
-          ]
-        },
-        {
-          "image_file": "16_WorkingFromHomeM.webp",
-          "emojis": [
-            "👨‍💻",
-            "🏠",
-            "💻"
-          ]
-        },
-        {
-          "image_file": "17_WashingHands.webp",
-          "emojis": [
-            "✋",
-            "💦",
-            "🧼"
-          ]
-        },
-        {
-          "image_file": "18_DontTouchYourFace.webp",
-          "emojis": [
-            "😷",
-            "🤒",
-            "🤧"
-          ]
-        },
-        {
-          "image_file": "19_SocialDistancing.webp",
-          "emojis": [
-            "😷",
-            "🤒",
-            "🏠"
-          ]
-        },
-        {
-          "image_file": "20_SuperheroNurse.webp",
-          "emojis": [
-            "👩‍⚕",
-            "👨‍⚕️",
-            "🩺"
-          ]
-        },
-        {
-          "image_file": "21_YouAreMyHero.webp",
-          "emojis": [
-            "🙏",
-            "🦸‍♀️",
-            "🦸"
+            "😄",
+            "😀"
           ]
         }
       ]
