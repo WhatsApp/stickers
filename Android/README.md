@@ -97,7 +97,7 @@ It is advised that you create Multiple APKs per ABI (CPU Architecture), it will 
 ## Advanced development
 For advanced developers looking to make richer sticker apps, follow the instructions below.
 
-### Overview
+### Overview .
 
 Sticker apps communicate with WhatsApp as follows:
     
