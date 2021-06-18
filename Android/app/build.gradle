@@ -7,7 +7,7 @@ android {
     }
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.example.samplestickerapp"
+        applicationId "com.vratska.stickerbp"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -69,8 +69,8 @@ private void checkApplicationIdInDebug() {
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
     def ignoreApplicationIdCheck = properties.getProperty('ignoreApplicationIdCheck')
     if (ignoreApplicationIdCheck == null) {
-        if (android.defaultConfig.applicationId == "com.example.samplestickerapp") {
-            throw new GradleException("Your applicationId is currently com.example.samplestickerapp, please change your applicationId to a different string in app/build.gradle in line 10")
+        if (android.defaultConfig.applicationId == "com.example.stickersbp") {
+            throw new GradleException("Your applicationId is currently com.example.stickersbp, please change your applicationId to a different string in app/build.gradle in line 10")
         }
     } else {
         println("application id check ignored")

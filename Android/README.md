@@ -103,7 +103,7 @@ Sticker apps communicate with WhatsApp as follows:
 ### ContentProvider
 The ContentProvider in the sample app is [StickerContentProvider](app/src/main/java/com/example/samplestickerapp/StickerContentProvider.java). The ContentProvider provides 4 APIs:
 
-1. `<authority>/metadata`, this returns information about all the sticker packs in your app. Replace `<authority>` with the actual authority string. In the sample app, it is `com.example.samplestickerapp.stickercontentprovider`
+1. `<authority>/metadata`, this returns information about all the sticker packs in your app. Replace `<authority>` with the actual authority string. In the sample app, it is `stickersbp.stickercontentprovider`
 2. `<authority>/metadata/<pack_identifier>`, this returns information about a single pack. Replace `<pack_identifier>` with the actual identifier of the pack. In the sample app, it is `1`.
 3. `<authority>/stickers/<pack_identifier>`, this returns information about the  stickers in a pack. The returned information includes the sticker file name and emoji associated with the sticker.
 4. `<authority>/stickers_asset/<pack_identifier>/<sticker_file_name>`, this returns the binary information of the sticker: `AssetFileDescriptor`, which points to the asset file for the sticker. Replace `<sticker_file_name>` with the actual sticker file name that should be fetched.

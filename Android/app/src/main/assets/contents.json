@@ -3,10 +3,10 @@
   "ios_app_store_link": "",
   "sticker_packs": [
     {
-      "identifier": "1",
-      "name": "Cuppy",
-      "publisher": "Jane Doe",
-      "tray_image_file": "tray_Cuppy.png",
+      "identifier": "Lisa1",
+      "name": "BLACKPINK: Lisa #1",
+      "publisher": "Elias",
+      "tray_image_file": "trayLisa.png",
       "image_data_version":"1",
       "avoid_cache":false,
       "publisher_email":"",
@@ -15,104 +15,486 @@
       "license_agreement_website": "",
       "stickers": [
         {
-          "image_file": "01_Cuppy_smile.webp",
-          "emojis": ["☕","🙂"]
+          "image_file": "lisa1.webp"
         },
         {
-          "image_file": "02_Cuppy_lol.webp",
-          "emojis": ["😄","😀"]
+          "image_file": "lisa2.webp"
         },
         {
-          "image_file": "03_Cuppy_rofl.webp",
-          "emojis": ["😆","😂"]
+          "image_file": "lisa3.webp"
         },
         {
-          "image_file": "04_Cuppy_sad.webp",
-          "emojis": ["😩","😰"]
+          "image_file": "lisa4.webp"
         },
         {
-          "image_file": "05_Cuppy_cry.webp",
-          "emojis": ["😭","💧"]
+          "image_file": "lisa5.webp"
         },
         {
-          "image_file": "06_Cuppy_love.webp",
-          "emojis": ["😍","♥"]
+          "image_file": "lisa6.webp"
         },
         {
-          "image_file": "07_Cuppy_hate.webp",
-          "emojis": ["💔","👎"]
+          "image_file": "lisa7.webp"
         },
         {
-          "image_file": "08_Cuppy_lovewithmug.webp",
-          "emojis": ["😍","💑"]
+          "image_file": "lisa8.webp"
         },
         {
-          "image_file": "09_Cuppy_lovewithcookie.webp",
-          "emojis": ["😘","🍪"]
+          "image_file": "lisa9.webp"
         },
         {
-          "image_file": "10_Cuppy_hmm.webp",
-          "emojis": ["🤔","😐"]
+          "image_file": "lisa10.webp"
         },
         {
-          "image_file": "11_Cuppy_upset.webp",
-          "emojis": ["😱","😵"]
+          "image_file": "lisa11.webp"
         },
         {
-          "image_file": "12_Cuppy_angry.webp",
-          "emojis": ["😡","😠"]
+          "image_file": "lisa12.webp"
         },
         {
-          "image_file": "13_Cuppy_curious.webp",
-          "emojis": ["❓","🤔"]
+          "image_file": "lisa13.webp"
         },
         {
-          "image_file": "14_Cuppy_weird.webp",
-          "emojis": ["🌈","😜"]
+          "image_file": "lisa14.webp"
         },
         {
-          "image_file": "15_Cuppy_bluescreen.webp",
-          "emojis": ["💻","😩"]
+          "image_file": "lisa15.webp"
         },
         {
-          "image_file": "16_Cuppy_angry.webp",
-          "emojis": ["😡","😤"]
+          "image_file": "lisa16.webp"
         },
         {
-          "image_file": "17_Cuppy_tired.webp",
-          "emojis": ["😩","😨"]
+          "image_file": "lisa17.webp"
         },
         {
-          "image_file": "18_Cuppy_workhard.webp",
-          "emojis": ["💻","🌃"]
+          "image_file": "lisa18.webp"
         },
         {
-          "image_file": "19_Cuppy_shine.webp",
-          "emojis": ["🎉","✨"]
+          "image_file": "lisa19.webp"
         },
         {
-          "image_file": "20_Cuppy_disgusting.webp",
-          "emojis": ["🤮","👎"]
+          "image_file": "lisa20.webp"
         },
         {
-          "image_file": "21_Cuppy_hi.webp",
-          "emojis": ["🖐","🙋"]
+          "image_file": "lisa21.webp"
         },
         {
-          "image_file": "22_Cuppy_bye.webp",
-          "emojis": ["🖐","👋"]
+          "image_file": "lisa22.webp"
         },
         {
-          "image_file": "23_Cuppy_greentea.webp",
-          "emojis": ["🍵","😌"]
+          "image_file": "lisa23.webp"
         },
         {
-          "image_file": "24_Cuppy_phone.webp",
-          "emojis": ["📱","😦"]
+          "image_file": "lisa24.webp"
         },
         {
-          "image_file": "25_Cuppy_battery.webp",
-          "emojis": ["🔋","😵"]
+          "image_file": "lisa25.webp"
+        },
+        {
+          "image_file": "lisa26.webp"
+        },
+        {
+          "image_file": "lisa27.webp"
+        },
+        {
+          "image_file": "lisa28.webp"
+        },
+        {
+          "image_file": "lisa29.webp"
+        },
+        {
+          "image_file": "lisa30.webp"
+        }
+      ]
+    },{
+      "identifier": "Lisa2",
+      "name": "BLACKPINK: Lisa #2",
+      "publisher": "Elias",
+      "tray_image_file": "trayLisa.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "lisa31.webp"
+        },
+        {
+          "image_file": "lisa32.webp"
+        },
+        {
+          "image_file": "lisa33.webp"
+        },
+        {
+          "image_file": "lisa34.webp"
+        },
+        {
+          "image_file": "lisa35.webp"
+        },
+        {
+          "image_file": "lisa36.webp"
+        },
+        {
+          "image_file": "lisa37.webp"
+        },
+        {
+          "image_file": "lisa38.webp"
+        },
+        {
+          "image_file": "lisa39.webp"
+        },
+        {
+          "image_file": "lisa40.webp"
+        }
+      ]
+    },{
+      "identifier": "Jennie1",
+      "name": "BLACKPINK: Jennie #1",
+      "publisher": "Elias",
+      "tray_image_file": "trayJennie.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "jennie1.webp"
+        },
+        {
+          "image_file": "jennie2.webp"
+        },
+        {
+          "image_file": "jennie3.webp"
+        },
+        {
+          "image_file": "jennie4.webp"
+        },
+        {
+          "image_file": "jennie5.webp"
+        },
+        {
+          "image_file": "jennie6.webp"
+        },
+        {
+          "image_file": "jennie7.webp"
+        },
+        {
+          "image_file": "jennie8.webp"
+        },
+        {
+          "image_file": "jennie9.webp"
+        },
+        {
+          "image_file": "jennie10.webp"
+        },
+        {
+          "image_file": "jennie11.webp"
+        },
+        {
+          "image_file": "jennie12.webp"
+        },
+        {
+          "image_file": "jennie13.webp"
+        },
+        {
+          "image_file": "jennie14.webp"
+        },
+        {
+          "image_file": "jennie15.webp"
+        },
+        {
+          "image_file": "jennie16.webp"
+        },
+        {
+          "image_file": "jennie17.webp"
+        },
+        {
+          "image_file": "jennie18.webp"
+        },
+        {
+          "image_file": "jennie19.webp"
+        },
+        {
+          "image_file": "jennie20.webp"
+        },
+        {
+          "image_file": "jennie21.webp"
+        },
+        {
+          "image_file": "jennie22.webp"
+        },
+        {
+          "image_file": "jennie23.webp"
+        },
+        {
+          "image_file": "jennie24.webp"
+        },
+        {
+          "image_file": "jennie25.webp"
+        },
+        {
+          "image_file": "jennie26.webp"
+        },
+        {
+          "image_file": "jennie27.webp"
+        },
+        {
+          "image_file": "jennie28.webp"
+        },
+        {
+          "image_file": "jennie29.webp"
+        },
+        {
+          "image_file": "jennie30.webp"
+        }
+      ]
+    },{
+      "identifier": "Jennie2",
+      "name": "BLACKPINK: Jennie #2",
+      "publisher": "Elias",
+      "tray_image_file": "trayJennie.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "jennie31.webp"
+        },
+        {
+          "image_file": "jennie32.webp"
+        },
+        {
+          "image_file": "jennie33.webp"
+        },
+        {
+          "image_file": "jennie34.webp"
+        },
+        {
+          "image_file": "jennie35.webp"
+        },
+        {
+          "image_file": "jennie36.webp"
+        },
+        {
+          "image_file": "jennie37.webp"
+        },
+        {
+          "image_file": "jennie38.webp"
+        },
+        {
+          "image_file": "jennie39.webp"
+        },
+        {
+          "image_file": "jennie40.webp"
+        },
+        {
+          "image_file": "jennie41.webp"
+        },
+        {
+          "image_file": "jennie42.webp"
+        },
+        {
+          "image_file": "jennie43.webp"
+        },
+        {
+          "image_file": "jennie44.webp"
+        }
+      ]
+    },{
+      "identifier": "Rose1",
+      "name": "BLACKPINK: Rose #1",
+      "publisher": "Elias",
+      "tray_image_file": "trayRose.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "rose1.webp"
+        },
+        {
+          "image_file": "rose2.webp"
+        },
+        {
+          "image_file": "rose3.webp"
+        },
+        {
+          "image_file": "rose4.webp"
+        },
+        {
+          "image_file": "rose5.webp"
+        },
+        {
+          "image_file": "rose6.webp"
+        },
+        {
+          "image_file": "rose7.webp"
+        },
+        {
+          "image_file": "rose8.webp"
+        },
+        {
+          "image_file": "rose9.webp"
+        },
+        {
+          "image_file": "rose10.webp"
+        },
+        {
+          "image_file": "rose11.webp"
+        },
+        {
+          "image_file": "rose12.webp"
+        },
+        {
+          "image_file": "rose13.webp"
+        },
+        {
+          "image_file": "rose14.webp"
+        },
+        {
+          "image_file": "rose15.webp"
+        },
+        {
+          "image_file": "rose16.webp"
+        },
+        {
+          "image_file": "rose17.webp"
+        },
+        {
+          "image_file": "rose18.webp"
+        },
+        {
+          "image_file": "rose19.webp"
+        },
+        {
+          "image_file": "rose20.webp"
+        },
+        {
+          "image_file": "rose21.webp"
+        },
+        {
+          "image_file": "rose22.webp"
+        },
+        {
+          "image_file": "rose23.webp"
+        },
+        {
+          "image_file": "rose24.webp"
+        },
+        {
+          "image_file": "rose25.webp"
+        },
+        {
+          "image_file": "rose26.webp"
+        },
+        {
+          "image_file": "rose27.webp"
+        },
+        {
+          "image_file": "rose28.webp"
+        },
+        {
+          "image_file": "rose29.webp"
+        },
+        {
+          "image_file": "rose30.webp"
+        }
+      ]
+    },{
+      "identifier": "Jisoo1",
+      "name": "BLACKPINK: Jisoo #1",
+      "publisher": "Elias",
+      "tray_image_file": "trayJisoo.png",
+      "image_data_version":"1",
+      "avoid_cache":false,
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "jisoo1.webp"
+        },
+        {
+          "image_file": "jisoo2.webp"
+        },
+        {
+          "image_file": "jisoo3.webp"
+        },
+        {
+          "image_file": "jisoo4.webp"
+        },
+        {
+          "image_file": "jisoo5.webp"
+        },
+        {
+          "image_file": "jisoo6.webp"
+        },
+        {
+          "image_file": "jisoo7.webp"
+        },
+        {
+          "image_file": "jisoo8.webp"
+        },
+        {
+          "image_file": "jisoo9.webp"
+        },
+        {
+          "image_file": "jisoo10.webp"
+        },
+        {
+          "image_file": "jisoo11.webp"
+        },
+        {
+          "image_file": "jisoo12.webp"
+        },
+        {
+          "image_file": "jisoo13.webp"
+        },
+        {
+          "image_file": "jisoo14.webp"
+        },
+        {
+          "image_file": "jisoo15.webp"
+        },
+        {
+          "image_file": "jisoo16.webp"
+        },
+        {
+          "image_file": "jisoo17.webp"
+        },
+        {
+          "image_file": "jisoo18.webp"
+        },
+        {
+          "image_file": "jisoo19.webp"
+        },
+        {
+          "image_file": "jisoo20.webp"
+        },
+        {
+          "image_file": "jisoo21.webp"
+        },
+        {
+          "image_file": "jisoo22.webp"
+        },
+        {
+          "image_file": "jisoo23.webp"
+        },
+        {
+          "image_file": "jisoo24.webp"
+        },
+        {
+          "image_file": "jisoo25.webp"
         }
       ]
     }

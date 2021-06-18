@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package com.example.stickersbp;
+package com.vratska.stickersbp;
 
 import android.content.ContentResolver;
 import android.content.Context;
