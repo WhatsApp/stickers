@@ -3,6 +3,8 @@
 ![Works with Android](https://img.shields.io/badge/Works_with-Android-green?style=flat-square)
 ![Works with iOS](https://img.shields.io/badge/Works_with-iOS-blue?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/whatsapp/stickers?style=flat-square)
+![Visitors](https://visitor-badge.glitch.me/badge?page_id=stickers.stickers)
+
 
 > This repository contains the iOS and Android sample apps and API for creating third party sticker packs for WhatsApp.
 
@@ -17,7 +19,7 @@ For iOS developers please read the [IMPORTANT NOTICE ABOUT iOS APPS](#please-rea
 
 To get started, review the `README` files in the [Android](https://github.com/WhatsApp/stickers/tree/master/Android) or [iOS](https://github.com/WhatsApp/stickers/tree/master/iOS) folders, and refer to the [FAQ](https://faq.whatsapp.com/general/26000226).
 
-## PLEASE READ: IMPORTANT NOTICE ABOUT iOS APPS
+## PLEASE READ: IMPORTANT NOTICE REGARDING iOS APPS
 
 With Apple’s strict App Store review policy, we recommend iOS developers to submit apps that contain more functionality than to simply export stickers. This will increase the chances of the app being accepted. As an alternative to creating an iOS app, there are various sticker maker apps that help you create and import stickers into WhatsApp.
 
@@ -50,4 +52,36 @@ _For all three options, fill in all fields that apply._
 
 ## License
 
-WhatsApp Stickers is BSD licensed, as found in the [`LICENSE`](https://github.com/WhatsApp/stickers/blob/master/LICENSE) file.
+WhatsApp Stickers is BSD licensed as below,
+```Groovy
+  
+BSD License
+
+For WhatsApp Stickers software
+
+Copyright (c) WhatsApp Inc. and its affiliates. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+ * Neither the name WhatsApp nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
+   prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
