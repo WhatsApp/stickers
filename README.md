@@ -21,13 +21,13 @@ To get started, review the `README` files in the [Android](https://github.com/Wh
 
 With Apple’s strict App Store review policy, we recommend iOS developers to submit apps that contain more functionality than to simply export stickers. This will increase the chances of the app being accepted. As an alternative to creating an iOS app, there are various sticker maker apps that help you create and import stickers into WhatsApp.
 
-The sample iOS app is an example on how to use our API to import stickers into WhatsApp, and can serve as guide on how to get started, but it is not meant to be used as template for your app because it will not be accepted by Apple.
+The sample iOS app is an example of how to use our API to import stickers into WhatsApp and can serve as a guide on how to get started, but it is not meant to be used as a template for your app because it will not be accepted by Apple.
 
 ## Announcements :loudspeaker:
 Please check out [Announcements](https://github.com/WhatsApp/stickers/wiki/Animated-Stickers) for recent changes.
 
 ## Brand guidelines
-When naming your app, it is strongly advised you do not use "WhatsApp" anywhere in the name of your app or in the name field of your app listing. However, when preparing your app for submission in Google Play Store/App Store, you'll have the option to add description associated with your app and it's okay to mention WhatsApp in the description. Make sure you use "WhatsApp" as brand name, with "W" and "A" capitalized with no space between letters. More information on WhatsApp Brand(https://whatsappbrand.com/).
+When naming your app, it is strongly advised you do not use "WhatsApp" anywhere in the name of your app or in the name field of your app listing. However, when preparing your app for submission in Google Play Store/App Store, you'll have the option to add description associated with your app and it's okay to mention WhatsApp in the description. Make sure you use "WhatsApp" as a brand name, with "W" and "A" capitalized with no space between letters. More information on WhatsApp Brand(https://whatsappbrand.com/).
 
 ## Opening Issues :warning:
 
