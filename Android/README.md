@@ -75,6 +75,9 @@ All the links need to start with either "http" or "https"
 
 If your app has more than 1 sticker pack, you will need to reference it in contents.json. Simply create a second array within the "sticker_packs" section of the JSON and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 
 
+_You can use the tool **[JSON Generator for WhatsApp Sticker Pack](http://pratikbutani.com/wastickerapp)** to create the JSON-File._ The tool is open-source: [Repository](https://github.com/pratikbutani/WAStickerApp-JSON-Generator/).
+
+
 ### Build the sample app
 Before building your app, you will need to do the following: 
 
