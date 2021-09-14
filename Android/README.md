@@ -7,19 +7,14 @@ If you would like to design your own stickers for WhatsApp, you can package them
 The sample code provides a simple way for you to drop in your sticker art and build an Android app with minimal development or coding experience needed. For advanced developers looking to make richer sticker apps, refer to the section [Advanced Development](#advanced-development) below.
 
 We recommend you create a version of your sticker app for iOS as well to give users of WhatsApp on iOS an opportunity to download your sticker app as well.
+
 ## Sticker art and app requirements
 We recommend you refer to the FAQ at https://faq.whatsapp.com/general/26000226 for complete details on how to properly create your sticker art. This FAQ also contains a sample PSD that demonstrates best practices for composing legible, rich sticker art.
 
-* A sticker is an image that has a transparent background and can be sent in a
-  WhatsApp chat
-* Stickers are organized into "packs". Your app can contain anywhere from 1 to
-  10 packs. Users must explicitly add each pack to WhatsApp one-by-one, so your
-  app should list each pack separately and each pack must have its own
-  affordance to add it to WhatsApp (do not try to create "add all packs"
-  operations).
+* A sticker is an image that has a transparent background and can be sent in a WhatsApp chat
+* Stickers are organized into "packs". Users must explicitly add each pack to WhatsApp one-by-one, so your app should list each pack separately and each pack must have its own affordance to add it to WhatsApp (do not try to create "add all packs" operations).
 * Sticker packs must contain either static or animated stickers, never a mix of both
-* Each sticker pack must have a minimum of 3 stickers and a maximum of 30
-  stickers
+* Each sticker pack must have a minimum of 3 stickers and a maximum of 30 stickers
 * Stickers must be exactly 512 x 512 pixels
 * Stickers will render on a variety of backgrounds, white, black, colored, patterned, etc. Test your sticker art on a variety of backgrounds. For this reason, we recommend you add a 8px #FFFFFF stroke to the outside of each sticker. See the sample PSD referenced at https://faq.whatsapp.com/general/26000226 for more details.
 * Stickers must be in the [WebP format](https://developers.google.com/speed/webp). See the section [Converting to WebP](#converting-to-webp) below for information on how to create WebP files.
@@ -27,16 +22,16 @@ We recommend you refer to the FAQ at https://faq.whatsapp.com/general/26000226 f
 * Animated stickers must have frames with minimum duration of 8ms. Animation duration should be less than or equal to 10 seconds total.
 * For animated stickers, the first frame should say it all - WhatsApp ends the animation on the first frame after looping so please make sure your first frame is the complete image of your sticker and adjust the sequence of the stickers accordingly so users don’t see a jumpy experience going from the last to first frame. Ex. A sticker that animated “Hi!” should have the first frame show all words “Hi!”.
 * Sticker Picker/Tray Icon
-    * Provide an image that will be used to represent your sticker pack in the WhatsApp sticker picker/tray 
-    * This image should be static and 96 x 96 pixels
+    * Provide an image that will be used to represent your sticker pack in the WhatsApp sticker picker/tray
+    * This image should be static and 96 x 96 pixels and should be in png format
     * Max file size of 50KB
 
 ### Tips for reducing file size
-We recommend reducing the size of each of your stickers. For reference, many of the stickers provided within WhatsApp are around 15KB each. The smaller your stickers, the faster they will send and the less data your users will have to spend sending them or downloading your app. Depending on your art and the type of graphics you've created, one of these two methods may result in smaller file sizes so we recommend experimenting with both. 
+We recommend reducing the size of each of your stickers. For reference, many of the stickers provided within WhatsApp are around 15KB each. The smaller your stickers, the faster they will send and the less data your users will have to spend sending them or downloading your app. Depending on your art and the type of graphics you've created, one of these two methods may result in smaller file sizes so we recommend experimenting with both.
 
 * The first method involves optimizing your PNGs using a PNG optimizer tool. If you're on MacOS, use https://pngmini.com. We recommend using Median Cut and adjusting the colors bar to reduce the size. If you're on Windows, use https://nukesaq88.github.io/Pngyu to optimize your PNGs. Then, convert them to WebP using the methods described in the [Converting to WebP](#converting-to-webp) section.
-* The second method involves saving or converting your stickers as WebP while experimenting with the WebP export settings trying to optimize the images. You should try setting the quality of your WebP output to something lower than 100% and experiment with a quality level that gets you the smallest file size possible without noticeable image degradation. Each of the methods described in [Converting to WebP](#converting-to-webp) for exporting your files to WebP offer ways to control your resolution.  
- 
+* The second method involves saving or converting your stickers as WebP while experimenting with the WebP export settings trying to optimize the images. You should try setting the quality of your WebP output to something lower than 100% and experiment with a quality level that gets you the smallest file size possible without noticeable image degradation. Each of the methods described in [Converting to WebP](#converting-to-webp) for exporting your files to WebP offer ways to control your resolution.
+
 ### Converting to WebP
 Your sticker art must be in the WebP format. We recommend using the tools you're most comfortable with to draw and compose your art, and converting them to WebP using one of a few different tools:
 
@@ -49,13 +44,13 @@ Your sticker art must be in the WebP format. We recommend using the tools you're
 ## How to create a sticker app
 
 ### Overview
-If you would like to create a sticker app using the sample app, you only have to minimally modify the sample app to get up and running quickly. 
+If you would like to create a sticker app using the sample app, you only have to minimally modify the sample app to get up and running quickly.
 
 * After downloading this repo, open the sample app's Android folder in [Android Studio](https://developer.android.com/studio/). If you are new to Android development, visit https://developer.android.com/training/basics/firstapp/index.html for more information on setting up your Android development environment.
-* Navigate to SampleStickerApp/app/src/main/assets in Android Studio. 
+* Navigate to SampleStickerApp/app/src/main/assets in Android Studio.
 * Inside the assets folder, folder 1 contains a number of sample sticker art files. Replace these with your own sticker files.
-* Also replace the sample tray icon PNG with your own tray icon. 
-* If you'd like to have more than 1 sticker pack in your app, simply create a folder named "2" or "3", etc. within the assets folder and place your art and tray icon in there. 
+* Also replace the sample tray icon PNG with your own tray icon.
+* If you'd like to have more than 1 sticker pack in your app, simply create a folder named "2" or "3", etc. within the assets folder and place your art and tray icon in there.
 
 ### Modifying the contents.json file
 You must also modify the contents.json file in SampleStickerApp/app/src/main/assets. Replace the values of the metadata with your own. A few notes:
@@ -63,7 +58,7 @@ You must also modify the contents.json file in SampleStickerApp/app/src/main/ass
 * `name`: the sticker pack's name (128 characters max)
 * `identifier`: The identifier should be unique and can be alphanumeric: a-z, A-Z, 0-9, and the following characters are also allowed "_", "-", "." and " ". The identifier should be less than 128 characters.
 * `publisher`: name of the publisher of the pack (128 characters max)
-* Replace the "image_file" value with the file name of your sticker image. It must have both the file name and extension. The ordering of the files in the JSON will dictate the ordering of your stickers in your pack. 
+* Replace the "image_file" value with the file name of your sticker image. It must have both the file name and extension. The ordering of the files in the JSON will dictate the ordering of your stickers in your pack.
 * `image_data_version` : an overall representation of the version of the stickers and tray icon. When you update stickers or tray icon in your pack, please update this string, this will tell WhatsApp that the pack has new content and update the stickers on WhatsApp side.
 * `avoid_cache` : this tells WhatsApp that the stickers from your pack should not be cached. By default, you should keep it false. Exception is that if your app updates stickers without user actions, you can keep it true, for example: your app provides clock sticker that updates stickers every minute.
 * `android_play_store_link` and `ios_app_store_link` (optional fields): here you can put the URL to your sticker app in the Google Play Store and Apple App Store (if you have an iOS version of your sticker app). If you provide these URLs, users who receive a sticker from your app in WhatsApp can tap on it to view your sticker app in the respective App Stores. On Android, the URL follows the format https://play.google.com/store/apps/details?id=com.example where "com.example" is your app's package name.
@@ -73,10 +68,10 @@ You must also modify the contents.json file in SampleStickerApp/app/src/main/ass
 The following fields are optional: `ios_app_store_link`, `android_play_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`
 All the links need to start with either "http" or "https"
 
-If your app has more than 1 sticker pack, you will need to reference it in contents.json. Simply create a second array within the "sticker_packs" section of the JSON and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 
+If your app has more than 1 sticker pack, you will need to reference it in contents.json. Simply create a second array within the "sticker_packs" section of the JSON and include all the metadata (name, identifier, etc) along with all the references to the sticker files.
 
 ### Build the sample app
-Before building your app, you will need to do the following: 
+Before building your app, you will need to do the following:
 
 * Make sure to change the app's icon (i.e. launcher icon) that will be displayed on the home screens of users who install your app. The icons are contained in SampleStickerApp/app/src/main/res in each of the folders beginning with mipmap (e.g. mipmap-xhdpi or mipmap-xxxhdpi). For a simple way to create these icons, you can use Android Image Asset Studio which is built into Android Studio. See https://developer.android.com/studio/write/image-asset-studio#access for more information on how to run this tool and read the section [here](https://developer.android.com/studio/write/image-asset-studio#create-adaptive) for information on how to use the tool to create your app's launcher icons.
 * Change your apps name in strings.xml (SampleStickerApp/app/src/main/res/values/strings.xml). This is the name users will see for your app on their phone. You can consider providing translations of your app name by following this instruction: https://developer.android.com/guide/topics/resources/localization
@@ -91,7 +86,7 @@ You need to build a release version of your app for submission to the Google Pla
 
 Importantly, when naming your app, it is strongly advised you do *not* use "WhatsApp" anywhere in the name of your app or in the name field of your app listing on the Google Play Store. However, when preparing your app for submission in Google Play Store, you'll have the option to add description associated with your app and it's okay to mention WhatsApp in the description. WhatsApp can also launch the Google Play Store and perform a search for other sticker pack apps. To help your app appear in this list, also add the keyword WAStickerApps to app's description when setting up your app in the Google Play Store console. You can use additional keywords, but make sure you at least use this one.
 
-To submit your app to the Google Play Store, follow the instructions here: https://developer.android.com/distribute/best-practices/launch/. 
+To submit your app to the Google Play Store, follow the instructions here: https://developer.android.com/distribute/best-practices/launch/.
 
 It is advised that you create Multiple APKs per ABI (CPU Architecture), it will make the published app size smaller. see https://developer.android.com/studio/build/configure-apk-splits for more information. In order to do that, uncomment the lines 47-52 in app/build.gradle line.
 ## Advanced development
@@ -100,7 +95,7 @@ For advanced developers looking to make richer sticker apps, follow the instruct
 ### Overview
 
 Sticker apps communicate with WhatsApp as follows:
-    
+
 * Your app should provide a `ContentProvider` (the sample app provides an example) to share the sticker pack information to WhatsApp. The `ContentProvider` shares information about the sticker pack's name, publisher, identifier and everything else that is listed in `contents.json` file. It also allows WhatsApp to fetch actual sticker files from the `ContentProvider`. The `ContentProvider` is identified by its authority. And a sticker pack is identified by the combination of the authority and identifier.
 * Your app should send an intent to launch WhatsApp's activity. The intent contains three pieces of information: the `ContentProvider` authority, the pack identifier of the pack that user wants to add, and the sticker pack name. Once the user confirms that they want to add that sticker pack to WhatsApp, WhatsApp will remember the pair of authority and identifier and will load the pack's stickers in the WhatsApp sticker picker/tray.
 
@@ -121,7 +116,7 @@ The ContentProvider needs to have a read permission of `com.whatsapp.sticker.REA
             android:exported="true"
             android:readPermission="com.whatsapp.sticker.READ" />
 #### Expose files that are stored internally as stickers through ContentProvider
-If you would like to expose files saved internally or externally and serve these files as sticker. It is possible, but please follow the guidelines in 'Sticker art and app requirements' to make sure the files meets these requirements. As to how to do that, you can take a look at the following code snippet to get an understanding of how that can be done. 
+If you would like to expose files saved internally or externally and serve these files as sticker. It is possible, but please follow the guidelines in 'Sticker art and app requirements' to make sure the files meets these requirements. As to how to do that, you can take a look at the following code snippet to get an understanding of how that can be done.
 
         private AssetFileDescriptor fetchFile(@NonNull Uri uri, @NonNull AssetManager am, @NonNull String fileName, @NonNull String identifier) throws IOException {
         final File cacheFile = getContext().getExternalCacheDir();
@@ -134,14 +129,14 @@ If you would like to expose files saved internally or externally and serve these
                 out.write(buffer, 0, read);
             }
         }
-        //The code above is basically copying the assets to storage, and servering the file off of the storage. 
+        //The code above is basically copying the assets to storage, and servering the file off of the storage.
         //If you have the files already downloaded/fetched, you could simply replace above part, and initialize the file parameter with your own file which points to the desired file.
         //The key here is you can use ParcelFileDescriptor to create an AssetFileDescriptor.
         return new AssetFileDescriptor(ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY), 0, AssetFileDescriptor.UNKNOWN_LENGTH);
     }
 
 ### Intent
-It is required that users explicitly add a sticker pack to WhatsApp, so your app must provide a UI element to allow users to add a pack (for example, a button labeled "Add to WhatsApp" as in the sample app). 
+It is required that users explicitly add a sticker pack to WhatsApp, so your app must provide a UI element to allow users to add a pack (for example, a button labeled "Add to WhatsApp" as in the sample app).
 In the sample app, both [StickerPackListActivity](app/src/main/java/com/example/samplestickerapp/StickerPackListActivity.java) and [StickerPackDetailsActivity](app/src/main/java/com/example/samplestickerapp/StickerPackDetailsActivity.java) contains code to launch the intent after the user presses the Add to WhatsApp button. The user must then confirm they want to add the pack via the alert box presented by WhatsApp.
 
         Intent intent = new Intent();
@@ -158,7 +153,7 @@ In the sample app, both [StickerPackListActivity](app/src/main/java/com/example/
 ### Check if pack is added (optional)
 Sticker apps can check to see if a sticker pack it provides has been added to WhatsApp by the user. This is useful if you'd like to display different UI to users. For example if the pack is not added, you should present a button to add it to WhatsApp, but if the pack is added, you can remove the add button and inform the user the pack is already added to WhatsApp.
 
-A `ContentProvider` provides information to sticker apps on whether an app is added to WhatsApp or not. This provider authority is `com.whatsapp.provider.sticker_whitelist_check` for the WhatsApp consumer app; `com.whatsapp.w4b.provider.sticker_whitelist_check` for the WhatsApp Business app. 
+A `ContentProvider` provides information to sticker apps on whether an app is added to WhatsApp or not. This provider authority is `com.whatsapp.provider.sticker_whitelist_check` for the WhatsApp consumer app; `com.whatsapp.w4b.provider.sticker_whitelist_check` for the WhatsApp Business app.
 
 In order to query this ContentProvider, you need to provide the following query:
 `content://com.whatsapp.provider.sticker_whitelist_check/is_whitelisted?authority='replace with authority of your sticker content provider'&identifier='replace with identifier of the pack'`
