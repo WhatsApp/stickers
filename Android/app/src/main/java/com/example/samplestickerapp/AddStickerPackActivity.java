@@ -18,12 +18,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 public abstract class AddStickerPackActivity extends BaseActivity {
-    private static final int ADD_PACK = 200;
     private static final String TAG = "AddStickerPackActivity";
 
     protected void addStickerPackToWhatsApp(String identifier, String stickerPackName) {
@@ -52,11 +53,21 @@ public abstract class AddStickerPackActivity extends BaseActivity {
 
     }
 
+    private final ActivityResultLauncher<Intent> addPackToSpecificPackage = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> onResult(result.getResultCode(), result.getData())
+    );
+
+    private final ActivityResultLauncher<Intent> addPackToChooser = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> onResult(result.getResultCode(), result.getData())
+    );
+
     private void launchIntentToAddPackToSpecificPackage(String identifier, String stickerPackName, String whatsappPackageName) {
         Intent intent = createIntentToAddStickerPack(identifier, stickerPackName);
         intent.setPackage(whatsappPackageName);
         try {
-            startActivityForResult(intent, ADD_PACK);
+            addPackToSpecificPackage.launch(intent);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
         }
@@ -66,7 +77,7 @@ public abstract class AddStickerPackActivity extends BaseActivity {
     private void launchIntentToAddPackToChooser(String identifier, String stickerPackName) {
         Intent intent = createIntentToAddStickerPack(identifier, stickerPackName);
         try {
-            startActivityForResult(Intent.createChooser(intent, getString(R.string.add_to_whatsapp)), ADD_PACK);
+            addPackToChooser.launch(Intent.createChooser(intent, getString(R.string.add_to_whatsapp)));
         } catch (ActivityNotFoundException e) {
             Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
         }
@@ -82,23 +93,19 @@ public abstract class AddStickerPackActivity extends BaseActivity {
         return intent;
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ADD_PACK) {
-            if (resultCode == Activity.RESULT_CANCELED) {
-                if (data != null) {
-                    final String validationError = data.getStringExtra("validation_error");
-                    if (validationError != null) {
-                        if (BuildConfig.DEBUG) {
-                            //validation error should be shown to developer only, not users.
-                            MessageDialogFragment.newInstance(R.string.title_validation_error, validationError).show(getSupportFragmentManager(), "validation error");
-                        }
-                        Log.e(TAG, "Validation failed:" + validationError);
+    private void onResult(int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_CANCELED) {
+            if (data != null) {
+                final String validationError = data.getStringExtra("validation_error");
+                if (validationError != null) {
+                    if (BuildConfig.DEBUG) {
+                        //validation error should be shown to developer only, not users.
+                        MessageDialogFragment.newInstance(R.string.title_validation_error, validationError).show(getSupportFragmentManager(), "validation error");
                     }
-                } else {
-                    new StickerPackNotAddedMessageFragment().show(getSupportFragmentManager(), "sticker_pack_not_added");
+                    Log.e(TAG, "Validation failed:" + validationError);
                 }
+            } else {
+                new StickerPackNotAddedMessageFragment().show(getSupportFragmentManager(), "sticker_pack_not_added");
             }
         }
     }
@@ -107,7 +114,7 @@ public abstract class AddStickerPackActivity extends BaseActivity {
         @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity())
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(requireActivity())
                     .setMessage(R.string.add_pack_fail_prompt_update_whatsapp)
                     .setCancelable(true)
                     .setPositiveButton(android.R.string.ok, (dialog, which) -> dismiss())
