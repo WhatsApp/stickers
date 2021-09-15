@@ -43,7 +43,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             @StringRes final int title = getArguments().getInt(ARG_TITLE_ID);
             String message = getArguments().getString(ARG_MESSAGE);
 
-            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity())
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(requireActivity())
                     .setMessage(message)
                     .setCancelable(true)
                     .setPositiveButton(android.R.string.ok, (dialog, which) -> dismiss());

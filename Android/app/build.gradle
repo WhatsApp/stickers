@@ -88,7 +88,6 @@ task checkRelease {
 }
 
 tasks.whenTaskAdded { task ->
-    println(task.name)
     if (task.name.contains("assembleDebug")) {
         task.dependsOn checkDebug
     }
