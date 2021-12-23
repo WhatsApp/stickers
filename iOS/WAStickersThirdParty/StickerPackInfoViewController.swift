@@ -20,13 +20,14 @@ class StickerPackInfoViewController: UITableViewController {
     After adding this sticker pack to WhatsApp, you will be able to send these stickers to anyone \
     in WhatsApp. To delete the sticker pack, go to the "My Stickers" panel in WhatsApp.
     """
+
     private var footerHeight: CGFloat {
         var insets: UIEdgeInsets = .zero
         if #available(iOS 11.0, *) {
             insets = tableView.safeAreaInsets
         }
         footerView.label.preferredMaxLayoutWidth = footerView.preferredLabelLayoutWidth(viewWidth: tableView.bounds.size.width - FooterView.MARGIN * 2 - insets.left - insets.right)
-        return ceil(footerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height)
+        return ceil(footerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height)
     }
 
     var stickerPack: StickerPack!
@@ -62,7 +63,7 @@ class StickerPackInfoViewController: UITableViewController {
     }
     
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 
     var footerView: FooterView = FooterView(frame: CGRect.zero)
@@ -79,7 +80,7 @@ class StickerPackInfoViewController: UITableViewController {
             label.translatesAutoresizingMaskIntoConstraints = false;
             label.numberOfLines = 0
             label.lineBreakMode = .byWordWrapping
-            label.font = UIFont.systemFont(ofSize: 14)
+            label.font = .systemFont(ofSize: 14)
             label.text = footerString
             label.textColor = .gray
             label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -196,7 +197,7 @@ class StickerPackInfoViewController: UITableViewController {
         if let websiteURL = urlToOpen {
             if UIApplication.shared.canOpenURL(websiteURL) {
                 if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(websiteURL, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(websiteURL)
                 } else {
                     UIApplication.shared.openURL(websiteURL)
                 }
@@ -205,11 +206,7 @@ class StickerPackInfoViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.row <= 2 {
-            return false
-        }
-
-        return true
+        return indexPath.row > 2
     }
 
 }

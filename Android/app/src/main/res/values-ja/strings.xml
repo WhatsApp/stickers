@@ -36,4 +36,8 @@
 	<plurals name="title_activity_sticker_packs_list">
 		<item quantity="other">スタンプパック</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">アニメーションスタンプパック</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">タップしてスタンプをプレビュー</string>
 </resources>

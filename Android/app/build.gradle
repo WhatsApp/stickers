@@ -5,11 +5,11 @@ android {
     aaptOptions {
         noCompress "webp"
     }
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.vratska.stickerbp"
         minSdkVersion 15
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -49,7 +49,7 @@ android {
 //    splits {
 //        abi {
 //            enable true // Enables building multiple APKs per ABI.
-//            universalApk true // Specifies that we do not want to also generate a universal APK that includes all ABIs.
+//            universalApk true // Specifies that we want to also generate a universal APK that includes all ABIs.
 //        }
 //    }
 }
@@ -100,15 +100,16 @@ tasks.whenTaskAdded { task ->
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.facebook.fresco:fresco:2.0.0'
-    implementation 'com.facebook.fresco:webpsupport:2.0.0'
-    implementation 'com.facebook.fresco:animated-webp:2.0.0'
-    implementation 'com.facebook.fresco:animated-base:2.0.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    def fresco_version = '2.5.0'
+    implementation "com.facebook.fresco:fresco:$fresco_version"
+    implementation "com.facebook.fresco:webpsupport:$fresco_version"
+    implementation "com.facebook.fresco:animated-webp:$fresco_version"
+    implementation "com.facebook.fresco:animated-base:$fresco_version"
 }

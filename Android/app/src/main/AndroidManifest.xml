@@ -45,4 +45,11 @@
             android:exported="true"
             android:readPermission="com.whatsapp.sticker.READ" />
     </application>
+
+    <!-- to be able to query the whitelist status in WhatsApp 
+     https://developer.android.com/training/basics/intents/package-visibility#package-name -->
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+    </queries>
 </manifest>

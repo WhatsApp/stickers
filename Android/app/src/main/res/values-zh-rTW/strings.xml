@@ -36,4 +36,8 @@
 	<plurals name="title_activity_sticker_packs_list">
 		<item quantity="other">貼圖集</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">動畫貼圖集</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">點擊以預覽貼圖</string>
 </resources>

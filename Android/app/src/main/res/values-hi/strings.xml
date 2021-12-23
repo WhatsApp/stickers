@@ -3,15 +3,15 @@
 	<!-- Content description for the sticker pack tray image -->
 	<string name="tray_image_content_description">स्टिकर पैक ट्रे की फ़ोटो</string>
 	<!-- the title of info button in the menu that takes the user to more information about that pack showing publisher website and so on -->
-	<string name="more_info_button">स्टिकर पैक के बारे में अधिक जानकारी</string>
+	<string name="more_info_button">स्टिकर पैक के बारे में ज़्यादा जानकारी</string>
 	<!-- Text to be shown on the button that user can click to add the sticker pack to WhatsApp -->
 	<string name="add_to_whatsapp">WhatsApp में जोड़ें</string>
 	<!-- Content Description for the plus button shown on sticker pack list, that allows user to add sticker pack to WhatsApp -->
 	<string name="add_button_content_description">WhatsApp में स्टिकर पैक जोड़ें</string>
 	<!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
-	<string name="title_activity_sticker_pack_details_multiple_pack">स्टिकर के बारे में</string>
+	<string name="title_activity_sticker_pack_details_multiple_pack">स्टिकर डीटेल्स</string>
 	<!-- Title of the sticker pack info page which displays the webpage, email and privacy policy of the sticker pack -->
-	<string name="title_activity_sticker_pack_info">जानकारी</string>
+	<string name="title_activity_sticker_pack_info">स्टिकर पैक की डीटेल्स</string>
 	<!-- Text of button that allows user to click to go to the webpage of the publisher -->
 	<string name="view_webpage">वेबपेज देखें</string>
 	<!-- Text of button that allows user to click to send an email -->
@@ -36,4 +36,8 @@
 	<plurals name="title_activity_sticker_packs_list">
 		<item quantity="other">स्टिकर पैक</item>
 	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">एनिमेटेड स्टिकर पैक</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">प्रीव्यू के लिए स्टिकर पर टैप करें</string>
 </resources>

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIAlertController {
     func addSpinner() {
-        let activity: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let activity: UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
         view.addSubview(activity)
 
         activity.translatesAutoresizingMaskIntoConstraints = false
@@ -22,14 +22,35 @@ extension UIAlertController {
         activity.startAnimating()
     }
 
-    func addImageView(withImage image: UIImage) {
+    func addImageView(withImage image: UIImage, animated: Bool) {
         var stickerImageViewLength: CGFloat = 100.0
         if #available(iOS 9.0, *) {
             stickerImageViewLength = 125
         }
 
         let stickerImageView: UIImageView = UIImageView(image: image)
-        stickerImageView.translatesAutoresizingMaskIntoConstraints = false;
+        stickerImageView.translatesAutoresizingMaskIntoConstraints = false
+
+        if animated {
+            if let images = image.images {
+                stickerImageView.animationImages = images
+                stickerImageView.animationDuration = image.duration
+
+                stickerImageView.layer.speed = 1.0
+                stickerImageView.layer.timeOffset = 0.0
+                stickerImageView.layer.beginTime = 0.0
+
+                let animation = QuartzCore.CAKeyframeAnimation(keyPath:"contents")
+                let values: [CGImage] = images.compactMap { $0.cgImage }
+                animation.values = values
+                animation.calculationMode = .discrete
+                animation.duration = image.duration
+                animation.repeatCount = .greatestFiniteMagnitude
+                animation.isRemovedOnCompletion = false
+                stickerImageView.layer.add(animation, forKey: "StickerAnimation")
+            }
+        }
+
         view.addSubview(stickerImageView)
 
         stickerImageView.addConstraint(NSLayoutConstraint(item: stickerImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: stickerImageViewLength))

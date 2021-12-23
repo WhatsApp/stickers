@@ -9,8 +9,12 @@
 import UIKit
 
 struct Limits {
-    static let MaxStickerFileSize: Int = 100 * 1024
+    static let MaxStaticStickerFileSize: Int = 100 * 1024
+    static let MaxAnimatedStickerFileSize: Int = 500 * 1024
     static let MaxTrayImageFileSize: Int = 50 * 1024
+
+    static let MinAnimatedStickerFrameDurationMS: Int = 8
+    static let MaxAnimatedStickerTotalDurationMS: Int = 10000
 
     static let TrayImageDimensions: CGSize = CGSize(width: 96, height: 96)
     static let ImageDimensions: CGSize = CGSize(width: 512, height: 512)

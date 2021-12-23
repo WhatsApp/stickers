@@ -78,6 +78,7 @@ public class StickerPackListAdapter extends RecyclerView.Adapter<StickerPackList
             viewHolder.imageRowView.addView(rowImage);
         }
         setAddButtonAppearance(viewHolder.addButton, pack);
+        viewHolder.animatedStickerPackIndicator.setVisibility(pack.animatedStickerPack ? View.VISIBLE : View.GONE);
     }
 
     private void setAddButtonAppearance(ImageView addButton, StickerPack pack) {

@@ -9,8 +9,10 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
     android:paddingStart="16dp"
+    android:paddingLeft="16dp"
     android:paddingTop="8dp"
     android:paddingEnd="16dp"
+    android:paddingRight="16dp"
     android:paddingBottom="4dp">
 
     <ImageView
@@ -33,8 +35,6 @@
         android:id="@+id/sticker_pack_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,13 +51,24 @@
             android:textSize="16sp"
             tools:text="Pusheen" />
 
+        <ImageView
+            android:id="@+id/sticker_pack_animation_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/animated_pack_indicator"
+            app:tint="@color/animatedStickerIndicator"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:contentDescription="@string/sticker_pack_animation_indicator" />
+
+
         <TextView
             android:id="@+id/sticker_pack_publisher"
             style="@style/sticker_packs_list_item_author_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:ellipsize="end"
             android:maxWidth="120dp"
             tools:text="petellison" />
