@@ -8,7 +8,7 @@
 
 If you'd like to create your own [stickers for WhatsApp](https://faq.whatsapp.com/en/android/26000227/), you can package them in an Android or iOS app. 
 
-For Android users, you can publish your sticker app to the [Google Play Store](https://play.google.com/store) and users who download and install your app will be able to start sending those stickers right away from within WhatsApp. 
+For Android users, you can publish your sticker app to the [Google Play Store](https://play.google.com/store) and the users who download and install your app will be able to start using those stickers right away within WhatsApp. 
 For iOS developers please read the [IMPORTANT NOTICE ABOUT iOS APPS](#please-read-important-notice-about-ios-apps) section.
 
 **Stickers on WhatsApp must be legal, authorized and acceptable.** Learn more about acceptable uses of our services from our [Terms of Service](https://www.whatsapp.com/legal/#terms-of-service).
@@ -19,7 +19,7 @@ To get started, review the `README` files in the [Android](https://github.com/Wh
 
 ## PLEASE READ: IMPORTANT NOTICE ABOUT iOS APPS
 
-With Apple’s strict App Store review policy, we recommend iOS developers to submit apps that contain more functionality than to simply export stickers. This will increase the chances of the app being accepted. As an alternative to creating an iOS app, there are various sticker maker apps that help you create and import stickers into WhatsApp.
+With Apple’s strict App Store review policy, we recommend iOS developers to submit apps that contain more functionality than to simply export stickers. This will increase the chances of the app being accepted. As an alternate to create an iOS app, there are various sticker maker apps that help you to create and import stickers into WhatsApp.
 
 The sample iOS app is an example of how to use our API to import stickers into WhatsApp and can serve as a guide on how to get started, but it is not meant to be used as a template for your app because it will not be accepted by Apple.
 
