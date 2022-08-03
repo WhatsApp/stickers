@@ -10,7 +10,6 @@ package com.example.samplestickerapp;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.Formatter;
 import android.view.Menu;
@@ -27,6 +26,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.lang.ref.WeakReference;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class StickerPackDetailsActivity extends AddStickerPackActivity {
 
@@ -54,7 +56,7 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
     private View alreadyAddedText;
     private StickerPack stickerPack;
     private View divider;
-    private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
+    private Future<Void> taskFuture;
 
 
     @Override
@@ -162,15 +164,14 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        whiteListCheckAsyncTask = new WhiteListCheckAsyncTask(this);
-        whiteListCheckAsyncTask.execute(stickerPack);
+        postBackgroundTask();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (whiteListCheckAsyncTask != null && !whiteListCheckAsyncTask.isCancelled()) {
-            whiteListCheckAsyncTask.cancel(true);
+        if (taskFuture != null && !taskFuture.isCancelled()) {
+            taskFuture.cancel(true);
         }
     }
 
@@ -186,29 +187,25 @@ public class StickerPackDetailsActivity extends AddStickerPackActivity {
         }
     }
 
-    static class WhiteListCheckAsyncTask extends AsyncTask<StickerPack, Void, Boolean> {
-        private final WeakReference<StickerPackDetailsActivity> stickerPackDetailsActivityWeakReference;
-
-        WhiteListCheckAsyncTask(StickerPackDetailsActivity stickerPackListActivity) {
-            this.stickerPackDetailsActivityWeakReference = new WeakReference<>(stickerPackListActivity);
-        }
-
-        @Override
-        protected final Boolean doInBackground(StickerPack... stickerPacks) {
-            StickerPack stickerPack = stickerPacks[0];
-            final StickerPackDetailsActivity stickerPackDetailsActivity = stickerPackDetailsActivityWeakReference.get();
-            if (stickerPackDetailsActivity == null) {
-                return false;
+    private void postBackgroundTask() {
+        final ExecutorService executor = Executors.newSingleThreadExecutor();
+        final WeakReference<StickerPackDetailsActivity> activityWeakReference = new WeakReference<>(this);
+        taskFuture = executor.submit(() -> {
+            boolean isWhitelisted;
+            final StickerPackDetailsActivity activity = activityWeakReference.get();
+            if (activity != null) {
+                isWhitelisted = WhitelistCheck.isWhitelisted(activity, stickerPack.identifier);
+            } else {
+                isWhitelisted = false;
             }
-            return WhitelistCheck.isWhitelisted(stickerPackDetailsActivity, stickerPack.identifier);
-        }
 
-        @Override
-        protected void onPostExecute(Boolean isWhitelisted) {
-            final StickerPackDetailsActivity stickerPackDetailsActivity = stickerPackDetailsActivityWeakReference.get();
-            if (stickerPackDetailsActivity != null) {
-                stickerPackDetailsActivity.updateAddUI(isWhitelisted);
-            }
-        }
+            runOnUiThread(() -> {
+                final StickerPackDetailsActivity stickerPackDetailsActivity = activityWeakReference.get();
+                if (stickerPackDetailsActivity != null) {
+                    stickerPackDetailsActivity.updateAddUI(isWhitelisted);
+                }
+            });
+            return (Void) null;
+        });
     }
 }

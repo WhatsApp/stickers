@@ -10,7 +10,6 @@ package com.example.samplestickerapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -21,10 +20,13 @@ import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class EntryActivity extends BaseActivity {
     private View progressBar;
-    private LoadListAsyncTask loadListAsyncTask;
+    private Future<Void> taskFuture;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,8 +37,7 @@ public class EntryActivity extends BaseActivity {
             getSupportActionBar().hide();
         }
         progressBar = findViewById(R.id.entry_activity_progress);
-        loadListAsyncTask = new LoadListAsyncTask(this);
-        loadListAsyncTask.execute();
+        postBackgroundTask();
     }
 
     private void showStickerPack(ArrayList<StickerPack> stickerPackList) {
@@ -67,52 +68,45 @@ public class EntryActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (loadListAsyncTask != null && !loadListAsyncTask.isCancelled()) {
-            loadListAsyncTask.cancel(true);
+        if (taskFuture != null && !taskFuture.isCancelled()) {
+            taskFuture.cancel(true);
         }
     }
 
-    static class LoadListAsyncTask extends AsyncTask<Void, Void, Pair<String, ArrayList<StickerPack>>> {
-        private final WeakReference<EntryActivity> contextWeakReference;
-
-        LoadListAsyncTask(EntryActivity activity) {
-            this.contextWeakReference = new WeakReference<>(activity);
-        }
-
-        @Override
-        protected Pair<String, ArrayList<StickerPack>> doInBackground(Void... voids) {
-            ArrayList<StickerPack> stickerPackList;
+    private void postBackgroundTask() {
+        final ExecutorService executor = Executors.newSingleThreadExecutor();
+        final WeakReference<EntryActivity> activityWeakReference = new WeakReference<>(this);
+        taskFuture = executor.submit(() -> {
+            Pair<String, ArrayList<StickerPack>> result;
             try {
-                final Context context = contextWeakReference.get();
+                final Context context = activityWeakReference.get();
                 if (context != null) {
-                    stickerPackList = StickerPackLoader.fetchStickerPacks(context);
+                    ArrayList<StickerPack> stickerPackList = StickerPackLoader.fetchStickerPacks(context);
                     if (stickerPackList.size() == 0) {
-                        return new Pair<>("could not find any packs", null);
+                        result = new Pair<>("could not find any packs", null);
+                    } else {
+                        result = new Pair<>(null, stickerPackList);
                     }
-                    for (StickerPack stickerPack : stickerPackList) {
-                        StickerPackValidator.verifyStickerPackValidity(context, stickerPack);
-                    }
-                    return new Pair<>(null, stickerPackList);
                 } else {
-                    return new Pair<>("could not fetch sticker packs", null);
+                    result = new Pair<>("could not fetch sticker packs", null);
                 }
             } catch (Exception e) {
                 Log.e("EntryActivity", "error fetching sticker packs", e);
-                return new Pair<>(e.getMessage(), null);
+                result = new Pair<>(e.getMessage(), null);
             }
-        }
 
-        @Override
-        protected void onPostExecute(Pair<String, ArrayList<StickerPack>> stringListPair) {
-
-            final EntryActivity entryActivity = contextWeakReference.get();
-            if (entryActivity != null) {
-                if (stringListPair.first != null) {
-                    entryActivity.showErrorMessage(stringListPair.first);
-                } else {
-                    entryActivity.showStickerPack(stringListPair.second);
+            final Pair<String, ArrayList<StickerPack>> stringListPair = result;
+            runOnUiThread(() -> {
+                final EntryActivity entryActivity = activityWeakReference.get();
+                if (entryActivity != null) {
+                    if (stringListPair.first != null) {
+                        entryActivity.showErrorMessage(stringListPair.first);
+                    } else {
+                        entryActivity.showStickerPack(stringListPair.second);
+                    }
                 }
-            }
-        }
+            });
+            return (Void) null;
+        });
     }
 }

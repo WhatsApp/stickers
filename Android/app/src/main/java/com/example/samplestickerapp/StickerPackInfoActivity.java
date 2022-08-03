@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 
 import java.io.FileNotFoundException;
@@ -45,7 +46,7 @@ public class StickerPackInfoActivity extends BaseActivity {
         try {
             final InputStream inputStream = getContentResolver().openInputStream(Uri.parse(trayIconUriString));
             final BitmapDrawable trayDrawable = new BitmapDrawable(getResources(), inputStream);
-            final Drawable emailDrawable = getDrawableForAllAPIs(R.drawable.sticker_3rdparty_email);
+            final Drawable emailDrawable = ContextCompat.getDrawable(this, R.drawable.sticker_3rdparty_email);
             trayDrawable.setBounds(new Rect(0, 0, emailDrawable.getIntrinsicWidth(), emailDrawable.getIntrinsicHeight()));
             if (Build.VERSION.SDK_INT > 17) {
                 trayIcon.setCompoundDrawablesRelative(trayDrawable, null, null, null);
@@ -94,13 +95,5 @@ public class StickerPackInfoActivity extends BaseActivity {
         Uri uri = Uri.parse(website);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
-    }
-
-    private Drawable getDrawableForAllAPIs(@DrawableRes int id) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return getDrawable(id);
-        } else {
-            return getResources().getDrawable(id);
-        }
     }
 }

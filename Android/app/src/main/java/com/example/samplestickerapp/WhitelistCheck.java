@@ -78,10 +78,12 @@ class WhitelistCheck {
         }
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     static boolean isWhatsAppConsumerAppInstalled(PackageManager packageManager) {
         return WhitelistCheck.isPackageInstalled(CONSUMER_WHATSAPP_PACKAGE_NAME, packageManager);
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     static boolean isWhatsAppSmbAppInstalled(PackageManager packageManager) {
         return WhitelistCheck.isPackageInstalled(SMB_WHATSAPP_PACKAGE_NAME, packageManager);
     }

@@ -8,8 +8,8 @@
 
 package com.example.samplestickerapp;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,9 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class StickerPackListActivity extends AddStickerPackActivity {
     public static final String EXTRA_STICKER_PACK_LIST_DATA = "sticker_pack_list";
@@ -27,7 +28,7 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     private LinearLayoutManager packLayoutManager;
     private RecyclerView packRecyclerView;
     private StickerPackListAdapter allStickerPacksListAdapter;
-    private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
+    private Future<Void> taskFuture;
     private ArrayList<StickerPack> stickerPackList;
 
     @Override
@@ -40,21 +41,19 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getResources().getQuantityString(R.plurals.title_activity_sticker_packs_list, stickerPackList.size()));
         }
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        whiteListCheckAsyncTask = new WhiteListCheckAsyncTask(this);
-        whiteListCheckAsyncTask.execute(stickerPackList.toArray(new StickerPack[0]));
+        postBackgroundTask();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (whiteListCheckAsyncTask != null && !whiteListCheckAsyncTask.isCancelled()) {
-            whiteListCheckAsyncTask.cancel(true);
+        if (taskFuture != null && !taskFuture.isCancelled()) {
+            taskFuture.cancel(true);
         }
     }
 
@@ -72,9 +71,7 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         packRecyclerView.getViewTreeObserver().addOnGlobalLayoutListener(this::recalculateColumnCount);
     }
 
-
     private final StickerPackListAdapter.OnAddButtonClickedListener onAddButtonClickedListener = pack -> addStickerPackToWhatsApp(pack.identifier, pack.name);
-
 
     private void recalculateColumnCount() {
         final int previewSize = getResources().getDimensionPixelSize(R.dimen.sticker_pack_list_item_preview_image_size);
@@ -89,33 +86,24 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         }
     }
 
-
-    static class WhiteListCheckAsyncTask extends AsyncTask<StickerPack, Void, List<StickerPack>> {
-        private final WeakReference<StickerPackListActivity> stickerPackListActivityWeakReference;
-
-        WhiteListCheckAsyncTask(StickerPackListActivity stickerPackListActivity) {
-            this.stickerPackListActivityWeakReference = new WeakReference<>(stickerPackListActivity);
-        }
-
-        @Override
-        protected final List<StickerPack> doInBackground(StickerPack... stickerPackArray) {
-            final StickerPackListActivity stickerPackListActivity = stickerPackListActivityWeakReference.get();
-            if (stickerPackListActivity == null) {
-                return Arrays.asList(stickerPackArray);
+    private void postBackgroundTask() {
+        final ExecutorService executor = Executors.newSingleThreadExecutor();
+        final WeakReference<StickerPackListActivity> activityWeakReference = new WeakReference<>(this);
+        taskFuture = executor.submit(() -> {
+            final StickerPackListActivity activity = activityWeakReference.get();
+            if (activity != null) {
+                for (StickerPack stickerPack : stickerPackList) {
+                    stickerPack.setIsWhitelisted(WhitelistCheck.isWhitelisted(activity, stickerPack.identifier));
+                }
             }
-            for (StickerPack stickerPack : stickerPackArray) {
-                stickerPack.setIsWhitelisted(WhitelistCheck.isWhitelisted(stickerPackListActivity, stickerPack.identifier));
-            }
-            return Arrays.asList(stickerPackArray);
-        }
 
-        @Override
-        protected void onPostExecute(List<StickerPack> stickerPackList) {
-            final StickerPackListActivity stickerPackListActivity = stickerPackListActivityWeakReference.get();
-            if (stickerPackListActivity != null) {
-                stickerPackListActivity.allStickerPacksListAdapter.setStickerPackList(stickerPackList);
-                stickerPackListActivity.allStickerPacksListAdapter.notifyDataSetChanged();
-            }
-        }
+            runOnUiThread(() -> {
+                final StickerPackListActivity stickerPackListActivity = activityWeakReference.get();
+                if (stickerPackListActivity != null) {
+                    stickerPackListActivity.allStickerPacksListAdapter.notifyDataSetChanged();
+                }
+            });
+            return (Void) null;
+        });
     }
 }
