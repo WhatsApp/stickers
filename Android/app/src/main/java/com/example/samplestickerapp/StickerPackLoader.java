@@ -29,7 +29,7 @@ import static com.example.samplestickerapp.StickerContentProvider.ANIMATED_STICK
 import static com.example.samplestickerapp.StickerContentProvider.AVOID_CACHE;
 import static com.example.samplestickerapp.StickerContentProvider.IMAGE_DATA_VERSION;
 import static com.example.samplestickerapp.StickerContentProvider.IOS_APP_DOWNLOAD_LINK_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.LICENSE_AGREENMENT_WEBSITE;
+import static com.example.samplestickerapp.StickerContentProvider.LICENSE_AGREEMENT_WEBSITE;
 import static com.example.samplestickerapp.StickerContentProvider.PRIVACY_POLICY_WEBSITE;
 import static com.example.samplestickerapp.StickerContentProvider.PUBLISHER_EMAIL;
 import static com.example.samplestickerapp.StickerContentProvider.PUBLISHER_WEBSITE;
@@ -104,7 +104,7 @@ class StickerPackLoader {
             final String publisherEmail = cursor.getString(cursor.getColumnIndexOrThrow(PUBLISHER_EMAIL));
             final String publisherWebsite = cursor.getString(cursor.getColumnIndexOrThrow(PUBLISHER_WEBSITE));
             final String privacyPolicyWebsite = cursor.getString(cursor.getColumnIndexOrThrow(PRIVACY_POLICY_WEBSITE));
-            final String licenseAgreementWebsite = cursor.getString(cursor.getColumnIndexOrThrow(LICENSE_AGREENMENT_WEBSITE));
+            final String licenseAgreementWebsite = cursor.getString(cursor.getColumnIndexOrThrow(LICENSE_AGREEMENT_WEBSITE));
             final String imageDataVersion = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_DATA_VERSION));
             final boolean avoidCache = cursor.getShort(cursor.getColumnIndexOrThrow(AVOID_CACHE)) > 0;
             final boolean animatedStickerPack = cursor.getShort(cursor.getColumnIndexOrThrow(ANIMATED_STICKER_PACK)) > 0;
