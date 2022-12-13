@@ -45,7 +45,7 @@ public class StickerContentProvider extends ContentProvider {
     public static final String PUBLISHER_EMAIL = "sticker_pack_publisher_email";
     public static final String PUBLISHER_WEBSITE = "sticker_pack_publisher_website";
     public static final String PRIVACY_POLICY_WEBSITE = "sticker_pack_privacy_policy_website";
-    public static final String LICENSE_AGREENMENT_WEBSITE = "sticker_pack_license_agreement_website";
+    public static final String LICENSE_AGREEMENT_WEBSITE = "sticker_pack_license_agreement_website";
     public static final String IMAGE_DATA_VERSION = "image_data_version";
     public static final String AVOID_CACHE = "whatsapp_will_not_cache_stickers";
     public static final String ANIMATED_STICKER_PACK = "animated_sticker_pack";
@@ -88,7 +88,7 @@ public class StickerContentProvider extends ContentProvider {
         //the call to get the metadata for single sticker pack. * represent the identifier
         MATCHER.addURI(authority, METADATA + "/*", METADATA_CODE_FOR_SINGLE_PACK);
 
-        //gets the list of stickers for a sticker pack, * respresent the identifier.
+        //gets the list of stickers for a sticker pack, * represent the identifier.
         MATCHER.addURI(authority, STICKERS + "/*", STICKERS_CODE);
 
         for (StickerPack stickerPack : getStickerPackList()) {
@@ -189,7 +189,7 @@ public class StickerContentProvider extends ContentProvider {
                         PUBLISHER_EMAIL,
                         PUBLISHER_WEBSITE,
                         PRIVACY_POLICY_WEBSITE,
-                        LICENSE_AGREENMENT_WEBSITE,
+                        LICENSE_AGREEMENT_WEBSITE,
                         IMAGE_DATA_VERSION,
                         AVOID_CACHE,
                         ANIMATED_STICKER_PACK,
