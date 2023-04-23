@@ -18,10 +18,11 @@ import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,18 +46,21 @@ public class StickerContentProvider extends ContentProvider {
     public static final String PUBLISHER_WEBSITE = "sticker_pack_publisher_website";
     public static final String PRIVACY_POLICY_WEBSITE = "sticker_pack_privacy_policy_website";
     public static final String LICENSE_AGREENMENT_WEBSITE = "sticker_pack_license_agreement_website";
+    public static final String IMAGE_DATA_VERSION = "image_data_version";
+    public static final String AVOID_CACHE = "whatsapp_will_not_cache_stickers";
+    public static final String ANIMATED_STICKER_PACK = "animated_sticker_pack";
 
     public static final String STICKER_FILE_NAME_IN_QUERY = "sticker_file_name";
     public static final String STICKER_FILE_EMOJI_IN_QUERY = "sticker_emoji";
-    public static final String CONTENT_FILE_NAME = "contents.json";
+    private static final String CONTENT_FILE_NAME = "contents.json";
 
-    public static Uri AUTHORITY_URI = new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(BuildConfig.CONTENT_PROVIDER_AUTHORITY).appendPath(StickerContentProvider.METADATA).build();
+    public static final Uri AUTHORITY_URI = new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(BuildConfig.CONTENT_PROVIDER_AUTHORITY).appendPath(StickerContentProvider.METADATA).build();
 
     /**
      * Do not change the values in the UriMatcher because otherwise, WhatsApp will not be able to fetch the stickers from the ContentProvider.
      */
     private static final UriMatcher MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
-    static final String METADATA = "metadata";
+    private static final String METADATA = "metadata";
     private static final int METADATA_CODE = 1;
 
     private static final int METADATA_CODE_FOR_SINGLE_PACK = 2;
@@ -150,7 +154,7 @@ public class StickerContentProvider extends ContentProvider {
         }
     }
 
-    public List<StickerPack> getStickerPackList() {
+    private List<StickerPack> getStickerPackList() {
         if (stickerPackList == null) {
             readContentFile(Objects.requireNonNull(getContext()));
         }
@@ -185,7 +189,10 @@ public class StickerContentProvider extends ContentProvider {
                         PUBLISHER_EMAIL,
                         PUBLISHER_WEBSITE,
                         PRIVACY_POLICY_WEBSITE,
-                        LICENSE_AGREENMENT_WEBSITE
+                        LICENSE_AGREENMENT_WEBSITE,
+                        IMAGE_DATA_VERSION,
+                        AVOID_CACHE,
+                        ANIMATED_STICKER_PACK,
                 });
         for (StickerPack stickerPack : stickerPackList) {
             MatrixCursor.RowBuilder builder = cursor.newRow();
@@ -199,6 +206,9 @@ public class StickerContentProvider extends ContentProvider {
             builder.add(stickerPack.publisherWebsite);
             builder.add(stickerPack.privacyPolicyWebsite);
             builder.add(stickerPack.licenseAgreementWebsite);
+            builder.add(stickerPack.imageDataVersion);
+            builder.add(stickerPack.avoidCache ? 1 : 0);
+            builder.add(stickerPack.animatedStickerPack ? 1 : 0);
         }
         cursor.setNotificationUri(Objects.requireNonNull(getContext()).getContentResolver(), uri);
         return cursor;

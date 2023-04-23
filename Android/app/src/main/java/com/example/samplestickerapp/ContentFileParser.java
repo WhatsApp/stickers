@@ -8,9 +8,10 @@
 
 package com.example.samplestickerapp;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.JsonReader;
+
+import androidx.annotation.NonNull;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,8 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ContentFileParser {
-
-    private static final int LIMIT_EMOJI_COUNT = 2;
 
     @NonNull
     static List<StickerPack> parseStickerPacks(@NonNull InputStream contentsInputStream) throws IOException, IllegalStateException {
@@ -74,6 +73,9 @@ class ContentFileParser {
         String publisherWebsite = null;
         String privacyPolicyWebsite = null;
         String licenseAgreementWebsite = null;
+        String imageDataVersion = "";
+        boolean avoidCache = false;
+        boolean animatedStickerPack = false;
         List<Sticker> stickerList = null;
         while (reader.hasNext()) {
             String key = reader.nextName();
@@ -105,6 +107,15 @@ class ContentFileParser {
                 case "stickers":
                     stickerList = readStickers(reader);
                     break;
+                case "image_data_version":
+                    imageDataVersion = reader.nextString();
+                    break;
+                case "avoid_cache":
+                    avoidCache = reader.nextBoolean();
+                    break;
+                case "animated_sticker_pack":
+                    animatedStickerPack = reader.nextBoolean();
+                    break;
                 default:
                     reader.skipValue();
             }
@@ -127,8 +138,11 @@ class ContentFileParser {
         if (identifier.contains("..") || identifier.contains("/")) {
             throw new IllegalStateException("identifier should not contain .. or / to prevent directory traversal");
         }
+        if (TextUtils.isEmpty(imageDataVersion)) {
+            throw new IllegalStateException("image_data_version should not be empty");
+        }
         reader.endObject();
-        final StickerPack stickerPack = new StickerPack(identifier, name, publisher, trayImageFile, publisherEmail, publisherWebsite, privacyPolicyWebsite, licenseAgreementWebsite);
+        final StickerPack stickerPack = new StickerPack(identifier, name, publisher, trayImageFile, publisherEmail, publisherWebsite, privacyPolicyWebsite, licenseAgreementWebsite, imageDataVersion, avoidCache, animatedStickerPack);
         stickerPack.setStickers(stickerList);
         return stickerPack;
     }
@@ -141,7 +155,7 @@ class ContentFileParser {
         while (reader.hasNext()) {
             reader.beginObject();
             String imageFile = null;
-            List<String> emojis = new ArrayList<>(LIMIT_EMOJI_COUNT);
+            List<String> emojis = new ArrayList<>(StickerPackValidator.EMOJI_MAX_LIMIT);
             while (reader.hasNext()) {
                 final String key = reader.nextName();
                 if ("image_file".equals(key)) {
@@ -150,9 +164,12 @@ class ContentFileParser {
                     reader.beginArray();
                     while (reader.hasNext()) {
                         String emoji = reader.nextString();
-                        emojis.add(emoji);
+                        if (!TextUtils.isEmpty(emoji)) {
+                            emojis.add(emoji);
+                        }
                     }
                     reader.endArray();
+
                 } else {
                     throw new IllegalStateException("unknown field in json: " + key);
                 }

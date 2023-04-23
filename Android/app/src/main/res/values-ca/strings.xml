@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Content description for the sticker pack tray image -->
+	<string name="tray_image_content_description">Imatge de la paperera del paquet d\'enganxines</string>
+	<!-- the title of info button in the menu that takes the user to more information about that pack showing publisher website and so on -->
+	<string name="more_info_button">Més informació sobre el paquet d\'enganxines</string>
+	<!-- Text to be shown on the button that user can click to add the sticker pack to WhatsApp -->
+	<string name="add_to_whatsapp">Afegir a WhatsApp</string>
+	<!-- Content Description for the plus button shown on sticker pack list, that allows user to add sticker pack to WhatsApp -->
+	<string name="add_button_content_description">Afegir paquet d\'enganxines a WhatsApp.</string>
+	<!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
+	<string name="title_activity_sticker_pack_details_multiple_pack">Detalls de les enganxines</string>
+	<!-- Title of the sticker pack info page which displays the webpage, email and privacy policy of the sticker pack -->
+	<string name="title_activity_sticker_pack_info">Informació</string>
+	<!-- Text of button that allows user to click to go to the webpage of the publisher -->
+	<string name="view_webpage">Veure pàgina web</string>
+	<!-- Text of button that allows user to click to send an email -->
+	<string name="send_email">Enviar correu electrònic</string>
+	<!-- Text of button that allows user to click to go to the privacy policy website -->
+	<string name="privacy_policy">Política de privadesa</string>
+	<!-- Text next to the tray icon that indicates the tray icon -->
+	<string name="info_screen_tray_icon">Icona de paperera</string>
+	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
+	<string name="details_pack_already_added">Paquet d\'enganxines afegit a WhatsApp</string>
+	<!-- Title in the intent chooser that shows when user has multiple email client installed -->
+	<string name="info_send_email_to_prompt">Enviar correu amb</string>
+	<!-- Message to show in a dialog when user fails to add sticker pack -->
+	<string name="add_pack_fail_prompt_update_whatsapp">Paquet d\'enganxines no afegit. Si vols afegir-lo, comprova que tinguis l\'última versió de WhatsApp.</string>
+	<!-- Text in dialog button when a user has an old version of WhatsApp that prevents them from adding the sticker pack, clicking on it will take user to play store -->
+	<string name="add_pack_fail_prompt_update_play_link">Actualitzar</string>
+	<!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
+	<string name="cannot_find_play_store">Google Play no està instal·lat en aquest dispositiu.</string>
+	<!-- Text of button that allows user to click to go to the license agreement website -->
+	<string name="license_agreement">Contracte de llicència</string>
+	<!-- Title of the sticker pack list activity page in case the app contains multiple sticker packs, the singular string will be used when there is only one pack in the app -->
+	<plurals name="title_activity_sticker_packs_list">
+		<item quantity="one">Paquet d\'enganxines</item>
+		<item quantity="other">Paquets d\'enganxines</item>
+	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">Paquet d\'enganxines animades</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">Toca per obtenir una visualització prèvia de l\'enganxina</string>
+</resources>

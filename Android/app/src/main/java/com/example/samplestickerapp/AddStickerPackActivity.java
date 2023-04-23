@@ -15,21 +15,22 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+
 public abstract class AddStickerPackActivity extends BaseActivity {
-    public static final int ADD_PACK = 200;
-    public static final String TAG = "AddStickerPackActivity";
+    private static final int ADD_PACK = 200;
+    private static final String TAG = "AddStickerPackActivity";
 
     protected void addStickerPackToWhatsApp(String identifier, String stickerPackName) {
         try {
             //if neither WhatsApp Consumer or WhatsApp Business is installed, then tell user to install the apps.
             if (!WhitelistCheck.isWhatsAppConsumerAppInstalled(getPackageManager()) && !WhitelistCheck.isWhatsAppSmbAppInstalled(getPackageManager())) {
-                Toast.makeText(this, R.string.error_adding_sticker_pack, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
                 return;
             }
             final boolean stickerPackWhitelistedInWhatsAppConsumer = WhitelistCheck.isStickerPackWhitelistedInWhatsAppConsumer(this, identifier);
@@ -42,11 +43,11 @@ public abstract class AddStickerPackActivity extends BaseActivity {
             } else if (!stickerPackWhitelistedInWhatsAppSmb) {
                 launchIntentToAddPackToSpecificPackage(identifier, stickerPackName, WhitelistCheck.SMB_WHATSAPP_PACKAGE_NAME);
             } else {
-                Toast.makeText(this, R.string.error_adding_sticker_pack, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-            Log.e(TAG, "error adding sticker pack to WhatsApp",  e);
-            Toast.makeText(this, R.string.error_adding_sticker_pack, Toast.LENGTH_LONG).show();
+            Log.e(TAG, "error adding sticker pack to WhatsApp", e);
+            Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -57,7 +58,7 @@ public abstract class AddStickerPackActivity extends BaseActivity {
         try {
             startActivityForResult(intent, ADD_PACK);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, R.string.error_adding_sticker_pack, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -67,7 +68,7 @@ public abstract class AddStickerPackActivity extends BaseActivity {
         try {
             startActivityForResult(Intent.createChooser(intent, getString(R.string.add_to_whatsapp)), ADD_PACK);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, R.string.error_adding_sticker_pack, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.add_pack_fail_prompt_update_whatsapp, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -122,7 +123,7 @@ public abstract class AddStickerPackActivity extends BaseActivity {
                 final boolean smbAppInstalled = WhitelistCheck.isPackageInstalled(WhitelistCheck.SMB_WHATSAPP_PACKAGE_NAME, packageManager);
                 final String playPackageLinkPrefix = "http://play.google.com/store/apps/details?id=";
                 if (whatsAppInstalled && smbAppInstalled) {
-                    launchPlayStoreWithUri("https://play.google.com/store/apps/developer?id=WhatsApp+Inc.");
+                    launchPlayStoreWithUri("https://play.google.com/store/apps/developer?id=WhatsApp+LLC");
                 } else if (whatsAppInstalled) {
                     launchPlayStoreWithUri(playPackageLinkPrefix + WhitelistCheck.CONSUMER_WHATSAPP_PACKAGE_NAME);
                 } else if (smbAppInstalled) {

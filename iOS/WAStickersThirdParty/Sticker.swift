@@ -9,29 +9,30 @@
 import UIKit
 
 struct StickerEmojis {
-    static func canonicalizedEmojis(rawEmojis: [String]?) throws -> [String]?{
-        if let rawEmojis = rawEmojis {
-            guard rawEmojis.count <= Limits.MaxEmojisCount else {
-                throw StickerPackError.tooManyEmojis
-            }
 
-            var canonicalizedEmojis: [String] = []
+    static func canonicalizedEmojis(rawEmojis: [String]?) throws -> [String]? {
 
-            for rawEmoji in rawEmojis {
-                var emojiToAdd = canonicalizedEmoji(emoji: rawEmoji)
+        guard let rawEmojis = rawEmojis else { return nil }
 
-                // If the emoji somehow isn't canonicalized, we'll use the original emoji
-                if (emojiToAdd == "") {
-                    emojiToAdd = rawEmoji
-                }
-
-                canonicalizedEmojis.append(emojiToAdd)
-            }
-
-            return canonicalizedEmojis
+        if rawEmojis.count > Limits.MaxEmojisCount {
+          throw StickerPackError.tooManyEmojis
         }
 
-        return nil
+        var canonicalizedEmojis: [String] = []
+
+        rawEmojis.forEach { rawEmoji in
+
+          var emojiToAdd = canonicalizedEmoji(emoji: rawEmoji)
+
+          // If the emoji somehow isn't canonicalized, we'll use the original emoji
+          if emojiToAdd.isEmpty {
+            emojiToAdd = rawEmoji
+          }
+
+          canonicalizedEmojis.append(emojiToAdd)
+        }
+
+        return canonicalizedEmojis
     }
 
     private static func canonicalizedEmoji(emoji: String) -> String {
@@ -48,18 +49,15 @@ struct StickerEmojis {
             0x1F900...0x1F9FF,         // Supplemental symbols and pictographs
             0x200D:                    // Zero-width joiner
                 nonExtensionUnicodes.append(Character(UnicodeScalar(scalar.value)!))
-                break
 
             default:
                 continue
             }
         }
 
-        var canonicalizedEmoji: String = ""
-        for nonExtensionUnicode in nonExtensionUnicodes {
-            canonicalizedEmoji.append(nonExtensionUnicode)
-        }
+        var canonicalizedEmoji = ""
 
+        nonExtensionUnicodes.forEach { canonicalizedEmoji.append($0) }
         return canonicalizedEmoji
     }
 }
@@ -85,10 +83,12 @@ class Sticker {
      *  - Throws:
      - .fileNotFound if file has not been found
      - .unsupportedImageFormat if image is not png or webp
-     - .imageTooBig if the image file size is above the supported limit (100KB)
+     - .imageTooBig if the image file size is above the supported limit (100KB for static, 500KB for animated)
+     - .invalidImage if the image file size is 0KB
      - .incorrectImageSize if the image is not within the allowed size
-     - .animatedImagesNotSupported if the image is animated
      - .tooManyEmojis if there are too many emojis assigned to the sticker
+     - .minFrameDurationTooShort if the minimum frame duration is too short (less than 8ms)
+     - .totalAnimationDurationTooLong if the total animation duration is too long (more than 10s)
      */
     init(contentsOfFile filename: String, emojis: [String]?) throws {
         self.imageData = try ImageData.imageDataIfCompliant(contentsOfFile: filename, isTray: false)
@@ -103,10 +103,12 @@ class Sticker {
      *  - Parameter emojis: array of emojis associated with this sticker.
      *
      *  - Throws:
-     - .imageTooBig if the image file size is above the supported limit (100KB)
+     - .imageTooBig if the image file size is above the supported limit (100KB for static, 500KB for animated)
+     - .invalidImage if the image file size is 0KB
      - .incorrectImageSize if the image is not within the allowed size
-     - .animatedImagesNotSupported if the image is animated
      - .tooManyEmojis if there are too many emojis assigned to the sticker
+     - .minFrameDurationTooShort if the minimum frame duration is too short (less than 8ms)
+     - .totalAnimationDurationTooLong if the total animation duration is too long (more than 10s)
      */
     init(imageData: Data, type: ImageDataExtension, emojis: [String]?) throws {
         self.imageData = try ImageData.imageDataIfCompliant(rawData:imageData, extensionType: type, isTray: false)

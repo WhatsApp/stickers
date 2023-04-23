@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Content description for the sticker pack tray image -->
+	<string name="tray_image_content_description">스티커 팩 트레이 이미지</string>
+	<!-- the title of info button in the menu that takes the user to more information about that pack showing publisher website and so on -->
+	<string name="more_info_button">스티커 팩에 대한 더 많은 정보</string>
+	<!-- Text to be shown on the button that user can click to add the sticker pack to WhatsApp -->
+	<string name="add_to_whatsapp">WhatsApp에 추가</string>
+	<!-- Content Description for the plus button shown on sticker pack list, that allows user to add sticker pack to WhatsApp -->
+	<string name="add_button_content_description">WhatsApp에 스티커 팩을 추가합니다</string>
+	<!-- Title of the sticker pack page when there are multiple sticker packs in the app -->
+	<string name="title_activity_sticker_pack_details_multiple_pack">스티커 상세정보</string>
+	<!-- Title of the sticker pack info page which displays the webpage, email and privacy policy of the sticker pack -->
+	<string name="title_activity_sticker_pack_info">정보</string>
+	<!-- Text of button that allows user to click to go to the webpage of the publisher -->
+	<string name="view_webpage">웹페이지 보기</string>
+	<!-- Text of button that allows user to click to send an email -->
+	<string name="send_email">이메일 보내기</string>
+	<!-- Text of button that allows user to click to go to the privacy policy website -->
+	<string name="privacy_policy">개인정보처리방침</string>
+	<!-- Text next to the tray icon that indicates the tray icon -->
+	<string name="info_screen_tray_icon">트레이 아이콘</string>
+	<!-- Text shown to the user instead of Add to WhatsApp button if the pack is already added to WhatsApp -->
+	<string name="details_pack_already_added">스티커 팩이 WhatsApp에 추가되었습니다</string>
+	<!-- Title in the intent chooser that shows when user has multiple email client installed -->
+	<string name="info_send_email_to_prompt">다음으로 이메일 보내기</string>
+	<!-- Message to show in a dialog when user fails to add sticker pack -->
+	<string name="add_pack_fail_prompt_update_whatsapp">스티커 팩이 추가되지 않았습니다. 추가하려면, WhatsApp 최신 버전으로 업데이트하세요.</string>
+	<!-- Text in dialog button when a user has an old version of WhatsApp that prevents them from adding the sticker pack, clicking on it will take user to play store -->
+	<string name="add_pack_fail_prompt_update_play_link">업데이트</string>
+	<!-- Toast text when we could not take user to play store because they don't have Google Play app installed -->
+	<string name="cannot_find_play_store">구글 플레이가 기기에 설치되지 않았습니다</string>
+	<!-- Text of button that allows user to click to go to the license agreement website -->
+	<string name="license_agreement">라이센스 동의</string>
+	<!-- Title of the sticker pack list activity page in case the app contains multiple sticker packs, the singular string will be used when there is only one pack in the app -->
+	<plurals name="title_activity_sticker_packs_list">
+		<item quantity="other">스티커 팩</item>
+	</plurals>
+	<!-- Content description indicating the sticker pack is an animated pack -->
+	<string name="sticker_pack_animation_indicator">움직이는 스티커 팩</string>
+	<!-- text we display at the end of sticker pack details page showing that users can tap sticker to see bigger version -->
+	<string name="sticker_pack_details_tap_to_preview">스티커를 미리보기하려면 탭하세요</string>
+</resources>

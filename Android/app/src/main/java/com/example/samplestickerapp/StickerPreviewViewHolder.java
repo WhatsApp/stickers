@@ -8,14 +8,15 @@
 
 package com.example.samplestickerapp;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
-public class StickerPreviewViewHolder extends RecyclerView.ViewHolder {
+class StickerPreviewViewHolder extends RecyclerView.ViewHolder {
 
-    public SimpleDraweeView stickerPreviewView;
+    final SimpleDraweeView stickerPreviewView;
 
     StickerPreviewViewHolder(final View itemView) {
         super(itemView);

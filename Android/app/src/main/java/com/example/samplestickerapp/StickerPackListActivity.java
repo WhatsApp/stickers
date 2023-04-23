@@ -10,9 +10,10 @@ package com.example.samplestickerapp;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -36,13 +37,17 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         packRecyclerView = findViewById(R.id.sticker_pack_list);
         stickerPackList = getIntent().getParcelableArrayListExtra(EXTRA_STICKER_PACK_LIST_DATA);
         showStickerPackList(stickerPackList);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(getResources().getQuantityString(R.plurals.title_activity_sticker_packs_list, stickerPackList.size()));
+        }
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         whiteListCheckAsyncTask = new WhiteListCheckAsyncTask(this);
-        whiteListCheckAsyncTask.execute(stickerPackList.toArray(new StickerPack[stickerPackList.size()]));
+        whiteListCheckAsyncTask.execute(stickerPackList.toArray(new StickerPack[0]));
     }
 
     @Override
@@ -57,7 +62,7 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         allStickerPacksListAdapter = new StickerPackListAdapter(stickerPackList, onAddButtonClickedListener);
         packRecyclerView.setAdapter(allStickerPacksListAdapter);
         packLayoutManager = new LinearLayoutManager(this);
-        packLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        packLayoutManager.setOrientation(RecyclerView.VERTICAL);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(
                 packRecyclerView.getContext(),
                 packLayoutManager.getOrientation()
@@ -68,18 +73,19 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     }
 
 
-    private final StickerPackListAdapter.OnAddButtonClickedListener onAddButtonClickedListener = pack -> {
-        addStickerPackToWhatsApp(pack.identifier, pack.name);
-    };
+    private final StickerPackListAdapter.OnAddButtonClickedListener onAddButtonClickedListener = pack -> addStickerPackToWhatsApp(pack.identifier, pack.name);
+
 
     private void recalculateColumnCount() {
         final int previewSize = getResources().getDimensionPixelSize(R.dimen.sticker_pack_list_item_preview_image_size);
         int firstVisibleItemPosition = packLayoutManager.findFirstVisibleItemPosition();
         StickerPackListItemViewHolder viewHolder = (StickerPackListItemViewHolder) packRecyclerView.findViewHolderForAdapterPosition(firstVisibleItemPosition);
         if (viewHolder != null) {
-            final int max = Math.max(viewHolder.imageRowView.getMeasuredWidth() / previewSize, 1);
-            int numColumns = Math.min(STICKER_PREVIEW_DISPLAY_LIMIT, max);
-            allStickerPacksListAdapter.setMaxNumberOfStickersInARow(numColumns);
+            final int widthOfImageRow = viewHolder.imageRowView.getMeasuredWidth();
+            final int max = Math.max(widthOfImageRow / previewSize, 1);
+            int maxNumberOfImagesInARow = Math.min(STICKER_PREVIEW_DISPLAY_LIMIT, max);
+            int minMarginBetweenImages = (widthOfImageRow - maxNumberOfImagesInARow * previewSize) / (maxNumberOfImagesInARow - 1);
+            allStickerPacksListAdapter.setImageRowSpec(maxNumberOfImagesInARow, minMarginBetweenImages);
         }
     }
 
