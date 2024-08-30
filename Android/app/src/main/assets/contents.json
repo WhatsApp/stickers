@@ -15,204 +15,223 @@
       "license_agreement_website": "",
       "stickers": [
         {
-          "image_file": "01_Cuppy_smile.webp",
+          "image_file": "01_Cuppy_smile.png",
           "emojis": [
             "☕",
-            "🙂"
+            "🙂",
+            "😀"
           ],
-          "accessibility_text": "Cuppy Smile"
+          "accessibility_text": "A smiling, white cup contains a brown drink."
         },
         {
-          "image_file": "02_Cuppy_lol.webp",
+          "image_file": "02_Cuppy_lol.png",
           "emojis": [
+            "☕",
             "😄",
             "😀"
           ],
-          "accessibility_text": "Cuppy Lol"
+          "accessibility_text": "A laughing, white cup is tilted to the right and contains a brown drink."
         },
         {
-          "image_file": "03_Cuppy_rofl.webp",
+          "image_file": "03_Cuppy_rofl.png",
           "emojis": [
+            "☕",
             "😆",
             "😂"
           ],
-          "accessibility_text": "Cuppy Rofl"
+          "accessibility_text": "A laughing and crying white cup is tilted to the right as if shaking. It contains a brown drink."
         },
         {
-          "image_file": "04_Cuppy_sad.webp",
+          "image_file": "04_Cuppy_sad.png",
           "emojis": [
+            "☕",
             "😩",
             "😰"
           ],
-          "accessibility_text": "Cuppy Sad"
+          "accessibility_text": "A crying, white cup is half full and leaking brown liquid."
         },
         {
-          "image_file": "05_Cuppy_cry.webp",
+          "image_file": "05_Cuppy_cry.png",
           "emojis": [
+            "☕",
             "😭",
             "💧"
           ],
-          "accessibility_text": "Cuppy Cry"
+          "accessibility_text": "A crying, white cup is upside-down with brown liquid spilled around it."
         },
         {
-          "image_file": "06_Cuppy_love.webp",
+          "image_file": "06_Cuppy_love.png",
           "emojis": [
+            "☕",
             "😍",
             "♥"
           ],
-          "accessibility_text": "Cuppy Love"
+          "accessibility_text": "A white cup is next to two red hearts. It contains coffee with white foam in the shape of a heart on top."
         },
         {
-          "image_file": "07_Cuppy_hate.webp",
+          "image_file": "07_Cuppy_hate.png",
           "emojis": [
+            "☕",
             "💔",
             "👎"
           ],
-          "accessibility_text": "Cuppy Hate"
+          "accessibility_text": "A white cup contains coffee with white foam in the shape of a broken heart on top."
         },
         {
-          "image_file": "08_Cuppy_lovewithmug.webp",
+          "image_file": "08_Cuppy_lovewithmug.png",
           "emojis": [
+            "☕",
             "😍",
             "💑"
           ],
-          "accessibility_text": "Cuppy Love with mug"
+          "accessibility_text": "Two smiling cups are below two red hearts. One cup is white, and one is black. They contain a brown drink."
         },
         {
-          "image_file": "09_Cuppy_lovewithcookie.webp",
+          "image_file": "09_Cuppy_lovewithcookie.png",
           "emojis": [
+            "☕",
             "😘",
             "🍪"
           ],
-          "accessibility_text": "Cuppy Love with cookie"
+          "accessibility_text": "A smiling, white cup looks at a cookie and a red heart. It contains coffee with white foam in the shape of a heart on top."
         },
         {
-          "image_file": "10_Cuppy_hmm.webp",
+          "image_file": "10_Cuppy_hmm.png",
           "emojis": [
+            "☕",
             "🤔",
             "😐"
           ],
-          "accessibility_text": "Cuppy Hmmmm"
+          "accessibility_text": "A sad, white cup seems to shake. It contains a brown drink."
         },
         {
-          "image_file": "11_Cuppy_upset.webp",
+          "image_file": "11_Cuppy_upset.png",
           "emojis": [
+            "☕",
             "😱",
             "😵"
           ],
-          "accessibility_text": "Cuppy upset"
+          "accessibility_text": "A shocked, white cup is tilted to the left with brown liquid splashing out of it."
         },
         {
-          "image_file": "12_Cuppy_angry.webp",
+          "image_file": "12_Cuppy_angry.png",
           "emojis": [
+            "☕",
             "😡",
             "😠"
           ],
-          "accessibility_text": "Cuppy Angry"
+          "accessibility_text": "An angry, red cup has three red lightning bolts coming out of it."
         },
         {
-          "image_file": "13_Cuppy_curious.webp",
+          "image_file": "13_Cuppy_curious.png",
           "emojis": [
+            "☕",
             "❓",
             "🤔"
           ],
-          "accessibility_text": "Cuppy curious"
+          "accessibility_text": "An expressionless, white cup has two brown question marks above it. It contains a brown drink."
         },
         {
-          "image_file": "14_Cuppy_weird.webp",
+          "image_file": "14_Cuppy_weird.png",
           "emojis": [
+            "☕",
             "🌈",
             "😜"
           ],
-          "accessibility_text": "Cuppy weird"
+          "accessibility_text": "A shocked, white cup has a rainbow pouring into it. It has pink cheeks, shining eyes and an open mouth."
         },
         {
-          "image_file": "15_Cuppy_bluescreen.webp",
+          "image_file": "15_Cuppy_bluescreen.png",
           "emojis": [
+            "☕",
             "💻",
             "😩"
           ],
-          "accessibility_text": "Cuppy blue screen"
+          "accessibility_text": "A snoring, white cup is next to a shadowy laptop with text that reads :(@#%&. It has crosses for eyes and an open mouth."
         },
         {
-          "image_file": "16_Cuppy_angry.webp",
+          "image_file": "16_Cuppy_angry.png",
           "emojis": [
+            "☕",
             "😡",
             "😤"
           ],
-          "accessibility_text": "Cuppy angry"
+          "accessibility_text": "An angry, red cup stares. It has brown spikes at its base and contains blue liquid."
         },
         {
-          "image_file": "17_Cuppy_tired.webp",
+          "image_file": "17_Cuppy_tired.png",
           "emojis": [
+            "☕",
             "😩",
             "😨"
           ],
-          "accessibility_text": "Cuppy tired"
+          "accessibility_text": "A tired, grey cup is under a low battery symbol. It's half-full and leaking a dark liquid. It has red eyes and an open mouth."
         },
         {
-          "image_file": "18_Cuppy_workhard.webp",
+          "image_file": "18_Cuppy_workhard.png",
           "emojis": [
-            "💻",
-            "🌃"
+            "☕",
+            "😔",
+            "😨"
           ],
-          "accessibility_text": "Cuppy work hard"
+          "accessibility_text": "A drooling, white cup stares at a laptop next to a window showing a moon and stars. It has red, shining eyes."
         },
         {
-          "image_file": "19_Cuppy_shine.webp",
+          "image_file": "19_Cuppy_shine.png",
           "emojis": [
+            "☕",
             "🎉",
             "✨"
           ],
-          "accessibility_text": "Cuppy shine"
+          "accessibility_text": "A laughing, white cup is under four yellow stars and a yellow beam of light. It contains a brown drink."
         },
         {
-          "image_file": "20_Cuppy_disgusting.webp",
+          "image_file": "20_Cuppy_disgusting.png",
           "emojis": [
+            "☕",
             "🤮",
             "👎"
           ],
-          "accessibility_text": "Cuppy disgusting"
+          "accessibility_text": "A miserable, grey cup vomits green liquid. It contains a green, bubbly liquid."
         },
         {
-          "image_file": "21_Cuppy_hi.webp",
+          "image_file": "21_Cuppy_hi.png",
           "emojis": [
+            "☕",
             "🖐",
             "🙋"
           ],
-          "accessibility_text": "Cuppy hi"
+          "accessibility_text": "A happy, white cup with a brown lid holds its arms up."
         },
         {
-          "image_file": "22_Cuppy_bye.webp",
+          "image_file": "22_Cuppy_bye.png",
           "emojis": [
+            "☕",
             "🖐",
             "👋"
           ],
-          "accessibility_text": "Cuppy bye"
+          "accessibility_text": "A happy, white cup with a brown lid waves."
         },
         {
           "image_file": "23_Cuppy_greentea.webp",
           "emojis": [
             "🍵",
             "😌"
-          ],
-          "accessibility_text": "Cuppy green tea"
+          ]
         },
         {
           "image_file": "24_Cuppy_phone.webp",
           "emojis": [
             "📱",
             "😦"
-          ],
-          "accessibility_text": "Cuppy phone"
+          ]
         },
         {
           "image_file": "25_Cuppy_battery.webp",
           "emojis": [
             "🔋",
             "😵"
-          ],
-          "accessibility_text": "Cuppy battery"
+          ]
         }
       ]
     },
@@ -232,11 +251,11 @@
         {
           "image_file": "01_SendingLove.webp",
           "emojis": [
-            "🥰",
+            "💕",
             "😘",
             "❤️"
           ],
-          "accessibility_text": "Sending love together"
+          "accessibility_text": "A red paper heart is folded into an aerodynamic shape. It zooms around in a spiral."
         },
         {
           "image_file": "02_WellDoThisTogether.webp",
@@ -245,16 +264,16 @@
             "💪",
             "🙏"
           ],
-          "accessibility_text": "Well do this together"
+          "accessibility_text": "A blue sash with white text that reads \"We'll do this together\" in English is wrapped around a beige arm. As the arm moves up and down, its clenched fist turns into an open palm."
         },
         {
           "image_file": "03_Heart.webp",
           "emojis": [
             "❤️",
-            "🥰",
+            "😘",
             "💕"
           ],
-          "accessibility_text": "Heart together"
+          "accessibility_text": "A smiling red heart has eyes, a mouth and blushing cheeks. It beats a few times to make four smaller hearts appear in front of it."
         },
         {
           "image_file": "04_AirHighFive.webp",
@@ -263,7 +282,7 @@
             "🙌",
             "✋"
           ],
-          "accessibility_text": "Air hight give together"
+          "accessibility_text": "Two people high five without touching with large pink text that reads \"Air high five\" in English in-between them. One has long blue hair and pink skin. The other has short gray hair and brown skin. "
         },
         {
           "image_file": "05_GroupVideoCalling.webp",
@@ -272,7 +291,7 @@
             "👯",
             "👋"
           ],
-          "accessibility_text": "Group video calling together"
+          "accessibility_text": "A smartphone screen devides into four sections to reveal two waving people and two smiling people."
         },
         {
           "image_file": "06_StayConnected.webp",
@@ -281,7 +300,7 @@
             "🙋‍♀",
             "🙋‍♂"
           ],
-          "accessibility_text": "Stay connected together"
+          "accessibility_text": "Two people wave at each other from their windows. One has brown skin and long black hair. The other has beige skin and short black hair. "
         },
         {
           "image_file": "07_OK.webp",
@@ -290,7 +309,7 @@
             "👌",
             "🙂"
           ],
-          "accessibility_text": "Ok together"
+          "accessibility_text": "A green speech bubble appears with text that reads \"OK!\" in English."
         },
         {
           "image_file": "08_AreYouOK.webp",
@@ -299,7 +318,7 @@
             "❓",
             "📱"
           ],
-          "accessibility_text": "Are you ok together"
+          "accessibility_text": "A green smartphone vibrates as text that reads \"Are you okay?\" in English appears on the screen."
         },
         {
           "image_file": "09_StayingHomeMug.webp",
@@ -308,7 +327,7 @@
             "🍵",
             "🏠"
           ],
-          "accessibility_text": "Staying home mug together"
+          "accessibility_text": "A red mug with text that reads \"Staying home\" in English rocks from side-to-side to make a brown drink splash out of it."
         },
         {
           "image_file": "10_WorkingFromBed.webp",
@@ -317,16 +336,16 @@
             "👨‍💻",
             "🛏"
           ],
-          "accessibility_text": "Working from bed together"
+          "accessibility_text": "A person sits in bed with a pink comforter wrapped around them while typing on a laptop. The person has dark beige skin and a black fringe."
         },
         {
           "image_file": "11_StayCalm.webp",
           "emojis": [
-            "🧘♀",
-            "🧘♂",
+            "☕",
+            "🍵",
             "🤙"
           ],
-          "accessibility_text": "Stay calm together"
+          "accessibility_text": "A calm person sits with their legs crossed before moving their arms into a meditation pose. The person has dark pink skin and a blue turban."
         },
         {
           "image_file": "12_Gymnastics.webp",
@@ -335,7 +354,7 @@
             "🐩",
             "💪"
           ],
-          "accessibility_text": "Gymnastics together"
+          "accessibility_text": "A standing person breathes in and out while stretching to the side. A white poodle also stretches. The person has dark pink skin and black curly hair in a yellow sweat band."
         },
         {
           "image_file": "13_DoubleChecking.webp",
@@ -344,7 +363,7 @@
             "🔎",
             "🔍"
           ],
-          "accessibility_text": "Double checking together"
+          "accessibility_text": "A searching woman holds two magnifying glasses to her eyes. She switches between them to make each eye appear larger. She has beige skin and black hair."
         },
         {
           "image_file": "14_CatOnTheLaptop.webp",
@@ -353,7 +372,7 @@
             "🐱",
             "💻"
           ],
-          "accessibility_text": "Cat on the laptop together"
+          "accessibility_text": "A peaceful ginger cat lies on a laptop's keyboard. It taps its front paws to make the screen display change."
         },
         {
           "image_file": "15_WorkingFromHomeF.webp",
@@ -362,7 +381,7 @@
             "🏠",
             "💻"
           ],
-          "accessibility_text": "Working from home F together"
+          "accessibility_text": "A woman holds a laptop while wearing a pink top and glasses. The view zooms out to reveal her spotty pajama bottoms and bear slippers. She has beige skin and ginger hair."
         },
         {
           "image_file": "16_WorkingFromHomeM.webp",
@@ -371,16 +390,16 @@
             "🏠",
             "💻"
           ],
-          "accessibility_text": "Working from Home M together"
+          "accessibility_text": "A man holds a laptop while wearing a green shirt, a red tie and glasses. The view zooms out to reveal his pajama shorts and bunny slippers. He has beige skin and ginger hair."
         },
         {
           "image_file": "17_WashingHands.webp",
           "emojis": [
             "✋",
             "💦",
-            "🧼"
+            "🤧"
           ],
-          "accessibility_text": "Waching Hands together"
+          "accessibility_text": "A beige hand with a smiley face holds a white bar of soap with a smiley face while surrounded by blue bubbles. The soap spins around as the hand squeezes it."
         },
         {
           "image_file": "18_DontTouchYourFace.webp",
@@ -389,7 +408,7 @@
             "🤒",
             "🤧"
           ],
-          "accessibility_text": "Do not touch your face together"
+          "accessibility_text": "A man wears a transparent sphere on his head and a green jumper covered in green slime. He pokes the sphere and looks surpised. He has beige skin and ginger hair.  "
         },
         {
           "image_file": "19_SocialDistancing.webp",
@@ -398,25 +417,25 @@
             "🤒",
             "🏠"
           ],
-          "accessibility_text": "Social distancing together"
+          "accessibility_text": "A man uses a giant red pencil to draw a circle around himself. A large transparent dome appears around him. He has brown skin and black hair."
         },
         {
           "image_file": "20_SuperheroNurse.webp",
           "emojis": [
             "👩‍⚕",
             "👨‍⚕️",
-            "🩺"
+            "🤒"
           ],
-          "accessibility_text": "Super hero nurse together"
+          "accessibility_text": "A person wears a face mask, a stethoscope, blue scrubs and a red cap with a cross. The person stands akimbo as a red superhero's cape starts flowing.  The person has beige skin and black hair."
         },
         {
           "image_file": "21_YouAreMyHero.webp",
           "emojis": [
             "🙏",
-            "🦸‍♀️",
-            "🦸"
+            "🎉",
+            "✨"
           ],
-          "accessibility_text": "You are my hero together"
+          "accessibility_text": "Large, multi-colored text that reads \"hero\" in English is below a green sash. Small, white text that reads \"You're my\" in English appears on the sash. The combined text reads \"You're my hero\" in English."
         }
       ]
     }
