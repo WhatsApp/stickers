@@ -21,6 +21,10 @@ import java.util.List;
 
 class ContentFileParser {
 
+    private static final String FIELD_STICKER_IMAGE_FILE = "image_file";
+    private static final String FIELD_STICKER_EMOJIS = "emojis";
+    private static final String FIELD_STICKER_ACCESSIBILITY_TEXT = "accessibility_text";
+
     @NonNull
     static List<StickerPack> parseStickerPacks(@NonNull InputStream contentsInputStream) throws IOException, IllegalStateException {
         try (JsonReader reader = new JsonReader(new InputStreamReader(contentsInputStream))) {
@@ -52,7 +56,7 @@ class ContentFileParser {
             }
         }
         reader.endObject();
-        if (stickerPackList.size() == 0) {
+        if (stickerPackList.isEmpty()) {
             throw new IllegalStateException("sticker pack list cannot be empty");
         }
         for (StickerPack stickerPack : stickerPackList) {
@@ -132,10 +136,10 @@ class ContentFileParser {
         if (TextUtils.isEmpty(trayImageFile)) {
             throw new IllegalStateException("tray_image_file cannot be empty");
         }
-        if (stickerList == null || stickerList.size() == 0) {
+        if (stickerList == null || stickerList.isEmpty()) {
             throw new IllegalStateException("sticker list is empty");
         }
-        if (identifier.contains("..") || identifier.contains("/")) {
+        if (identifier == null || identifier.contains("..") || identifier.contains("/")) {
             throw new IllegalStateException("identifier should not contain .. or / to prevent directory traversal");
         }
         if (TextUtils.isEmpty(imageDataVersion)) {
@@ -155,12 +159,13 @@ class ContentFileParser {
         while (reader.hasNext()) {
             reader.beginObject();
             String imageFile = null;
+            String accessibilityText = null;
             List<String> emojis = new ArrayList<>(StickerPackValidator.EMOJI_MAX_LIMIT);
             while (reader.hasNext()) {
                 final String key = reader.nextName();
-                if ("image_file".equals(key)) {
+                if (FIELD_STICKER_IMAGE_FILE.equals(key)) {
                     imageFile = reader.nextString();
-                } else if ("emojis".equals(key)) {
+                } else if (FIELD_STICKER_EMOJIS.equals(key)) {
                     reader.beginArray();
                     while (reader.hasNext()) {
                         String emoji = reader.nextString();
@@ -169,13 +174,14 @@ class ContentFileParser {
                         }
                     }
                     reader.endArray();
-
+                } else if(FIELD_STICKER_ACCESSIBILITY_TEXT.equals(key)) {
+                    accessibilityText = reader.nextString();
                 } else {
                     throw new IllegalStateException("unknown field in json: " + key);
                 }
             }
             reader.endObject();
-            if (TextUtils.isEmpty(imageFile)) {
+            if (imageFile == null || TextUtils.isEmpty(imageFile)) {
                 throw new IllegalStateException("sticker image_file cannot be empty");
             }
             if (!imageFile.endsWith(".webp")) {
@@ -184,7 +190,7 @@ class ContentFileParser {
             if (imageFile.contains("..") || imageFile.contains("/")) {
                 throw new IllegalStateException("the file name should not contain .. or / to prevent directory traversal, image file is:" + imageFile);
             }
-            stickerList.add(new Sticker(imageFile, emojis));
+            stickerList.add(new Sticker(imageFile, emojis, accessibilityText));
         }
         reader.endArray();
         return stickerList;

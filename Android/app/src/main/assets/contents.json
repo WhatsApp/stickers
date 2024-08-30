@@ -19,175 +19,200 @@
           "emojis": [
             "☕",
             "🙂"
-          ]
+          ],
+          "accessibility_text": "Cuppy Smile"
         },
         {
           "image_file": "02_Cuppy_lol.webp",
           "emojis": [
             "😄",
             "😀"
-          ]
+          ],
+          "accessibility_text": "Cuppy Lol"
         },
         {
           "image_file": "03_Cuppy_rofl.webp",
           "emojis": [
             "😆",
             "😂"
-          ]
+          ],
+          "accessibility_text": "Cuppy Rofl"
         },
         {
           "image_file": "04_Cuppy_sad.webp",
           "emojis": [
             "😩",
             "😰"
-          ]
+          ],
+          "accessibility_text": "Cuppy Sad"
         },
         {
           "image_file": "05_Cuppy_cry.webp",
           "emojis": [
             "😭",
             "💧"
-          ]
+          ],
+          "accessibility_text": "Cuppy Cry"
         },
         {
           "image_file": "06_Cuppy_love.webp",
           "emojis": [
             "😍",
             "♥"
-          ]
+          ],
+          "accessibility_text": "Cuppy Love"
         },
         {
           "image_file": "07_Cuppy_hate.webp",
           "emojis": [
             "💔",
             "👎"
-          ]
+          ],
+          "accessibility_text": "Cuppy Hate"
         },
         {
           "image_file": "08_Cuppy_lovewithmug.webp",
           "emojis": [
             "😍",
             "💑"
-          ]
+          ],
+          "accessibility_text": "Cuppy Love with mug"
         },
         {
           "image_file": "09_Cuppy_lovewithcookie.webp",
           "emojis": [
             "😘",
             "🍪"
-          ]
+          ],
+          "accessibility_text": "Cuppy Love with cookie"
         },
         {
           "image_file": "10_Cuppy_hmm.webp",
           "emojis": [
             "🤔",
             "😐"
-          ]
+          ],
+          "accessibility_text": "Cuppy Hmmmm"
         },
         {
           "image_file": "11_Cuppy_upset.webp",
           "emojis": [
             "😱",
             "😵"
-          ]
+          ],
+          "accessibility_text": "Cuppy upset"
         },
         {
           "image_file": "12_Cuppy_angry.webp",
           "emojis": [
             "😡",
             "😠"
-          ]
+          ],
+          "accessibility_text": "Cuppy Angry"
         },
         {
           "image_file": "13_Cuppy_curious.webp",
           "emojis": [
             "❓",
             "🤔"
-          ]
+          ],
+          "accessibility_text": "Cuppy curious"
         },
         {
           "image_file": "14_Cuppy_weird.webp",
           "emojis": [
             "🌈",
             "😜"
-          ]
+          ],
+          "accessibility_text": "Cuppy weird"
         },
         {
           "image_file": "15_Cuppy_bluescreen.webp",
           "emojis": [
             "💻",
             "😩"
-          ]
+          ],
+          "accessibility_text": "Cuppy blue screen"
         },
         {
           "image_file": "16_Cuppy_angry.webp",
           "emojis": [
             "😡",
             "😤"
-          ]
+          ],
+          "accessibility_text": "Cuppy angry"
         },
         {
           "image_file": "17_Cuppy_tired.webp",
           "emojis": [
             "😩",
             "😨"
-          ]
+          ],
+          "accessibility_text": "Cuppy tired"
         },
         {
           "image_file": "18_Cuppy_workhard.webp",
           "emojis": [
             "💻",
             "🌃"
-          ]
+          ],
+          "accessibility_text": "Cuppy work hard"
         },
         {
           "image_file": "19_Cuppy_shine.webp",
           "emojis": [
             "🎉",
             "✨"
-          ]
+          ],
+          "accessibility_text": "Cuppy shine"
         },
         {
           "image_file": "20_Cuppy_disgusting.webp",
           "emojis": [
             "🤮",
             "👎"
-          ]
+          ],
+          "accessibility_text": "Cuppy disgusting"
         },
         {
           "image_file": "21_Cuppy_hi.webp",
           "emojis": [
             "🖐",
             "🙋"
-          ]
+          ],
+          "accessibility_text": "Cuppy hi"
         },
         {
           "image_file": "22_Cuppy_bye.webp",
           "emojis": [
             "🖐",
             "👋"
-          ]
+          ],
+          "accessibility_text": "Cuppy bye"
         },
         {
           "image_file": "23_Cuppy_greentea.webp",
           "emojis": [
             "🍵",
             "😌"
-          ]
+          ],
+          "accessibility_text": "Cuppy green tea"
         },
         {
           "image_file": "24_Cuppy_phone.webp",
           "emojis": [
             "📱",
             "😦"
-          ]
+          ],
+          "accessibility_text": "Cuppy phone"
         },
         {
           "image_file": "25_Cuppy_battery.webp",
           "emojis": [
             "🔋",
             "😵"
-          ]
+          ],
+          "accessibility_text": "Cuppy battery"
         }
       ]
     },
@@ -210,7 +235,8 @@
             "🥰",
             "😘",
             "❤️"
-          ]
+          ],
+          "accessibility_text": "Sending love together"
         },
         {
           "image_file": "02_WellDoThisTogether.webp",
@@ -218,7 +244,8 @@
             "✊",
             "💪",
             "🙏"
-          ]
+          ],
+          "accessibility_text": "Well do this together"
         },
         {
           "image_file": "03_Heart.webp",
@@ -226,7 +253,8 @@
             "❤️",
             "🥰",
             "💕"
-          ]
+          ],
+          "accessibility_text": "Heart together"
         },
         {
           "image_file": "04_AirHighFive.webp",
@@ -234,7 +262,8 @@
             "🖐",
             "🙌",
             "✋"
-          ]
+          ],
+          "accessibility_text": "Air hight give together"
         },
         {
           "image_file": "05_GroupVideoCalling.webp",
@@ -242,7 +271,8 @@
             "📱",
             "👯",
             "👋"
-          ]
+          ],
+          "accessibility_text": "Group video calling together"
         },
         {
           "image_file": "06_StayConnected.webp",
@@ -250,7 +280,8 @@
             "📱",
             "🙋‍♀",
             "🙋‍♂"
-          ]
+          ],
+          "accessibility_text": "Stay connected together"
         },
         {
           "image_file": "07_OK.webp",
@@ -258,7 +289,8 @@
             "👍",
             "👌",
             "🙂"
-          ]
+          ],
+          "accessibility_text": "Ok together"
         },
         {
           "image_file": "08_AreYouOK.webp",
@@ -266,7 +298,8 @@
             "👋",
             "❓",
             "📱"
-          ]
+          ],
+          "accessibility_text": "Are you ok together"
         },
         {
           "image_file": "09_StayingHomeMug.webp",
@@ -274,7 +307,8 @@
             "☕",
             "🍵",
             "🏠"
-          ]
+          ],
+          "accessibility_text": "Staying home mug together"
         },
         {
           "image_file": "10_WorkingFromBed.webp",
@@ -282,7 +316,8 @@
             "👩‍💻",
             "👨‍💻",
             "🛏"
-          ]
+          ],
+          "accessibility_text": "Working from bed together"
         },
         {
           "image_file": "11_StayCalm.webp",
@@ -290,7 +325,8 @@
             "🧘♀",
             "🧘♂",
             "🤙"
-          ]
+          ],
+          "accessibility_text": "Stay calm together"
         },
         {
           "image_file": "12_Gymnastics.webp",
@@ -298,7 +334,8 @@
             "🤸",
             "🐩",
             "💪"
-          ]
+          ],
+          "accessibility_text": "Gymnastics together"
         },
         {
           "image_file": "13_DoubleChecking.webp",
@@ -306,7 +343,8 @@
             "📰",
             "🔎",
             "🔍"
-          ]
+          ],
+          "accessibility_text": "Double checking together"
         },
         {
           "image_file": "14_CatOnTheLaptop.webp",
@@ -314,7 +352,8 @@
             "🐈",
             "🐱",
             "💻"
-          ]
+          ],
+          "accessibility_text": "Cat on the laptop together"
         },
         {
           "image_file": "15_WorkingFromHomeF.webp",
@@ -322,7 +361,8 @@
             "👩‍💻",
             "🏠",
             "💻"
-          ]
+          ],
+          "accessibility_text": "Working from home F together"
         },
         {
           "image_file": "16_WorkingFromHomeM.webp",
@@ -330,7 +370,8 @@
             "👨‍💻",
             "🏠",
             "💻"
-          ]
+          ],
+          "accessibility_text": "Working from Home M together"
         },
         {
           "image_file": "17_WashingHands.webp",
@@ -338,7 +379,8 @@
             "✋",
             "💦",
             "🧼"
-          ]
+          ],
+          "accessibility_text": "Waching Hands together"
         },
         {
           "image_file": "18_DontTouchYourFace.webp",
@@ -346,7 +388,8 @@
             "😷",
             "🤒",
             "🤧"
-          ]
+          ],
+          "accessibility_text": "Do not touch your face together"
         },
         {
           "image_file": "19_SocialDistancing.webp",
@@ -354,7 +397,8 @@
             "😷",
             "🤒",
             "🏠"
-          ]
+          ],
+          "accessibility_text": "Social distancing together"
         },
         {
           "image_file": "20_SuperheroNurse.webp",
@@ -362,7 +406,8 @@
             "👩‍⚕",
             "👨‍⚕️",
             "🩺"
-          ]
+          ],
+          "accessibility_text": "Super hero nurse together"
         },
         {
           "image_file": "21_YouAreMyHero.webp",
@@ -370,7 +415,8 @@
             "🙏",
             "🦸‍♀️",
             "🦸"
-          ]
+          ],
+          "accessibility_text": "You are my hero together"
         }
       ]
     }
