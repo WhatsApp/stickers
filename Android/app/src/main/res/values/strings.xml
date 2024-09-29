@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- This is the app's name, translators please do not translate and put in the same text as English version. Developers can consider putting in their own translation, this string must be changed before publishing -->
-    <string name="app_name">WhatsAppSampleStickerApp</string>
+    <string name="app_name">Vôlei de Quinta Stickers</string>
     <!-- Content description for the sticker pack tray image -->
     <string name="tray_image_content_description">Sticker Pack Tray Image</string>
     <!-- the title of info button in the menu that takes the user to more information about that pack showing publisher website and so on -->
