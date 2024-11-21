@@ -226,15 +226,23 @@ class StickerPackViewController: UIViewController, UICollectionViewDataSource, U
     // MARK: Targets
 
     func showActionSheet(withSticker sticker: Sticker, overCell cell: UICollectionViewCell) {
-        var emojisString: String?
+        var message: String?
 
         #if DEBUG
         if let emojis = sticker.emojis {
-            emojisString = emojis.joined(separator: " ")
+            message = emojis.joined(separator: " ")
+        }
+        
+        if let accessibilityText = sticker.accessibilityText {
+            if let currentMessage = message {
+                message = currentMessage + "\n" + accessibilityText
+            } else {
+                message = accessibilityText
+            }
         }
         #endif
 
-        let actionSheet: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n\n", message: emojisString, preferredStyle: .actionSheet)
+        let actionSheet: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n\n", message: message, preferredStyle: .actionSheet)
         
         actionSheet.popoverPresentationController?.sourceView = cell.contentView
         actionSheet.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
