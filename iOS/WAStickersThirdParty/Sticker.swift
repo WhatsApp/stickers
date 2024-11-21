@@ -71,11 +71,11 @@ struct StickerAccessibilityText {
         guard let accessibilityText else { return nil }
         
         if animated {
-            if accessibilityText.count > Limits.MaxAnimatedStickerAccessibilityTextCharLimit {
+            guard accessibilityText.count < Limits.MaxAnimatedStickerAccessibilityTextCharLimit else {
                 throw StickerPackError.animatedStickerAccessibilityTextTooLong
             }
         } else {
-            if accessibilityText.count > Limits.MaxStaticStickerAccessibilityTextCharLimit {
+            guard accessibilityText.count < Limits.MaxStaticStickerAccessibilityTextCharLimit else {
                 throw StickerPackError.staticStickerAccessibilityTextTooLong
             }
         }
