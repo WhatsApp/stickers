@@ -198,7 +198,7 @@ Format your sticker data into a JSON object with the structure described below. 
     {
       "image_data" : "String", (Base64 representation of the WebP, not PNG, data of the sticker image)
       "emojis" : ["String", "String"], (Array of emoji strings. Maximum of 3 emoji)
-      "accessibility_text": "String" (Accessibility description. Less than 255 characters for animated stickers or less than 125 characters for static stickers.)
+      "accessibility_text": "String" (Accessibility description. Maximum of 255 characters for animated stickers or 125 characters for static stickers.)
     }
   ]
 }
