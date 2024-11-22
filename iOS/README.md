@@ -75,7 +75,7 @@ In Xcode, you must also modify the 'sticker_packs.wasticker' file. Replace the v
 * `accessibility_text` (optional): You can add an accessibility label for each sticker file. An accessibility label is a short text string that describes what the sticker expresses. This text string can be changed into speech for people using a screenreader. For example: “A laughing, white cup is under four yellow stars and a yellow beam of light. It contains a brown drink.” You can see more examples of accessibility labels here: https://github.com/WhatsApp/stickers/blob/main/iOS/WAStickersThirdParty/sticker_packs.wasticker. When writing an accessibility label, use the following guidance:
 
   - Write in US English in the present tense
-  - For static stickers, keep it to less than 125 characters. For animated stickers, keep it to less than 255 characters. In most cases, you’ll be able to keep it much shorter.
+  - For static stickers, the maximum number of characters is 125. For animated stickers, the maximum number of characters is 255. In most cases, a label can be much shorter than these maximum lengths.
   - Write as if you're describing an image to someone
   - Don’t add redundant phrases like “picture containing” or “description of sticker”
   - Provide context about meaning, content and/or function
