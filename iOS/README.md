@@ -71,9 +71,23 @@ In Xcode, you must also modify the 'sticker_packs.wasticker' file. Replace the v
 * `animated_sticker_pack`: boolean value to indicate whether the sticker pack is animated (required for animated sticker packs, optional for static sticker packs)
 * Replace the `image_file` value with the file name of your sticker image. It must have both the file name and extension. The ordering of the files in the JSON will dictate the ordering of your stickers in your pack. 
 * `ios_app_store_link` and `android_play_store_link` (optional fields): here you can put the URL to your sticker app in the App Store as well as a URL to your sticker app in the Google Play Store (if you have an Android version of your sticker app). If you provide these URLs, users who receive a sticker from your app in WhatsApp can tap on it to view your sticker app in the respective App Stores. To get your App Store link before you publish your app, refer to the instructions here: https://stackoverflow.com/questions/4137426/get-itunes-link-for-app-before-submitting.
-* `emojis` (optional): add up to a maximum of three emoji for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. In the future, WhatsApp will support a search function for stickers and tagging your sticker files with emoji will enable that. The sticker picker/tray in WhatsApp today already categorizes stickers into emotion categories (love, happy, sad, and angry) and it does this based on the emoji you tag your stickers with. Please see the list of emojis you can use to tag for the emotion categories: https://github.com/WhatsApp/stickers/wiki/Tag-your-stickers-with-Emojis
+* `emojis` (optional): You can add up to a maximum of three emoji for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. This will help users discover your stickers on WhatsApp through the search function and categories. Please see the list of emojis you can use to tag for the emotion categories: https://github.com/WhatsApp/stickers/wiki/Tag-your-stickers-with-Emojis
+* `accessibility_text` (optional): You can add an accessibility label for each sticker file. An accessibility label is a short text string that describes what the sticker expresses. This text string can be changed into speech for people using a screenreader. For example: “A laughing, white cup is under four yellow stars and a yellow beam of light. It contains a brown drink.” You can see more examples of accessibility labels here: https://github.com/WhatsApp/stickers/blob/main/iOS/WAStickersThirdParty/sticker_packs.wasticker. When writing an accessibility label, use the following guidance:
 
-The following fields are optional: `ios_app_store_link`, `android_play_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`, `emoji`
+  - Write in US English in the present tense
+  - For static stickers, keep it to less than 125 characters. For animated stickers, keep it to less than 255 characters. In most cases, you’ll be able to keep it much shorter.
+  - Write as if you're describing an image to someone
+  - Don’t add redundant phrases like “picture containing” or “description of sticker”
+  - Provide context about meaning, content and/or function
+  - Lead with the emotional intent where appropriate
+  - For text, include “with text that reads...” followed by the verbatim text in quotes (“...”) and "in {language}"- for example: “with text that reads “OK” in English…”
+  - Include punctuation, but avoid formatting such as bold or italics
+  - Don't misidentify identity, demographics or abilities
+  - Don't editorialize or make assumptions
+  - Avoid including emoji as part of this text.
+
+
+The following fields are optional: `ios_app_store_link`, `android_play_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`, `emojis`, `accessibility_text`
 
 If your app has more than 1 sticker pack, you will need to reference it in `sticker_packs.wasticker`. Simply create a second array within the "sticker_packs" section of the file and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 
 
@@ -183,7 +197,8 @@ Format your sticker data into a JSON object with the structure described below. 
   "stickers" : [
     {
       "image_data" : "String", (Base64 representation of the WebP, not PNG, data of the sticker image)
-      "emojis" : ["String", "String"] (Array of emoji strings. Maximum of 3 emoji)
+      "emojis" : ["String", "String"], (Array of emoji strings. Maximum of 3 emoji)
+      "accessibility_text": "String" (Accessibility description. Less than 255 characters for animated stickers or less than 125 characters for static stickers.)
     }
   ]
 }

@@ -25,4 +25,7 @@ struct Limits {
     static let MaxCharLimit128: Int = 128
 
     static let MaxEmojisCount: Int = 3
+    
+    static let MaxStaticStickerAccessibilityTextCharLimit = 125
+    static let MaxAnimatedStickerAccessibilityTextCharLimit = 255
 }
