@@ -62,7 +62,8 @@ You must also modify the contents.json file in SampleStickerApp/app/src/main/ass
 
 * `name`: the sticker pack's name (128 characters max)
 * `identifier`: The identifier should be unique and can be alphanumeric: a-z, A-Z, 0-9, and the following characters are also allowed "_", "-", "." and " ". The identifier should be less than 128 characters.
-* `publisher`: name of the publisher of the pack (128 characters max)
+* `animated_sticker_pack`: boolean value to indicate whether the sticker pack is animated (required for animated sticker packs, optional for static sticker packs)
+* `publisher`: name of the publisher of the pack (128 characters max) 
 * Replace the "image_file" value with the file name of your sticker image. It must have both the file name and extension. The ordering of the files in the JSON will dictate the ordering of your stickers in your pack. 
 * `image_data_version` : an overall representation of the version of the stickers and tray icon. When you update stickers or tray icon in your pack, please update this string, this will tell WhatsApp that the pack has new content and update the stickers on WhatsApp side.
 * `avoid_cache` : this tells WhatsApp that the stickers from your pack should not be cached. By default, you should keep it false. Exception is that if your app updates stickers without user actions, you can keep it true, for example: your app provides clock sticker that updates stickers every minute.
@@ -71,7 +72,7 @@ You must also modify the contents.json file in SampleStickerApp/app/src/main/ass
 * `accessibility_text` (optional): You can add an accessibility label for each sticker file. An accessibility label is a short text string that describes what the sticker expresses. This text string can be changed into speech for people using a screenreader. For example: “A laughing, white cup is under four yellow stars and a yellow beam of light. It contains a brown drink.” You can see more examples of accessibility labels here:
   https://github.com/WhatsApp/stickers/blob/main/Android/app/src/main/assets/contents.json When writing an accessibility label, use the following guidance:
   - Write in US English in the present tense
-  - For static stickers, keep it to less than 125 characters. For animated stickers, keep it to less than 255 characters. In most cases, you’ll be able to keep it much shorter.
+  - For static stickers, the maximum number of characters is 125. For animated stickers, the maximum number of characters is 255. Aim for shorter than these maximum lengths.
   - Write as if you're describing an image to someone
   - Don’t add redundant phrases like “picture containing” or “description of sticker”
   - Provide context about meaning, content and/or function
@@ -82,10 +83,8 @@ You must also modify the contents.json file in SampleStickerApp/app/src/main/ass
   - Don't editorialize or make assumptions
   - Avoid including emoji as part of this text.
 
-The following fields are optional: `ios_app_store_link`, `android_play_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`, `emojis`, `accessibility_text`
-* `animated_sticker_pack`: boolean value to indicate whether the sticker pack is animated (required for animated sticker packs, optional for static sticker packs)
+The following fields are optional: `ios_app_store_link`, `android_play_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`, `accessibility_text`
 
-The following fields are optional: `ios_app_store_link`, `android_play_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`
 All the links need to start with either "http" or "https"
 
 If your app has more than 1 sticker pack, you will need to reference it in contents.json. Simply create a second array within the "sticker_packs" section of the JSON and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 

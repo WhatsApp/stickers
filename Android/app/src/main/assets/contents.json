@@ -15,7 +15,7 @@
       "license_agreement_website": "",
       "stickers": [
         {
-          "image_file": "01_Cuppy_smile.png",
+          "image_file": "01_Cuppy_smile.webp",
           "emojis": [
             "☕",
             "🙂",
@@ -24,7 +24,7 @@
           "accessibility_text": "A smiling, white cup contains a brown drink."
         },
         {
-          "image_file": "02_Cuppy_lol.png",
+          "image_file": "02_Cuppy_lol.webp",
           "emojis": [
             "☕",
             "😄",
@@ -33,7 +33,7 @@
           "accessibility_text": "A laughing, white cup is tilted to the right and contains a brown drink."
         },
         {
-          "image_file": "03_Cuppy_rofl.png",
+          "image_file": "03_Cuppy_rofl.webp",
           "emojis": [
             "☕",
             "😆",
@@ -42,7 +42,7 @@
           "accessibility_text": "A laughing and crying white cup is tilted to the right as if shaking. It contains a brown drink."
         },
         {
-          "image_file": "04_Cuppy_sad.png",
+          "image_file": "04_Cuppy_sad.webp",
           "emojis": [
             "☕",
             "😩",
@@ -51,7 +51,7 @@
           "accessibility_text": "A crying, white cup is half full and leaking brown liquid."
         },
         {
-          "image_file": "05_Cuppy_cry.png",
+          "image_file": "05_Cuppy_cry.webp",
           "emojis": [
             "☕",
             "😭",
@@ -60,7 +60,7 @@
           "accessibility_text": "A crying, white cup is upside-down with brown liquid spilled around it."
         },
         {
-          "image_file": "06_Cuppy_love.png",
+          "image_file": "06_Cuppy_love.webp",
           "emojis": [
             "☕",
             "😍",
@@ -69,7 +69,7 @@
           "accessibility_text": "A white cup is next to two red hearts. It contains coffee with white foam in the shape of a heart on top."
         },
         {
-          "image_file": "07_Cuppy_hate.png",
+          "image_file": "07_Cuppy_hate.webp",
           "emojis": [
             "☕",
             "💔",
@@ -78,7 +78,7 @@
           "accessibility_text": "A white cup contains coffee with white foam in the shape of a broken heart on top."
         },
         {
-          "image_file": "08_Cuppy_lovewithmug.png",
+          "image_file": "08_Cuppy_lovewithmug.webp",
           "emojis": [
             "☕",
             "😍",
@@ -87,7 +87,7 @@
           "accessibility_text": "Two smiling cups are below two red hearts. One cup is white, and one is black. They contain a brown drink."
         },
         {
-          "image_file": "09_Cuppy_lovewithcookie.png",
+          "image_file": "09_Cuppy_lovewithcookie.webp",
           "emojis": [
             "☕",
             "😘",
@@ -96,7 +96,7 @@
           "accessibility_text": "A smiling, white cup looks at a cookie and a red heart. It contains coffee with white foam in the shape of a heart on top."
         },
         {
-          "image_file": "10_Cuppy_hmm.png",
+          "image_file": "10_Cuppy_hmm.webp",
           "emojis": [
             "☕",
             "🤔",
@@ -105,7 +105,7 @@
           "accessibility_text": "A sad, white cup seems to shake. It contains a brown drink."
         },
         {
-          "image_file": "11_Cuppy_upset.png",
+          "image_file": "11_Cuppy_upset.webp",
           "emojis": [
             "☕",
             "😱",
@@ -114,7 +114,7 @@
           "accessibility_text": "A shocked, white cup is tilted to the left with brown liquid splashing out of it."
         },
         {
-          "image_file": "12_Cuppy_angry.png",
+          "image_file": "12_Cuppy_angry.webp",
           "emojis": [
             "☕",
             "😡",
@@ -123,7 +123,7 @@
           "accessibility_text": "An angry, red cup has three red lightning bolts coming out of it."
         },
         {
-          "image_file": "13_Cuppy_curious.png",
+          "image_file": "13_Cuppy_curious.webp",
           "emojis": [
             "☕",
             "❓",
@@ -132,7 +132,7 @@
           "accessibility_text": "An expressionless, white cup has two brown question marks above it. It contains a brown drink."
         },
         {
-          "image_file": "14_Cuppy_weird.png",
+          "image_file": "14_Cuppy_weird.webp",
           "emojis": [
             "☕",
             "🌈",
@@ -141,7 +141,7 @@
           "accessibility_text": "A shocked, white cup has a rainbow pouring into it. It has pink cheeks, shining eyes and an open mouth."
         },
         {
-          "image_file": "15_Cuppy_bluescreen.png",
+          "image_file": "15_Cuppy_bluescreen.webp",
           "emojis": [
             "☕",
             "💻",
@@ -150,7 +150,7 @@
           "accessibility_text": "A snoring, white cup is next to a shadowy laptop with text that reads :(@#%&. It has crosses for eyes and an open mouth."
         },
         {
-          "image_file": "16_Cuppy_angry.png",
+          "image_file": "16_Cuppy_angry.webp",
           "emojis": [
             "☕",
             "😡",
@@ -159,16 +159,16 @@
           "accessibility_text": "An angry, red cup stares. It has brown spikes at its base and contains blue liquid."
         },
         {
-          "image_file": "17_Cuppy_tired.png",
+          "image_file": "17_Cuppy_tired.webp",
           "emojis": [
             "☕",
             "😩",
             "😨"
           ],
-          "accessibility_text": "A tired, grey cup is under a low battery symbol. It's half-full and leaking a dark liquid. It has red eyes and an open mouth."
+          "accessibility_text": "A tired, grey cup is under a low battery symbol. It's half-full and leaking a dark liquid. It has red eyes and an open mouth"
         },
         {
-          "image_file": "18_Cuppy_workhard.png",
+          "image_file": "18_Cuppy_workhard.webp",
           "emojis": [
             "☕",
             "😔",
@@ -177,7 +177,7 @@
           "accessibility_text": "A drooling, white cup stares at a laptop next to a window showing a moon and stars. It has red, shining eyes."
         },
         {
-          "image_file": "19_Cuppy_shine.png",
+          "image_file": "19_Cuppy_shine.webp",
           "emojis": [
             "☕",
             "🎉",
@@ -186,7 +186,7 @@
           "accessibility_text": "A laughing, white cup is under four yellow stars and a yellow beam of light. It contains a brown drink."
         },
         {
-          "image_file": "20_Cuppy_disgusting.png",
+          "image_file": "20_Cuppy_disgusting.webp",
           "emojis": [
             "☕",
             "🤮",
@@ -195,7 +195,7 @@
           "accessibility_text": "A miserable, grey cup vomits green liquid. It contains a green, bubbly liquid."
         },
         {
-          "image_file": "21_Cuppy_hi.png",
+          "image_file": "21_Cuppy_hi.webp",
           "emojis": [
             "☕",
             "🖐",
@@ -204,7 +204,7 @@
           "accessibility_text": "A happy, white cup with a brown lid holds its arms up."
         },
         {
-          "image_file": "22_Cuppy_bye.png",
+          "image_file": "22_Cuppy_bye.webp",
           "emojis": [
             "☕",
             "🖐",

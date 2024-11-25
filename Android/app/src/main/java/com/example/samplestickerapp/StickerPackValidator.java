@@ -146,7 +146,7 @@ class StickerPackValidator {
             return false;
         }
         final int length = accessibilityText.length();
-        return isAnimatedStickerPack && length >= MAX_ANIMATED_STICKER_A11Y_TEXT_CHAR_LIMIT || !isAnimatedStickerPack && length >= MAX_STATIC_STICKER_A11Y_TEXT_CHAR_LIMIT;
+        return isAnimatedStickerPack && length > MAX_ANIMATED_STICKER_A11Y_TEXT_CHAR_LIMIT || !isAnimatedStickerPack && length > MAX_STATIC_STICKER_A11Y_TEXT_CHAR_LIMIT;
     }
 
     private static void validateStickerFile(@NonNull Context context, @NonNull String identifier, @NonNull final String fileName, final boolean animatedStickerPack) throws IllegalStateException {
