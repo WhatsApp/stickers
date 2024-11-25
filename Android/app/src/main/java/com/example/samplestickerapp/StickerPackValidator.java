@@ -17,6 +17,7 @@ import android.util.Patterns;
 import android.webkit.URLUtil;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.facebook.animated.webp.WebPImage;
 import com.facebook.imagepipeline.common.ImageDecodeOptions;
@@ -27,9 +28,12 @@ import java.net.URL;
 import java.util.List;
 
 class StickerPackValidator {
+    static final int EMOJI_MAX_LIMIT = 3;
+    static final int MAX_STATIC_STICKER_A11Y_TEXT_CHAR_LIMIT = 125;
+    static final int MAX_ANIMATED_STICKER_A11Y_TEXT_CHAR_LIMIT = 255;
+
     private static final int STATIC_STICKER_FILE_LIMIT_KB = 100;
     private static final int ANIMATED_STICKER_FILE_LIMIT_KB = 500;
-    static final int EMOJI_MAX_LIMIT = 3;
     private static final int EMOJI_MIN_LIMIT = 1;
     private static final int IMAGE_HEIGHT = 512;
     private static final int IMAGE_WIDTH = 512;
@@ -130,7 +134,19 @@ class StickerPackValidator {
         if (TextUtils.isEmpty(sticker.imageFileName)) {
             throw new IllegalStateException("no file path for sticker, sticker pack identifier:" + identifier);
         }
+        final String accessibilityText = sticker.accessibilityText;
+        if (isInvalidAccessibilityText(accessibilityText, animatedStickerPack)) {
+            throw new IllegalStateException("accessibility text length exceed limit, sticker pack identifier: " + identifier + ", filename: " + sticker.imageFileName);
+        }
         validateStickerFile(context, identifier, sticker.imageFileName, animatedStickerPack);
+    }
+
+    private static boolean isInvalidAccessibilityText(final @Nullable String accessibilityText, final boolean isAnimatedStickerPack) {
+        if (accessibilityText == null) {
+            return false;
+        }
+        final int length = accessibilityText.length();
+        return isAnimatedStickerPack && length > MAX_ANIMATED_STICKER_A11Y_TEXT_CHAR_LIMIT || !isAnimatedStickerPack && length > MAX_STATIC_STICKER_A11Y_TEXT_CHAR_LIMIT;
     }
 
     private static void validateStickerFile(@NonNull Context context, @NonNull String identifier, @NonNull final String fileName, final boolean animatedStickerPack) throws IllegalStateException {
