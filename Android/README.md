@@ -62,15 +62,30 @@ You must also modify the contents.json file in SampleStickerApp/app/src/main/ass
 
 * `name`: the sticker pack's name (128 characters max)
 * `identifier`: The identifier should be unique and can be alphanumeric: a-z, A-Z, 0-9, and the following characters are also allowed "_", "-", "." and " ". The identifier should be less than 128 characters.
-* `publisher`: name of the publisher of the pack (128 characters max)
+* `publisher`: name of the publisher of the pack (128 characters max) 
 * Replace the "image_file" value with the file name of your sticker image. It must have both the file name and extension. The ordering of the files in the JSON will dictate the ordering of your stickers in your pack. 
 * `image_data_version` : an overall representation of the version of the stickers and tray icon. When you update stickers or tray icon in your pack, please update this string, this will tell WhatsApp that the pack has new content and update the stickers on WhatsApp side.
 * `avoid_cache` : this tells WhatsApp that the stickers from your pack should not be cached. By default, you should keep it false. Exception is that if your app updates stickers without user actions, you can keep it true, for example: your app provides clock sticker that updates stickers every minute.
 * `android_play_store_link` and `ios_app_store_link` (optional fields): here you can put the URL to your sticker app in the Google Play Store and Apple App Store (if you have an iOS version of your sticker app). If you provide these URLs, users who receive a sticker from your app in WhatsApp can tap on it to view your sticker app in the respective App Stores. On Android, the URL follows the format https://play.google.com/store/apps/details?id=com.example where "com.example" is your app's package name.
-* `emojis` (required): add up to 1-3 emojis for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. In the future, WhatsApp will support a search function for stickers and tagging your sticker files with emoji will enable that. The sticker picker/tray in WhatsApp today already categorizes stickers into emotion categories (love, happy, sad, and angry) and it does this based on the emoji you tag your stickers with. see emoji list for tagging (https://github.com/WhatsApp/stickers/blob/main/Android/README.md#emoji-list-to-use-for-tagging)
+* `emojis` (required): Add up to a maximum of three emoji for each sticker file. Select emoji that best describe or represent that sticker file. For example, if the sticker is portraying love, you may choose to add a heart emoji like 💕. If your sticker portrays pizza, you may want to add the pizza slice emoji 🍕. This will help users discover your stickers on WhatsApp through the search function and categories. Please see the list of emoji you can use to tag for the emotion categories: https://github.com/WhatsApp/stickers/wiki/Tag-your-stickers-with-Emojis
+* `accessibility_text` (optional): You can add an accessibility label for each sticker file. An accessibility label is a short text string that describes what the sticker expresses. This text string can be changed into speech for people using a screenreader. For example: “A laughing, white cup is under four yellow stars and a yellow beam of light. It contains a brown drink.” You can see more examples of accessibility labels here:
+  https://github.com/WhatsApp/stickers/blob/main/Android/app/src/main/assets/contents.json When writing an accessibility label, use the following guidance:
+  - Write in US English in the present tense
+  - For static stickers, the maximum number of characters is 125. For animated stickers, the maximum number of characters is 255. Aim for shorter than these maximum lengths.
+  - Write as if you're describing an image to someone
+  - Don’t add redundant phrases like “picture containing” or “description of sticker”
+  - Provide context about meaning, content and/or function
+  - Lead with the emotional intent where appropriate
+  - For text, include “with text that reads...” followed by the verbatim text in quotes (“...”) and "in {language}"- for example: “with text that reads “OK” in English…”
+  - Include punctuation, but avoid formatting such as bold or italics
+  - Don't misidentify identity, demographics or abilities
+  - Don't editorialize or make assumptions
+  - Avoid including emoji as part of this text.
+
 * `animated_sticker_pack`: boolean value to indicate whether the sticker pack is animated (required for animated sticker packs, optional for static sticker packs)
 
-The following fields are optional: `ios_app_store_link`, `android_play_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`
+The following fields are optional: `ios_app_store_link`, `android_play_store_link`, `publisher_website`, `privacy_policy_website`, `license_agreement_website`, `accessibility_text`
+
 All the links need to start with either "http" or "https"
 
 If your app has more than 1 sticker pack, you will need to reference it in contents.json. Simply create a second array within the "sticker_packs" section of the JSON and include all the metadata (name, identifier, etc) along with all the references to the sticker files. 
@@ -109,7 +124,7 @@ The ContentProvider in the sample app is [StickerContentProvider](app/src/main/j
 
 1. `<authority>/metadata`, this returns information about all the sticker packs in your app. Replace `<authority>` with the actual authority string. In the sample app, it is `com.example.samplestickerapp.stickercontentprovider`
 2. `<authority>/metadata/<pack_identifier>`, this returns information about a single pack. Replace `<pack_identifier>` with the actual identifier of the pack. In the sample app, it is `1`.
-3. `<authority>/stickers/<pack_identifier>`, this returns information about the  stickers in a pack. The returned information includes the sticker file name and emoji associated with the sticker.
+3. `<authority>/stickers/<pack_identifier>`, this returns information about the  stickers in a pack. The returned information includes the sticker file name, emoji and accessibility label associated with the sticker.
 4. `<authority>/stickers_asset/<pack_identifier>/<sticker_file_name>`, this returns the binary information of the sticker: `AssetFileDescriptor`, which points to the asset file for the sticker. Replace `<sticker_file_name>` with the actual sticker file name that should be fetched.
 
 The ContentProvider needs to have a read permission of `com.whatsapp.sticker.READ` in `AndroidManifest.xml`. It also needs to be exported and enabled. See below for an example:
