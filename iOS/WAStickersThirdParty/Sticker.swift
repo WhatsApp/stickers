@@ -62,6 +62,28 @@ struct StickerEmojis {
     }
 }
 
+struct StickerAccessibilityText {
+
+    static func accessibilityTextIfCompliant(
+        accessibilityText: String?,
+        animated: Bool
+    ) throws -> String? {
+        guard let accessibilityText else { return nil }
+        
+        if animated {
+            guard accessibilityText.count <= Limits.MaxAnimatedStickerAccessibilityTextCharLimit else {
+                throw StickerPackError.animatedStickerAccessibilityTextTooLong
+            }
+        } else {
+            guard accessibilityText.count <= Limits.MaxStaticStickerAccessibilityTextCharLimit else {
+                throw StickerPackError.staticStickerAccessibilityTextTooLong
+            }
+        }
+        
+        return accessibilityText
+    }
+}
+
 /**
  *  Main class that deals with each individual sticker.
  */
@@ -69,6 +91,7 @@ class Sticker {
 
     let imageData: ImageData
     let emojis: [String]?
+    let accessibilityText: String?
 
     var bytesSize: Int64 {
         return imageData.bytesSize
@@ -79,6 +102,7 @@ class Sticker {
      *
      *  - Parameter filename: name of the image in the bundle, including extension. Must be either png or webp.
      *  - Parameter emojis: emojis associated with this sticker.
+     *  - Parameter accessibilityText: accessibility text associated with this sticker.
      *
      *  - Throws:
      - .fileNotFound if file has not been found
@@ -90,9 +114,17 @@ class Sticker {
      - .minFrameDurationTooShort if the minimum frame duration is too short (less than 8ms)
      - .totalAnimationDurationTooLong if the total animation duration is too long (more than 10s)
      */
-    init(contentsOfFile filename: String, emojis: [String]?) throws {
+    init(
+        contentsOfFile filename: String,
+        emojis: [String]?,
+        accessibilityText: String?
+    ) throws {
         self.imageData = try ImageData.imageDataIfCompliant(contentsOfFile: filename, isTray: false)
         self.emojis = try StickerEmojis.canonicalizedEmojis(rawEmojis: emojis)
+        self.accessibilityText = try StickerAccessibilityText.accessibilityTextIfCompliant(
+            accessibilityText: accessibilityText,
+            animated: imageData.animated
+        )
     }
 
     /**
@@ -101,6 +133,7 @@ class Sticker {
      *  - Parameter imageData: Data of the image. Must be png or webp encoded data
      *  - Parameter type: format type of the sticker (png or webp)
      *  - Parameter emojis: array of emojis associated with this sticker.
+     *  - Parameter accessibilityText: accessibility text associated with this sticker.
      *
      *  - Throws:
      - .imageTooBig if the image file size is above the supported limit (100KB for static, 500KB for animated)
@@ -110,9 +143,18 @@ class Sticker {
      - .minFrameDurationTooShort if the minimum frame duration is too short (less than 8ms)
      - .totalAnimationDurationTooLong if the total animation duration is too long (more than 10s)
      */
-    init(imageData: Data, type: ImageDataExtension, emojis: [String]?) throws {
+    init(
+        imageData: Data,
+        type: ImageDataExtension,
+        emojis: [String]?,
+        accessibilityText: String?
+    ) throws {
         self.imageData = try ImageData.imageDataIfCompliant(rawData:imageData, extensionType: type, isTray: false)
         self.emojis = try StickerEmojis.canonicalizedEmojis(rawEmojis: emojis)
+        self.accessibilityText = try StickerAccessibilityText.accessibilityTextIfCompliant(
+            accessibilityText: accessibilityText,
+            animated: self.imageData.animated
+        )
     }
 
     func copyToPasteboardAsImage() {

@@ -29,10 +29,11 @@ import static com.example.samplestickerapp.StickerContentProvider.ANIMATED_STICK
 import static com.example.samplestickerapp.StickerContentProvider.AVOID_CACHE;
 import static com.example.samplestickerapp.StickerContentProvider.IMAGE_DATA_VERSION;
 import static com.example.samplestickerapp.StickerContentProvider.IOS_APP_DOWNLOAD_LINK_IN_QUERY;
-import static com.example.samplestickerapp.StickerContentProvider.LICENSE_AGREENMENT_WEBSITE;
+import static com.example.samplestickerapp.StickerContentProvider.LICENSE_AGREEMENT_WEBSITE;
 import static com.example.samplestickerapp.StickerContentProvider.PRIVACY_POLICY_WEBSITE;
 import static com.example.samplestickerapp.StickerContentProvider.PUBLISHER_EMAIL;
 import static com.example.samplestickerapp.StickerContentProvider.PUBLISHER_WEBSITE;
+import static com.example.samplestickerapp.StickerContentProvider.STICKER_FILE_ACCESSIBILITY_TEXT_IN_QUERY;
 import static com.example.samplestickerapp.StickerContentProvider.STICKER_FILE_EMOJI_IN_QUERY;
 import static com.example.samplestickerapp.StickerContentProvider.STICKER_FILE_NAME_IN_QUERY;
 import static com.example.samplestickerapp.StickerContentProvider.STICKER_PACK_ICON_IN_QUERY;
@@ -104,7 +105,7 @@ class StickerPackLoader {
             final String publisherEmail = cursor.getString(cursor.getColumnIndexOrThrow(PUBLISHER_EMAIL));
             final String publisherWebsite = cursor.getString(cursor.getColumnIndexOrThrow(PUBLISHER_WEBSITE));
             final String privacyPolicyWebsite = cursor.getString(cursor.getColumnIndexOrThrow(PRIVACY_POLICY_WEBSITE));
-            final String licenseAgreementWebsite = cursor.getString(cursor.getColumnIndexOrThrow(LICENSE_AGREENMENT_WEBSITE));
+            final String licenseAgreementWebsite = cursor.getString(cursor.getColumnIndexOrThrow(LICENSE_AGREEMENT_WEBSITE));
             final String imageDataVersion = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_DATA_VERSION));
             final boolean avoidCache = cursor.getShort(cursor.getColumnIndexOrThrow(AVOID_CACHE)) > 0;
             final boolean animatedStickerPack = cursor.getShort(cursor.getColumnIndexOrThrow(ANIMATED_STICKER_PACK)) > 0;
@@ -120,7 +121,7 @@ class StickerPackLoader {
     private static List<Sticker> fetchFromContentProviderForStickers(String identifier, ContentResolver contentResolver) {
         Uri uri = getStickerListUri(identifier);
 
-        final String[] projection = {STICKER_FILE_NAME_IN_QUERY, STICKER_FILE_EMOJI_IN_QUERY};
+        final String[] projection = {STICKER_FILE_NAME_IN_QUERY, STICKER_FILE_EMOJI_IN_QUERY, STICKER_FILE_ACCESSIBILITY_TEXT_IN_QUERY};
         final Cursor cursor = contentResolver.query(uri, projection, null, null, null);
         List<Sticker> stickers = new ArrayList<>();
         if (cursor != null && cursor.getCount() > 0) {
@@ -128,11 +129,12 @@ class StickerPackLoader {
             do {
                 final String name = cursor.getString(cursor.getColumnIndexOrThrow(STICKER_FILE_NAME_IN_QUERY));
                 final String emojisConcatenated = cursor.getString(cursor.getColumnIndexOrThrow(STICKER_FILE_EMOJI_IN_QUERY));
+                final String accessibilityText = cursor.getString(cursor.getColumnIndexOrThrow(STICKER_FILE_ACCESSIBILITY_TEXT_IN_QUERY));
                 List<String> emojis = new ArrayList<>(StickerPackValidator.EMOJI_MAX_LIMIT);
                 if (!TextUtils.isEmpty(emojisConcatenated)) {
                     emojis = Arrays.asList(emojisConcatenated.split(","));
                 }
-                stickers.add(new Sticker(name, emojis));
+                stickers.add(new Sticker(name, emojis, accessibilityText));
             } while (cursor.moveToNext());
         }
         if (cursor != null) {

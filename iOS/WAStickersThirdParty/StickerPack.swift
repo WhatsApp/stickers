@@ -26,6 +26,8 @@ enum StickerPackError: Error {
     case totalAnimationDurationTooLong(Double)
     case animatedStickerPackWithStaticStickers
     case staticStickerPackWithAnimatedStickers
+    case staticStickerAccessibilityTextTooLong
+    case animatedStickerAccessibilityTextTooLong
 }
 
 /**
@@ -147,6 +149,7 @@ class StickerPack {
      *
      *  - Parameter filename: file name of the sticker (png or webp).
      *  - Parameter emojis: emojis associated with the sticker.
+     *  - Parameter accessibilityText: accessibility text associated with the sticker.
      *
      *  - Throws:
      - .stickersNumOutsideAllowableRange if current number of stickers is not withing limits
@@ -154,12 +157,20 @@ class StickerPack {
      - .staticStickerPackWithAnimatedStickers if a static pack contains animated stickers
      - All exceptions from Sticker(contentsOfFile:emojis:)
      */
-    func addSticker(contentsOfFile filename: String, emojis: [String]?) throws {
+    func addSticker(
+        contentsOfFile filename: String,
+        emojis: [String]?,
+        accessibilityText: String?
+    ) throws {
         guard stickers.count <= Limits.MaxStickersPerPack else {
             throw StickerPackError.stickersNumOutsideAllowableRange
         }
 
-        let sticker: Sticker = try Sticker(contentsOfFile: filename, emojis: emojis)
+        let sticker: Sticker = try Sticker(
+            contentsOfFile: filename,
+            emojis: emojis,
+            accessibilityText: accessibilityText
+        )
 
         guard sticker.imageData.animated == self.animated else {
             if self.animated {
@@ -178,6 +189,7 @@ class StickerPack {
      *  - Parameter imageData: image data of the sticker
      *  - Parameter type: extension type of the data (png or webp)
      *  - Parameter emojis: emojis associated with the sticker.
+     *  - Parameter accessibilityText: accessibility text associated with the sticker.
      *
      *  - Throws:
      - .stickersNumOutsideAllowableRange if current number of stickers is not withing limits
@@ -185,12 +197,22 @@ class StickerPack {
      - .staticStickerPackWithAnimatedStickers if a static pack contains animated stickers
      - All exceptions from Sticker(imageData:type:emojis:)
      */
-    func addSticker(imageData: Data, type: ImageDataExtension, emojis: [String]?) throws {
+    func addSticker(
+        imageData: Data,
+        type: ImageDataExtension,
+        emojis: [String]?,
+        accessibilityText: String?
+    ) throws {
         guard stickers.count <= Limits.MaxStickersPerPack else {
             throw StickerPackError.stickersNumOutsideAllowableRange
         }
 
-        let sticker: Sticker = try Sticker(imageData: imageData, type: type, emojis: emojis)
+        let sticker: Sticker = try Sticker(
+            imageData: imageData,
+            type: type,
+            emojis: emojis,
+            accessibilityText: accessibilityText
+        )
 
         guard sticker.imageData.animated == self.animated else {
             if self.animated {
@@ -233,6 +255,7 @@ class StickerPack {
                 }
 
                 stickerDict["emojis"] = sticker.emojis
+                stickerDict["accessibility_text"] = sticker.accessibilityText
 
                 stickersArray.append(stickerDict)
             }
