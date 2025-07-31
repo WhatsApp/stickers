@@ -8,23 +8,30 @@
 
 package com.example.samplestickerapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class EntryActivity extends BaseActivity {
     private View progressBar;
-    private LoadListAsyncTask loadListAsyncTask;
+    private FetchCategoriesAsyncTask fetchCategoriesAsyncTask;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,31 +42,22 @@ public class EntryActivity extends BaseActivity {
             getSupportActionBar().hide();
         }
         progressBar = findViewById(R.id.entry_activity_progress);
-        loadListAsyncTask = new LoadListAsyncTask(this);
-        loadListAsyncTask.execute();
+        fetchCategoriesAsyncTask = new FetchCategoriesAsyncTask(this);
+        fetchCategoriesAsyncTask.execute();
     }
 
-    private void showStickerPack(ArrayList<StickerPack> stickerPackList) {
+    private void showStickerCategories(ArrayList<StickerCategory> stickerCategories) {
         progressBar.setVisibility(View.GONE);
-        if (stickerPackList.size() > 1) {
-            final Intent intent = new Intent(this, StickerPackListActivity.class);
-            intent.putParcelableArrayListExtra(StickerPackListActivity.EXTRA_STICKER_PACK_LIST_DATA, stickerPackList);
-            startActivity(intent);
-            finish();
-            overridePendingTransition(0, 0);
-        } else {
-            final Intent intent = new Intent(this, StickerPackDetailsActivity.class);
-            intent.putExtra(StickerPackDetailsActivity.EXTRA_SHOW_UP_BUTTON, false);
-            intent.putExtra(StickerPackDetailsActivity.EXTRA_STICKER_PACK_DATA, stickerPackList.get(0));
-            startActivity(intent);
-            finish();
-            overridePendingTransition(0, 0);
-        }
+        Intent intent = new Intent(this, StickerCategoryListActivity.class);
+        intent.putParcelableArrayListExtra("sticker_categories", stickerCategories);
+        startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
     }
 
     private void showErrorMessage(String errorMessage) {
         progressBar.setVisibility(View.GONE);
-        Log.e("EntryActivity", "error fetching sticker packs, " + errorMessage);
+        Log.e("EntryActivity", "error fetching sticker categories, " + errorMessage);
         final TextView errorMessageTV = findViewById(R.id.error_message);
         errorMessageTV.setText(getString(R.string.error_message, errorMessage));
     }
@@ -67,50 +65,56 @@ public class EntryActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (loadListAsyncTask != null && !loadListAsyncTask.isCancelled()) {
-            loadListAsyncTask.cancel(true);
+        if (fetchCategoriesAsyncTask != null && !fetchCategoriesAsyncTask.isCancelled()) {
+            fetchCategoriesAsyncTask.cancel(true);
         }
     }
 
-    static class LoadListAsyncTask extends AsyncTask<Void, Void, Pair<String, ArrayList<StickerPack>>> {
+    static class FetchCategoriesAsyncTask extends AsyncTask<Void, Void, ArrayList<StickerCategory>> {
         private final WeakReference<EntryActivity> contextWeakReference;
+        private String error;
 
-        LoadListAsyncTask(EntryActivity activity) {
+        FetchCategoriesAsyncTask(EntryActivity activity) {
             this.contextWeakReference = new WeakReference<>(activity);
         }
 
         @Override
-        protected Pair<String, ArrayList<StickerPack>> doInBackground(Void... voids) {
-            ArrayList<StickerPack> stickerPackList;
+        protected ArrayList<StickerCategory> doInBackground(Void... voids) {
             try {
-                final Context context = contextWeakReference.get();
-                if (context != null) {
-                    stickerPackList = StickerPackLoader.fetchStickerPacks(context);
-                    if (stickerPackList.size() == 0) {
-                        return new Pair<>("could not find any packs", null);
+                final EntryActivity entryActivity = contextWeakReference.get();
+                if (entryActivity != null) {
+                    OkHttpClient client = new OkHttpClient();
+                    Request request = new Request.Builder()
+                            .url("https://www.stickers.dev-error.com/api/sticker-categories")
+                            .build();
+                    Response response = client.newCall(request).execute();
+                    if (!response.isSuccessful()) {
+                        error = response.message();
+                        return null;
                     }
-                    for (StickerPack stickerPack : stickerPackList) {
-                        StickerPackValidator.verifyStickerPackValidity(context, stickerPack);
-                    }
-                    return new Pair<>(null, stickerPackList);
+                    String json = response.body().string();
+                    Gson gson = new Gson();
+                    return gson.fromJson(json, new TypeToken<ArrayList<StickerCategory>>() {
+                    }.getType());
                 } else {
-                    return new Pair<>("could not fetch sticker packs", null);
+                    error = "context is null";
+                    return null;
                 }
-            } catch (Exception e) {
-                Log.e("EntryActivity", "error fetching sticker packs", e);
-                return new Pair<>(e.getMessage(), null);
+            } catch (IOException e) {
+                error = e.getMessage();
+                Log.e("EntryActivity", "error fetching sticker categories", e);
+                return null;
             }
         }
 
         @Override
-        protected void onPostExecute(Pair<String, ArrayList<StickerPack>> stringListPair) {
-
+        protected void onPostExecute(ArrayList<StickerCategory> stickerCategories) {
             final EntryActivity entryActivity = contextWeakReference.get();
             if (entryActivity != null) {
-                if (stringListPair.first != null) {
-                    entryActivity.showErrorMessage(stringListPair.first);
+                if (stickerCategories != null) {
+                    entryActivity.showStickerCategories(stickerCategories);
                 } else {
-                    entryActivity.showStickerPack(stringListPair.second);
+                    entryActivity.showErrorMessage(error);
                 }
             }
         }

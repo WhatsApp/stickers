@@ -1,21 +1,18 @@
-/*
- * Copyright (c) WhatsApp Inc. and its affiliates.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 package com.example.samplestickerapp;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 class Sticker implements Parcelable {
+    @SerializedName("image")
     final String imageFileName;
+    @SerializedName("emojis")
     final List<String> emojis;
+    @SerializedName("accessibility_text")
     final String accessibilityText;
     long size;
 

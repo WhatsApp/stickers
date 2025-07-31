@@ -1,30 +1,27 @@
-/*
- * Copyright (c) WhatsApp Inc. and its affiliates.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 package com.example.samplestickerapp;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
-class StickerPack implements Parcelable {
+public class StickerPack implements Parcelable {
+    @SerializedName("id")
     final String identifier;
+    @SerializedName("name")
     final String name;
+    @SerializedName("publisher_name")
     final String publisher;
+    @SerializedName("image")
     final String trayImageFile;
-    final String publisherEmail;
-    final String publisherWebsite;
-    final String privacyPolicyWebsite;
-    final String licenseAgreementWebsite;
-    final String imageDataVersion;
-    final boolean avoidCache;
-    final boolean animatedStickerPack;
+    @SerializedName("downloads_count")
+    final int downloadsCount;
+    @SerializedName("is_premium")
+    final String isPremium;
+    @SerializedName("is_featured")
+    final String isFeatured;
 
     String iosAppStoreLink;
     private List<Sticker> stickers;
@@ -32,7 +29,7 @@ class StickerPack implements Parcelable {
     String androidPlayStoreLink;
     private boolean isWhitelisted;
 
-    StickerPack(String identifier, String name, String publisher, String trayImageFile, String publisherEmail, String publisherWebsite, String privacyPolicyWebsite, String licenseAgreementWebsite, String imageDataVersion, boolean avoidCache, boolean animatedStickerPack) {
+    public StickerPack(String identifier, String name, String publisher, String trayImageFile, String publisherEmail, String publisherWebsite, String privacyPolicyWebsite, String licenseAgreementWebsite, String imageDataVersion, boolean avoidCache, boolean animatedStickerPack) {
         this.identifier = identifier;
         this.name = name;
         this.publisher = publisher;
@@ -59,18 +56,14 @@ class StickerPack implements Parcelable {
         name = in.readString();
         publisher = in.readString();
         trayImageFile = in.readString();
-        publisherEmail = in.readString();
-        publisherWebsite = in.readString();
-        privacyPolicyWebsite = in.readString();
-        licenseAgreementWebsite = in.readString();
+        downloadsCount = in.readInt();
+        isPremium = in.readString();
+        isFeatured = in.readString();
         iosAppStoreLink = in.readString();
         stickers = in.createTypedArrayList(Sticker.CREATOR);
         totalSize = in.readLong();
         androidPlayStoreLink = in.readString();
         isWhitelisted = in.readByte() != 0;
-        imageDataVersion = in.readString();
-        avoidCache = in.readByte() != 0;
-        animatedStickerPack = in.readByte() != 0;
     }
 
     public static final Creator<StickerPack> CREATOR = new Creator<StickerPack>() {
@@ -101,11 +94,11 @@ class StickerPack implements Parcelable {
         this.iosAppStoreLink = iosAppStoreLink;
     }
 
-    List<Sticker> getStickers() {
+    public List<Sticker> getStickers() {
         return stickers;
     }
 
-    long getTotalSize() {
+    public long getTotalSize() {
         return totalSize;
     }
 
@@ -120,17 +113,41 @@ class StickerPack implements Parcelable {
         dest.writeString(name);
         dest.writeString(publisher);
         dest.writeString(trayImageFile);
-        dest.writeString(publisherEmail);
-        dest.writeString(publisherWebsite);
-        dest.writeString(privacyPolicyWebsite);
-        dest.writeString(licenseAgreementWebsite);
+        dest.writeInt(downloadsCount);
+        dest.writeString(isPremium);
+        dest.writeString(isFeatured);
         dest.writeString(iosAppStoreLink);
         dest.writeTypedList(stickers);
         dest.writeLong(totalSize);
         dest.writeString(androidPlayStoreLink);
         dest.writeByte((byte) (isWhitelisted ? 1 : 0));
-        dest.writeString(imageDataVersion);
-        dest.writeByte((byte) (avoidCache ? 1 : 0));
-        dest.writeByte((byte) (animatedStickerPack ? 1 : 0));
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public String getTrayImageFile() {
+        return trayImageFile;
+    }
+
+    public int getDownloadsCount() {
+        return downloadsCount;
+    }
+
+    public String getIsPremium() {
+        return isPremium;
+    }
+
+    public String getIsFeatured() {
+        return isFeatured;
     }
 }
