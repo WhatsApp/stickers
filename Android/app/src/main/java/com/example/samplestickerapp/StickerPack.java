@@ -29,14 +29,18 @@ public class StickerPack implements Parcelable {
     String androidPlayStoreLink;
     private boolean isWhitelisted;
 
-    public StickerPack(String identifier, String name, String publisher, String trayImageFile, int downloadsCount, String isPremium, String isFeatured) {
+    public StickerPack(String identifier, String name, String publisher, String trayImageFile, String publisherEmail, String publisherWebsite, String privacyPolicyWebsite, String licenseAgreementWebsite, String imageDataVersion, boolean avoidCache, boolean animatedStickerPack) {
         this.identifier = identifier;
         this.name = name;
         this.publisher = publisher;
         this.trayImageFile = trayImageFile;
-        this.downloadsCount = downloadsCount;
-        this.isPremium = isPremium;
-        this.isFeatured = isFeatured;
+        this.publisherEmail = publisherEmail;
+        this.publisherWebsite = publisherWebsite;
+        this.privacyPolicyWebsite = privacyPolicyWebsite;
+        this.licenseAgreementWebsite = licenseAgreementWebsite;
+        this.imageDataVersion = imageDataVersion;
+        this.avoidCache = avoidCache;
+        this.animatedStickerPack = animatedStickerPack;
     }
 
     void setIsWhitelisted(boolean isWhitelisted) {
