@@ -1,5 +1,5 @@
 //
-// Copyright (c) WhatsApp Inc. and its affiliates.
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 // All rights reserved.
 //
 // This source code is licensed under the BSD-style license found in the
@@ -20,7 +20,7 @@ struct Interoperability {
     static func canSend() -> Bool {
         return UIApplication.shared.canOpenURL(URL(string: "whatsapp://")!)
     }
-    
+
     static func send(json: [String: Any]) -> Bool {
         if Bundle.main.bundleIdentifier?.contains(DefaultBundleIdentifier) == true {
           fatalError("Your bundle identifier must not include the default one.")

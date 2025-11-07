@@ -1,5 +1,5 @@
 //
-// Copyright (c) WhatsApp Inc. and its affiliates.
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 // All rights reserved.
 //
 // This source code is licensed under the BSD-style license found in the
@@ -25,7 +25,7 @@ struct Limits {
     static let MaxCharLimit128: Int = 128
 
     static let MaxEmojisCount: Int = 3
-    
+
     static let MaxStaticStickerAccessibilityTextCharLimit = 125
     static let MaxAnimatedStickerAccessibilityTextCharLimit = 255
 }
