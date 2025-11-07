@@ -1,5 +1,5 @@
 //
-// Copyright (c) WhatsApp Inc. and its affiliates.
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 // All rights reserved.
 //
 // This source code is licensed under the BSD-style license found in the
@@ -69,7 +69,7 @@ struct StickerAccessibilityText {
         animated: Bool
     ) throws -> String? {
         guard let accessibilityText else { return nil }
-        
+
         if animated {
             guard accessibilityText.count <= Limits.MaxAnimatedStickerAccessibilityTextCharLimit else {
                 throw StickerPackError.animatedStickerAccessibilityTextTooLong
@@ -79,7 +79,7 @@ struct StickerAccessibilityText {
                 throw StickerPackError.staticStickerAccessibilityTextTooLong
             }
         }
-        
+
         return accessibilityText
     }
 }

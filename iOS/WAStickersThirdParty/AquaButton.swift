@@ -1,5 +1,5 @@
 //
-// Copyright (c) WhatsApp Inc. and its affiliates.
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 // All rights reserved.
 //
 // This source code is licensed under the BSD-style license found in the
@@ -38,7 +38,7 @@ class AquaButton: RoundedButton {
             imageView?.tintColor = newHighlighted ? UIColor.white.withAlphaComponent(0.5) : .white
         }
     }
-    
+
     override var isEnabled: Bool {
         didSet{
             if isEnabled {
@@ -61,7 +61,7 @@ class AquaButton: RoundedButton {
         setTitleColor(UIColor.lightGray.withAlphaComponent(1.0), for: .disabled)
         imageEdgeInsets.left = -25
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -81,7 +81,7 @@ class GrayRoundedButton: RoundedButton {
             imageView?.tintColor = newHighlighted ? aquaColor.withAlphaComponent(0.5) : aquaColor
         }
     }
-    
+
     override var isEnabled: Bool {
         didSet{
             if isEnabled {
@@ -91,7 +91,7 @@ class GrayRoundedButton: RoundedButton {
             }
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 

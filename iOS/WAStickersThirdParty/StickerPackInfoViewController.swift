@@ -1,5 +1,5 @@
 //
-// Copyright (c) WhatsApp Inc. and its affiliates.
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 // All rights reserved.
 //
 // This source code is licensed under the BSD-style license found in the
@@ -61,7 +61,7 @@ class StickerPackInfoViewController: UITableViewController {
         tableView.register(UINib(nibName: "SecondaryTextTableViewCell", bundle: nil), forCellReuseIdentifier: "SecondaryCell")
         tableView.register(UINib(nibName: "LinkTableViewCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
     }
-    
+
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
@@ -88,9 +88,9 @@ class StickerPackInfoViewController: UITableViewController {
             label.setContentCompressionResistancePriority(.required, for: .horizontal)
             label.setContentCompressionResistancePriority(.required, for: .vertical)
             addSubview(label)
-            
+
             // Add constraints
-            
+
             addConstraint(NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: FooterView.MARGIN))
             addConstraint(NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leadingMargin, multiplier: 1.0, constant: FooterView.MARGIN))
             addConstraint(NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailingMargin, multiplier: 1.0, constant: -FooterView.MARGIN))
